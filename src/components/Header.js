@@ -40,7 +40,7 @@ const Header = ({ currentPage, setCurrentPage, language, setLanguage }) => {
     <header className="header">
       <div className="container">
         <div className="logo-section">
-          <img src="/logo.png" alt="TekFin Teknoloji" className="logo" />
+          <img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="logo" />
           <h1 className="company-name">TekFin Teknoloji</h1>
         </div>
         
