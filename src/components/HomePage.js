@@ -100,15 +100,19 @@ const HomePage = ({ language, setCurrentPage }) => {
           </div>
         </div>
       </section>
-<section className="highlight-section">
-  <div className="highlight-text">
+<section className="promo-card">
+  <div className="promo-icon">
+    <img src="/usb-icon.png" alt="USB Icon" />
+  </div>
+  <div className="promo-content">
     <h2>{t.storageHighlight.title}</h2>
     <p>{t.storageHighlight.description}</p>
-    <button className="cta-btn" onClick={() => setCurrentPage('storage-advisor')}>
+    <button className="promo-btn" onClick={() => setCurrentPage('storage-advisor')}>
       {t.storageHighlight.button}
     </button>
   </div>
 </section>
+
 
 
       {/* Services Section */}
