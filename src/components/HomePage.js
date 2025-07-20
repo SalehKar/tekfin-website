@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './HomePage.css';
 
@@ -30,6 +29,12 @@ const HomePage = ({ language, setCurrentPage }) => {
         fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
         customerFocus: "Müşteri Odaklılık: İhtiyaçlarınıza özel çözümler sunuyoruz."
       },
+      storageHighlight: {
+  title: "Doğru depolama cihazını mı arıyorsunuz?",
+  description: "Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
+  button: "Storage Advisor’ı Dene"
+},
+
       cta: {
         title: "Kaybolan verilerinizi geri almak veya teknoloji çözümlerimiz hakkında daha fazla bilgi edinmek için bugün bizimle iletişime geçin!",
         button: "Hemen İletişime Geçin!"
@@ -61,6 +66,12 @@ const HomePage = ({ language, setCurrentPage }) => {
         fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
         customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
       },
+      storageHighlight: {
+  title: "Not sure what storage device you need?",
+  description: "Use our smart advisor to get a tailored recommendation in seconds!",
+  button: "Try Storage Advisor Tool"
+},
+
       cta: {
         title: "Contact us today to recover your lost data or learn more about our technology solutions!",
         button: "Contact Us Now!"
@@ -72,6 +83,7 @@ const HomePage = ({ language, setCurrentPage }) => {
 
   return (
     <div className="homepage">
+      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">{t.mainTitle}</h1>
@@ -88,7 +100,22 @@ const HomePage = ({ language, setCurrentPage }) => {
           </div>
         </div>
       </section>
+<section className="promo-card">
+  <div className="promo-icon">
+    <img src="/usb-icon.png" alt="USB Icon" />
+  </div>
+  <div className="promo-content">
+    <h2>{t.storageHighlight.title}</h2>
+    <p>{t.storageHighlight.description}</p>
+    <button className="promo-btn" onClick={() => setCurrentPage('storage-advisor')}>
+      {t.storageHighlight.button}
+    </button>
+  </div>
+</section>
 
+
+
+      {/* Services Section */}
       <section className="services">
         <div className="container">
           <h2 className="section-title">{t.services.title}</h2>
@@ -112,18 +139,32 @@ const HomePage = ({ language, setCurrentPage }) => {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
       <section className="why-choose-us">
         <div className="container">
           <h2 className="section-title">{t.whyChooseUs.title}</h2>
           <div className="features-grid">
-            <div className="feature"><div className="feature-icon">🎯</div><p>{t.whyChooseUs.expertise}</p></div>
-            <div className="feature"><div className="feature-icon">🔒</div><p>{t.whyChooseUs.reliability}</p></div>
-            <div className="feature"><div className="feature-icon">⚡</div><p>{t.whyChooseUs.fastSolutions}</p></div>
-            <div className="feature"><div className="feature-icon">👥</div><p>{t.whyChooseUs.customerFocus}</p></div>
+            <div className="feature">
+              <div className="feature-icon">🎯</div>
+              <p>{t.whyChooseUs.expertise}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">🔒</div>
+              <p>{t.whyChooseUs.reliability}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">⚡</div>
+              <p>{t.whyChooseUs.fastSolutions}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">👥</div>
+              <p>{t.whyChooseUs.customerFocus}</p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
           <h2>{t.cta.title}</h2>
