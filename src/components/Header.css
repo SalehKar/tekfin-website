@@ -18,7 +18,8 @@
 }
 
 .logo-section {
-  display: flex;
+  display: block; 
+  text-align: left; 
   align-items: center;
   gap: 1rem;
 }
