@@ -11,11 +11,11 @@ const HomePage = ({ language }) => {
         title: "Hizmetlerimiz",
         dataRecovery: {
           title: "Veri Kurtarma",
-          description: "Sabit diskler, SSD'ler, mobil cihazlar ve daha fazlasından kaybolan verilerinizi güvenle kurtarıyoruz. Uzman ekibimiz ve son teknoloji ekipmanlarımızla, en zorlu veri kaybı senaryolarında bile size yardımcı olmaya hazırız."
+          description: "Sabit diskler, SSD'ler ve daha fazlasından kaybolan verilerinizi güvenle kurtarıyoruz. Uzman ekibimiz ve son teknoloji ekipmanlarımızla, en zorlu veri kaybı senaryolarında bile size yardımcı olmaya hazırız."
         },
         wireless: {
           title: "Kablosuz Ağ Çözümleri (Gelecekte)",
-          description: "İşletmenizin veya evinizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecekteki hizmetlerimizle ilgili güncellemeler için bizi takip edin."
+          description: "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecekteki hizmetlerimizle ilgili güncellemeler için bizi takip edin."
         },
         other: {
           title: "Diğer Teknoloji Hizmetleri (Gelecekte)",
@@ -42,11 +42,11 @@ const HomePage = ({ language }) => {
         title: "Our Services",
         dataRecovery: {
           title: "Data Recovery",
-          description: "We securely recover lost data from hard drives, SSDs, mobile devices, and more. With our expert team and state-of-the-art equipment, we are ready to assist you even in the most challenging data loss scenarios."
+          description: "We securely recover lost data from hard drives, SSDs, and more. With our expert team and state-of-the-art equipment, we are ready to assist you even in the most challenging data loss scenarios."
         },
         wireless: {
           title: "Wireless Network Solutions (Future)",
-          description: "We aim to provide secure, fast, and seamless solutions for your business or home wireless network needs. Stay tuned for updates on our future services."
+          description: "We aim to provide secure, fast, and seamless solutions for your business wireless network needs. Stay tuned for updates on our future services."
         },
         other: {
           title: "Other Technology Services (Future)",
