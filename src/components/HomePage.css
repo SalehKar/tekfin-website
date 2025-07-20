@@ -394,9 +394,14 @@
 }
 
 .promo-icon img {
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
+  border-radius: 8px;
+  background-color: white;
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .promo-content h2 {
