@@ -15,7 +15,7 @@ const AboutUs = ({ language }) => {
       },
       story: {
         title: "Hikayemiz",
-        text: "İstanbul merkezli şirketimiz, teknolojiye olan tutku ve veri güvenliğine olan inançla kurulmuştur. Başlangıçta veri kurtarma hizmetlerine odaklanarak, kısa sürede sektörde güvenilir bir isim haline geldik. Gelecekte kablosuz ağ çözümleri ve diğer yenilikçi teknoloji hizmetleriyle de portföyümüzü genişletmeyi hedefliyoruz. Amacımız, müşterilerimizin değişen ihtiyaçlarına ayak uydurarak, onlara her zaman en iyi ve en güncel çözümleri sunmaktır."
+        text: "İstanbul merkezli şirketimiz, teknolojiye olan tutkumuz ve akıllı, pratik çözümler üretme arzumuzla kuruldu. Veri kurtarma hizmetleriyle başladık ve kısa sürede hızlı ve güvenilir destek arayan işletmelerin güvendiği bir isim haline geldik. Gelecekte, kablosuz ağ çözümleri ve diğer yenilikçi teknoloji alanlarında da hizmet yelpazemizi genişletmeyi planlıyoruz. Müşterilerimizin değişen ihtiyaçlarına uyum sağlamaya devam ediyoruz."
       },
       values: {
         title: "Değerlerimiz",
@@ -38,7 +38,7 @@ const AboutUs = ({ language }) => {
       },
       story: {
         title: "Our Story",
-        text: "Our Istanbul-based company was founded with a passion for technology and a belief in data security. Initially focusing on data recovery services, we quickly became a trusted name in the industry. In the future, we aim to expand our portfolio with wireless network solutions and other innovative technology services. Our goal is to keep pace with the changing needs of our customers, always offering them the best and most up-to-date solutions."
+        text: "Our Istanbul-based company was founded out of a passion for technology and a drive to create smart, practical solutions. We began with data recovery services and quickly became a trusted name for businesses in need of fast and reliable support. Looking ahead, we plan to expand into wireless networking and other innovative tech fields, always adapting to our clients' evolving needs."
       },
       values: {
         title: "Our Values",
