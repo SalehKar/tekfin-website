@@ -471,5 +471,31 @@
 .promo-btn:hover {
   background-color: #0055aa;
 }
+@media (max-width: 768px) {
+  .promo-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .promo-icon img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+  }
+
+  .promo-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .promo-content p {
+    font-size: 0.95rem;
+  }
+
+  .promo-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
 
 }
