@@ -337,5 +337,43 @@
   .cta-section h2 {
     font-size: 1.5rem;
   }
+  .highlight-section {
+  background: #f4f6fb;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  margin: 3rem 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.highlight-text h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.highlight-text p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #6a5acd 0%, #8a2be2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #7b68ee 0%, #9a48e2 100%);
+  transform: translateY(-2px);
+}
+
 }
 
