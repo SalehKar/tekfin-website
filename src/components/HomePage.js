@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 
-const HomePage = ({ language }) => {
+const HomePage = ({ language, setCurrentPage }) => {
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
