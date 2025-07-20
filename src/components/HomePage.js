@@ -29,6 +29,12 @@ const HomePage = ({ language }) => {
         fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
         customerFocus: "Müşteri Odaklılık: İhtiyaçlarınıza özel çözümler sunuyoruz."
       },
+      storageHighlight: {
+  title: "Doğru depolama cihazını mı arıyorsunuz?",
+  description: "Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
+  button: "Storage Advisor’ı Dene"
+},
+
       cta: {
         title: "Kaybolan verilerinizi geri almak veya teknoloji çözümlerimiz hakkında daha fazla bilgi edinmek için bugün bizimle iletişime geçin!",
         button: "Hemen İletişime Geçin!"
@@ -60,6 +66,12 @@ const HomePage = ({ language }) => {
         fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
         customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
       },
+      storageHighlight: {
+  title: "Not sure what storage device you need?",
+  description: "Use our smart advisor to get a tailored recommendation in seconds!",
+  button: "Try Storage Advisor Tool"
+},
+
       cta: {
         title: "Contact us today to recover your lost data or learn more about our technology solutions!",
         button: "Contact Us Now!"
@@ -90,13 +102,14 @@ const HomePage = ({ language }) => {
       </section>
 <section className="highlight-section">
   <div className="highlight-text">
-    <h2>Not sure what storage device you need?</h2>
-    <p>Use our smart advisor to get a tailored recommendation in seconds!</p>
+    <h2>{t.storageHighlight.title}</h2>
+    <p>{t.storageHighlight.description}</p>
     <button className="cta-btn" onClick={() => setCurrentPage('storage-advisor')}>
-      Try Storage Advisor Tool
+      {t.storageHighlight.button}
     </button>
   </div>
 </section>
+
 
       {/* Services Section */}
       <section className="services">
