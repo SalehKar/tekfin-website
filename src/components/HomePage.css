@@ -374,6 +374,57 @@
   background: linear-gradient(135deg, #7b68ee 0%, #9a48e2 100%);
   transform: translateY(-2px);
 }
+.promo-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 900px;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.promo-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.promo-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.promo-content p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.promo-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.promo-btn:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
 
 }
 
