@@ -7,15 +7,15 @@ const Footer = ({ language }) => {
       company: 'TekFin Teknoloji',
       rights: 'Tüm hakları saklıdır.',
       address: 'İstanbul, Türkiye',
-      phone: 'Telefon: +90 5XX XXX XX XX',
-      email: 'E-posta: info@tekfin.com.tr'
+      phone: 'Telefon: +90 552 809 55 56',
+      email: 'E-posta: info@tekfingroup.com'
     },
     en: {
       company: 'TekFin Teknoloji',
       rights: 'All rights reserved.',
       address: 'Istanbul, Turkey',
-      phone: 'Phone: +90 5XX XXX XX XX',
-      email: 'Email: info@tekfin.com.tr'
+      phone: 'Phone: +90 552 809 55 56',
+      email: 'Email: info@tekfingroup.com'
     }
   };
 
