@@ -88,6 +88,15 @@ const HomePage = ({ language }) => {
           </div>
         </div>
       </section>
+<section className="highlight-section">
+  <div className="highlight-text">
+    <h2>Not sure what storage device you need?</h2>
+    <p>Use our smart advisor to get a tailored recommendation in seconds!</p>
+    <button className="cta-btn" onClick={() => setCurrentPage('storage-advisor')}>
+      Try Storage Advisor Tool
+    </button>
+  </div>
+</section>
 
       {/* Services Section */}
       <section className="services">
