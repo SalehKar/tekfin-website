@@ -34,7 +34,7 @@ function App() {
       case 'storage-advisor':
         return <StorageAdvisor language={language} />;
       default:
-        return <HomePage language={language} />;
+        return <HomePage language={language} setCurrentPage={setCurrentPage} />;
     }
   };
 
