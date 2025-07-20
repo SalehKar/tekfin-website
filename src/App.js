@@ -18,7 +18,7 @@ function App() {
   const renderPage = () => {
     switch(currentPage) {
       case 'home':
-        return <HomePage language={language} />;
+        return <HomePage language={language} setCurrentPage={setCurrentPage} />;
       case 'about':
         return <AboutUs language={language} />;
       case 'data-recovery':
