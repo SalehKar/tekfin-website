@@ -18,23 +18,23 @@
 }
 
 .logo-section {
-  display: block; 
-  text-align: left; 
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;
 }
 
 .logo {
-  height: 60px;
+  height: 50px;
   width: auto;
 }
 
 .company-name {
-  font-size: 1.8rem;
-  font-weight: bold;
   margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: white;
 }
+
 
 .navigation {
   flex: 1;
