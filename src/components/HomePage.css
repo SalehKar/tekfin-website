@@ -1,54 +1,161 @@
+.homepage {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
 
+.hero {
+  background: linear-gradient(to right, #344e86, #5a6fbb);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.hero-intro {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.cta-button {
+  background-color: #ff652f;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #e64913;
+}
+
+/* Promo Section */
 .promo-card {
   display: flex;
   align-items: center;
-  justify-content: start;
-  gap: 16px;
-  padding: 20px;
+  background-color: #f7f9fc;
+  padding: 30px;
   margin: 40px auto;
-  max-width: 850px;
-  background-color: #f4f4ff;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 900px;
 }
 
 .promo-icon img {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  border-radius: 10px;
-  background-color: #ffffff;
-  padding: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-.promo-content {
-  flex: 1;
+  margin-right: 25px;
 }
 
 .promo-content h2 {
-  font-size: 20px;
-  margin: 0 0 6px;
-  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .promo-content p {
-  margin: 0 0 12px;
-  font-size: 15px;
-  color: #444;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-.promo-content button {
-  background-color: #5c6ac4;
-  color: #fff;
-  padding: 10px 18px;
+.promo-btn {
+  background-color: #2b6cb0;
+  color: white;
+  padding: 10px 25px;
   border: none;
   border-radius: 6px;
-  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.promo-content button:hover {
-  background-color: #3f4caa;
+.promo-btn:hover {
+  background-color: #1a4e8a;
+}
+
+/* Services */
+.services {
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.services-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+  background-color: #f3f4f6;
+  padding: 60px 20px;
+}
+
+.features-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature {
+  text-align: center;
+  max-width: 220px;
+}
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/* CTA */
+.cta-section {
+  padding: 50px 20px;
+  background: #344e86;
+  color: white;
+  text-align: center;
+}
+
+.cta-button-large {
+  background-color: #ff652f;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.cta-button-large:hover {
+  background-color: #e64913;
 }
