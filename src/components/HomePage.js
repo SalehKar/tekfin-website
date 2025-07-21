@@ -30,11 +30,10 @@ const HomePage = ({ language, setCurrentPage }) => {
         customerFocus: "Müşteri Odaklılık: İhtiyaçlarınıza özel çözümler sunuyoruz."
       },
       storageHighlight: {
-  title: "Doğru depolama cihazını mı arıyorsunuz?",
-  description: "Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
-  button: "Storage Advisor’ı Dene"
-},
-
+        title: "Doğru depolama cihazını mı arıyorsunuz?",
+        description: "Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
+        button: "Storage Advisor'ı Dene"
+      },
       cta: {
         title: "Kaybolan verilerinizi geri almak veya teknoloji çözümlerimiz hakkında daha fazla bilgi edinmek için bugün bizimle iletişime geçin!",
         button: "Hemen İletişime Geçin!"
@@ -67,11 +66,10 @@ const HomePage = ({ language, setCurrentPage }) => {
         customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
       },
       storageHighlight: {
-  title: "Not sure what storage device you need?",
-  description: "Use our smart advisor to get a tailored recommendation in seconds!",
-  button: "Try Storage Advisor Tool"
-},
-
+        title: "Not sure what storage device you need?",
+        description: "Use our smart advisor to get a tailored recommendation in seconds!",
+        button: "Try Storage Advisor Tool"
+      },
       cta: {
         title: "Contact us today to recover your lost data or learn more about our technology solutions!",
         button: "Contact Us Now!"
@@ -89,31 +87,38 @@ const HomePage = ({ language, setCurrentPage }) => {
           <h1 className="hero-title">{t.mainTitle}</h1>
           <p className="hero-subtitle">{t.subtitle}</p>
           <p className="hero-intro">{t.intro}</p>
-          <button className="cta-button">{t.cta.button}</button>
+          <button className="cta-button" onClick={() => setCurrentPage('contact')}>{t.cta.button}</button>
         </div>
         <div className="hero-image">
           <div className="tech-illustration">
-            <div className="floating-icon"><img src="/data-recovery-icon.jpg" alt="Data Recovery" style={{ width: '100%', height: '100%', objectFit: 'contain' }} /></div>
-            <div className="floating-icon">🔧</div>
-            <div className="floating-icon">📡</div>
-            <div className="floating-icon">🔒</div>
+            <div className="floating-icon">
+              <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
+            </div>
+            <div className="floating-icon">
+              <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
+            </div>
+            <div className="floating-icon">
+              <img src="/images/icons/other-tech-services-icon.png" alt="IT Services" />
+            </div>
+            <div className="floating-icon">
+              <img src="/images/icons/storage-advisor-icon.png" alt="Storage Advisor" />
+            </div>
           </div>
         </div>
       </section>
-<section className="promo-card">
-  <div className="promo-icon">
-    <img src="/usb-icon.png" alt="USB Icon" />
-  </div>
-  <div className="promo-content">
-    <h2>{t.storageHighlight.title}</h2>
-    <p>{t.storageHighlight.description}</p>
-    <button className="promo-btn" onClick={() => setCurrentPage('storage-advisor')}>
-      {t.storageHighlight.button}
-    </button>
-  </div>
-</section>
 
-
+      <section className="promo-card">
+        <div className="promo-icon">
+          <img src="/images/icons/storage-advisor-icon.png" alt="Storage Advisor" />
+        </div>
+        <div className="promo-content">
+          <h2>{t.storageHighlight.title}</h2>
+          <p>{t.storageHighlight.description}</p>
+          <button className="promo-btn" onClick={() => setCurrentPage('storage-advisor')}>
+            {t.storageHighlight.button}
+          </button>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section className="services">
@@ -121,17 +126,23 @@ const HomePage = ({ language, setCurrentPage }) => {
           <h2 className="section-title">{t.services.title}</h2>
           <div className="services-grid">
             <div className="service-card">
-              <div className="service-icon"><img src="/data-recovery-icon.jpg" alt="Data Recovery" style={{ width: '100%', height: '100%', objectFit: 'contain' }} /></div>
+              <div className="service-icon">
+                <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
+              </div>
               <h3>{t.services.dataRecovery.title}</h3>
               <p>{t.services.dataRecovery.description}</p>
             </div>
             <div className="service-card">
-              <div className="service-icon">📡</div>
+              <div className="service-icon">
+                <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
+              </div>
               <h3>{t.services.wireless.title}</h3>
               <p>{t.services.wireless.description}</p>
             </div>
             <div className="service-card">
-              <div className="service-icon">⚙️</div>
+              <div className="service-icon">
+                <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" />
+              </div>
               <h3>{t.services.other.title}</h3>
               <p>{t.services.other.description}</p>
             </div>
@@ -145,19 +156,27 @@ const HomePage = ({ language, setCurrentPage }) => {
           <h2 className="section-title">{t.whyChooseUs.title}</h2>
           <div className="features-grid">
             <div className="feature">
-              <div className="feature-icon">🎯</div>
+              <div className="feature-icon">
+                <img src="/images/icons/data-recovery-icon.png" alt="Expertise" />
+              </div>
               <p>{t.whyChooseUs.expertise}</p>
             </div>
             <div className="feature">
-              <div className="feature-icon">🔒</div>
+              <div className="feature-icon">
+                <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" />
+              </div>
               <p>{t.whyChooseUs.reliability}</p>
             </div>
             <div className="feature">
-              <div className="feature-icon">⚡</div>
+              <div className="feature-icon">
+                <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" />
+              </div>
               <p>{t.whyChooseUs.fastSolutions}</p>
             </div>
             <div className="feature">
-              <div className="feature-icon">👥</div>
+              <div className="feature-icon">
+                <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" />
+              </div>
               <p>{t.whyChooseUs.customerFocus}</p>
             </div>
           </div>
@@ -168,7 +187,7 @@ const HomePage = ({ language, setCurrentPage }) => {
       <section className="cta-section">
         <div className="container">
           <h2>{t.cta.title}</h2>
-          <button className="cta-button-large">{t.cta.button}</button>
+          <button className="cta-button-large" onClick={() => setCurrentPage('contact')}>{t.cta.button}</button>
         </div>
       </section>
     </div>
@@ -176,3 +195,4 @@ const HomePage = ({ language, setCurrentPage }) => {
 };
 
 export default HomePage;
+
