@@ -5,7 +5,6 @@ import ssdIcon from "../assets/icons/ssd.png";
 import usbIcon from "../assets/icons/usb.png";
 import serverIcon from "../assets/icons/server.png";
 
-
 export default function DataRecovery({ language = "tr" }) {
   const content = {
     tr: {
@@ -15,8 +14,7 @@ export default function DataRecovery({ language = "tr" }) {
         { icon: hddIcon, text: "Hard Disk Kurtarma" },
         { icon: ssdIcon, text: "SSD Kurtarma" },
         { icon: usbIcon, text: "Flash Bellek Kurtarma" },
-        { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" },
-        { icon: phoneIcon, text: "Telefon ve Tablet Kurtarma" }
+        { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" }
       ],
       privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
       whyTitle: "Neden Bizi Tercih Etmelisiniz?",
@@ -24,6 +22,14 @@ export default function DataRecovery({ language = "tr" }) {
         "✅ Bozuk disklerde yüksek başarı oranı",
         "💰 Şeffaf fiyat politikası",
         "👨‍💻 Doğrudan teknik destek"
+      ],
+      processTitle: "Sürecimiz",
+      processSteps: [
+        "1. Ücretsiz İlk Teşhis",
+        "2. Güvenli Laboratuvar Ortamı (Cleanroom)",
+        "3. Akıllı Söküm ve Veri Çekme",
+        "4. Veri Kurtarma",
+        "5. Yeni ortam veya güvenli bağlantıyla teslim"
       ]
     },
     en: {
@@ -33,8 +39,7 @@ export default function DataRecovery({ language = "tr" }) {
         { icon: hddIcon, text: "Hard Drive Recovery" },
         { icon: ssdIcon, text: "SSD Recovery" },
         { icon: usbIcon, text: "Flash Media Recovery" },
-        { icon: serverIcon, text: "RAID and Server Recovery" },
-        { icon: phoneIcon, text: "Phone and Tablet Data Recovery" }
+        { icon: serverIcon, text: "RAID and Server Recovery" }
       ],
       privacy: "🔒 Your data privacy is our priority.",
       whyTitle: "Why Choose Us?",
@@ -42,6 +47,14 @@ export default function DataRecovery({ language = "tr" }) {
         "✅ High success rate for damaged drives",
         "💰 Transparent pricing",
         "👨‍💻 Direct technical support"
+      ],
+      processTitle: "Our Process",
+      processSteps: [
+        "1. Free Initial Diagnosis",
+        "2. Secure Lab Environment (Cleanroom)",
+        "3. Smart Disassembly & Extraction",
+        "4. File Recovery",
+        "5. Delivery via new medium or secure download links"
       ]
     }
   };
@@ -52,6 +65,7 @@ export default function DataRecovery({ language = "tr" }) {
     <div className="container">
       <h2>{t.title}</h2>
       <p>{t.paragraph}</p>
+
       <div className="services-grid">
         {t.services.map((s, i) => (
           <div key={i} className="card">
@@ -60,11 +74,20 @@ export default function DataRecovery({ language = "tr" }) {
           </div>
         ))}
       </div>
+
       <p className="privacy-note">{t.privacy}</p>
+
       <div className="why-choose">
         <h3>{t.whyTitle}</h3>
         <ul>
           {t.whyList.map((item, i) => <li key={i}>{item}</li>)}
+        </ul>
+      </div>
+
+      <div className="our-process">
+        <h3>{t.processTitle}</h3>
+        <ul>
+          {t.processSteps.map((step, i) => <li key={i}>{step}</li>)}
         </ul>
       </div>
     </div>
