@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/DataRecovery.css";
+import "./DataRecovery.css";
 import hddIcon from "./assets/icons/hdd.png";
 import ssdIcon from "./assets/icons/ssd.png";
 import usbIcon from "./assets/icons/usb.png";
