@@ -1,0 +1,38 @@
+.data-recovery {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+}
+
+.data-recovery h1 {
+  font-size: 2.25rem;
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+
+.data-recovery .subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.data-recovery h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #003366;
+  font-weight: 600;
+}
+
+.data-recovery ul,
+.data-recovery ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.data-recovery li {
+  margin-bottom: 0.5rem;
+}
