@@ -6,7 +6,7 @@ import usbIcon from "../assets/icons/usb.png";
 import serverIcon from "../assets/icons/server.png";
 import phoneIcon from "../assets/icons/phone.png";
 
-export default function DataRecovery({ lang = "tr" }) {
+export default function DataRecovery({ language = "tr" }) {
   const content = {
     tr: {
       title: "Veri Kurtarma Hizmetleri",
@@ -44,7 +44,7 @@ export default function DataRecovery({ lang = "tr" }) {
     }
   };
 
-  const t = content[lang];
+  const t = content[language];
 
   return (
     <div className="container">
