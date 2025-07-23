@@ -26,7 +26,7 @@ export default function DataRecovery({ language = "tr" }) {
       processTitle: "Sürecimiz",
       processSteps: [
         "1. Ücretsiz İlk Teşhis",
-        "2. Güvenli Laboratuvar Ortamı (Cleanroom)",
+        "2. Güvenli Laboratuvar Ortamı",
         "3. Akıllı Söküm ve Veri Çekme",
         "4. Veri Kurtarma",
         "5. Yeni ortam veya güvenli bağlantıyla teslim"
@@ -51,7 +51,7 @@ export default function DataRecovery({ language = "tr" }) {
       processTitle: "Our Process",
       processSteps: [
         "1. Free Initial Diagnosis",
-        "2. Secure Lab Environment (Cleanroom)",
+        "2. Secure Lab Environment",
         "3. Smart Disassembly & Extraction",
         "4. File Recovery",
         "5. Delivery via new medium or secure download links"
