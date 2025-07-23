@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,49 +12,70 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import StorageAdvisor from './components/StorageAdvisor';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [language, setLanguage] = useState('tr'); // 'tr' for Turkish, 'en' for English
+// ScrollToTop component to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
-  const renderPage = () => {
-    switch(currentPage) {
-      case 'home':
-        return <HomePage language={language} setCurrentPage={setCurrentPage} />;
-      case 'about':
-        return <AboutUs language={language} />;
-      case 'data-recovery':
-        return <DataRecovery language={language} />;
-      case 'wireless-networks':
-        return <WirelessNetworks language={language} />;
-      case 'other-services':
-        return <OtherServices language={language} />;
-      case 'faq':
-        return <FAQ language={language} />;
-      case 'contact':
-        return <Contact language={language} />;
-      case 'storage-advisor':
-        return <StorageAdvisor language={language} />;
-      default:
-        return <HomePage language={language} setCurrentPage={setCurrentPage} />;
-    }
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function AppContent() {
+  const [language, setLanguage] = useState('tr'); // 'tr' for Turkish, 'en' for English
+  const location = useLocation();
+  
+  // Extract current page from location pathname
+  const getCurrentPage = () => {
+    const path = location.pathname.substring(1); // Remove leading slash
+    if (path === '') return 'home';
+    if (path === 'about-us') return 'about';
+    if (path === 'data-recovery') return 'data-recovery';
+    if (path === 'wireless-networks') return 'wireless-networks';
+    if (path === 'other-services') return 'other-services';
+    if (path === 'faq') return 'faq';
+    if (path === 'contact') return 'contact';
+    if (path === 'storage-advisor') return 'storage-advisor';
+    return 'home';
   };
+
+  const currentPage = getCurrentPage();
 
   return (
     <div className="App">
       <Header 
-        currentPage={currentPage} 
-        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
         language={language}
         setLanguage={setLanguage}
       />
       <main>
-        {renderPage()}
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage language={language} />} />
+          <Route path="/about-us" element={<AboutUs language={language} />} />
+          <Route path="/data-recovery" element={<DataRecovery language={language} />} />
+          <Route path="/wireless-networks" element={<WirelessNetworks language={language} />} />
+          <Route path="/other-services" element={<OtherServices language={language} />} />
+          <Route path="/faq" element={<FAQ language={language} />} />
+          <Route path="/contact" element={<Contact language={language} />} />
+          <Route path="/storage-advisor" element={<StorageAdvisor language={language} />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer language={language} />
     </div>
   );
 }
 
-export default App;
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
 
+export default App;
 

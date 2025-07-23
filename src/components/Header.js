@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
-const Header = ({ currentPage, setCurrentPage, language, setLanguage }) => {
+const Header = ({ currentPage, language, setLanguage }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const translations = {
@@ -31,16 +32,13 @@ const Header = ({ currentPage, setCurrentPage, language, setLanguage }) => {
 
   const t = translations[language];
 
-  const handleNavLinkClick = (page) => {
-    setCurrentPage(page);
-    setIsMobileMenuOpen(false); // Close menu on navigation
-  };
-
   return (
     <header className="header">
       <div className="container">
         <div className="logo-section">
-          <img src="/images/tekfin-logo.png" alt="TEKFİN TEKNOLOJİ LİMİTED ŞTİ" className="logo" />
+          <Link to="/">
+            <img src="/images/tekfin-logo.png" alt="TEKFİN TEKNOLOJİ LİMİTED ŞTİ" className="logo" />
+          </Link>
           <h1 className="company-name">TEKFİN TEKNOLOJİ LİMİTED ŞTİ</h1>
         </div>
         
@@ -53,73 +51,81 @@ const Header = ({ currentPage, setCurrentPage, language, setLanguage }) => {
         <nav className={`navigation ${isMobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-menu">
             <li>
-              <button 
+              <Link 
+                to="/"
                 className={currentPage === 'home' ? 'nav-link active' : 'nav-link'}
-                onClick={() => handleNavLinkClick('home')}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t.home}
-              </button>
+              </Link>
             </li>
             <li>
-              <button 
+              <Link 
+                to="/about-us"
                 className={currentPage === 'about' ? 'nav-link active' : 'nav-link'}
-                onClick={() => handleNavLinkClick('about')}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t.about}
-              </button>
+              </Link>
             </li>
             <li className="dropdown">
               <span className="nav-link">{t.services}</span>
               <ul className="dropdown-menu">
                 <li>
-                  <button 
+                  <Link 
+                    to="/data-recovery"
                     className="dropdown-link"
-                    onClick={() => handleNavLinkClick('data-recovery')}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t.dataRecovery}
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button 
+                  <Link 
+                    to="/wireless-networks"
                     className="dropdown-link"
-                    onClick={() => handleNavLinkClick('wireless-networks')}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t.wirelessNetworks}
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button 
+                  <Link 
+                    to="/other-services"
                     className="dropdown-link"
-                    onClick={() => handleNavLinkClick('other-services')}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t.otherServices}
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button 
+                  <Link 
+                    to="/storage-advisor"
                     className="dropdown-link"
-                    onClick={() => handleNavLinkClick('storage-advisor')}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t.storageAdvisor}
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <button 
+              <Link 
+                to="/faq"
                 className={currentPage === 'faq' ? 'nav-link active' : 'nav-link'}
-                onClick={() => handleNavLinkClick('faq')}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t.faq}
-              </button>
+              </Link>
             </li>
             <li>
-              <button 
+              <Link 
+                to="/contact"
                 className={currentPage === 'contact' ? 'nav-link active' : 'nav-link'}
-                onClick={() => handleNavLinkClick('contact')}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t.contact}
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -144,5 +150,4 @@ const Header = ({ currentPage, setCurrentPage, language, setLanguage }) => {
 };
 
 export default Header;
-
 

@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
-const HomePage = ({ language, setCurrentPage }) => {
+const HomePage = ({ language }) => {
+  const navigate = useNavigate();
+  
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
@@ -87,7 +90,7 @@ const HomePage = ({ language, setCurrentPage }) => {
           <h1 className="hero-title">{t.mainTitle}</h1>
           <p className="hero-subtitle">{t.subtitle}</p>
           <p className="hero-intro">{t.intro}</p>
-          <button className="cta-button" onClick={() => setCurrentPage('contact')}>{t.cta.button}</button>
+          <button className="cta-button" onClick={() => navigate('/contact')}>{t.cta.button}</button>
         </div>
         <div className="hero-image">
           <div className="tech-illustration">
@@ -114,7 +117,7 @@ const HomePage = ({ language, setCurrentPage }) => {
         <div className="promo-content">
           <h2>{t.storageHighlight.title}</h2>
           <p>{t.storageHighlight.description}</p>
-          <button className="promo-btn" onClick={() => setCurrentPage('storage-advisor')}>
+          <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
             {t.storageHighlight.button}
           </button>
         </div>
@@ -187,7 +190,7 @@ const HomePage = ({ language, setCurrentPage }) => {
       <section className="cta-section">
         <div className="container">
           <h2>{t.cta.title}</h2>
-          <button className="cta-button-large" onClick={() => setCurrentPage('contact')}>{t.cta.button}</button>
+          <button className="cta-button-large" onClick={() => navigate('/contact')}>{t.cta.button}</button>
         </div>
       </section>
     </div>
