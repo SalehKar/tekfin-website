@@ -1,81 +1,38 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './components/HomePage';
-import AboutUs from './components/AboutUs';
-import DataRecovery from './components/DataRecovery';
-import WirelessNetworks from './components/WirelessNetworks';
-import OtherServices from './components/OtherServices';
-import FAQ from './components/FAQ';
-import Contact from './components/Contact';
-import StorageAdvisor from './components/StorageAdvisor';
+import React from "react";
+import "./DataRecovery.css";
+import hddIcon from "../assets/icons/hdd.png";
+import ssdIcon from "../assets/icons/ssd.png";
+import usbIcon from "../assets/icons/usb.png";
+import serverIcon from "../assets/icons/server.png";
+import phoneIcon from "../assets/icons/phone.png";
 
-// ScrollToTop component to scroll to top on route change
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
-function AppContent() {
-  const [language, setLanguage] = useState('tr'); // 'tr' for Turkish, 'en' for English
-  const location = useLocation();
-  
-  // Extract current page from location pathname
-  const getCurrentPage = () => {
-    const path = location.pathname.substring(1); // Remove leading slash
-    if (path === '') return 'home';
-    if (path === 'about-us') return 'about';
-    if (path === 'data-recovery') return 'data-recovery';
-    if (path === 'wireless-networks') return 'wireless-networks';
-    if (path === 'other-services') return 'other-services';
-    if (path === 'faq') return 'faq';
-    if (path === 'contact') return 'contact';
-    if (path === 'storage-advisor') return 'storage-advisor';
-    return 'home';
-  };
-
-  const currentPage = getCurrentPage();
-
-  return (
-    <div className="App">
-      <Header 
-        currentPage={currentPage}
-        language={language}
-        setLanguage={setLanguage}
-      />
-      <main>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage language={language} />} />
-          <Route path="/about-us" element={<AboutUs language={language} />} />
-          <Route path="/data-recovery" element={<DataRecovery language={language} />} />
-          <Route path="/wireless-networks" element={<WirelessNetworks language={language} />} />
-          <Route path="/other-services" element={<OtherServices language={language} />} />
-          <Route path="/faq" element={<FAQ language={language} />} />
-          <Route path="/contact" element={<Contact language={language} />} />
-          <Route path="/storage-advisor" element={<StorageAdvisor language={language} />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
-      <Footer language={language} />
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
-}
-
-export default App;
-
+export default function DataRecovery({ language = "tr" }) {
+  const content = {
+    tr: {
+      title: "Veri Kurtarma Hizmetleri",
+      paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi...",
+      services: [
+        { icon: hddIcon, text: "Hard Disk Kurtarma" },
+        { icon: ssdIcon, text: "SSD Kurtarma" },
+        { icon: usbIcon, text: "Flash Bellek Kurtarma" },
+        { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" }
+      ],
+      privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
+      whyTitle: "Neden Bizi Tercih Etmelisiniz?",
+      whyList: [
+        "✅ Bozuk disklerde yüksek başarı oranı",
+        "💰 Şeffaf fiyat politikası",
+        "👨‍💻 Doğrudan teknik destek"
+      ]
+    },
+    en: {
+      title: "Data Recovery Services",
+      paragraph: "At TekFin, we specialize in recovering lost data...",
+      services: [
+        { icon: hddIcon, text: "Hard Drive Recovery" },
+        { icon: ssdIcon, text: "SSD Recovery" },
+        { icon: usbIcon, text: "Flash Media Recovery" },
+        { icon: serverIcon, text: "RAID and Server Recovery" }
+      ],
+      privacy: "🔒 Your data privacy is our priority.",
+      whyTitle: "
