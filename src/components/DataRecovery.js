@@ -6,27 +6,9 @@ import usbIcon from "../assets/icons/usb.png";
 import serverIcon from "../assets/icons/server.png";
 import phoneIcon from "../assets/icons/phone.png";
 
-export default function DataRecovery({ lang = "en" }) {
+export default function DataRecovery({ lang = "tr" }) {
   const content = {
-    en: {
-      title: "Data Recovery Services",
-      paragraph: "At TekFin, we specialize in recovering lost data...",
-      services: [
-        { icon: hddIcon, text: "Hard Drive Recovery" },
-        { icon: ssdIcon, text: "SSD Recovery" },
-        { icon: usbIcon, text: "Flash Media Recovery" },
-        { icon: serverIcon, text: "RAID and Server Recovery" },
-        { icon: phoneIcon, text: "Phone and Tablet Data Recovery" }
-      ],
-      privacy: "🔒 Your data privacy is our priority.",
-      whyTitle: "Why Choose Us?",
-      whyList: [
-        "✅ High success rate for damaged drives",
-        "💰 Transparent pricing",
-        "👨‍💻 Direct technical support"
-      ]
-    },
-    tr: {
+      tr: {
       title: "Veri Kurtarma Hizmetleri",
       paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi...",
       services: [
@@ -34,7 +16,7 @@ export default function DataRecovery({ lang = "en" }) {
         { icon: ssdIcon, text: "SSD Kurtarma" },
         { icon: usbIcon, text: "Flash Bellek Kurtarma" },
         { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" },
-        { icon: phoneIcon, text: "Telefon ve Tablet Kurtarma" }
+        
       ],
       privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
       whyTitle: "Neden Bizi Tercih Etmelisiniz?",
@@ -44,7 +26,24 @@ export default function DataRecovery({ lang = "en" }) {
         "👨‍💻 Doğrudan teknik destek"
       ]
     }
-  };
+  en: {
+      title: "Data Recovery Services",
+      paragraph: "At TekFin, we specialize in recovering lost data...",
+      services: [
+        { icon: hddIcon, text: "Hard Drive Recovery" },
+        { icon: ssdIcon, text: "SSD Recovery" },
+        { icon: usbIcon, text: "Flash Media Recovery" },
+        { icon: serverIcon, text: "RAID and Server Recovery" },
+      
+      ],
+      privacy: "🔒 Your data privacy is our priority.",
+      whyTitle: "Why Choose Us?",
+      whyList: [
+        "✅ High success rate for damaged drives",
+        "💰 Transparent pricing",
+        "👨‍💻 Direct technical support"
+      ]
+    },  };
 
   const t = content[lang];
 
