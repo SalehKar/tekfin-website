@@ -1,38 +1,60 @@
-.data-recovery {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
-  font-family: "Segoe UI", sans-serif;
-  color: #222;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
 }
 
-.data-recovery h1 {
-  font-size: 2.25rem;
-  color: #003366;
-  margin-bottom: 0.5rem;
+.container {
+  padding: 2em;
 }
 
-.data-recovery .subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 2rem;
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
 }
 
-.data-recovery h2 {
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #003366;
-  font-weight: 600;
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  background: #eaf4fe;
+  padding: 1.5em;
+  border-radius: 8px;
+  margin: 2em 0;
+  justify-content: space-around;
 }
 
-.data-recovery ul,
-.data-recovery ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
+.card {
+  text-align: center;
+  width: 150px;
 }
 
-.data-recovery li {
-  margin-bottom: 0.5rem;
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5em;
+}
+
+.privacy-note {
+  text-align: center;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.why-choose {
+  margin-top: 2em;
+}
+
+.why-choose h3 {
+  margin-bottom: 0.5em;
+}
+
+.why-choose ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose li {
+  margin-bottom: 0.5em;
 }
