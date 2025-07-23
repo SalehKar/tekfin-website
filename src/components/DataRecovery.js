@@ -1,16 +1,16 @@
 import React from "react";
 import "./DataRecovery.css";
-import hddIcon from "./assets/icons/hdd.png";
-import ssdIcon from "./assets/icons/ssd.png";
-import usbIcon from "./assets/icons/usb.png";
-import serverIcon from "./assets/icons/server.png";
-import phoneIcon from "./assets/icons/phone.png";
+import hddIcon from "../assets/icons/hdd.png";
+import ssdIcon from "../assets/icons/ssd.png";
+import usbIcon from "../assets/icons/usb.png";
+import serverIcon from "../assets/icons/server.png";
+import phoneIcon from "../assets/icons/phone.png";
 
 export default function DataRecovery({ lang = "en" }) {
   const content = {
     en: {
       title: "Data Recovery Services",
-      paragraph: "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
+      paragraph: "At TekFin, we specialize in recovering lost data...",
       services: [
         { icon: hddIcon, text: "Hard Drive Recovery" },
         { icon: ssdIcon, text: "SSD Recovery" },
@@ -28,7 +28,7 @@ export default function DataRecovery({ lang = "en" }) {
     },
     tr: {
       title: "Veri Kurtarma Hizmetleri",
-      paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
+      paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi...",
       services: [
         { icon: hddIcon, text: "Hard Disk Kurtarma" },
         { icon: ssdIcon, text: "SSD Kurtarma" },
