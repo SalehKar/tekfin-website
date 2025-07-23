@@ -1,4 +1,5 @@
 import React from 'react';
+import './DataRecovery.css';
 
 const DataRecovery = ({ language }) => {
   const content = {
@@ -55,26 +56,26 @@ const DataRecovery = ({ language }) => {
   const t = content[language || 'tr'];
 
   return (
-    <div style={{ padding: '3rem 2rem', maxWidth: '900px', margin: '0 auto' }}>
+    <section className="data-recovery">
       <h1>{t.title}</h1>
-      <p>{t.subtitle}</p>
+      <p className="subtitle">{t.subtitle}</p>
       <hr />
 
-      <h3>{t.about}</h3>
+      <h2>{t.about}</h2>
       <ul>
         {t.devices.map((item, i) => <li key={i}>{item}</li>)}
       </ul>
 
-      <h3>{t.stepsTitle}</h3>
+      <h2>{t.stepsTitle}</h2>
       <ol>
         {t.steps.map((item, i) => <li key={i}>{item}</li>)}
       </ol>
 
-      <h3>{t.whyUsTitle}</h3>
+      <h2>{t.whyUsTitle}</h2>
       <ul>
         {t.whyUs.map((item, i) => <li key={i}>{item}</li>)}
       </ul>
-    </div>
+    </section>
   );
 };
 
