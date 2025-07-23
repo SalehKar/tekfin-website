@@ -1,5 +1,4 @@
 import React from 'react';
-import './DataRecovery.css';
 
 const DataRecovery = ({ language }) => {
   const content = {
@@ -55,25 +54,60 @@ const DataRecovery = ({ language }) => {
 
   const t = content[language] || content['tr'];
 
+  const styles = {
+    section: {
+      maxWidth: '960px',
+      margin: '0 auto',
+      padding: '3rem 1rem',
+      fontFamily: '"Segoe UI", sans-serif',
+      color: '#222',
+    },
+    title: {
+      fontSize: '2.25rem',
+      color: '#003366',
+      marginBottom: '0.5rem',
+    },
+    subtitle: {
+      fontSize: '1.1rem',
+      color: '#666',
+      marginBottom: '2rem',
+    },
+    heading: {
+      fontSize: '1.4rem',
+      marginTop: '2rem',
+      marginBottom: '1rem',
+      color: '#003366',
+      fontWeight: 600,
+    },
+    list: {
+      paddingLeft: '1.5rem',
+      marginBottom: '1.5rem',
+      lineHeight: '1.8',
+    },
+    item: {
+      marginBottom: '0.5rem',
+    }
+  };
+
   return (
-    <section className="data-recovery">
-      <h1>{t.title}</h1>
-      <p className="subtitle">{t.subtitle}</p>
+    <section style={styles.section}>
+      <h1 style={styles.title}>{t.title}</h1>
+      <p style={styles.subtitle}>{t.subtitle}</p>
       <hr />
 
-      <h2>{t.about}</h2>
-      <ul>
-        {t.devices.map((item, i) => <li key={i}>{item}</li>)}
+      <h2 style={styles.heading}>{t.about}</h2>
+      <ul style={styles.list}>
+        {t.devices.map((item, i) => <li key={i} style={styles.item}>{item}</li>)}
       </ul>
 
-      <h2>{t.stepsTitle}</h2>
-      <ol>
-        {t.steps.map((item, i) => <li key={i}>{item}</li>)}
+      <h2 style={styles.heading}>{t.stepsTitle}</h2>
+      <ol style={styles.list}>
+        {t.steps.map((item, i) => <li key={i} style={styles.item}>{item}</li>)}
       </ol>
 
-      <h2>{t.whyUsTitle}</h2>
-      <ul>
-        {t.whyUs.map((item, i) => <li key={i}>{item}</li>)}
+      <h2 style={styles.heading}>{t.whyUsTitle}</h2>
+      <ul style={styles.list}>
+        {t.whyUs.map((item, i) => <li key={i} style={styles.item}>{item}</li>)}
       </ul>
     </section>
   );
