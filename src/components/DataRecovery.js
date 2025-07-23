@@ -4,7 +4,7 @@ import hddIcon from "../assets/icons/hdd.png";
 import ssdIcon from "../assets/icons/ssd.png";
 import usbIcon from "../assets/icons/usb.png";
 import serverIcon from "../assets/icons/server.png";
-import phoneIcon from "../assets/icons/phone.png";
+
 
 export default function DataRecovery({ language = "tr" }) {
   const content = {
