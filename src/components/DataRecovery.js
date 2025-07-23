@@ -25,7 +25,7 @@ export default function DataRecovery({ lang = "tr" }) {
         "💰 Şeffaf fiyat politikası",
         "👨‍💻 Doğrudan teknik destek"
       ]
-    }
+    },
   en: {
       title: "Data Recovery Services",
       paragraph: "At TekFin, we specialize in recovering lost data...",
