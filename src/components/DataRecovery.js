@@ -10,12 +10,13 @@ export default function DataRecovery({ language = "tr" }) {
   const content = {
     tr: {
       title: "Veri Kurtarma Hizmetleri",
-      paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi...",
+      paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
       services: [
         { icon: hddIcon, text: "Hard Disk Kurtarma" },
         { icon: ssdIcon, text: "SSD Kurtarma" },
         { icon: usbIcon, text: "Flash Bellek Kurtarma" },
-        { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" }
+        { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" },
+        { icon: phoneIcon, text: "Telefon ve Tablet Kurtarma" }
       ],
       privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
       whyTitle: "Neden Bizi Tercih Etmelisiniz?",
@@ -27,12 +28,13 @@ export default function DataRecovery({ language = "tr" }) {
     },
     en: {
       title: "Data Recovery Services",
-      paragraph: "At TekFin, we specialize in recovering lost data...",
+      paragraph: "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
       services: [
         { icon: hddIcon, text: "Hard Drive Recovery" },
         { icon: ssdIcon, text: "SSD Recovery" },
         { icon: usbIcon, text: "Flash Media Recovery" },
-        { icon: serverIcon, text: "RAID and Server Recovery" }
+        { icon: serverIcon, text: "RAID and Server Recovery" },
+        { icon: phoneIcon, text: "Phone and Tablet Data Recovery" }
       ],
       privacy: "🔒 Your data privacy is our priority.",
       whyTitle: "Why Choose Us?",
