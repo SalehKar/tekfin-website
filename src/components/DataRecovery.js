@@ -53,7 +53,7 @@ const DataRecovery = ({ language }) => {
     }
   };
 
-  const t = content[language || 'tr'];
+  const t = content[language] || content['tr'];
 
   return (
     <section className="data-recovery">
