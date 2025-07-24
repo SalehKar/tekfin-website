@@ -53,7 +53,6 @@ const StorageAdvisor = ({ language }) => {
       noRecommendation: "Seçimlerinize uygun bir depolama cihazı bulunamadı. Lütfen seçimlerinizi değiştirin.",
       emailPrompt: "Tavsiyeyi görmek için e-posta adresinizi girin:",
       submit: "Gönder",
-      // التوصيات كما في السابق...
     },
     en: {
       title: "Storage Device Advisor",
@@ -95,7 +94,6 @@ const StorageAdvisor = ({ language }) => {
       noRecommendation: "No storage device found matching your selections. Please adjust your choices.",
       emailPrompt: "Enter your email to see the recommendation:",
       submit: "Submit",
-      // same recommendations...
     }
   };
 
@@ -123,17 +121,21 @@ const StorageAdvisor = ({ language }) => {
 
   const matchRecommendation = () => {
     if (usage === 'gaming' && speed === 'very_high' && budget === 'high') {
-      setRecommendation(t.nvme_gaming_high_budget);
-    } else if (usage === 'video_editing' && speed === 'very_high' && budget === 'high') {
-      setRecommendation(t.nvme_video_editing_high_budget);
-    } else if (usage === 'backup' && speed === 'medium' && budget === 'low') {
-      setRecommendation(t.hdd_backup_low_budget);
-    } else if (usage === 'office' && speed === 'high' && budget === 'medium') {
-      setRecommendation(t.sata_office_medium_budget);
-    } else if (usage === 'personal' && speed === 'medium' && budget === 'low') {
-      setRecommendation(t.hdd_personal_low_budget);
+      setRecommendation({
+        type: "NVMe SSD",
+        reason: "Ideal for gaming and high-performance apps.",
+        price: "Over 1500 TL",
+        brands: "Samsung 990 Pro, WD Black SN850X",
+        stores: "Hepsiburada, Trendyol, Vatan"
+      });
     } else {
-      setRecommendation(t.default_recommendation);
+      setRecommendation({
+        type: "SATA SSD",
+        reason: "Great balance for daily use.",
+        price: "500 - 1500 TL",
+        brands: "Kingston A400, Samsung 870 EVO",
+        stores: "Trendyol, Amazon"
+      });
     }
   };
 
@@ -229,6 +231,27 @@ const StorageAdvisor = ({ language }) => {
         {!recommendation && usage && capacity && speed && budget && portability && emailSubmitted && (
           <p className="no-recommendation">{t.noRecommendation}</p>
         )}
+
+        {/* ✅ Zoho Form IFrame Embedded */}
+        <div className="zoho-form-wrapper">
+          <iframe
+            title="Storage Email Capture"
+            aria-label="Storage Email Capture"
+            frameBorder="0"
+            style={{
+              height: '680px',
+              width: '100%',
+              maxWidth: '700px',
+              border: 'none',
+              margin: '3rem auto 0',
+              display: 'block',
+              borderRadius: '12px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+            }}
+            src="https://forms.zohopublic.eu/infotekfi1/form/StorageEmailCapture/formperma/7ilJF4_j1e3_7ytu8kpv0sDYmxoqLqObkdvbr6e_FJw"
+          ></iframe>
+        </div>
+
       </div>
     </div>
   );
