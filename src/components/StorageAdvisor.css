@@ -14,7 +14,7 @@
   background: #f8f9fa;
   padding: 2.5rem;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   max-width: 700px;
   margin: 0 auto 3rem;
   display: grid;
@@ -72,7 +72,7 @@
   background: white;
   padding: 2.5rem;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   max-width: 700px;
   margin: 2rem auto;
   border-left: 5px solid #667eea;
@@ -107,28 +107,27 @@
   margin-top: 2rem;
 }
 
-/* Modal Overlay */
+/* مودال البريد */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
 }
 
-/* Email Modal Box */
 .email-modal {
   background-color: #fff;
   border-radius: 10px;
   padding: 2rem;
   max-width: 400px;
   width: 90%;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
   position: relative;
   text-align: center;
   animation: fadeInScale 0.3s ease-out;
@@ -168,7 +167,6 @@
   color: #888;
 }
 
-/* Animation */
 @keyframes fadeInScale {
   0% {
     transform: scale(0.85);
@@ -180,7 +178,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .advisor-form {
     grid-template-columns: 1fr;
