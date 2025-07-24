@@ -17,39 +17,184 @@
   color: #555;
 }
 
-.tally-form-wrapper {
+.advisor-form {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
-.tally-form-wrapper iframe {
-  width: 100%;
-  max-width: 800px;
-  height: 700px;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  margin-top: 2rem;
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
 }
 
-.development-notice {
-  background-color: #fff3cd;
-  padding: 1rem;
+.form-group select {
+  padding: 0.8rem;
+  border: 1px solid #ced4da;
   border-radius: 8px;
-  border: 1px solid #ffeeba;
-  color: #856404;
-  font-size: 0.95rem;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
+  font-size: 1rem;
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%22292.4%22 height%3D%22292.4%22 viewBox%3D%220 0 292.4 292.4%22%3E%3Cpath fill%3D%22%23000000%22 d%3D%22M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4-3.6 3.6-5.4 7.9-5.4 12.9v12.9c0 5 1.8 9.3 5.4 12.9l118 118c3.6 3.6 7.9 5.4 12.9 5.4s9.3-1.8 12.9-5.4l118-118c3.6-3.6 5.4-7.9 5.4-12.9V82.3c0-5-1.8-9.3-5.4-12.9z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+
+.recommend-button {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  margin-top: 1rem;
+}
+
+.recommend-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.recommendation-result {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  max-width: 700px;
+  margin: 2rem auto;
+  border-left: 5px solid #667eea;
+}
+
+.recommendation-result h2 {
+  color: #1e3c72;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.recommendation-result .dev-alert {
+  background-color: #f0f4ff;
+  border-left: 6px solid #667eea;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* مودال البريد */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.email-modal {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+  position: relative;
   text-align: center;
+  animation: fadeInScale 0.3s ease-out;
+}
+
+.email-modal input {
+  padding: 10px;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.email-modal button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #667eea;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.email-modal button:hover {
+  background-color: #5a67d8;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
+  .advisor-form {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
   .storage-advisor {
     padding: 2rem 1rem;
   }
 
-  .tally-form-wrapper iframe {
-    height: 750px;
+  .recommendation-result {
+    padding: 1.5rem;
+  }
+
+  .form-group select {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .recommend-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }
