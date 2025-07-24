@@ -5,7 +5,6 @@ const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
   const [capacity, setCapacity] = useState('');
   const [speed, setSpeed] = useState('');
-  const [budget, setBudget] = useState('');
   const [portability, setPortability] = useState('');
   const [recommendation, setRecommendation] = useState(null);
   const [email, setEmail] = useState('');
@@ -37,12 +36,6 @@ const StorageAdvisor = ({ language }) => {
         { value: 'high', label: 'Yüksek (SATA SSD)' },
         { value: 'medium', label: 'Orta (HDD)' },
       ],
-      budgetLabel: "Yaklaşık Bütçe:",
-      budgetOptions: [
-        { value: 'low', label: 'Ekonomik (500 TL altı)' },
-        { value: 'medium', label: 'Orta (500 - 1500 TL)' },
-        { value: 'high', label: 'Yüksek (1500 TL üzeri)' },
-      ],
       portabilityLabel: "Taşınabilirlik:",
       portabilityOptions: [
         { value: 'portable', label: 'Taşınabilir (harici)' },
@@ -50,9 +43,9 @@ const StorageAdvisor = ({ language }) => {
       ],
       recommendButton: "Tavsiye Al",
       recommendationTitle: "Önerilen Depolama Cihazı:",
-      noRecommendation: "Seçimlerinize uygun bir depolama cihazı bulunamadı. Lütfen seçimlerinizi değiştirin.",
+      underDevelopment: "Teşekkür ederiz! Bu hizmet şu anda geliştirme aşamasındadır ve yakında aktif olacaktır.",
       emailPrompt: "Tavsiyeyi görmek için e-posta adresinizi girin:",
-      submit: "Gönder",
+      submit: "Gönder"
     },
     en: {
       title: "Storage Device Advisor",
@@ -78,12 +71,6 @@ const StorageAdvisor = ({ language }) => {
         { value: 'high', label: 'High (SATA SSD)' },
         { value: 'medium', label: 'Medium (HDD)' },
       ],
-      budgetLabel: "Approximate Budget:",
-      budgetOptions: [
-        { value: 'low', label: 'Economical (Under 500 TL)' },
-        { value: 'medium', label: 'Medium (500 - 1500 TL)' },
-        { value: 'high', label: 'High (Over 1500 TL)' },
-      ],
       portabilityLabel: "Portability:",
       portabilityOptions: [
         { value: 'portable', label: 'Portable (external)' },
@@ -91,52 +78,49 @@ const StorageAdvisor = ({ language }) => {
       ],
       recommendButton: "Get Recommendation",
       recommendationTitle: "Recommended Storage Device:",
-      noRecommendation: "No storage device found matching your selections. Please adjust your choices.",
+      underDevelopment: "Thank you! This service is currently under development and will be available soon.",
       emailPrompt: "Enter your email to see the recommendation:",
-      submit: "Submit",
+      submit: "Submit"
     }
   };
 
   const t = content[language];
 
   const getRecommendation = () => {
-    if (!usage || !capacity || !speed || !budget || !portability) {
+    if (!usage || !capacity || !speed || !portability) {
       setRecommendation(null);
       return;
     }
     setShowEmailModal(true);
   };
 
-  const submitEmail = () => {
+  const submitEmail = async () => {
     if (!email.includes('@')) {
       alert(t.emailPrompt);
       return;
     }
-    console.log("User Email Saved:", email);
-    console.log("Selections:", { usage, capacity, speed, budget, portability });
+
+    try {
+      await fetch('https://formsubmit.co/ajax/info@tekfingroup.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Email: email,
+          Usage: usage,
+          Capacity: capacity,
+          Speed: speed,
+          Portability: portability
+        })
+      });
+    } catch (err) {
+      console.error('Failed to send email:', err);
+    }
+
     setEmailSubmitted(true);
     setShowEmailModal(false);
-    matchRecommendation();
-  };
-
-  const matchRecommendation = () => {
-    if (usage === 'gaming' && speed === 'very_high' && budget === 'high') {
-      setRecommendation({
-        type: "NVMe SSD",
-        reason: "Ideal for gaming and high-performance apps.",
-        price: "Over 1500 TL",
-        brands: "Samsung 990 Pro, WD Black SN850X",
-        stores: "Hepsiburada, Trendyol, Vatan"
-      });
-    } else {
-      setRecommendation({
-        type: "SATA SSD",
-        reason: "Great balance for daily use.",
-        price: "500 - 1500 TL",
-        brands: "Kingston A400, Samsung 870 EVO",
-        stores: "Trendyol, Amazon"
-      });
-    }
   };
 
   return (
@@ -177,16 +161,6 @@ const StorageAdvisor = ({ language }) => {
           </div>
 
           <div className="form-group">
-            <label>{t.budgetLabel}</label>
-            <select value={budget} onChange={(e) => setBudget(e.target.value)}>
-              <option value="">--</option>
-              {t.budgetOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="form-group">
             <label>{t.portabilityLabel}</label>
             <select value={portability} onChange={(e) => setPortability(e.target.value)}>
               <option value="">--</option>
@@ -217,20 +191,13 @@ const StorageAdvisor = ({ language }) => {
           </div>
         )}
 
-        {recommendation && (
+        {emailSubmitted && (
           <div className="recommendation-result">
             <h2>{t.recommendationTitle}</h2>
-            <h3>{recommendation.type}</h3>
-            <p><strong>{language === 'tr' ? 'Neden:' : 'Reason:'}</strong> {recommendation.reason}</p>
-            <p><strong>{language === 'tr' ? 'Fiyat Aralığı:' : 'Estimated Price Range:'}</strong> {recommendation.price}</p>
-            <p><strong>{language === 'tr' ? 'Markalar:' : 'Recommended Brands:'}</strong> {recommendation.brands}</p>
-            <p><strong>{language === 'tr' ? 'Mağazalar:' : 'Available at Stores:'}</strong> {recommendation.stores}</p>
+            <p>{t.underDevelopment}</p>
           </div>
         )}
 
-        {!recommendation && usage && capacity && speed && budget && portability && emailSubmitted && (
-          <p className="no-recommendation">{t.noRecommendation}</p>
-        )}
       </div>
     </div>
   );
