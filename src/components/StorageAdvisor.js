@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './StorageAdvisor.css';
 
-const StorageAdvisor = () => {
+const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
   const [capacity, setCapacity] = useState('');
   const [speed, setSpeed] = useState('');
@@ -32,7 +32,7 @@ const StorageAdvisor = () => {
     }
   };
 
-  const isTurkish = navigator.language.startsWith('tr');
+  const isTurkish = language === 'tr';
 
   return (
     <div className="storage-advisor">
