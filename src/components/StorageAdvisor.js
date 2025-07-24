@@ -41,8 +41,8 @@ const StorageAdvisor = ({ language }) => {
       </h1>
       <p className="advisor-description">
         {isTurkish
-          ? 'İşletmeniz için en iyi depolama çözümünü bulmak adına birkaç kısa soruya cevap verin.'
-          : 'Answer a few quick questions and get the best storage solution recommendation for your business.'}
+          ? 'Akıllı aracımız, verileriniz için en uygun depolama seçeneğini önersin.'
+          : 'Let our smart tool recommend the best storage option for your data.'}
       </p>
 
       {!showThankYou ? (
