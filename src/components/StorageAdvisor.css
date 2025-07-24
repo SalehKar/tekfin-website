@@ -178,6 +178,18 @@
   }
 }
 
+/* 🌐 Zoho Form Styling */
+.zoho-form-wrapper iframe {
+  width: 100%;
+  max-width: 700px;
+  height: 680px;
+  border: none;
+  border-radius: 12px;
+  margin: 3rem auto 0;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 @media (max-width: 768px) {
   .advisor-form {
     grid-template-columns: 1fr;
@@ -200,5 +212,9 @@
   .recommend-button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+  }
+
+  .zoho-form-wrapper iframe {
+    height: 750px;
   }
 }
