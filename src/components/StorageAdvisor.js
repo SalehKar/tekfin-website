@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/StorageAdvisor.css';
+import './StorageAdvisor.css';
 
 const StorageAdvisor = () => {
   const [usage, setUsage] = useState('');
