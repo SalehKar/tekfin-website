@@ -1,204 +1,120 @@
 import React, { useState } from 'react';
-import './StorageAdvisor.css';
+import '../styles/StorageAdvisor.css';
 
-const StorageAdvisor = ({ language }) => {
+const StorageAdvisor = () => {
   const [usage, setUsage] = useState('');
   const [capacity, setCapacity] = useState('');
   const [speed, setSpeed] = useState('');
   const [portability, setPortability] = useState('');
-  const [recommendation, setRecommendation] = useState(null);
   const [email, setEmail] = useState('');
-  const [showEmailModal, setShowEmailModal] = useState(false);
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
-  const content = {
-    tr: {
-      title: "Depolama Cihazı Danışmanı",
-      description: "İhtiyaçlarınıza en uygun depolama cihazını bulmanıza yardımcı olalım.",
-      usageLabel: "Ana Kullanım Amacı:",
-      usageOptions: [
-        { value: 'personal', label: 'Kişisel Depolama (fotoğraf, belge)' },
-        { value: 'gaming', label: 'Oyun (hızlı yükleme, yüksek kapasite)' },
-        { value: 'video_editing', label: 'Video Düzenleme/Grafik Tasarım (yüksek hız, yüksek kapasite)' },
-        { value: 'backup', label: 'Yedekleme (yüksek kapasite, güvenilirlik)' },
-        { value: 'office', label: 'Ofis/İş (dengeli performans, güvenlik)' },
-      ],
-      capacityLabel: "İhtiyaç Duyulan Kapasite:",
-      capacityOptions: [
-        { value: 'lt500gb', label: '500 GB altı' },
-        { value: '500gb_1tb', label: '500 GB - 1 TB' },
-        { value: '1tb_4tb', label: '1 TB - 4 TB' },
-        { value: 'gt4tb', label: '4 TB üzeri' },
-      ],
-      speedLabel: "İstenen Hız:",
-      speedOptions: [
-        { value: 'very_high', label: 'Çok Yüksek (NVMe SSD)' },
-        { value: 'high', label: 'Yüksek (SATA SSD)' },
-        { value: 'medium', label: 'Orta (HDD)' },
-      ],
-      portabilityLabel: "Taşınabilirlik:",
-      portabilityOptions: [
-        { value: 'portable', label: 'Taşınabilir (harici)' },
-        { value: 'fixed', label: 'Sabit (dahili/masaüstü)' },
-      ],
-      recommendButton: "Tavsiye Al",
-      recommendationTitle: "Önerilen Depolama Cihazı:",
-      underDevelopment: "Teşekkür ederiz! Bu hizmet şu anda geliştirme aşamasındadır ve yakında aktif olacaktır.",
-      emailPrompt: "Tavsiyeyi görmek için e-posta adresinizi girin:",
-      submit: "Gönder"
-    },
-    en: {
-      title: "Storage Device Advisor",
-      description: "Let us help you find the perfect storage device for your needs.",
-      usageLabel: "Main Usage:",
-      usageOptions: [
-        { value: 'personal', label: 'Personal Storage (photos, documents)' },
-        { value: 'gaming', label: 'Gaming (fast loading, high capacity)' },
-        { value: 'video_editing', label: 'Video Editing/Graphic Design (high speed, high capacity)' },
-        { value: 'backup', label: 'Backup (high capacity, reliability)' },
-        { value: 'office', label: 'Office/Business (balanced performance, security)' },
-      ],
-      capacityLabel: "Required Capacity:",
-      capacityOptions: [
-        { value: 'lt500gb', label: 'Less than 500 GB' },
-        { value: '500gb_1tb', label: '500 GB - 1 TB' },
-        { value: '1tb_4tb', label: '1 TB - 4 TB' },
-        { value: 'gt4tb', label: 'More than 4 TB' },
-      ],
-      speedLabel: "Desired Speed:",
-      speedOptions: [
-        { value: 'very_high', label: 'Very High (NVMe SSD)' },
-        { value: 'high', label: 'High (SATA SSD)' },
-        { value: 'medium', label: 'Medium (HDD)' },
-      ],
-      portabilityLabel: "Portability:",
-      portabilityOptions: [
-        { value: 'portable', label: 'Portable (external)' },
-        { value: 'fixed', label: 'Fixed (internal/desktop)' },
-      ],
-      recommendButton: "Get Recommendation",
-      recommendationTitle: "Recommended Storage Device:",
-      underDevelopment: "Thank you! This service is currently under development and will be available soon.",
-      emailPrompt: "Enter your email to see the recommendation:",
-      submit: "Submit"
-    }
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
-  const t = content[language];
-
-  const getRecommendation = () => {
-    if (!usage || !capacity || !speed || !portability) {
-      setRecommendation(null);
-      return;
-    }
-    setShowEmailModal(true);
-  };
-
-  const submitEmail = async () => {
-    if (!email.includes('@')) {
-      alert(t.emailPrompt);
-      return;
-    }
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
 
     try {
       await fetch('https://formsubmit.co/ajax/info@tekfingroup.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          Accept: 'application/json',
         },
-        body: JSON.stringify({
-          Email: email,
-          Usage: usage,
-          Capacity: capacity,
-          Speed: speed,
-          Portability: portability
-        })
+        body: JSON.stringify({ email, usage, capacity, speed, portability }),
       });
-    } catch (err) {
-      console.error('Failed to send email:', err);
+      setShowThankYou(true);
+    } catch (error) {
+      console.error('Error submitting email:', error);
     }
-
-    setEmailSubmitted(true);
-    setShowEmailModal(false);
   };
+
+  const isTurkish = navigator.language.startsWith('tr');
 
   return (
     <div className="storage-advisor">
-      <div className="container">
-        <h1 className="page-title">{t.title}</h1>
-        <p className="advisor-description">{t.description}</p>
+      <h1 className="page-title">
+        {isTurkish ? 'Depolama Danışmanı' : 'Storage Advisor'}
+      </h1>
+      <p className="advisor-description">
+        {isTurkish
+          ? 'İşletmeniz için en iyi depolama çözümünü bulmak adına birkaç kısa soruya cevap verin.'
+          : 'Answer a few quick questions and get the best storage solution recommendation for your business.'}
+      </p>
 
-        <div className="advisor-form">
+      {!showThankYou ? (
+        <form onSubmit={handleEmailSubmit} className="advisor-form">
           <div className="form-group">
-            <label>{t.usageLabel}</label>
-            <select value={usage} onChange={(e) => setUsage(e.target.value)}>
+            <label>{isTurkish ? 'Kullanım Amacı' : 'Usage Purpose'}</label>
+            <select value={usage} onChange={(e) => setUsage(e.target.value)} required>
               <option value="">--</option>
-              {t.usageOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
+              <option value="personal">{isTurkish ? 'Kişisel Depolama' : 'Personal Storage'}</option>
+              <option value="gaming">{isTurkish ? 'Oyun' : 'Gaming'}</option>
+              <option value="video">{isTurkish ? 'Video Düzenleme' : 'Video Editing'}</option>
+              <option value="backup">{isTurkish ? 'Yedekleme' : 'Backup'}</option>
+              <option value="office">{isTurkish ? 'Ofis/İş' : 'Office/Business'}</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label>{t.capacityLabel}</label>
-            <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
+            <label>{isTurkish ? 'Kapasite' : 'Capacity'}</label>
+            <select value={capacity} onChange={(e) => setCapacity(e.target.value)} required>
               <option value="">--</option>
-              {t.capacityOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
+              <option value="lt500">{isTurkish ? '500 GB altı' : 'Less than 500 GB'}</option>
+              <option value="500_1tb">500 GB – 1 TB</option>
+              <option value="1tb_4tb">1 TB – 4 TB</option>
+              <option value="gt4tb">{isTurkish ? '4 TB üzeri' : 'More than 4 TB'}</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label>{t.speedLabel}</label>
-            <select value={speed} onChange={(e) => setSpeed(e.target.value)}>
+            <label>{isTurkish ? 'Hız' : 'Speed'}</label>
+            <select value={speed} onChange={(e) => setSpeed(e.target.value)} required>
               <option value="">--</option>
-              {t.speedOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
+              <option value="very_high">{isTurkish ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
+              <option value="high">{isTurkish ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
+              <option value="medium">{isTurkish ? 'Orta (HDD)' : 'Medium (HDD)'}</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label>{t.portabilityLabel}</label>
-            <select value={portability} onChange={(e) => setPortability(e.target.value)}>
+            <label>{isTurkish ? 'Taşınabilirlik' : 'Portability'}</label>
+            <select value={portability} onChange={(e) => setPortability(e.target.value)} required>
               <option value="">--</option>
-              {t.portabilityOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
+              <option value="portable">{isTurkish ? 'Taşınabilir' : 'Portable'}</option>
+              <option value="fixed">{isTurkish ? 'Sabit' : 'Fixed'}</option>
             </select>
           </div>
 
-          <button onClick={getRecommendation} className="recommend-button">
-            {t.recommendButton}
+          <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+            <label htmlFor="email">{isTurkish ? 'E-posta Adresi' : 'Email Address'}</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </div>
+
+          <button type="submit" className="recommend-button">
+            {isTurkish ? 'Tavsiyeyi Al' : 'Get Recommendation'}
           </button>
+        </form>
+      ) : (
+        <div className="recommendation-result">
+          <h2>{isTurkish ? 'Teşekkürler!' : 'Thank You!'}</h2>
+          <p>{isTurkish ? 'E-postanızı aldık.' : 'We’ve received your email.'}</p>
+          <div className="dev-alert">
+            {isTurkish
+              ? 'Tavsiye aracı şu anda geliştirilmektedir. Hazır olduğunda size bildirilecektir.'
+              : 'The recommendation tool is currently under development. You’ll be notified as soon as it’s ready.'}
+          </div>
         </div>
-
-        {showEmailModal && !emailSubmitted && (
-          <div className="modal-overlay">
-            <div className="email-modal">
-              <button className="close-modal" onClick={() => setShowEmailModal(false)}>×</button>
-              <h3>{t.emailPrompt}</h3>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="example@email.com"
-              />
-              <button onClick={submitEmail}>{t.submit}</button>
-            </div>
-          </div>
-        )}
-
-        {emailSubmitted && (
-          <div className="recommendation-result">
-            <h2>{t.recommendationTitle}</h2>
-            <p className="dev-alert">{t.underDevelopment}</p>
-          </div>
-        )}
-
-      </div>
+      )}
     </div>
   );
 };
