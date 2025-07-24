@@ -194,7 +194,7 @@ const StorageAdvisor = ({ language }) => {
         {emailSubmitted && (
           <div className="recommendation-result">
             <h2>{t.recommendationTitle}</h2>
-            <p>{t.underDevelopment}</p>
+            <p className="dev-alert">{t.underDevelopment}</p>
           </div>
         )}
 
