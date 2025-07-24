@@ -1,237 +1,207 @@
-import React, { useState } from 'react';
-import './StorageAdvisor.css';
+.storage-advisor {
+  padding: 3rem 2rem;
+  min-height: 80vh;
+}
 
-const StorageAdvisor = ({ language }) => {
-  const [usage, setUsage] = useState('');
-  const [capacity, setCapacity] = useState('');
-  const [speed, setSpeed] = useState('');
-  const [budget, setBudget] = useState('');
-  const [portability, setPortability] = useState('');
-  const [recommendation, setRecommendation] = useState(null);
-  const [email, setEmail] = useState('');
-  const [showEmailModal, setShowEmailModal] = useState(false);
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+.advisor-description {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #555;
+}
 
-  const content = {
-    tr: {
-      title: "Depolama Cihazı Danışmanı",
-      description: "İhtiyaçlarınıza en uygun depolama cihazını bulmanıza yardımcı olalım.",
-      usageLabel: "Ana Kullanım Amacı:",
-      usageOptions: [
-        { value: 'personal', label: 'Kişisel Depolama (fotoğraf, belge)' },
-        { value: 'gaming', label: 'Oyun (hızlı yükleme, yüksek kapasite)' },
-        { value: 'video_editing', label: 'Video Düzenleme/Grafik Tasarım (yüksek hız, yüksek kapasite)' },
-        { value: 'backup', label: 'Yedekleme (yüksek kapasite, güvenilirlik)' },
-        { value: 'office', label: 'Ofis/İş (dengeli performans, güvenlik)' },
-      ],
-      capacityLabel: "İhtiyaç Duyulan Kapasite:",
-      capacityOptions: [
-        { value: 'lt500gb', label: '500 GB altı' },
-        { value: '500gb_1tb', label: '500 GB - 1 TB' },
-        { value: '1tb_4tb', label: '1 TB - 4 TB' },
-        { value: 'gt4tb', label: '4 TB üzeri' },
-      ],
-      speedLabel: "İstenen Hız:",
-      speedOptions: [
-        { value: 'very_high', label: 'Çok Yüksek (NVMe SSD)' },
-        { value: 'high', label: 'Yüksek (SATA SSD)' },
-        { value: 'medium', label: 'Orta (HDD)' },
-      ],
-      budgetLabel: "Yaklaşık Bütçe:",
-      budgetOptions: [
-        { value: 'low', label: 'Ekonomik (500 TL altı)' },
-        { value: 'medium', label: 'Orta (500 - 1500 TL)' },
-        { value: 'high', label: 'Yüksek (1500 TL üzeri)' },
-      ],
-      portabilityLabel: "Taşınabilirlik:",
-      portabilityOptions: [
-        { value: 'portable', label: 'Taşınabilir (harici)' },
-        { value: 'fixed', label: 'Sabit (dahili/masaüstü)' },
-      ],
-      recommendButton: "Tavsiye Al",
-      recommendationTitle: "Önerilen Depolama Cihazı:",
-      noRecommendation: "Seçimlerinize uygun bir depolama cihazı bulunamadı. Lütfen seçimlerinizi değiştirin.",
-      emailPrompt: "Tavsiyeyi görmek için e-posta adresinizi girin:",
-      submit: "Gönder",
-      // التوصيات كما في السابق...
-    },
-    en: {
-      title: "Storage Device Advisor",
-      description: "Let us help you find the perfect storage device for your needs.",
-      usageLabel: "Main Usage:",
-      usageOptions: [
-        { value: 'personal', label: 'Personal Storage (photos, documents)' },
-        { value: 'gaming', label: 'Gaming (fast loading, high capacity)' },
-        { value: 'video_editing', label: 'Video Editing/Graphic Design (high speed, high capacity)' },
-        { value: 'backup', label: 'Backup (high capacity, reliability)' },
-        { value: 'office', label: 'Office/Business (balanced performance, security)' },
-      ],
-      capacityLabel: "Required Capacity:",
-      capacityOptions: [
-        { value: 'lt500gb', label: 'Less than 500 GB' },
-        { value: '500gb_1tb', label: '500 GB - 1 TB' },
-        { value: '1tb_4tb', label: '1 TB - 4 TB' },
-        { value: 'gt4tb', label: 'More than 4 TB' },
-      ],
-      speedLabel: "Desired Speed:",
-      speedOptions: [
-        { value: 'very_high', label: 'Very High (NVMe SSD)' },
-        { value: 'high', label: 'High (SATA SSD)' },
-        { value: 'medium', label: 'Medium (HDD)' },
-      ],
-      budgetLabel: "Approximate Budget:",
-      budgetOptions: [
-        { value: 'low', label: 'Economical (Under 500 TL)' },
-        { value: 'medium', label: 'Medium (500 - 1500 TL)' },
-        { value: 'high', label: 'High (Over 1500 TL)' },
-      ],
-      portabilityLabel: "Portability:",
-      portabilityOptions: [
-        { value: 'portable', label: 'Portable (external)' },
-        { value: 'fixed', label: 'Fixed (internal/desktop)' },
-      ],
-      recommendButton: "Get Recommendation",
-      recommendationTitle: "Recommended Storage Device:",
-      noRecommendation: "No storage device found matching your selections. Please adjust your choices.",
-      emailPrompt: "Enter your email to see the recommendation:",
-      submit: "Submit",
-      // same recommendations...
-    }
-  };
+.advisor-form {
+  background: #f8f9fa;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
 
-  const t = content[language];
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
 
-  const getRecommendation = () => {
-    if (!usage || !capacity || !speed || !budget || !portability) {
-      setRecommendation(null);
-      return;
-    }
-    setShowEmailModal(true);
-  };
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
 
-  const submitEmail = () => {
-    if (!email.includes('@')) {
-      alert(t.emailPrompt);
-      return;
-    }
-    console.log("User Email Saved:", email);
-    console.log("Selections:", { usage, capacity, speed, budget, portability });
-    setEmailSubmitted(true);
-    setShowEmailModal(false);
-    matchRecommendation();
-  };
+.form-group select {
+  padding: 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%22292.4%22 height%3D%22292.4%22 viewBox%3D%220 0 292.4 292.4%22%3E%3Cpath fill%3D%22%23000000%22 d%3D%22M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4-3.6 3.6-5.4 7.9-5.4 12.9v12.9c0 5 1.8 9.3 5.4 12.9l118 118c3.6 3.6 7.9 5.4 12.9 5.4s9.3-1.8 12.9-5.4l118-118c3.6-3.6 5.4-7.9 5.4-12.9V82.3c0-5-1.8-9.3-5.4-12.9z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
 
-  const matchRecommendation = () => {
-    if (usage === 'gaming' && speed === 'very_high' && budget === 'high') {
-      setRecommendation(t.nvme_gaming_high_budget);
-    } else if (usage === 'video_editing' && speed === 'very_high' && budget === 'high') {
-      setRecommendation(t.nvme_video_editing_high_budget);
-    } else if (usage === 'backup' && speed === 'medium' && budget === 'low') {
-      setRecommendation(t.hdd_backup_low_budget);
-    } else if (usage === 'office' && speed === 'high' && budget === 'medium') {
-      setRecommendation(t.sata_office_medium_budget);
-    } else if (usage === 'personal' && speed === 'medium' && budget === 'low') {
-      setRecommendation(t.hdd_personal_low_budget);
-    } else {
-      setRecommendation(t.default_recommendation);
-    }
-  };
+.recommend-button {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  margin-top: 1rem;
+}
 
-  return (
-    <div className="storage-advisor">
-      <div className="container">
-        <h1 className="page-title">{t.title}</h1>
-        <p className="advisor-description">{t.description}</p>
+.recommend-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
 
-        <div className="advisor-form">
-          <div className="form-group">
-            <label>{t.usageLabel}</label>
-            <select value={usage} onChange={(e) => setUsage(e.target.value)}>
-              <option value="">--</option>
-              {t.usageOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+.recommendation-result {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 2rem auto;
+  border-left: 5px solid #667eea;
+}
 
-          <div className="form-group">
-            <label>{t.capacityLabel}</label>
-            <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
-              <option value="">--</option>
-              {t.capacityOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+.recommendation-result h2 {
+  color: #1e3c72;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
 
-          <div className="form-group">
-            <label>{t.speedLabel}</label>
-            <select value={speed} onChange={(e) => setSpeed(e.target.value)}>
-              <option value="">--</option>
-              {t.speedOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+.recommendation-result h3 {
+  color: #764ba2;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
 
-          <div className="form-group">
-            <label>{t.budgetLabel}</label>
-            <select value={budget} onChange={(e) => setBudget(e.target.value)}>
-              <option value="">--</option>
-              {t.budgetOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+.recommendation-result p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
 
-          <div className="form-group">
-            <label>{t.portabilityLabel}</label>
-            <select value={portability} onChange={(e) => setPortability(e.target.value)}>
-              <option value="">--</option>
-              {t.portabilityOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
-              ))}
-            </select>
-          </div>
+.recommendation-result p strong {
+  color: #333;
+}
 
-          <button onClick={getRecommendation} className="recommend-button">
-            {t.recommendButton}
-          </button>
-        </div>
+.no-recommendation {
+  text-align: center;
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 2rem;
+}
 
-        {showEmailModal && !emailSubmitted && (
-          <div className="modal-overlay">
-            <div className="email-modal">
-              <button className="close-modal" onClick={() => setShowEmailModal(false)}>×</button>
-              <h3>{t.emailPrompt}</h3>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="example@email.com"
-              />
-              <button onClick={submitEmail}>{t.submit}</button>
-            </div>
-          </div>
-        )}
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 
-        {recommendation && (
-          <div className="recommendation-result">
-            <h2>{t.recommendationTitle}</h2>
-            <h3>{recommendation.type}</h3>
-            <p><strong>{language === 'tr' ? 'Neden:' : 'Reason:'}</strong> {recommendation.reason}</p>
-            <p><strong>{language === 'tr' ? 'Fiyat Aralığı:' : 'Estimated Price Range:'}</strong> {recommendation.price}</p>
-            <p><strong>{language === 'tr' ? 'Markalar:' : 'Recommended Brands:'}</strong> {recommendation.brands}</p>
-            <p><strong>{language === 'tr' ? 'Mağazalar:' : 'Available at Stores:'}</strong> {recommendation.stores}</p>
-          </div>
-        )}
+/* Email Modal Box */
+.email-modal {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+  animation: fadeInScale 0.3s ease-out;
+}
 
-        {!recommendation && usage && capacity && speed && budget && portability && emailSubmitted && (
-          <p className="no-recommendation">{t.noRecommendation}</p>
-        )}
-      </div>
-    </div>
-  );
-};
+.email-modal input {
+  padding: 10px;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
-export default StorageAdvisor;
+.email-modal button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #667eea;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.email-modal button:hover {
+  background-color: #5a67d8;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+/* Animation */
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .advisor-form {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .storage-advisor {
+    padding: 2rem 1rem;
+  }
+
+  .recommendation-result {
+    padding: 1.5rem;
+  }
+
+  .form-group select {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .recommend-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
