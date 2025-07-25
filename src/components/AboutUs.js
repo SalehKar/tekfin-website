@@ -58,25 +58,23 @@ const AboutUs = ({ language }) => {
       <div className="container">
         <h1 className="page-title">{t.title}</h1>
 
-        {/* Story comes first now */}
+        {/* Section: Story */}
         <section className="story">
           <h2>{t.story.title}</h2>
           <p>{t.story.text}</p>
         </section>
 
-        {/* Then Vision and Mission */}
-        <section className="vision-mission">
-          <div className="vm-card">
-            <h2>{t.vision.title}</h2>
-            <p>{t.vision.text}</p>
-          </div>
-          <div className="vm-card">
-            <h2>{t.mission.title}</h2>
-            <p>{t.mission.text}</p>
-          </div>
-        </section>
+        {/* Sections: Vision and Mission now stacked vertically */}
+        <div className="vm-card">
+          <h2>{t.vision.title}</h2>
+          <p>{t.vision.text}</p>
+        </div>
+        <div className="vm-card">
+          <h2>{t.mission.title}</h2>
+          <p>{t.mission.text}</p>
+        </div>
 
-        {/* Then Values */}
+        {/* Section: Values */}
         <section className="values">
           <h2>{t.values.title}</h2>
           <div className="values-grid">
