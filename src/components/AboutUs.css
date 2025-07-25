@@ -1,9 +1,9 @@
 .about-us {
+  padding: 3rem 2rem;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 3rem 2rem;
-  min-height: 80vh;
 }
 
 .page-title {
@@ -26,10 +26,10 @@
   border-radius: 2px;
 }
 
+/* لم نعد بحاجة إلى عرض أفقي للرؤية والرسالة */
 .vision-mission {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
+  display: block; /* بدلاً من grid */
+  margin-bottom: 0;
 }
 
 .vm-card {
@@ -38,6 +38,7 @@
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   border: 1px solid #e9ecef;
+  margin-bottom: 2rem;
 }
 
 .vm-card h2 {
@@ -125,10 +126,6 @@
 
   .page-title {
     font-size: 2rem;
-  }
-
-  .vision-mission {
-    grid-template-columns: 1fr;
   }
 
   .story {
