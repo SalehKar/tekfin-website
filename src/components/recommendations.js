@@ -423,6 +423,202 @@ const recommendations = [
       tr: '6TB+ kapasiteli kurumsal sınıf NVMe depolama dizileri, veri merkezlerinde en yüksek yedekleme hızı ve güvenilirlik sağlar.'
     },
     brands: ['Intel DC P4510 8TB']
+  },
+    // --- PERSONAL USAGE: lt500 ---
+  {
+    conditions: { usage: 'personal', capacity: 'lt500', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'For storing documents and photos on the go, a 320GB USB 2.0 flash drive or external HDD is sufficient.',
+      tr: 'Belgeleri ve fotoğrafları taşımak için 320GB USB 2.0 flash bellek veya harici HDD yeterlidir.'
+    },
+    brands: ['SanDisk Cruzer Glide 256GB', 'WD Elements 320GB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'lt500', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'A 500GB 5400RPM internal HDD is enough for basic offline media and document storage.',
+      tr: 'Temel çevrimdışı medya ve belge saklama için 500GB 5400RPM dahili HDD yeterlidir.'
+    },
+    brands: ['Toshiba P300 500GB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'lt500', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'Portable SSDs with 500GB capacity are good for storing files across devices with decent speed.',
+      tr: '500GB kapasiteli taşınabilir SSD\'ler, cihazlar arası dosya saklama için iyi hız sunar.'
+    },
+    brands: ['Crucial X6']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'lt500', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'A 500GB SATA SSD in a desktop improves file access and system responsiveness for personal use.',
+      tr: 'Masaüstü bilgisayarda 500GB SATA SSD, dosya erişimini ve sistem yanıt hızını artırır.'
+    },
+    brands: ['Kingston A400']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'lt500', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'If portability and speed matter, consider a 500GB Thunderbolt SSD for top-tier file access performance.',
+      tr: 'Taşınabilirlik ve hız önemliyse, üst düzey dosya erişimi için 500GB Thunderbolt SSD değerlendirin.'
+    },
+    brands: ['Samsung X5']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 500GB NVMe SSD on your PC for snappy performance in everyday personal tasks.',
+      tr: 'Günlük kişisel görevlerde hızlı performans için PC\'nize 500GB NVMe SSD kurun.'
+    },
+    brands: ['WD Blue SN570']
+  },
+  // --- PERSONAL USAGE: 500_1tb ---
+  {
+    conditions: { usage: 'personal', capacity: '500_1tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'A 1TB external HDD is sufficient for general storage needs like photos, documents, and movies.',
+      tr: 'Fotoğraflar, belgeler ve filmler gibi genel depolama ihtiyaçları için 1TB harici HDD yeterlidir.'
+    },
+    brands: ['WD My Passport 1TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '500_1tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'A 1TB 5400RPM internal HDD can serve well for archival and offline media.',
+      tr: '1TB 5400RPM dahili HDD, arşivleme ve çevrimdışı medya için iyi bir tercihtir.'
+    },
+    brands: ['Toshiba P300 1TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '500_1tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: '1TB USB 3.2 external SSDs are a reliable choice for fast, portable storage across multiple devices.',
+      tr: '1TB USB 3.2 harici SSD'ler, birden çok cihaz arasında hızlı, taşınabilir depolama için güvenilir bir tercihtir.'
+    },
+    brands: ['SanDisk Extreme Portable']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '500_1tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'A 1TB SATA SSD will provide fast and silent performance in desktop environments.',
+      tr: '1TB SATA SSD, masaüstü ortamlarda hızlı ve sessiz performans sağlar.'
+    },
+    brands: ['Kingston A400 1TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '500_1tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A 1TB Thunderbolt SSD is ideal for those needing the fastest portable storage for personal use.',
+      tr: 'Kişisel kullanım için en hızlı taşınabilir depolamaya ihtiyaç duyanlar için 1TB Thunderbolt SSD idealdir.'
+    },
+    brands: ['Samsung X5 1TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '500_1tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 1TB NVMe SSD for blazing-fast load times and superior multitasking performance.',
+      tr: 'Çok hızlı yükleme süreleri ve üstün çoklu görev performansı için 1TB NVMe SSD kurun.'
+    },
+    brands: ['WD Black SN770 1TB']
+  },
+   // --- PERSONAL USAGE: 1tb_4tb ---
+  {
+    conditions: { usage: 'personal', capacity: '1tb_4tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'A 2TB external HDD is ideal for storing personal media libraries like movies and music collections.',
+      tr: '2TB harici HDD, filmler ve müzik koleksiyonları gibi kişisel medya arşivlerini depolamak için idealdir.'
+    },
+    brands: ['Seagate Expansion 2TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '1tb_4tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Use a 3TB 5400RPM internal HDD for archiving and infrequent data access at home.',
+      tr: 'Evde arşivleme ve nadir veri erişimi için 3TB 5400RPM dahili HDD kullanın.'
+    },
+    brands: ['WD Blue 3TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 2TB USB 3.2 external SSD gives fast and flexible storage across all personal devices.',
+      tr: '2TB USB 3.2 harici SSD, tüm kişisel cihazlar arasında hızlı ve esnek depolama sunar.'
+    },
+    brands: ['Crucial X8 2TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '1tb_4tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'A 2TB SATA SSD is a balanced option for personal desktops offering speed and affordability.',
+      tr: '2TB SATA SSD, hız ve uygun fiyat sunarak kişisel masaüstü bilgisayarlar için dengeli bir seçenektir.'
+    },
+    brands: ['Kingston A400 2TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '1tb_4tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A 4TB Thunderbolt SSD is great for personal media professionals needing speed and size in one.',
+      tr: '4TB Thunderbolt SSD, hız ve kapasiteyi bir arada isteyen kişisel medya profesyonelleri için mükemmeldir.'
+    },
+    brands: ['G-Drive Mobile Pro SSD 4TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: '1tb_4tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 2TB NVMe SSD for extremely fast app launches and system responsiveness.',
+      tr: 'Uygulamaların çok hızlı açılması ve sistemin hızlı tepki vermesi için 2TB NVMe SSD kurun.'
+    },
+    brands: ['Samsung 980 PRO 2TB']
+  },
+  // --- PERSONAL USAGE: gt4tb ---
+  {
+    conditions: { usage: 'personal', capacity: 'gt4tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'For massive movie or photo libraries, a 5TB external HDD offers ample storage at a reasonable price.',
+      tr: 'Büyük film veya fotoğraf arşivleri için 5TB harici HDD uygun fiyata geniş depolama alanı sunar.'
+    },
+    brands: ['WD Elements 5TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'A 6TB 5400RPM internal HDD is a cost-effective solution for long-term personal data archiving.',
+      tr: '6TB 5400RPM dahili HDD, uzun vadeli kişisel veri arşivleme için uygun maliyetli bir çözümdür.'
+    },
+    brands: ['Toshiba X300 6TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'gt4tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 5TB USB 3.2 external SSD balances capacity and performance for power users on the go.',
+      tr: '5TB USB 3.2 harici SSD, hareket halindeki ileri düzey kullanıcılar için kapasite ve performansı dengeler.'
+    },
+    brands: ['SanDisk Extreme Portable 5TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'gt4tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 4TB SATA SSD for fast and silent large-volume storage in a home PC setup.',
+      tr: 'Ev tipi bilgisayarlarda hızlı ve sessiz büyük hacimli depolama için 4TB SATA SSD kurun.'
+    },
+    brands: ['Samsung 870 QVO 4TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'gt4tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A 4TB Thunderbolt SSD delivers exceptional speed for large-scale personal media workflows.',
+      tr: '4TB Thunderbolt SSD, büyük ölçekli kişisel medya iş akışları için olağanüstü hız sunar.'
+    },
+    brands: ['LaCie Rugged Thunderbolt 4TB']
+  },
+  {
+    conditions: { usage: 'personal', capacity: 'gt4tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'For enthusiast users, a 4TB NVMe Gen4 SSD provides unbeatable speed for demanding personal tasks.',
+      tr: 'Tutkulu kullanıcılar için 4TB NVMe Gen4 SSD, zorlu kişisel görevler için rakipsiz hız sunar.'
+    },
+    brands: ['Sabrent Rocket 4 Plus 4TB']
   }
 ];
 
