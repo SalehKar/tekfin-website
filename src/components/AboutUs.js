@@ -57,7 +57,14 @@ const AboutUs = ({ language }) => {
     <div className="about-us">
       <div className="container">
         <h1 className="page-title">{t.title}</h1>
-        
+
+        {/* Story comes first now */}
+        <section className="story">
+          <h2>{t.story.title}</h2>
+          <p>{t.story.text}</p>
+        </section>
+
+        {/* Then Vision and Mission */}
         <section className="vision-mission">
           <div className="vm-card">
             <h2>{t.vision.title}</h2>
@@ -69,11 +76,7 @@ const AboutUs = ({ language }) => {
           </div>
         </section>
 
-        <section className="story">
-          <h2>{t.story.title}</h2>
-          <p>{t.story.text}</p>
-        </section>
-
+        {/* Then Values */}
         <section className="values">
           <h2>{t.values.title}</h2>
           <div className="values-grid">
@@ -105,4 +108,3 @@ const AboutUs = ({ language }) => {
 };
 
 export default AboutUs;
-
