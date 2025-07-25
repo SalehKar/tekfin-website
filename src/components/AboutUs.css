@@ -1,4 +1,7 @@
 .about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   padding: 3rem 2rem;
   min-height: 80vh;
 }
@@ -6,7 +9,7 @@
 .page-title {
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0;
   color: #333;
   position: relative;
 }
@@ -27,7 +30,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
 }
 
 .vm-card {
@@ -51,7 +53,6 @@
 }
 
 .story {
-  margin-bottom: 4rem;
   background: #f8f9fa;
   padding: 3rem;
   border-radius: 15px;
@@ -121,21 +122,20 @@
   .about-us {
     padding: 2rem 1rem;
   }
-  
+
   .page-title {
     font-size: 2rem;
   }
-  
+
   .vision-mission {
     grid-template-columns: 1fr;
   }
-  
+
   .story {
     padding: 2rem;
   }
-  
+
   .values-grid {
     grid-template-columns: 1fr;
   }
 }
-
