@@ -815,7 +815,203 @@ const recommendations = [
       tr: 'Üst düzey performans için oyun masaüstlerine 4TB+ PCIe Gen4 NVMe SSD kurun.'
     },
     brands: ['Sabrent Rocket 4 Plus 4TB']
-  }
+  },
+   // --- OFFICE USAGE: lt500 ---
+  {
+    conditions: { usage: 'office', capacity: 'lt500', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Portable low-speed drives under 500GB are barely sufficient for office use. Consider upgrading to SSD for reliability.',
+      tr: '500GB altı taşınabilir düşük hızlı sürücüler ofis kullanımı için zar zor yeterlidir. Güvenilirlik için SSD'ye geçin.'
+    },
+    brands: ['WD Elements 320GB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'lt500', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Fixed 500GB HDDs are workable for basic office tasks, but SSD is advised for faster access.',
+      tr: 'Sabit 500GB HDD'ler temel ofis görevleri için işe yarar, ancak daha hızlı erişim için SSD önerilir.'
+    },
+    brands: ['Seagate Barracuda 500GB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'lt500', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 500GB external SSD improves performance for frequent document access and mobility.',
+      tr: '500GB harici SSD, sık belge erişimi ve hareketlilik için performansı artırır.'
+    },
+    brands: ['Crucial X6 500GB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'lt500', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 500GB SATA SSD for fast system boot and efficient office application use.',
+      tr: 'Hızlı sistem başlatma ve verimli ofis uygulama kullanımı için 500GB SATA SSD kurun.'
+    },
+    brands: ['Kingston A400 500GB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'lt500', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A Thunderbolt SSD (500GB) is overkill for office use but great for fast backups and transfers.',
+      tr: 'Thunderbolt SSD (500GB), ofis kullanımı için fazla olabilir ancak hızlı yedekleme ve aktarım için mükemmeldir.'
+    },
+    brands: ['Samsung X5 500GB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'For top responsiveness in data-heavy office work, a 500GB NVMe SSD offers excellent speed.',
+      tr: 'Veri yoğun ofis işleri için üst düzey tepki hızı sunan 500GB NVMe SSD mükemmel bir hız sağlar.'
+    },
+    brands: ['WD Black SN770 500GB']
+  },
+  // --- OFFICE USAGE: 500_1tb ---
+  {
+    conditions: { usage: 'office', capacity: '500_1tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Portable HDDs around 1TB are common but slow. Recommended only for light document storage.',
+      tr: '1TB civarındaki taşınabilir HDD\'ler yaygındır ancak yavaştır. Sadece hafif belge depolama için önerilir.'
+    },
+    brands: ['Toshiba Canvio Basics 1TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '500_1tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Internal 1TB HDDs work fine for legacy office systems, but SSDs improve productivity.',
+      tr: 'Dahili 1TB HDD\'ler eski ofis sistemleri için uygundur, ancak SSD\'ler verimliliği artırır.'
+    },
+    brands: ['WD Blue 1TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '500_1tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 1TB USB 3.2 SSD gives great balance for office users needing fast access on the move.',
+      tr: '1TB USB 3.2 SSD, hareket halindeyken hızlı erişim isteyen ofis kullanıcıları için iyi bir dengedir.'
+    },
+    brands: ['SanDisk Extreme Portable 1TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '500_1tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'For desktop office PCs, a 1TB SATA SSD ensures fast boot and smooth multitasking.',
+      tr: 'Masaüstü ofis bilgisayarları için 1TB SATA SSD, hızlı başlatma ve sorunsuz çoklu görev sağlar.'
+    },
+    brands: ['Crucial MX500 1TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '500_1tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'For fast file transfers, a 1TB Thunderbolt SSD is excellent, though may exceed office needs.',
+      tr: 'Hızlı dosya transferleri için 1TB Thunderbolt SSD mükemmeldir, ancak ofis ihtiyaçlarını aşabilir.'
+    },
+    brands: ['Plugable Thunderbolt SSD 1TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '500_1tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'A 1TB NVMe SSD delivers top performance in office desktops with heavy multitasking and data handling.',
+      tr: 'Yoğun çoklu görev ve veri işleme için 1TB NVMe SSD, ofis masaüstlerinde üst düzey performans sunar.'
+    },
+    brands: ['Samsung 980 PRO 1TB']
+  },
+    // --- OFFICE USAGE: 1tb_4tb ---
+  {
+    conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Large-capacity portable HDDs (e.g., 2TB) are cheap but slow. Suitable only for archiving office files.',
+      tr: 'Büyük kapasiteli taşınabilir HDD\'ler (örneğin 2TB) ucuzdur ancak yavaştır. Sadece ofis dosyalarının arşivlenmesi için uygundur.'
+    },
+    brands: ['Seagate Expansion Portable 2TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Internal 2TB HDDs are fine for backup-heavy workflows, but not for performance tasks.',
+      tr: 'Dahili 2TB HDD\'ler, yedekleme ağırlıklı iş akışları için uygundur ancak performans görevleri için değildir.'
+    },
+    brands: ['Toshiba P300 2TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 2TB USB 3.2 SSD is ideal for professionals needing speed and space on the go.',
+      tr: '2TB USB 3.2 SSD, hareket halindeyken hız ve alan ihtiyacı olan profesyoneller için idealdir.'
+    },
+    brands: ['Crucial X8 2TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Upgrade to a 2TB SATA SSD to enjoy fast load times and efficient software handling.',
+      tr: 'Hızlı yükleme süreleri ve verimli yazılım kullanımı için 2TB SATA SSD\'ye geçin.'
+    },
+    brands: ['Samsung 870 EVO 2TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'Thunderbolt SSDs (2TB+) provide ultra-fast data access for executives working with heavy documents.',
+      tr: 'Thunderbolt SSD\'ler (2TB+) büyük belgelerle çalışan yöneticiler için ultra hızlı veri erişimi sağlar.'
+    },
+    brands: ['SanDisk Professional PRO-G40 2TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: '2TB NVMe SSDs offer enterprise-level speed for high-demand office environments.',
+      tr: '2TB NVMe SSD\'ler, yüksek talepli ofis ortamları için kurumsal düzeyde hız sunar.'
+    },
+    brands: ['WD Black SN850X 2TB']
+  },
+// --- OFFICE USAGE: gt4tb ---
+  {
+    conditions: { usage: 'office', capacity: 'gt4tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Portable drives over 4TB are great for archiving large office datasets but expect slow performance.',
+      tr: '4TB üzeri taşınabilir sürücüler büyük ofis veri kümelerini arşivlemek için idealdir, ancak performans düşüktür.'
+    },
+    brands: ['WD My Passport 5TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Fixed 6TB HDDs are economical for long-term backups in office environments where speed is not critical.',
+      tr: 'Sabit 6TB HDD\'ler, hızın kritik olmadığı ofis ortamlarında uzun vadeli yedeklemeler için ekonomiktir.'
+    },
+    brands: ['Seagate BarraCuda 6TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'gt4tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'High-speed 4–5TB SSDs (USB 3.2) are useful for portable workstations dealing with large data volumes.',
+      tr: 'Yüksek hızlı 4–5TB SSD\'ler (USB 3.2), büyük veri hacimleriyle çalışan taşınabilir iş istasyonları için faydalıdır.'
+    },
+    brands: ['Crucial X6 4TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'gt4tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 4TB SATA SSD in office workstations for improved application loading and file management.',
+      tr: 'Ofis iş istasyonlarına 4TB SATA SSD kurarak uygulama yükleme ve dosya yönetimini iyileştirin.'
+    },
+    brands: ['Samsung 870 QVO 4TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'gt4tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'Thunderbolt 4TB+ SSDs are premium options for mobile offices handling massive files daily.',
+      tr: 'Thunderbolt 4TB+ SSD\'ler, günlük büyük dosyalarla çalışan mobil ofisler için üst düzey seçeneklerdir.'
+    },
+    brands: ['LaCie Rugged Thunderbolt 5TB']
+  },
+  {
+    conditions: { usage: 'office', capacity: 'gt4tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'NVMe SSDs over 4TB offer unmatched performance for enterprise-level office computing.',
+      tr: '4TB üzerindeki NVMe SSD\'ler, kurumsal düzeyde ofis bilgi işlem için eşsiz performans sunar.'
+    },
+    brands: ['Sabrent Rocket 4 Plus 8TB']
+  },
 ];
 
 export default recommendations;
