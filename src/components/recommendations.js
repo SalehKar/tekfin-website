@@ -619,6 +619,202 @@ const recommendations = [
       tr: 'Tutkulu kullanıcılar için 4TB NVMe Gen4 SSD, zorlu kişisel görevler için rakipsiz hız sunar.'
     },
     brands: ['Sabrent Rocket 4 Plus 4TB']
+  },
+  // --- GAMING USAGE: lt500 ---
+  {
+    conditions: { usage: 'gaming', capacity: 'lt500', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Portable low-speed drives under 500GB are not recommended for gaming. Upgrade to SSD for smoother performance.',
+      tr: 'Taşınabilir düşük hızlı ve 500GB altı sürücüler oyun için önerilmez. Daha akıcı performans için SSD'ye geçin.'
+    },
+    brands: []
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'lt500', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Fixed low-speed HDDs with <500GB storage are not suitable for gaming. Upgrade capacity or speed.',
+      tr: 'Sabit düşük hızlı ve 500GB altı HDD'ler oyun için uygun değildir. Kapasite veya hızı yükseltin.'
+    },
+    brands: []
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'lt500', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 500GB USB 3.2 SSD provides decent performance for a small portable gaming library.',
+      tr: '500GB USB 3.2 SSD, küçük taşınabilir bir oyun kütüphanesi için yeterli performans sağlar.'
+    },
+    brands: ['SanDisk Extreme Portable 500GB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'lt500', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Use a 500GB SATA SSD for entry-level gaming PCs to improve loading times.',
+      tr: '500GB SATA SSD, başlangıç seviyesi oyun PC'lerinde yükleme sürelerini iyileştirir.'
+    },
+    brands: ['Kingston A400 500GB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'lt500', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A 500GB Thunderbolt SSD offers high-speed portable access for selected games.',
+      tr: '500GB Thunderbolt SSD, seçili oyunlara yüksek hızlı taşınabilir erişim sağlar.'
+    },
+    brands: ['Samsung X5 500GB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 500GB NVMe SSD for fast game loading, but larger capacity is often preferred.',
+      tr: 'Hızlı oyun yüklemesi için 500GB NVMe SSD kurun, ancak genellikle daha büyük kapasite tercih edilir.'
+    },
+    brands: ['WD Black SN770 500GB']
+  },
+   // --- GAMING USAGE: 500_1tb ---
+  {
+    conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Avoid low-speed portable drives for gaming. Consider upgrading to an external SSD.',
+      tr: 'Oyun için düşük hızlı taşınabilir sürücülerden kaçının. Harici SSD\'ye geçmeyi düşünün.'
+    },
+    brands: []
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Gaming with a low-speed 1TB HDD will result in slow loading times. SSD is strongly recommended.',
+      tr: 'Düşük hızlı 1TB HDD ile oyun oynamak, yavaş yükleme sürelerine yol açar. SSD şiddetle tavsiye edilir.'
+    },
+    brands: ['Seagate Barracuda 1TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 1TB USB 3.2 SSD is suitable for storing several modern games with fast load times.',
+      tr: '1TB USB 3.2 SSD, hızlı yükleme süreleriyle birçok modern oyunu depolamak için uygundur.'
+    },
+    brands: ['Crucial X6 1TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Use a 1TB SATA SSD for a balanced gaming experience on desktop PCs.',
+      tr: 'Masaüstü bilgisayarlarda dengeli bir oyun deneyimi için 1TB SATA SSD kullanın.'
+    },
+    brands: ['Samsung 870 EVO 1TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A 1TB Thunderbolt external SSD ensures ultra-fast load speeds on compatible gaming laptops.',
+      tr: '1TB Thunderbolt harici SSD, uyumlu oyun dizüstü bilgisayarlarda ultra hızlı yükleme hızları sağlar.'
+    },
+    brands: ['SanDisk Professional PRO-G40 1TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 1TB PCIe Gen3 NVMe SSD for lightning-fast game boot and load times.',
+      tr: 'Oyunların hızlı başlatılması ve yüklenmesi için 1TB PCIe Gen3 NVMe SSD kurun.'
+    },
+    brands: ['WD Black SN770 1TB']
+  },
+  // --- GAMING USAGE: 1tb_4tb ---
+  {
+    conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Portable HDDs with low speed and large size may store games, but will bottleneck performance.',
+      tr: 'Düşük hızlı büyük boyutlu taşınabilir HDD\'ler oyunları depolayabilir, ancak performansı kısıtlar.'
+    },
+    brands: ['Toshiba Canvio Basics 2TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Large low-speed HDDs are not ideal for gaming. Upgrade to an SSD for better responsiveness.',
+      tr: 'Büyük düşük hızlı HDD\'ler oyun için ideal değildir. Daha iyi tepki süresi için SSD\'ye geçin.'
+    },
+    brands: ['WD Blue 2TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'A 2TB USB 3.2 SSD is a good match for gamers needing capacity and speed on the go.',
+      tr: '2TB USB 3.2 SSD, hareket halindeyken kapasite ve hıza ihtiyaç duyan oyuncular için iyi bir seçimdir.'
+    },
+    brands: ['SanDisk Extreme 2TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'A 2TB SATA SSD gives reliable performance for desktop gaming with plenty of space.',
+      tr: '2TB SATA SSD, masaüstü oyunları için güvenilir performans ve geniş alan sağlar.'
+    },
+    brands: ['Crucial MX500 2TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'A 2TB Thunderbolt SSD offers blazing-fast speed for portable high-end gaming rigs.',
+      tr: '2TB Thunderbolt SSD, taşınabilir üst düzey oyun sistemleri için ışık hızında hız sunar.'
+    },
+    brands: ['Samsung X5 2TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'For pro gamers, a 2TB PCIe Gen4 NVMe SSD provides unbeatable load times and smooth gameplay.',
+      tr: 'Profesyonel oyuncular için, 2TB PCIe Gen4 NVMe SSD eşsiz yükleme süreleri ve akıcı oyun deneyimi sunar.'
+    },
+    brands: ['Samsung 990 PRO 2TB']
+  },
+  // --- GAMING USAGE: gt4tb ---
+  {
+    conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'low', portability: 'portable' },
+    recommendation: {
+      en: 'Avoid low-speed portable drives larger than 4TB for gaming. They are too slow for modern games.',
+      tr: '4TB üzeri düşük hızlı taşınabilir sürücüler oyun için çok yavaştır. Kullanımı önerilmez.'
+    },
+    brands: ['Seagate Expansion 5TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
+    recommendation: {
+      en: 'Internal 6TB HDDs are good for game storage, but not for running games. Consider hybrid setup.',
+      tr: '6TB dahili HDD\'ler oyun depolama için iyidir, ancak oyun çalıştırmak için değil. Hibrit sistem düşünün.'
+    },
+    brands: ['Toshiba X300 6TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'high', portability: 'portable' },
+    recommendation: {
+      en: 'High-capacity 4TB+ USB 3.2 SSDs are rare but perfect for gamers needing both space and mobility.',
+      tr: '4TB+ USB 3.2 SSD\'ler nadirdir ancak hem alan hem taşınabilirlik isteyen oyuncular için idealdir.'
+    },
+    brands: ['Crucial X6 4TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'high', portability: 'fixed' },
+    recommendation: {
+      en: 'Use 4TB+ SATA SSDs in desktops for large game libraries without compromising performance.',
+      tr: 'Performanstan ödün vermeden büyük oyun kütüphaneleri için masaüstü bilgisayarlarda 4TB+ SATA SSD kullanın.'
+    },
+    brands: ['Samsung 870 QVO 4TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'very_high', portability: 'portable' },
+    recommendation: {
+      en: 'Thunderbolt 4 SSDs with >4TB provide ultimate speed and capacity for gamers on the move.',
+      tr: '4TB üzeri Thunderbolt 4 SSD\'ler, hareket halindeki oyuncular için en yüksek hız ve kapasiteyi sağlar.'
+    },
+    brands: ['OWC Envoy Pro FX 4TB']
+  },
+  {
+    conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'very_high', portability: 'fixed' },
+    recommendation: {
+      en: 'Install a 4TB+ PCIe Gen4 NVMe SSD in gaming desktops for elite-level performance.',
+      tr: 'Üst düzey performans için oyun masaüstlerine 4TB+ PCIe Gen4 NVMe SSD kurun.'
+    },
+    brands: ['Sabrent Rocket 4 Plus 4TB']
   }
 ];
 
