@@ -103,7 +103,7 @@ const HomePage = ({ language }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {['dataRecovery', 'wireless', 'other'].map((key, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 bg-white rounded-full shadow">
+                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 bg-gray-100 rounded-full shadow overflow-hidden">
                   <img
                     src={`/images/icons/${key === 'dataRecovery'
                       ? 'data-recovery-icon'
@@ -111,7 +111,7 @@ const HomePage = ({ language }) => {
                         ? 'wireless-network-icon'
                         : 'other-tech-services-icon'}.png`}
                     alt={t.services[key].title}
-                    className="w-6 h-6 object-contain"
+                    className="max-w-full max-h-full object-contain"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-center">{t.services[key].title}</h3>
@@ -134,8 +134,8 @@ const HomePage = ({ language }) => {
               { key: 'customerFocus', icon: 'contact-us-icon' }
             ].map(({ key, icon }, index) => (
               <div key={index} className="text-center">
-                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-2 bg-white rounded-full shadow">
-                  <img src={`/images/icons/${icon}.png`} alt={key} className="w-6 h-6 object-contain" />
+                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-2 bg-gray-100 rounded-full shadow overflow-hidden">
+                  <img src={`/images/icons/${icon}.png`} alt={key} className="max-w-full max-h-full object-contain" />
                 </div>
                 <p>{t.whyChooseUs[key]}</p>
               </div>
