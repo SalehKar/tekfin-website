@@ -79,21 +79,21 @@ const HomePage = ({ language }) => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
+      <section className="hero bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900">
         <div className="container relative z-10 text-center text-white">
-          <h1 className="hero-title text-4xl font-bold mb-4">{t.mainTitle}</h1>
-          <p className="hero-subtitle text-lg mb-2">{t.subtitle}</p>
-          <p className="hero-intro mb-6 relative z-20 max-w-3xl mx-auto">{t.intro}</p>
+          <h1 className="hero-title text-4xl font-bold mb-4 leading-tight drop-shadow-md">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-lg mb-3 font-medium opacity-90 max-w-3xl mx-auto drop-shadow-sm">{t.subtitle}</p>
+          <p className="hero-intro mb-6 relative z-20 max-w-3xl mx-auto text-white/90 text-base leading-relaxed drop-shadow-sm">{t.intro}</p>
 
           <div className="promo-card bg-white/10 backdrop-blur-md p-6 rounded-xl mt-10 shadow-lg max-w-2xl mx-auto text-white">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="text-left">
-                <h2 className="text-xl font-semibold mb-2">{t.landingDescription}</h2>
+                <h2 className="text-lg font-medium mb-2 text-white/90 max-w-md">{t.landingDescription}</h2>
               </div>
               <div className="text-center">
                 <Link
                   to="/storage-advisor"
-                  className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition"
+                  className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition whitespace-nowrap"
                 >
                   {t.landingBtn}
                 </Link>
@@ -104,73 +104,9 @@ const HomePage = ({ language }) => {
       </section>
 
       {/* Existing Sections Below */}
-      <section className="services">
-        <div className="container">
-          <h2 className="section-title">{t.services.title}</h2>
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon">
-                <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
-              </div>
-              <h3>{t.services.dataRecovery.title}</h3>
-              <p>{t.services.dataRecovery.description}</p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon">
-                <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
-              </div>
-              <h3>{t.services.wireless.title}</h3>
-              <p>{t.services.wireless.description}</p>
-            </div>
-            <div className="service-card">
-              <div className="service-icon">
-                <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" />
-              </div>
-              <h3>{t.services.other.title}</h3>
-              <p>{t.services.other.description}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="why-choose-us">
-        <div className="container">
-          <h2 className="section-title">{t.whyChooseUs.title}</h2>
-          <div className="features-grid">
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/data-recovery-icon.png" alt="Expertise" />
-              </div>
-              <p>{t.whyChooseUs.expertise}</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" />
-              </div>
-              <p>{t.whyChooseUs.reliability}</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" />
-              </div>
-              <p>{t.whyChooseUs.fastSolutions}</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" />
-              </div>
-              <p>{t.whyChooseUs.customerFocus}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-section">
-        <div className="container">
-          <h2>{t.cta.title}</h2>
-          <button className="cta-button-large" onClick={() => navigate('/contact')}>{t.cta.button}</button>
-        </div>
-      </section>
+      <section className="services">...</section>
+      <section className="why-choose-us">...</section>
+      <section className="cta-section">...</section>
     </div>
   );
 };
