@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
-  const navigate = useNavigate();
-
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
@@ -79,21 +77,21 @@ const HomePage = ({ language }) => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900">
-        <div className="container relative z-10 text-center text-white">
-          <h1 className="hero-title text-4xl font-bold mb-4 leading-tight drop-shadow-md">{t.mainTitle}</h1>
-          <p className="hero-subtitle text-lg mb-3 font-medium opacity-90 max-w-3xl mx-auto drop-shadow-sm">{t.subtitle}</p>
-          <p className="hero-intro mb-6 relative z-20 max-w-3xl mx-auto text-white/90 text-base leading-relaxed drop-shadow-sm">{t.intro}</p>
+      <section className="hero bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
+        <div className="container relative z-10 text-center text-white py-12">
+          <h1 className="hero-title text-5xl font-bold mb-4 leading-tight drop-shadow-md">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-xl mb-4 font-medium opacity-90 max-w-3xl mx-auto drop-shadow-sm">{t.subtitle}</p>
+          <p className="hero-intro mb-8 max-w-4xl mx-auto text-white/90 text-base leading-relaxed drop-shadow-sm">{t.intro}</p>
 
-          <div className="promo-card bg-white/10 backdrop-blur-md p-6 rounded-xl mt-10 shadow-lg max-w-2xl mx-auto text-white">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="text-left">
-                <h2 className="text-lg font-medium mb-2 text-white/90 max-w-md">{t.landingDescription}</h2>
+          <div className="promo-card bg-white/10 backdrop-blur-md p-6 rounded-2xl mt-10 shadow-xl max-w-2xl mx-auto text-white border border-white/20">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div className="text-left sm:w-2/3">
+                <h2 className="text-lg font-semibold text-white/90 mb-1">{t.landingDescription}</h2>
               </div>
-              <div className="text-center">
+              <div className="text-center sm:w-1/3">
                 <Link
                   to="/storage-advisor"
-                  className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition whitespace-nowrap"
+                  className="cta-button px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl transition"
                 >
                   {t.landingBtn}
                 </Link>
