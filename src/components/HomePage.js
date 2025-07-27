@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
@@ -79,8 +79,8 @@ const HomePage = ({ language }) => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
-        <div className="container relative z-10 text-center text-white">
+      <section className="hero">
+        <div className="container relative z-10 text-center">
           <h1 className="hero-title text-4xl font-bold mb-4">{t.mainTitle}</h1>
           <p className="hero-subtitle text-lg mb-2">{t.subtitle}</p>
           <p className="hero-intro mb-6 relative z-20 max-w-3xl mx-auto">{t.intro}</p>
@@ -91,12 +91,9 @@ const HomePage = ({ language }) => {
                 <h2 className="text-xl font-semibold mb-2">{t.landingDescription}</h2>
               </div>
               <div className="text-center">
-                <Link
-                  to="/storage-advisor"
-                  className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition"
-                >
+                <button className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition" onClick={() => navigate('/storage-advisor')}>
                   {t.landingBtn}
-                </Link>
+                </button>
               </div>
             </div>
           </div>
