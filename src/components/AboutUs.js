@@ -54,39 +54,39 @@ const AboutUs = ({ language }) => {
     }
   };
 
-  const t = content[language] || content.tr;
+  const t = content[language];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold text-center text-[#1f4e79] mb-8">{t.title}</h1>
+    <div className="bg-white text-[#1f4e79] px-4 md:px-20 py-10">
+      <h1 className="text-3xl font-bold text-center mb-10">{t.title}</h1>
 
-      <section className="mb-12">
+      <div className="mb-12">
         <h2 className="text-xl font-semibold mb-2">{t.story.title}</h2>
-        <p className="text-gray-700 leading-relaxed">{t.story.text}</p>
-      </section>
+        <p className="text-md leading-relaxed">{t.story.text}</p>
+      </div>
 
-      <section className="grid md:grid-cols-2 gap-6 mb-12">
-        <div className="bg-white shadow-md p-6 rounded-lg border border-gray-200">
-          <h3 className="text-lg font-semibold text-[#1f4e79] mb-2">{t.vision.title}</h3>
-          <p className="text-gray-700 leading-relaxed">{t.vision.text}</p>
+      <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="bg-[#f4f7fb] p-6 rounded-xl shadow-sm">
+          <h3 className="text-lg font-semibold mb-2">{t.vision.title}</h3>
+          <p>{t.vision.text}</p>
         </div>
-        <div className="bg-white shadow-md p-6 rounded-lg border border-gray-200">
-          <h3 className="text-lg font-semibold text-[#1f4e79] mb-2">{t.mission.title}</h3>
-          <p className="text-gray-700 leading-relaxed">{t.mission.text}</p>
+        <div className="bg-[#f4f7fb] p-6 rounded-xl shadow-sm">
+          <h3 className="text-lg font-semibold mb-2">{t.mission.title}</h3>
+          <p>{t.mission.text}</p>
         </div>
-      </section>
+      </div>
 
-      <section>
+      <div>
         <h2 className="text-xl font-semibold mb-4">{t.values.title}</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {t.values.items.map((val, idx) => (
-            <div key={idx} className="bg-white shadow-sm p-4 rounded-lg flex items-start gap-3 border border-gray-200">
-              <span className="text-2xl">{val.icon}</span>
-              <p className="text-gray-700 text-sm leading-snug">{val.text}</p>
+            <div key={idx} className="bg-[#f4f7fb] p-4 rounded-lg shadow-sm flex items-start gap-2">
+              <div className="text-2xl">{val.icon}</div>
+              <p className="text-sm leading-snug">{val.text}</p>
             </div>
           ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 };
