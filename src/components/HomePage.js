@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
+  const navigate = useNavigate();
+
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
@@ -75,61 +78,98 @@ const HomePage = ({ language }) => {
 
   return (
     <div className="homepage">
-      <section className="hero bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900">
-        <div className="container relative z-10 text-center text-white py-16 px-6 sm:px-12">
-          <h1 className="text-5xl font-bold mb-4 leading-tight drop-shadow-md sm:text-6xl">{t.mainTitle}</h1>
-          <p className="text-xl mb-6 font-medium opacity-95 max-w-3xl mx-auto drop-shadow-sm sm:text-2xl">{t.subtitle}</p>
-          <p className="mb-10 max-w-4xl mx-auto text-white/90 text-base leading-relaxed drop-shadow-sm sm:text-lg">{t.intro}</p>
+      {/* Hero Section */}
+      <section className="hero bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
+        <div className="container relative z-10 text-center text-white">
+          <h1 className="hero-title text-4xl font-bold mb-4">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-lg mb-2">{t.subtitle}</p>
+          <p className="hero-intro mb-6 relative z-20 max-w-3xl mx-auto">{t.intro}</p>
 
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl max-w-3xl mx-auto text-white border border-white/20">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-              <div className="text-left sm:w-2/3">
-                <h2 className="text-lg font-semibold text-white/90 mb-2 leading-snug sm:text-xl">{t.landingDescription}</h2>
+          <div className="promo-card bg-white/10 backdrop-blur-md p-6 rounded-xl mt-10 shadow-lg max-w-2xl mx-auto text-white">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="text-left">
+                <h2 className="text-xl font-semibold mb-2">{t.landingDescription}</h2>
               </div>
-              <div className="text-center sm:w-1/3">
-                <a
-                  href="/storage-advisor"
-                  className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
+              <div className="text-center">
+                <Link
+                  to="/storage-advisor"
+                  className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition"
                 >
                   {t.landingBtn}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="services py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-8 text-indigo-800">{t.services.title}</h2>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {Object.values(t.services).slice(1).map((srv, idx) => (
-            <div key={idx} className="bg-white rounded-lg p-6 shadow-md text-left">
-              <h3 className="text-xl font-semibold text-indigo-700 mb-2">{srv.title}</h3>
-              <p className="text-gray-700">{srv.description}</p>
+      {/* Existing Sections Below */}
+      <section className="services">
+        <div className="container">
+          <h2 className="section-title">{t.services.title}</h2>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">
+                <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
+              </div>
+              <h3>{t.services.dataRecovery.title}</h3>
+              <p>{t.services.dataRecovery.description}</p>
             </div>
-          ))}
+            <div className="service-card">
+              <div className="service-icon">
+                <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
+              </div>
+              <h3>{t.services.wireless.title}</h3>
+              <p>{t.services.wireless.description}</p>
+            </div>
+            <div className="service-card">
+              <div className="service-icon">
+                <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" />
+              </div>
+              <h3>{t.services.other.title}</h3>
+              <p>{t.services.other.description}</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="why-choose-us bg-gray-100 py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-8 text-indigo-800">{t.whyChooseUs.title}</h2>
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {Object.values(t.whyChooseUs).slice(1).map((point, i) => (
-            <div key={i} className="bg-white rounded-lg p-6 shadow text-gray-800">
-              {point}
+      <section className="why-choose-us">
+        <div className="container">
+          <h2 className="section-title">{t.whyChooseUs.title}</h2>
+          <div className="features-grid">
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/data-recovery-icon.png" alt="Expertise" />
+              </div>
+              <p>{t.whyChooseUs.expertise}</p>
             </div>
-          ))}
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" />
+              </div>
+              <p>{t.whyChooseUs.reliability}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" />
+              </div>
+              <p>{t.whyChooseUs.fastSolutions}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" />
+              </div>
+              <p>{t.whyChooseUs.customerFocus}</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="cta-section bg-indigo-900 text-white text-center py-16 px-6">
-        <h2 className="text-2xl font-semibold mb-6 max-w-3xl mx-auto">{t.cta.title}</h2>
-        <a
-          href="/contact"
-          className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          {t.cta.button}
-        </a>
+      <section className="cta-section">
+        <div className="container">
+          <h2>{t.cta.title}</h2>
+          <button className="cta-button-large" onClick={() => navigate('/contact')}>{t.cta.button}</button>
+        </div>
       </section>
     </div>
   );
