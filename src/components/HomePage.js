@@ -1,10 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
-  const navigate = useNavigate();
-
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
@@ -90,12 +87,12 @@ const HomePage = ({ language }) => {
                 <h2 className="text-lg font-semibold text-white/90 mb-2 leading-snug sm:text-xl">{t.landingDescription}</h2>
               </div>
               <div className="text-center sm:w-1/3">
-                <button
-                  onClick={() => navigate('/storage-advisor')}
+                <a
+                  href="/storage-advisor"
                   className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   {t.landingBtn}
-                </button>
+                </a>
               </div>
             </div>
           </div>
