@@ -4,12 +4,13 @@ import './HomePage.css';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
-  
+
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
       subtitle: "Kaybolan Verilerinizi Geri Getiriyor, Geleceğin Teknolojilerini Bugünden Sunuyoruz.",
       intro: "İstanbul merkezli şirketimiz, veri kurtarma alanında uzmanlaşmış olup, gelecekte kablosuz ağlar ve diğer ileri teknoloji hizmetleriyle de yanınızda olacaktır. İşletmenizin veya kişisel verilerinizin güvenliği ve erişilebilirliği bizim önceliğimizdir.",
+      landingBtn: "Storage Advisor'ı Dene",
       services: {
         title: "Hizmetlerimiz",
         dataRecovery: {
@@ -32,11 +33,6 @@ const HomePage = ({ language }) => {
         fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
         customerFocus: "Müşteri Odaklılık: İhtiyaçlarınıza özel çözümler sunuyoruz."
       },
-      storageHighlight: {
-        title: "Doğru depolama cihazını mı arıyorsunuz?",
-        description: "Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
-        button: "Storage Advisor'ı Dene"
-      },
       cta: {
         title: "Kaybolan verilerinizi geri almak veya teknoloji çözümlerimiz hakkında daha fazla bilgi edinmek için bugün bizimle iletişime geçin!",
         button: "Hemen İletişime Geçin!"
@@ -46,6 +42,7 @@ const HomePage = ({ language }) => {
       mainTitle: "Data Recovery and Advanced Technology Solutions",
       subtitle: "We Recover Your Lost Data, Providing Tomorrow's Technologies Today.",
       intro: "Our Istanbul-based company specializes in data recovery, and in the future, we will also be by your side with wireless networks and other advanced technology services. The security and accessibility of your business or personal data are our priority.",
+      landingBtn: "Try Storage Advisor Tool",
       services: {
         title: "Our Services",
         dataRecovery: {
@@ -68,11 +65,6 @@ const HomePage = ({ language }) => {
         fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
         customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
       },
-      storageHighlight: {
-        title: "Not sure what storage device you need?",
-        description: "Use our smart advisor to get a tailored recommendation in seconds!",
-        button: "Try Storage Advisor Tool"
-      },
       cta: {
         title: "Contact us today to recover your lost data or learn more about our technology solutions!",
         button: "Contact Us Now!"
@@ -86,44 +78,19 @@ const HomePage = ({ language }) => {
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-content">
-          <h1 className="hero-title">{t.mainTitle}</h1>
-          <p className="hero-subtitle">{t.subtitle}</p>
-          <p className="hero-intro">{t.intro}</p>
-          <button className="cta-button" onClick={() => navigate('/contact')}>{t.cta.button}</button>
-        </div>
-        <div className="hero-image">
-          <div className="tech-illustration">
-            <div className="floating-icon">
-              <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
-            </div>
-            <div className="floating-icon">
-              <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
-            </div>
-            <div className="floating-icon">
-              <img src="/images/icons/other-tech-services-icon.png" alt="IT Services" />
-            </div>
-            <div className="floating-icon">
-              <img src="/images/icons/storage-advisor-icon.png" alt="Storage Advisor" />
-            </div>
+        <div className="container">
+          <h1 className="hero-title text-4xl font-bold text-center mb-4">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-lg text-center mb-2">{t.subtitle}</p>
+          <p className="hero-intro text-center mb-6">{t.intro}</p>
+          <div className="text-center">
+            <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
+              {t.landingBtn}
+            </button>
           </div>
         </div>
       </section>
 
-      <section className="promo-card">
-        <div className="promo-icon">
-          <img src="/images/icons/storage-advisor-icon.png" alt="Storage Advisor" />
-        </div>
-        <div className="promo-content">
-          <h2>{t.storageHighlight.title}</h2>
-          <p>{t.storageHighlight.description}</p>
-          <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
-            {t.storageHighlight.button}
-          </button>
-        </div>
-      </section>
-
-      {/* Services Section */}
+      {/* Existing Sections Below */}
       <section className="services">
         <div className="container">
           <h2 className="section-title">{t.services.title}</h2>
@@ -153,7 +120,6 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section className="why-choose-us">
         <div className="container">
           <h2 className="section-title">{t.whyChooseUs.title}</h2>
@@ -186,7 +152,6 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
           <h2>{t.cta.title}</h2>
@@ -198,4 +163,3 @@ const HomePage = ({ language }) => {
 };
 
 export default HomePage;
-
