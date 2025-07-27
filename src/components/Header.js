@@ -1,153 +1,101 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css';
 
-const Header = ({ currentPage, language, setLanguage }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Header = ({ language, setLanguage }) => {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const translations = {
     tr: {
       home: 'Ana Sayfa',
       about: 'Hakkımızda',
-      services: 'Hizmetlerimiz',
+      services: 'Hizmetler',
       dataRecovery: 'Veri Kurtarma',
       wirelessNetworks: 'Kablosuz Ağlar',
       otherServices: 'Diğer Hizmetler',
       storageAdvisor: 'Depolama Danışmanı',
-      faq: 'SSS',
       contact: 'İletişim'
     },
     en: {
       home: 'Home',
-      about: 'About Us',
+      about: 'About',
       services: 'Services',
       dataRecovery: 'Data Recovery',
       wirelessNetworks: 'Wireless Networks',
       otherServices: 'Other Services',
       storageAdvisor: 'Storage Advisor',
-      faq: 'FAQ',
       contact: 'Contact'
     }
   };
 
-  const t = translations[language];
+  const t = translations[language] || translations.en;
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="logo-section">
+    <header className="bg-white shadow-md">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="flex items-center space-x-4">
           <Link to="/">
-            <img src="/images/tekfin-logo.png" alt="TEKFİN TEKNOLOJİ LİMİTED ŞTİ" className="logo" />
+            <img src="/images/tekfin-logo.png" alt="Logo" className="h-10 w-auto" />
           </Link>
-          <h1 className="company-name">TEKFİN TEKNOLOJİ LİMİTED ŞTİ</h1>
+          <span className="text-xl font-bold text-blue-800 hidden sm:inline">TEKFİN</span>
         </div>
-        
-        <button className="hamburger-menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </button>
 
-        <nav className={`navigation ${isMobileMenuOpen ? 'open' : ''}`}>
-          <ul className="nav-menu">
-            <li>
-              <Link 
-                to="/"
-                className={currentPage === 'home' ? 'nav-link active' : 'nav-link'}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.home}
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/about-us"
-                className={currentPage === 'about' ? 'nav-link active' : 'nav-link'}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.about}
-              </Link>
-            </li>
-            <li className="dropdown">
-              <span className="nav-link">{t.services}</span>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link 
-                    to="/data-recovery"
-                    className="dropdown-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t.dataRecovery}
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/wireless-networks"
-                    className="dropdown-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t.wirelessNetworks}
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/other-services"
-                    className="dropdown-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t.otherServices}
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/storage-advisor"
-                    className="dropdown-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t.storageAdvisor}
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link 
-                to="/faq"
-                className={currentPage === 'faq' ? 'nav-link active' : 'nav-link'}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.faq}
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/contact"
-                className={currentPage === 'contact' ? 'nav-link active' : 'nav-link'}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t.contact}
-              </Link>
-            </li>
-          </ul>
+        <nav className="hidden md:flex space-x-6 items-center">
+          <Link to="/" className="text-gray-700 hover:text-blue-700 font-medium">{t.home}</Link>
+          <Link to="/about-us" className="text-gray-700 hover:text-blue-700 font-medium">{t.about}</Link>
+
+          <div className="relative">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="text-gray-700 hover:text-blue-700 font-medium focus:outline-none"
+            >
+              {t.services}
+            </button>
+            {isDropdownOpen && (
+              <div className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg py-2">
+                <Link to="/data-recovery" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.dataRecovery}</Link>
+                <Link to="/wireless-networks" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.wirelessNetworks}</Link>
+                <Link to="/other-services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.otherServices}</Link>
+                <Link to="/storage-advisor" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.storageAdvisor}</Link>
+              </div>
+            )}
+          </div>
+
+          <Link to="/contact" className="text-gray-700 hover:text-blue-700 font-medium">{t.contact}</Link>
         </nav>
 
-        <div className="language-switcher">
-          <button 
-            className={language === 'tr' ? 'lang-btn active' : 'lang-btn'}
-            onClick={() => setLanguage('tr')}
+        <div className="flex items-center space-x-2">
+          <button onClick={() => setLanguage('tr')} className={`px-2 py-1 rounded text-sm ${language === 'tr' ? 'bg-blue-700 text-white' : 'text-gray-700'}`}>TR</button>
+          <button onClick={() => setLanguage('en')} className={`px-2 py-1 rounded text-sm ${language === 'en' ? 'bg-blue-700 text-white' : 'text-gray-700'}`}>EN</button>
+          <button
+            className="md:hidden ml-4 focus:outline-none"
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
           >
-            TR
-          </button>
-          <button 
-            className={language === 'en' ? 'lang-btn active' : 'lang-btn'}
-            onClick={() => setLanguage('en')}
-          >
-            EN
+            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
+
+      {isMobileOpen && (
+        <div className="md:hidden bg-white shadow px-4 py-4 space-y-2">
+          <Link to="/" className="block text-gray-700 hover:text-blue-700">{t.home}</Link>
+          <Link to="/about-us" className="block text-gray-700 hover:text-blue-700">{t.about}</Link>
+          <div>
+            <span className="block text-gray-700 font-medium mb-1">{t.services}</span>
+            <div className="pl-4 space-y-1">
+              <Link to="/data-recovery" className="block text-gray-700 hover:text-blue-700 text-sm">{t.dataRecovery}</Link>
+              <Link to="/wireless-networks" className="block text-gray-700 hover:text-blue-700 text-sm">{t.wirelessNetworks}</Link>
+              <Link to="/other-services" className="block text-gray-700 hover:text-blue-700 text-sm">{t.otherServices}</Link>
+              <Link to="/storage-advisor" className="block text-gray-700 hover:text-blue-700 text-sm">{t.storageAdvisor}</Link>
+            </div>
+          </div>
+          <Link to="/contact" className="block text-gray-700 hover:text-blue-700">{t.contact}</Link>
+        </div>
+      )}
     </header>
   );
 };
 
 export default Header;
-
