@@ -1,6 +1,31 @@
-<h1 className="text-3xl font-bold text-center text-blue-600 my-6">
-  مرحباً بك في موقع TekFin
-</h1>
-<p className="text-lg text-gray-700 text-center">
-  هذا مجرد اختبار لتفعيل Tailwind CSS
-</p>
+// src/App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import Contact from './components/Contact';
+import StorageAdvisor from './components/StorageAdvisor';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import './App.css';
+
+function App() {
+  const [language, setLanguage] = useState('tr'); // 'en' or 'tr'
+
+  return (
+    <Router>
+      <div className="App">
+        <Header language={language} setLanguage={setLanguage} />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage language={language} />} />
+            <Route path="/contact" element={<Contact language={language} />} />
+            <Route path="/storage-advisor" element={<StorageAdvisor language={language} />} />
+          </Routes>
+        </main>
+        <Footer language={language} />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
