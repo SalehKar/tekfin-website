@@ -74,7 +74,7 @@ const HomePage = ({ language }) => {
     }
   };
 
-  const t = content[language];
+  const t = content[language] || content.en;
 
   return (
     <div className="homepage">
@@ -101,21 +101,23 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-center">{t.services.dataRecovery.title}</h3>
-              <p className="text-gray-700 text-sm text-center">{t.services.dataRecovery.description}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-center">{t.services.wireless.title}</h3>
-              <p className="text-gray-700 text-sm text-center">{t.services.wireless.description}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-center">{t.services.other.title}</h3>
-              <p className="text-gray-700 text-sm text-center">{t.services.other.description}</p>
-            </div>
+            {['dataRecovery', 'wireless', 'other'].map((key, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 bg-white rounded-full shadow">
+                  <img
+                    src={`/images/icons/${key === 'dataRecovery'
+                      ? 'data-recovery-icon'
+                      : key === 'wireless'
+                        ? 'wireless-network-icon'
+                        : 'other-tech-services-icon'}.png`}
+                    alt={t.services[key].title}
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">{t.services[key].title}</h3>
+                <p className="text-gray-700 text-sm text-center">{t.services[key].description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -125,22 +127,19 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <img src="/images/icons/data-recovery-icon.png" alt="Expertise" className="w-12 h-12 mx-auto mb-2" />
-              <p>{t.whyChooseUs.expertise}</p>
-            </div>
-            <div className="text-center">
-              <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" className="w-12 h-12 mx-auto mb-2" />
-              <p>{t.whyChooseUs.reliability}</p>
-            </div>
-            <div className="text-center">
-              <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" className="w-12 h-12 mx-auto mb-2" />
-              <p>{t.whyChooseUs.fastSolutions}</p>
-            </div>
-            <div className="text-center">
-              <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" className="w-12 h-12 mx-auto mb-2" />
-              <p>{t.whyChooseUs.customerFocus}</p>
-            </div>
+            {[
+              { key: 'expertise', icon: 'data-recovery-icon' },
+              { key: 'reliability', icon: 'storage-advisor-icon' },
+              { key: 'fastSolutions', icon: 'wireless-network-icon' },
+              { key: 'customerFocus', icon: 'contact-us-icon' }
+            ].map(({ key, icon }, index) => (
+              <div key={index} className="text-center">
+                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-2 bg-white rounded-full shadow">
+                  <img src={`/images/icons/${icon}.png`} alt={key} className="w-6 h-6 object-contain" />
+                </div>
+                <p>{t.whyChooseUs[key]}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
