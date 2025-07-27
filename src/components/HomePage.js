@@ -80,22 +80,15 @@ const HomePage = ({ language }) => {
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
-        <div className="container relative z-10 text-center">
-          <h1 className="hero-title text-4xl font-bold mb-4">{t.mainTitle}</h1>
-          <p className="hero-subtitle text-lg mb-2">{t.subtitle}</p>
-          <p className="hero-intro mb-6 relative z-20 max-w-3xl mx-auto">{t.intro}</p>
-
-          <div className="promo-card bg-white/10 backdrop-blur-md p-6 rounded-xl mt-10 shadow-lg max-w-2xl mx-auto text-white">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="text-left">
-                <h2 className="text-xl font-semibold mb-2">{t.landingDescription}</h2>
-              </div>
-              <div className="text-center">
-                <button className="cta-button px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow hover:shadow-lg transition" onClick={() => navigate('/storage-advisor')}>
-                  {t.landingBtn}
-                </button>
-              </div>
-            </div>
+        <div className="container relative z-10">
+          <h1 className="hero-title text-4xl font-bold text-center mb-4">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-lg text-center mb-2">{t.subtitle}</p>
+          <p className="hero-intro text-center mb-6 relative z-20">{t.intro}</p>
+          <div className="text-center mb-4">
+            <p className="text-white text-lg font-medium mb-2">{t.landingDescription}</p>
+            <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
+              {t.landingBtn}
+            </button>
           </div>
         </div>
       </section>
