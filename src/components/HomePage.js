@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
 
@@ -9,8 +10,8 @@ const HomePage = ({ language }) => {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
       subtitle: "Kaybolan Verilerinizi Geri Getiriyor, Geleceğin Teknolojilerini Bugünden Sunuyoruz.",
       intro: "İstanbul merkezli şirketimiz, veri kurtarma alanında uzmanlaşmış olup, gelecekte kablosuz ağlar ve diğer ileri teknoloji hizmetleriyle de yanınızda olacaktır. İşletmenizin veya kişisel verilerinizin güvenliği ve erişilebilirliği bizim önceliğimizdir.",
-      landingBtn: "Storage Advisor'ı Dene",
       landingDescription: "Doğru depolama cihazını mı arıyorsunuz? Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
+      landingBtn: "Storage Advisor'ı Dene",
       services: {
         title: "Hizmetlerimiz",
         dataRecovery: {
@@ -23,7 +24,7 @@ const HomePage = ({ language }) => {
         },
         other: {
           title: "Diğer Teknoloji Hizmetleri (Gelecekte)",
-          description: "Sürekli gelişen teknoloji dünyasında، ihtiyaçlarınıza yönelik yenilikçi ve kapsamlı IT çözümleri sunmak için çalışıyoruz. Gelecekteki hizmet yelpazemizle ilgili detaylar çok yakında."
+          description: "Sürekli gelişen teknoloji dünyasında, ihtiyaçlarınıza yönelik yenilikçi ve kapsamlı IT çözümleri sunmak için çalışıyoruz. Gelecekteki hizmet yelpazemizle ilgili detaylar çok yakında."
         }
       },
       whyChooseUs: {
@@ -42,8 +43,8 @@ const HomePage = ({ language }) => {
       mainTitle: "Data Recovery and Advanced Technology Solutions",
       subtitle: "We Recover Your Lost Data, Providing Tomorrow's Technologies Today.",
       intro: "Our Istanbul-based company specializes in data recovery, and in the future, we will also be by your side with wireless networks and other advanced technology services. The security and accessibility of your business or personal data are our priority.",
-      landingBtn: "Try Storage Advisor Tool",
       landingDescription: "Not sure what storage device you need? Use our smart advisor to get a tailored recommendation in seconds!",
+      landingBtn: "Try Storage Advisor Tool",
       services: {
         title: "Our Services",
         dataRecovery: {
@@ -73,92 +74,91 @@ const HomePage = ({ language }) => {
     }
   };
 
-  const t = content[language] || content.en;
-
-  const iconColors = {
-    dataRecovery: 'from-green-500 to-emerald-600',
-    wireless: 'from-cyan-500 to-sky-600',
-    other: 'from-yellow-500 to-orange-500'
-  };
+  const t = content[language];
 
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
-          <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
-          <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
-          <div className="bg-white text-blue-800 p-4 rounded-lg shadow-lg inline-block">
-            <p className="text-lg font-semibold mb-2">{t.landingDescription}</p>
-            <button
-              onClick={() => navigate('/storage-advisor')}
-              className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition"
-            >
+      <section className="hero">
+        <div className="container relative z-10">
+          <h1 className="hero-title text-4xl font-bold text-center mb-4">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-lg text-center mb-2">{t.subtitle}</p>
+          <p className="hero-intro text-center mb-6 relative z-20">{t.intro}</p>
+          <div className="text-center mb-4">
+            <p className="text-white text-lg font-medium mb-2">{t.landingDescription}</p>
+            <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
               {t.landingBtn}
             </button>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {['dataRecovery', 'wireless', 'other'].map((key, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className={`flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br ${iconColors[key]} rounded-full shadow overflow-hidden`}>
-                  <img
-                    src={`/images/icons/${key === 'dataRecovery'
-                      ? 'data-recovery-icon'
-                      : key === 'wireless'
-                        ? 'wireless-network-icon'
-                        : 'other-tech-services-icon'}.png`}
-                    alt={t.services[key].title}
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t.services[key].title}</h3>
-                <p className="text-gray-700 text-sm">{t.services[key].description}</p>
+      {/* Existing Sections Below */}
+      <section className="services">
+        <div className="container">
+          <h2 className="section-title">{t.services.title}</h2>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">
+                <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
               </div>
-            ))}
+              <h3>{t.services.dataRecovery.title}</h3>
+              <p>{t.services.dataRecovery.description}</p>
+            </div>
+            <div className="service-card">
+              <div className="service-icon">
+                <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
+              </div>
+              <h3>{t.services.wireless.title}</h3>
+              <p>{t.services.wireless.description}</p>
+            </div>
+            <div className="service-card">
+              <div className="service-icon">
+                <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" />
+              </div>
+              <h3>{t.services.other.title}</h3>
+              <p>{t.services.other.description}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { key: 'expertise', icon: 'data-recovery-icon', color: 'from-green-500 to-emerald-600' },
-              { key: 'reliability', icon: 'storage-advisor-icon', color: 'from-blue-500 to-purple-600' },
-              { key: 'fastSolutions', icon: 'wireless-network-icon', color: 'from-cyan-500 to-sky-600' },
-              { key: 'customerFocus', icon: 'contact-us-icon', color: 'from-pink-500 to-red-500' }
-            ].map(({ key, icon, color }, index) => (
-              <div key={index} className="text-center">
-                <div className={`flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br ${color} rounded-full shadow overflow-hidden`}>
-                  <img src={`/images/icons/${icon}.png`} alt={key} className="w-10 h-10 object-contain" />
-                </div>
-                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
+      <section className="why-choose-us">
+        <div className="container">
+          <h2 className="section-title">{t.whyChooseUs.title}</h2>
+          <div className="features-grid">
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/data-recovery-icon.png" alt="Expertise" />
               </div>
-            ))}
+              <p>{t.whyChooseUs.expertise}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" />
+              </div>
+              <p>{t.whyChooseUs.reliability}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" />
+              </div>
+              <p>{t.whyChooseUs.fastSolutions}</p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" />
+              </div>
+              <p>{t.whyChooseUs.customerFocus}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-          <button
-            onClick={() => navigate('/contact')}
-            className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
-          >
-            {t.cta.button}
-          </button>
+      <section className="cta-section">
+        <div className="container">
+          <h2>{t.cta.title}</h2>
+          <button className="cta-button-large" onClick={() => navigate('/contact')}>{t.cta.button}</button>
         </div>
       </section>
     </div>
