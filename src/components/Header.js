@@ -37,7 +37,7 @@ const Header = ({ language, setLanguage }) => {
           <Link to="/">
             <img src="/images/tekfin-logo.png" alt="Logo" className="h-10 w-auto" />
           </Link>
-          <span className="text-xl font-bold text-blue-800 hidden sm:inline">TEKFİN</span>
+          <span className="text-xl font-bold text-blue-800 hidden sm:inline">TEKFİN TEKNOLOJİ LİMİTED ŞIT</span>
         </div>
 
         <nav className="hidden md:flex space-x-6 items-center">
