@@ -10,6 +10,7 @@ const HomePage = ({ language }) => {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
       subtitle: "Kaybolan Verilerinizi Geri Getiriyor, Geleceğin Teknolojilerini Bugünden Sunuyoruz.",
       intro: "İstanbul merkezli şirketimiz, veri kurtarma alanında uzmanlaşmış olup, gelecekte kablosuz ağlar ve diğer ileri teknoloji hizmetleriyle de yanınızda olacaktır. İşletmenizin veya kişisel verilerinizin güvenliği ve erişilebilirliği bizim önceliğimizdir.",
+      landingDescription: "Doğru depolama cihazını mı arıyorsunuz? Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
       landingBtn: "Storage Advisor'ı Dene",
       services: {
         title: "Hizmetlerimiz",
@@ -42,6 +43,7 @@ const HomePage = ({ language }) => {
       mainTitle: "Data Recovery and Advanced Technology Solutions",
       subtitle: "We Recover Your Lost Data, Providing Tomorrow's Technologies Today.",
       intro: "Our Istanbul-based company specializes in data recovery, and in the future, we will also be by your side with wireless networks and other advanced technology services. The security and accessibility of your business or personal data are our priority.",
+      landingDescription: "Not sure what storage device you need? Use our smart advisor to get a tailored recommendation in seconds!",
       landingBtn: "Try Storage Advisor Tool",
       services: {
         title: "Our Services",
@@ -78,11 +80,12 @@ const HomePage = ({ language }) => {
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container relative z-10">
           <h1 className="hero-title text-4xl font-bold text-center mb-4">{t.mainTitle}</h1>
           <p className="hero-subtitle text-lg text-center mb-2">{t.subtitle}</p>
-          <p className="hero-intro text-center mb-6">{t.intro}</p>
-          <div className="text-center">
+          <p className="hero-intro text-center mb-6 relative z-20">{t.intro}</p>
+          <div className="text-center mb-4">
+            <p className="text-white text-lg font-medium mb-2">{t.landingDescription}</p>
             <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
               {t.landingBtn}
             </button>
