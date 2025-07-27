@@ -91,7 +91,7 @@ const HomePage = ({ language }) => {
               <div className="text-center sm:w-1/3">
                 <Link
                   to="/storage-advisor"
-                  className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-300"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   {t.landingBtn}
                 </Link>
