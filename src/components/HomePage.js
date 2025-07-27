@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
+  const navigate = useNavigate();
+
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
@@ -77,7 +79,7 @@ const HomePage = ({ language }) => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="hero bg-gradient-to-r from-indigo-700 via-purple-700 to-blue-700">
+      <section className="hero bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
         <div className="container relative z-10 text-center text-white">
           <h1 className="hero-title text-4xl font-bold mb-4">{t.mainTitle}</h1>
           <p className="hero-subtitle text-lg mb-2">{t.subtitle}</p>
