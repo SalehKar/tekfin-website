@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
 
