@@ -102,8 +102,8 @@ const HomePage = ({ language }) => {
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {['dataRecovery', 'wireless', 'other'].map((key, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 bg-gray-100 rounded-full shadow overflow-hidden">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
+                <div className="flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow overflow-hidden">
                   <img
                     src={`/images/icons/${key === 'dataRecovery'
                       ? 'data-recovery-icon'
@@ -111,11 +111,11 @@ const HomePage = ({ language }) => {
                         ? 'wireless-network-icon'
                         : 'other-tech-services-icon'}.png`}
                     alt={t.services[key].title}
-                    className="max-w-full max-h-full object-contain"
+                    className="w-10 h-10 object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-center">{t.services[key].title}</h3>
-                <p className="text-gray-700 text-sm text-center">{t.services[key].description}</p>
+                <h3 className="text-xl font-semibold mb-2">{t.services[key].title}</h3>
+                <p className="text-gray-700 text-sm">{t.services[key].description}</p>
               </div>
             ))}
           </div>
@@ -134,10 +134,10 @@ const HomePage = ({ language }) => {
               { key: 'customerFocus', icon: 'contact-us-icon' }
             ].map(({ key, icon }, index) => (
               <div key={index} className="text-center">
-                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-2 bg-gray-100 rounded-full shadow overflow-hidden">
-                  <img src={`/images/icons/${icon}.png`} alt={key} className="max-w-full max-h-full object-contain" />
+                <div className="flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow overflow-hidden">
+                  <img src={`/images/icons/${icon}.png`} alt={key} className="w-10 h-10 object-contain" />
                 </div>
-                <p>{t.whyChooseUs[key]}</p>
+                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
               </div>
             ))}
           </div>
