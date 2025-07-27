@@ -24,7 +24,7 @@ const HomePage = ({ language }) => {
         },
         other: {
           title: "Diğer Teknoloji Hizmetleri (Gelecekte)",
-          description: "Sürekli gelişen teknoloji dünyasında, ihtiyaçlarınıza yönelik yenilikçi ve kapsamlı IT çözümleri sunmak için çalışıyoruz. Gelecekteki hizmet yelpazemizle ilgili detaylar çok yakında."
+          description: "Sürekli gelişen teknoloji dünyasında، ihtiyaçlarınıza yönelik yenilikçi ve kapsamlı IT çözümleri sunmak için çalışıyoruz. Gelecekteki hizmet yelpazemizle ilgili detaylar çok yakında."
         }
       },
       whyChooseUs: {
@@ -76,6 +76,12 @@ const HomePage = ({ language }) => {
 
   const t = content[language] || content.en;
 
+  const iconColors = {
+    dataRecovery: 'from-green-500 to-emerald-600',
+    wireless: 'from-cyan-500 to-sky-600',
+    other: 'from-yellow-500 to-orange-500'
+  };
+
   return (
     <div className="homepage">
       {/* Hero Section */}
@@ -88,7 +94,7 @@ const HomePage = ({ language }) => {
             <p className="text-lg font-semibold mb-2">{t.landingDescription}</p>
             <button
               onClick={() => navigate('/storage-advisor')}
-              className="mt-2 px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-md transition"
+              className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition"
             >
               {t.landingBtn}
             </button>
@@ -103,7 +109,7 @@ const HomePage = ({ language }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {['dataRecovery', 'wireless', 'other'].map((key, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow overflow-hidden">
+                <div className={`flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br ${iconColors[key]} rounded-full shadow overflow-hidden`}>
                   <img
                     src={`/images/icons/${key === 'dataRecovery'
                       ? 'data-recovery-icon'
@@ -128,13 +134,13 @@ const HomePage = ({ language }) => {
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { key: 'expertise', icon: 'data-recovery-icon' },
-              { key: 'reliability', icon: 'storage-advisor-icon' },
-              { key: 'fastSolutions', icon: 'wireless-network-icon' },
-              { key: 'customerFocus', icon: 'contact-us-icon' }
-            ].map(({ key, icon }, index) => (
+              { key: 'expertise', icon: 'data-recovery-icon', color: 'from-green-500 to-emerald-600' },
+              { key: 'reliability', icon: 'storage-advisor-icon', color: 'from-blue-500 to-purple-600' },
+              { key: 'fastSolutions', icon: 'wireless-network-icon', color: 'from-cyan-500 to-sky-600' },
+              { key: 'customerFocus', icon: 'contact-us-icon', color: 'from-pink-500 to-red-500' }
+            ].map(({ key, icon, color }, index) => (
               <div key={index} className="text-center">
-                <div className="flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow overflow-hidden">
+                <div className={`flex justify-center items-center w-20 h-20 mx-auto mb-4 bg-gradient-to-br ${color} rounded-full shadow overflow-hidden`}>
                   <img src={`/images/icons/${icon}.png`} alt={key} className="w-10 h-10 object-contain" />
                 </div>
                 <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
@@ -150,7 +156,7 @@ const HomePage = ({ language }) => {
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
           <button
             onClick={() => navigate('/contact')}
-            className="px-8 py-4 bg-white text-blue-800 font-bold rounded-lg hover:bg-gray-200 transition"
+            className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
           >
             {t.cta.button}
           </button>
