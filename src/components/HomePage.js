@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
+  const navigate = useNavigate();
+
   const content = {
     tr: {
       mainTitle: "Veri Kurtarma ve İleri Teknoloji Çözümleri",
@@ -76,7 +78,6 @@ const HomePage = ({ language }) => {
 
   return (
     <div className="homepage">
-      {/* Hero Section */}
       <section className="hero bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900">
         <div className="container relative z-10 text-center text-white py-16 px-6 sm:px-12">
           <h1 className="text-5xl font-bold mb-4 leading-tight drop-shadow-md sm:text-6xl">{t.mainTitle}</h1>
@@ -89,19 +90,18 @@ const HomePage = ({ language }) => {
                 <h2 className="text-lg font-semibold text-white/90 mb-2 leading-snug sm:text-xl">{t.landingDescription}</h2>
               </div>
               <div className="text-center sm:w-1/3">
-                <Link
-                  to="/storage-advisor"
+                <button
+                  onClick={() => navigate('/storage-advisor')}
                   className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   {t.landingBtn}
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Existing Sections Below */}
       <section className="services">...</section>
       <section className="why-choose-us">...</section>
       <section className="cta-section">...</section>
