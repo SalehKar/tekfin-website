@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './components/Header';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
@@ -82,86 +83,89 @@ const HomePage = ({ language }) => {
   };
 
   return (
-    <div className="homepage">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
-          <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
-          <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
-          <div className="bg-white text-blue-800 p-4 rounded-lg shadow-lg inline-block">
-            <p className="text-lg font-semibold mb-2">{t.landingDescription}</p>
+    <>
+      <Header language={language} setLanguage={() => {}} />
+      <div className="homepage">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
+          <div className="container mx-auto px-4 text-center max-w-4xl">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
+            <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
+            <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
+            <div className="bg-white text-blue-800 p-4 rounded-lg shadow-lg inline-block">
+              <p className="text-lg font-semibold mb-2">{t.landingDescription}</p>
+              <button
+                onClick={() => navigate('/storage-advisor')}
+                className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition"
+              >
+                {t.landingBtn}
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-16 bg-gray-100">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {['dataRecovery', 'wireless', 'other'].map((key, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
+                  <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors[key]} rounded-full shadow overflow-hidden`}>
+                    <img
+                      src={`/images/icons/${key === 'dataRecovery'
+                        ? 'data-recovery-icon'
+                        : key === 'wireless'
+                          ? 'wireless-network-icon'
+                          : 'other-tech-services-icon'}.png`}
+                      alt={t.services[key].title}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{t.services[key].title}</h3>
+                  <p className="text-gray-700 text-sm">{t.services[key].description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { key: 'expertise', icon: 'data-recovery-icon', color: 'from-green-500 to-emerald-600' },
+                { key: 'reliability', icon: 'storage-advisor-icon', color: 'from-blue-500 to-purple-600' },
+                { key: 'fastSolutions', icon: 'wireless-network-icon', color: 'from-cyan-500 to-sky-600' },
+                { key: 'customerFocus', icon: 'contact-us-icon', color: 'from-pink-500 to-red-500' }
+              ].map(({ key, icon, color }, index) => (
+                <div key={index} className="text-center">
+                  <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${color} rounded-full shadow overflow-hidden`}>
+                    <img src={`/images/icons/${icon}.png`} alt={key} className="w-10 h-10 object-contain" />
+                  </div>
+                  <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
             <button
-              onClick={() => navigate('/storage-advisor')}
-              className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition"
+              onClick={() => navigate('/contact')}
+              className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
             >
-              {t.landingBtn}
+              {t.cta.button}
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {['dataRecovery', 'wireless', 'other'].map((key, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors[key]} rounded-full shadow overflow-hidden`}>
-                  <img
-                    src={`/images/icons/${key === 'dataRecovery'
-                      ? 'data-recovery-icon'
-                      : key === 'wireless'
-                        ? 'wireless-network-icon'
-                        : 'other-tech-services-icon'}.png`}
-                    alt={t.services[key].title}
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t.services[key].title}</h3>
-                <p className="text-gray-700 text-sm">{t.services[key].description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { key: 'expertise', icon: 'data-recovery-icon', color: 'from-green-500 to-emerald-600' },
-              { key: 'reliability', icon: 'storage-advisor-icon', color: 'from-blue-500 to-purple-600' },
-              { key: 'fastSolutions', icon: 'wireless-network-icon', color: 'from-cyan-500 to-sky-600' },
-              { key: 'customerFocus', icon: 'contact-us-icon', color: 'from-pink-500 to-red-500' }
-            ].map(({ key, icon, color }, index) => (
-              <div key={index} className="text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${color} rounded-full shadow overflow-hidden`}>
-                  <img src={`/images/icons/${icon}.png`} alt={key} className="w-10 h-10 object-contain" />
-                </div>
-                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-          <button
-            onClick={() => navigate('/contact')}
-            className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
-          >
-            {t.cta.button}
-          </button>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 
