@@ -11,6 +11,7 @@ const HomePage = ({ language }) => {
       subtitle: "Kaybolan Verilerinizi Geri Getiriyor, Geleceğin Teknolojilerini Bugünden Sunuyoruz.",
       intro: "İstanbul merkezli şirketimiz, veri kurtarma alanında uzmanlaşmış olup, gelecekte kablosuz ağlar ve diğer ileri teknoloji hizmetleriyle de yanınızda olacaktır. İşletmenizin veya kişisel verilerinizin güvenliği ve erişilebilirliği bizim önceliğimizdir.",
       landingBtn: "Storage Advisor'ı Dene",
+      landingDescription: "Doğru depolama cihazını mı arıyorsunuz? Akıllı Storage Advisor aracımızla ihtiyacınıza uygun öneriyi birkaç adımda alın.",
       services: {
         title: "Hizmetlerimiz",
         dataRecovery: {
@@ -43,6 +44,7 @@ const HomePage = ({ language }) => {
       subtitle: "We Recover Your Lost Data, Providing Tomorrow's Technologies Today.",
       intro: "Our Istanbul-based company specializes in data recovery, and in the future, we will also be by your side with wireless networks and other advanced technology services. The security and accessibility of your business or personal data are our priority.",
       landingBtn: "Try Storage Advisor Tool",
+      landingDescription: "Not sure what storage device you need? Use our smart advisor to get a tailored recommendation in seconds!",
       services: {
         title: "Our Services",
         dataRecovery: {
@@ -77,85 +79,82 @@ const HomePage = ({ language }) => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="hero">
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <h1 className="hero-title text-4xl font-bold text-center mb-4">{t.mainTitle}</h1>
-          <p className="hero-subtitle text-lg text-center mb-2">{t.subtitle}</p>
-          <p className="hero-intro text-center mb-6">{t.intro}</p>
-          <div className="text-center">
-            <button className="promo-btn" onClick={() => navigate('/storage-advisor')}>
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
+          <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
+          <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
+          <div className="bg-white text-blue-800 p-4 rounded-lg shadow-lg inline-block">
+            <p className="text-lg font-semibold mb-2">{t.landingDescription}</p>
+            <button
+              onClick={() => navigate('/storage-advisor')}
+              className="mt-2 px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-md transition"
+            >
               {t.landingBtn}
             </button>
           </div>
         </div>
       </section>
 
-      {/* Existing Sections Below */}
-      <section className="services">
-        <div className="container">
-          <h2 className="section-title">{t.services.title}</h2>
-          <div className="services-grid">
-            <div className="service-card">
-              <div className="service-icon">
-                <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" />
-              </div>
-              <h3>{t.services.dataRecovery.title}</h3>
-              <p>{t.services.dataRecovery.description}</p>
+      {/* Services Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <img src="/images/icons/data-recovery-icon.png" alt="Data Recovery" className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-center">{t.services.dataRecovery.title}</h3>
+              <p className="text-gray-700 text-sm text-center">{t.services.dataRecovery.description}</p>
             </div>
-            <div className="service-card">
-              <div className="service-icon">
-                <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" />
-              </div>
-              <h3>{t.services.wireless.title}</h3>
-              <p>{t.services.wireless.description}</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <img src="/images/icons/wireless-network-icon.png" alt="Wireless Networks" className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-center">{t.services.wireless.title}</h3>
+              <p className="text-gray-700 text-sm text-center">{t.services.wireless.description}</p>
             </div>
-            <div className="service-card">
-              <div className="service-icon">
-                <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" />
-              </div>
-              <h3>{t.services.other.title}</h3>
-              <p>{t.services.other.description}</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <img src="/images/icons/other-tech-services-icon.png" alt="Other IT Services" className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-center">{t.services.other.title}</h3>
+              <p className="text-gray-700 text-sm text-center">{t.services.other.description}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="why-choose-us">
-        <div className="container">
-          <h2 className="section-title">{t.whyChooseUs.title}</h2>
-          <div className="features-grid">
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/data-recovery-icon.png" alt="Expertise" />
-              </div>
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <img src="/images/icons/data-recovery-icon.png" alt="Expertise" className="w-12 h-12 mx-auto mb-2" />
               <p>{t.whyChooseUs.expertise}</p>
             </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" />
-              </div>
+            <div className="text-center">
+              <img src="/images/icons/storage-advisor-icon.png" alt="Reliability" className="w-12 h-12 mx-auto mb-2" />
               <p>{t.whyChooseUs.reliability}</p>
             </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" />
-              </div>
+            <div className="text-center">
+              <img src="/images/icons/wireless-network-icon.png" alt="Fast Solutions" className="w-12 h-12 mx-auto mb-2" />
               <p>{t.whyChooseUs.fastSolutions}</p>
             </div>
-            <div className="feature">
-              <div className="feature-icon">
-                <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" />
-              </div>
+            <div className="text-center">
+              <img src="/images/icons/contact-us-icon.png" alt="Customer Focus" className="w-12 h-12 mx-auto mb-2" />
               <p>{t.whyChooseUs.customerFocus}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="cta-section">
-        <div className="container">
-          <h2>{t.cta.title}</h2>
-          <button className="cta-button-large" onClick={() => navigate('/contact')}>{t.cta.button}</button>
+      {/* Call to Action Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
+          <button
+            onClick={() => navigate('/contact')}
+            className="px-8 py-4 bg-white text-blue-800 font-bold rounded-lg hover:bg-gray-200 transition"
+          >
+            {t.cta.button}
+          </button>
         </div>
       </section>
     </div>
