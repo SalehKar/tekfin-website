@@ -78,7 +78,7 @@ const HomePage = ({ language }) => {
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
-        <div className="container">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <h1 className="hero-title text-4xl font-bold text-center mb-4">{t.mainTitle}</h1>
           <p className="hero-subtitle text-lg text-center mb-2">{t.subtitle}</p>
           <p className="hero-intro text-center mb-6">{t.intro}</p>
