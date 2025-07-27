@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage = ({ language }) => {
@@ -75,30 +76,32 @@ const HomePage = ({ language }) => {
 
   return (
     <div className="homepage">
-      <section className="hero bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900">
-        <div className="container relative z-10 text-center text-white py-16 px-6 sm:px-12">
-          <h1 className="text-5xl font-bold mb-4 leading-tight drop-shadow-md sm:text-6xl">{t.mainTitle}</h1>
-          <p className="text-xl mb-6 font-medium opacity-95 max-w-3xl mx-auto drop-shadow-sm sm:text-2xl">{t.subtitle}</p>
-          <p className="mb-10 max-w-4xl mx-auto text-white/90 text-base leading-relaxed drop-shadow-sm sm:text-lg">{t.intro}</p>
+      {/* Hero Section */}
+      <section className="hero bg-gradient-to-r from-indigo-800 via-purple-800 to-blue-800">
+        <div className="container relative z-10 text-center text-white py-12">
+          <h1 className="hero-title text-5xl font-bold mb-4 leading-tight drop-shadow-md">{t.mainTitle}</h1>
+          <p className="hero-subtitle text-xl mb-4 font-medium opacity-90 max-w-3xl mx-auto drop-shadow-sm">{t.subtitle}</p>
+          <p className="hero-intro mb-8 max-w-4xl mx-auto text-white/90 text-base leading-relaxed drop-shadow-sm">{t.intro}</p>
 
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl max-w-3xl mx-auto text-white border border-white/20">
+          <div className="promo-card bg-white/10 backdrop-blur-md p-6 rounded-2xl mt-10 shadow-xl max-w-2xl mx-auto text-white border border-white/20">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div className="text-left sm:w-2/3">
-                <h2 className="text-lg font-semibold text-white/90 mb-2 leading-snug sm:text-xl">{t.landingDescription}</h2>
+                <h2 className="text-lg font-semibold text-white/90 mb-1">{t.landingDescription}</h2>
               </div>
               <div className="text-center sm:w-1/3">
-                <a
-                  href="/storage-advisor"
-                  className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
+                <Link
+                  to="/storage-advisor"
+                  className="cta-button px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl transition"
                 >
                   {t.landingBtn}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Existing Sections Below */}
       <section className="services">...</section>
       <section className="why-choose-us">...</section>
       <section className="cta-section">...</section>
