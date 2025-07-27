@@ -99,9 +99,38 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="services">{t.services.title}</section>
-      <section className="why-choose-us">{t.whyChooseUs.title}</section>
-      <section className="cta-section">{t.cta.title}</section>
+      <section className="services py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-8 text-indigo-800">{t.services.title}</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {Object.values(t.services).slice(1).map((srv, idx) => (
+            <div key={idx} className="bg-white rounded-lg p-6 shadow-md text-left">
+              <h3 className="text-xl font-semibold text-indigo-700 mb-2">{srv.title}</h3>
+              <p className="text-gray-700">{srv.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="why-choose-us bg-gray-100 py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-8 text-indigo-800">{t.whyChooseUs.title}</h2>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {Object.values(t.whyChooseUs).slice(1).map((point, i) => (
+            <div key={i} className="bg-white rounded-lg p-6 shadow text-gray-800">
+              {point}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta-section bg-indigo-900 text-white text-center py-16 px-6">
+        <h2 className="text-2xl font-semibold mb-6 max-w-3xl mx-auto">{t.cta.title}</h2>
+        <a
+          href="/contact"
+          className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          {t.cta.button}
+        </a>
+      </section>
     </div>
   );
 };
