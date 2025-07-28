@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaHdd, FaUsb } from "react-icons/fa";
-import { RiHardDrive2Line } from "react-icons/ri";
-import { BiServer } from "react-icons/bi";
+import hddIcon from "../assets/external-icons/hdd.svg";
+import ssdIcon from "../assets/external-icons/ssd.svg";
+import usbIcon from "../assets/external-icons/usb.svg";
+import raidIcon from "../assets/external-icons/raid.svg";
 
 export default function DataRecovery({ language = "tr" }) {
   const content = {
@@ -11,10 +12,10 @@ export default function DataRecovery({ language = "tr" }) {
       paragraph:
         "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
       services: [
-        { icon: <FaHdd />, text: "Hard Disk Kurtarma" },
-        { icon: <RiHardDrive2Line />, text: "SSD Kurtarma" },
-        { icon: <FaUsb />, text: "Flash Bellek Kurtarma" },
-        { icon: <BiServer />, text: "RAID ve Sunucu Kurtarma" }
+        { icon: hddIcon, text: "Hard Disk Kurtarma" },
+        { icon: ssdIcon, text: "SSD Kurtarma" },
+        { icon: usbIcon, text: "Flash Bellek Kurtarma" },
+        { icon: raidIcon, text: "RAID ve Sunucu Kurtarma" }
       ],
       privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
       whyTitle: "Neden Bizi Tercih Etmelisiniz?",
@@ -41,10 +42,10 @@ export default function DataRecovery({ language = "tr" }) {
       paragraph:
         "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
       services: [
-        { icon: <FaHdd />, text: "Hard Drive Recovery" },
-        { icon: <RiHardDrive2Line />, text: "SSD Recovery" },
-        { icon: <FaUsb />, text: "Flash Media Recovery" },
-        { icon: <BiServer />, text: "RAID and Server Recovery" }
+        { icon: hddIcon, text: "Hard Drive Recovery" },
+        { icon: ssdIcon, text: "SSD Recovery" },
+        { icon: usbIcon, text: "Flash Media Recovery" },
+        { icon: raidIcon, text: "RAID and Server Recovery" }
       ],
       privacy: "🔒 Your data privacy is our priority.",
       whyTitle: "Why Choose Us?",
@@ -78,7 +79,7 @@ export default function DataRecovery({ language = "tr" }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         {t.services.map((s, i) => (
           <div key={i} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center">
-            <div className="text-4xl text-[#002855] mb-3">{s.icon}</div>
+            <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
             <p className="text-sm font-medium text-[#002855]">{s.text}</p>
           </div>
         ))}
