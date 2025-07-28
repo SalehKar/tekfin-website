@@ -1,5 +1,4 @@
 import React from "react";
-import "./DataRecovery.css";
 import hddIcon from "../assets/icons/hdd.png";
 import ssdIcon from "../assets/icons/ssd.png";
 import usbIcon from "../assets/icons/usb.png";
@@ -9,7 +8,8 @@ export default function DataRecovery({ language = "tr" }) {
   const content = {
     tr: {
       title: "Veri Kurtarma Hizmetleri",
-      paragraph: "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
+      paragraph:
+        "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
       services: [
         { icon: hddIcon, text: "Hard Disk Kurtarma" },
         { icon: ssdIcon, text: "SSD Kurtarma" },
@@ -34,7 +34,8 @@ export default function DataRecovery({ language = "tr" }) {
     },
     en: {
       title: "Data Recovery Services",
-      paragraph: "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
+      paragraph:
+        "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
       services: [
         { icon: hddIcon, text: "Hard Drive Recovery" },
         { icon: ssdIcon, text: "SSD Recovery" },
@@ -62,32 +63,36 @@ export default function DataRecovery({ language = "tr" }) {
   const t = content[language];
 
   return (
-    <div className="container">
-      <h2>{t.title}</h2>
-      <p>{t.paragraph}</p>
+    <div className="bg-white text-[#1f3b6f] px-4 md:px-20 py-12">
+      <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
+      <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
 
-      <div className="services-grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         {t.services.map((s, i) => (
-          <div key={i} className="card">
-            <img src={s.icon} alt={s.text} />
-            <p>{s.text}</p>
+          <div key={i} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center">
+            <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
+            <p className="text-sm font-medium text-[#002855]">{s.text}</p>
           </div>
         ))}
       </div>
 
-      <p className="privacy-note">{t.privacy}</p>
+      <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
 
-      <div className="why-choose">
-        <h3>{t.whyTitle}</h3>
-        <ul>
-          {t.whyList.map((item, i) => <li key={i}>{item}</li>)}
+      <div className="mb-10">
+        <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.whyTitle}</h3>
+        <ul className="list-disc list-inside space-y-2 text-gray-700">
+          {t.whyList.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
         </ul>
       </div>
 
-      <div className="our-process">
-        <h3>{t.processTitle}</h3>
-        <ul>
-          {t.processSteps.map((step, i) => <li key={i}>{step}</li>)}
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.processTitle}</h3>
+        <ul className="list-decimal list-inside space-y-2 text-gray-700">
+          {t.processSteps.map((step, i) => (
+            <li key={i}>{step}</li>
+          ))}
         </ul>
       </div>
     </div>
