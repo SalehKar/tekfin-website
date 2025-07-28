@@ -57,34 +57,36 @@ const AboutUs = ({ language }) => {
   const t = content[language];
 
   return (
-    <div className="bg-white text-[#1f3b6f] px-4 md:px-20 py-12">
-      <h1 className="text-4xl font-bold text-center mb-12 text-[#002855]">{t.title}</h1>
+    <div className="bg-white text-[#1f3b6f] px-4 py-12">
+      <div className="max-w-5xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-12 text-[#002855]">{t.title}</h1>
 
-      <div className="mb-14">
-        <h2 className="text-2xl font-semibold mb-3 text-[#1f3b6f]">{t.story.title}</h2>
-        <p className="text-base leading-relaxed text-gray-800">{t.story.text}</p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-6 mb-14">
-        <div className="bg-[#e9f0fa] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-          <h3 className="text-lg font-semibold mb-2 text-[#002855]">{t.vision.title}</h3>
-          <p className="text-gray-700">{t.vision.text}</p>
+        <div className="mb-14">
+          <h2 className="text-2xl font-semibold mb-3 text-[#1f3b6f]">{t.story.title}</h2>
+          <p className="text-base leading-relaxed text-gray-800">{t.story.text}</p>
         </div>
-        <div className="bg-[#e9f0fa] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-          <h3 className="text-lg font-semibold mb-2 text-[#002855]">{t.mission.title}</h3>
-          <p className="text-gray-700">{t.mission.text}</p>
-        </div>
-      </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.values.title}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {t.values.items.map((val, idx) => (
-            <div key={idx} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-start gap-3">
-              <div className="text-2xl text-[#002855]">{val.icon}</div>
-              <p className="text-sm text-gray-800 leading-snug">{val.text}</p>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-6 mb-14">
+          <div className="bg-[#e9f0fa] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="text-lg font-semibold mb-2 text-[#002855]">{t.vision.title}</h3>
+            <p className="text-gray-700">{t.vision.text}</p>
+          </div>
+          <div className="bg-[#e9f0fa] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="text-lg font-semibold mb-2 text-[#002855]">{t.mission.title}</h3>
+            <p className="text-gray-700">{t.mission.text}</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.values.title}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {t.values.items.map((val, idx) => (
+              <div key={idx} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-start gap-3">
+                <div className="text-2xl text-[#002855]">{val.icon}</div>
+                <p className="text-sm text-gray-800 leading-snug">{val.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
