@@ -1,8 +1,8 @@
 import React from "react";
-import hddIcon from "../assets/icons/hdd.png";
-import ssdIcon from "../assets/icons/ssd.png";
-import usbIcon from "../assets/icons/usb.png";
-import serverIcon from "../assets/icons/server.png";
+import { Link } from "react-router-dom";
+import { FaHdd, FaUsb } from "react-icons/fa";
+import { RiHardDrive2Line } from "react-icons/ri";
+import { BiServer } from "react-icons/bi";
 
 export default function DataRecovery({ language = "tr" }) {
   const content = {
@@ -11,10 +11,10 @@ export default function DataRecovery({ language = "tr" }) {
       paragraph:
         "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
       services: [
-        { icon: hddIcon, text: "Hard Disk Kurtarma" },
-        { icon: ssdIcon, text: "SSD Kurtarma" },
-        { icon: usbIcon, text: "Flash Bellek Kurtarma" },
-        { icon: serverIcon, text: "RAID ve Sunucu Kurtarma" }
+        { icon: <FaHdd />, text: "Hard Disk Kurtarma" },
+        { icon: <RiHardDrive2Line />, text: "SSD Kurtarma" },
+        { icon: <FaUsb />, text: "Flash Bellek Kurtarma" },
+        { icon: <BiServer />, text: "RAID ve Sunucu Kurtarma" }
       ],
       privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
       whyTitle: "Neden Bizi Tercih Etmelisiniz?",
@@ -30,17 +30,21 @@ export default function DataRecovery({ language = "tr" }) {
         "3. Akıllı Söküm ve Veri Çekme",
         "4. Veri Kurtarma",
         "5. Yeni ortam veya güvenli bağlantıyla teslim"
-      ]
+      ],
+      cta: {
+        question: "Verinizi kaybettiniz mi?",
+        action: "Bizimle İletişime Geçin"
+      }
     },
     en: {
       title: "Data Recovery Services",
       paragraph:
         "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
       services: [
-        { icon: hddIcon, text: "Hard Drive Recovery" },
-        { icon: ssdIcon, text: "SSD Recovery" },
-        { icon: usbIcon, text: "Flash Media Recovery" },
-        { icon: serverIcon, text: "RAID and Server Recovery" }
+        { icon: <FaHdd />, text: "Hard Drive Recovery" },
+        { icon: <RiHardDrive2Line />, text: "SSD Recovery" },
+        { icon: <FaUsb />, text: "Flash Media Recovery" },
+        { icon: <BiServer />, text: "RAID and Server Recovery" }
       ],
       privacy: "🔒 Your data privacy is our priority.",
       whyTitle: "Why Choose Us?",
@@ -56,7 +60,11 @@ export default function DataRecovery({ language = "tr" }) {
         "3. Smart Disassembly & Extraction",
         "4. File Recovery",
         "5. Delivery via new medium or secure download links"
-      ]
+      ],
+      cta: {
+        question: "Lost your data?",
+        action: "Contact Us"
+      }
     }
   };
 
@@ -70,7 +78,7 @@ export default function DataRecovery({ language = "tr" }) {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         {t.services.map((s, i) => (
           <div key={i} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center">
-            <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
+            <div className="text-4xl text-[#002855] mb-3">{s.icon}</div>
             <p className="text-sm font-medium text-[#002855]">{s.text}</p>
           </div>
         ))}
@@ -80,20 +88,32 @@ export default function DataRecovery({ language = "tr" }) {
 
       <div className="mb-10">
         <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.whyTitle}</h3>
-        <ul className="list-disc list-inside space-y-2 text-gray-700">
+        <div className="grid sm:grid-cols-3 gap-4">
           {t.whyList.map((item, i) => (
-            <li key={i}>{item}</li>
+            <div key={i} className="bg-white border border-blue-100 p-4 rounded-lg shadow text-center hover:shadow-md transition">
+              <p className="text-blue-800 font-medium">{item}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div>
         <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.processTitle}</h3>
-        <ul className="list-decimal list-inside space-y-2 text-gray-700">
+        <ul className="space-y-3">
           {t.processSteps.map((step, i) => (
-            <li key={i}>{step}</li>
+            <li key={i} className="flex items-start gap-2">
+              <span className="text-blue-700 font-bold">{i + 1}.</span>
+              <p className="text-gray-800">{step}</p>
+            </li>
           ))}
         </ul>
+      </div>
+
+      <div className="mt-14 text-center">
+        <p className="text-gray-600 text-lg mb-4">{t.cta.question}</p>
+        <Link to="/contact" className="inline-block bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800">
+          {t.cta.action}
+        </Link>
       </div>
     </div>
   );
