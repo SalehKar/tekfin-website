@@ -26,11 +26,11 @@ export default function DataRecovery({ language = "tr" }) {
       ],
       processTitle: "Sürecimiz",
       processSteps: [
-        "1. Ücretsiz İlk Teşhis",
-        "2. Güvenli Laboratuvar Ortamı",
-        "3. Akıllı Söküm ve Veri Çekme",
-        "4. Veri Kurtarma",
-        "5. Yeni ortam veya güvenli bağlantıyla teslim"
+        "Ücretsiz İlk Teşhis",
+        "Güvenli Laboratuvar Ortamı",
+        "Akıllı Söküm ve Veri Çekme",
+        "Veri Kurtarma",
+        "Yeni ortam veya güvenli bağlantıyla teslim"
       ],
       cta: {
         question: "Verinizi kaybettiniz mi?",
@@ -56,11 +56,11 @@ export default function DataRecovery({ language = "tr" }) {
       ],
       processTitle: "Our Process",
       processSteps: [
-        "1. Free Initial Diagnosis",
-        "2. Secure Lab Environment",
-        "3. Smart Disassembly & Extraction",
-        "4. File Recovery",
-        "5. Delivery via new medium or secure download links"
+        "Free Initial Diagnosis",
+        "Secure Lab Environment",
+        "Smart Disassembly & Extraction",
+        "File Recovery",
+        "Delivery via new medium or secure download links"
       ],
       cta: {
         question: "Lost your data?",
@@ -99,15 +99,15 @@ export default function DataRecovery({ language = "tr" }) {
       </div>
 
       <div>
-        <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.processTitle}</h3>
-        <ul className="space-y-3">
+        <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           {t.processSteps.map((step, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-blue-700 font-bold">{i + 1}.</span>
+            <div key={i} className="bg-blue-50 p-4 rounded-lg shadow hover:shadow-md transition">
+              <div className="text-blue-800 text-xl font-bold mb-2">{i + 1}</div>
               <p className="text-gray-800">{step}</p>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className="mt-14 text-center">
