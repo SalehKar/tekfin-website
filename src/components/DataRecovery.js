@@ -77,7 +77,7 @@ export default function DataRecovery({ language = "tr" }) {
         <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
         <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {t.services.map((s, i) => (
             <div key={i} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center">
               <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
