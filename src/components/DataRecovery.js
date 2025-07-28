@@ -72,49 +72,51 @@ export default function DataRecovery({ language = "tr" }) {
   const t = content[language];
 
   return (
-    <div className="bg-white text-[#1f3b6f] px-4 md:px-20 py-12">
-      <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
-      <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
+    <div className="bg-white text-[#1f3b6f] px-4 py-12">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
+        <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-        {t.services.map((s, i) => (
-          <div key={i} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center">
-            <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
-            <p className="text-sm font-medium text-[#002855]">{s.text}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {t.services.map((s, i) => (
+            <div key={i} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
+              <p className="text-sm font-medium text-[#002855]">{s.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
+
+        <div className="mb-10 max-w-5xl mx-auto">
+          <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.whyTitle}</h3>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {t.whyList.map((item, i) => (
+              <div key={i} className="bg-white border border-blue-100 p-4 rounded-lg shadow text-center hover:shadow-md transition">
+                <p className="text-blue-800 font-medium">{item}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
-
-      <div className="mb-10">
-        <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.whyTitle}</h3>
-        <div className="grid sm:grid-cols-3 gap-4">
-          {t.whyList.map((item, i) => (
-            <div key={i} className="bg-white border border-blue-100 p-4 rounded-lg shadow text-center hover:shadow-md transition">
-              <p className="text-blue-800 font-medium">{item}</p>
-            </div>
-          ))}
         </div>
-      </div>
 
-      <div>
-        <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {t.processSteps.map((step, i) => (
-            <div key={i} className="bg-blue-50 p-4 rounded-lg shadow hover:shadow-md transition">
-              <div className="text-blue-800 text-xl font-bold mb-2">{i + 1}</div>
-              <p className="text-gray-800">{step}</p>
-            </div>
-          ))}
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {t.processSteps.map((step, i) => (
+              <div key={i} className="bg-blue-50 p-6 rounded-lg shadow hover:shadow-md transition text-center">
+                <div className="text-blue-800 text-3xl font-extrabold mb-3">{i + 1}</div>
+                <p className="text-gray-800 text-sm font-medium">{step}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="mt-14 text-center">
-        <p className="text-gray-600 text-lg mb-4">{t.cta.question}</p>
-        <Link to="/contact" className="inline-block bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800">
-          {t.cta.action}
-        </Link>
+        <div className="mt-14 text-center">
+          <p className="text-gray-600 text-lg mb-4">{t.cta.question}</p>
+          <Link to="/contact" className="inline-block bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800">
+            {t.cta.action}
+          </Link>
+        </div>
       </div>
     </div>
   );
