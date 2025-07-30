@@ -207,7 +207,8 @@ const recommendations = [
     conditions: { usage: 'video', capacity: 'gt4tb', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable drives over 4TB with low speed (e.g., 5400RPM HDDs) are only suitable for backup, not editing.',
-      tr: '4TB üzeri düşük hızlı taşınabilir sürücüler (örneğin 5400RPM HDD'ler) yalnızca yedekleme için uygundur, düzenleme için değil.'
+tr: "4TB üzeri düşük hızlı taşınabilir sürücüler (örneğin 5400RPM HDD'ler) yalnızca yedekleme için uygundur, düzenleme için değil."
+
     },
     brands: ['WD Elements 5TB'],
   
