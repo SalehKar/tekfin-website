@@ -626,7 +626,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'lt500', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable low-speed drives under 500GB are not recommended for gaming. Upgrade to SSD for smoother performance.',
-tr: "Taşınabilir düşük hızlı ve 500GB altı sürücüler oyun için önerilmez. Daha akıcı performans için SSD'ye geçin."
+      tr: 'Taşınabilir düşük hızlı ve 500GB altı sürücüler oyun için önerilmez. Daha akıcı performans için SSD'ye geçin.'
     },
     brands: []
   },
