@@ -217,7 +217,7 @@ tr: "4TB üzeri düşük hızlı taşınabilir sürücüler (örneğin 5400RPM H
     conditions: { usage: 'video', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Fixed 6–8TB 5400RPM HDDs (e.g., Seagate Archive) are viable for long-term video archiving, not active projects.',
-      tr: 'Sabit 6–8TB 5400RPM HDD'ler (örneğin Seagate Archive), uzun vadeli video arşivleme için uygundur, aktif projeler için değil.'
+    tr: "Sabit 6–8TB 5400RPM HDD'ler (örneğin Seagate Archive), uzun vadeli video arşivleme için uygundur, aktif projeler için değil."
     },
     brands: ['Seagate Archive HDD'],
  
