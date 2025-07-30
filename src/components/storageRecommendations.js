@@ -272,7 +272,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: '500GB NVMe SSDs in fixed setups offer excellent backup speed, though larger capacity is often recommended.',
-tr: "Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, ancak genellikle daha büyük kapasite önerilir."
+      tr: 'Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, ancak genellikle daha büyük kapasite önerilir.'
     },
     brands: ['WD Black SN770'],
 
@@ -347,7 +347,7 @@ tr: "Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, anc
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: '2TB USB 3.1 portable SSDs offer a good balance between speed, size, and mobility for daily backups.',
-tr: "2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar."
+      tr: '2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar.'
     },
     brands: ['SanDisk Extreme 2TB']
   },
