@@ -263,7 +263,7 @@ tr: "4TB üzeri düşük hızlı taşınabilir sürücüler (örneğin 5400RPM H
     conditions: { usage: 'backup', capacity: 'lt500', speed: 'very_high', portability: 'portable' },
     recommendation: {
       en: 'Ultra-fast portable SSDs (e.g., Thunderbolt) at 500GB are ideal for small but frequent backup jobs.',
-      tr: '500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbolt), küçük ancak sık yapılan yedeklemeler için idealdir.'
+tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbolt), küçük ancak sık yapılan yedeklemeler için idealdir."
     },
     brands: ['Samsung X5'],
 
