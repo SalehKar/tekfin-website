@@ -347,7 +347,7 @@ tr: "Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, anc
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: '2TB USB 3.1 portable SSDs offer a good balance between speed, size, and mobility for daily backups.',
-      tr: '2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar.'
+tr: "2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar."
     },
     brands: ['SanDisk Extreme 2TB']
   },
