@@ -89,7 +89,7 @@ const recommendations = [
     conditions: { usage: 'video', capacity: '500_1tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Consider switching to SSDs. Low-speed HDDs aren’t optimal for video editing, even at 1TB.',
-      tr: "1TB olsa bile, düşük hızlı HDD\\'ler video düzenleme için uygun değildir. SSD\\'ye geçmeniz önerilir."
+      tr: "1TB olsa bile, düşük hızlı HDD\'ler video düzenleme için uygun değildir. SSD\'ye geçmeniz önerilir."
     },
     brands: ['Seagate Barracuda HDD'],
   
@@ -154,7 +154,7 @@ const recommendations = [
     conditions: { usage: 'video', capacity: '1tb_4tb', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable HDDs (e.g., 2TB Seagate Backup Plus) are not ideal for editing but work for raw footage storage.',
-      tr: "Taşınabilir HDD\\'ler (örneğin 2TB Seagate Backup Plus), düzenleme için ideal olmasa da ham görüntü depolaması için uygundur."
+      tr: "Taşınabilir HDD\'ler (örneğin 2TB Seagate Backup Plus), düzenleme için ideal olmasa da ham görüntü depolaması için uygundur."
     },
     brands: ['Seagate Backup Plus'],
  
@@ -272,7 +272,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: '500GB NVMe SSDs in fixed setups offer excellent backup speed, though larger capacity is often recommended.',
-      tr: "Sabit kurulumlarda 500GB NVMe SSD\'ler mükemmel yedekleme hızı sunar, ancak genellikle daha büyük kapasite önerilir."
+      tr: "Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, ancak genellikle daha büyük kapasite önerilir."
     },
     brands: ['WD Black SN770'],
 
@@ -314,7 +314,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '500_1tb', speed: 'very_high', portability: 'portable' },
     recommendation: {
       en: '1TB Thunderbolt portable SSDs are great for professionals who value backup speed and mobility.',
-      tr: "1TB Thunderbolt taşınabilir SSD\\'ler, yedekleme hızı ve taşınabilirliğe önem veren profesyoneller için harikadır."
+      tr: "1TB Thunderbolt taşınabilir SSD\'ler, yedekleme hızı ve taşınabilirliğe önem veren profesyoneller için harikadır."
     },
     brands: ['Samsung X5']
   },
@@ -347,7 +347,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: '2TB USB 3.1 portable SSDs offer a good balance between speed, size, and mobility for daily backups.',
-      tr: "2TB USB 3.1 taşınabilir SSD\'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar."
+      tr: "2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar."
     },
     brands: ['SanDisk Extreme 2TB']
   },
@@ -355,7 +355,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'high', portability: 'fixed' },
     recommendation: {
       en: 'A 2TB SATA SSD in desktop ensures fast, frequent backups with better endurance over HDDs.',
-      tr: "Masaüstü kullanımında 2TB SATA SSD, HDD\'lere göre daha iyi dayanıklılık ile hızlı ve sık yedeklemeler sağlar."
+      tr: "Masaüstü kullanımında 2TB SATA SSD, HDD'lere göre daha iyi dayanıklılık ile hızlı ve sık yedeklemeler sağlar."
     },
     brands: ['Kingston A400 2TB']
   },
@@ -371,7 +371,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: '3TB or 4TB NVMe SSDs provide unmatched backup speeds in workstation environments.',
-      tr: "3TB veya 4TB NVMe SSD\'ler, iş istasyonu ortamlarında rakipsiz yedekleme hızları sunar."
+      tr: "3TB veya 4TB NVMe SSD'ler, iş istasyonu ortamlarında rakipsiz yedekleme hızları sunar."
     },
     brands: ['WD Black SN850X']
   },
@@ -389,7 +389,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: '6TB or larger 5400RPM HDDs suit archival storage with minimal access needs.',
-      tr: "6TB veya daha büyük 5400RPM HDD\\'ler, nadiren erişilen arşiv depolama için uygundur."
+      tr: "6TB veya daha büyük 5400RPM HDD\'ler, nadiren erişilen arşiv depolama için uygundur."
     },
     brands: ['WD Blue 6TB']
   },
@@ -405,7 +405,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: 'gt4tb', speed: 'high', portability: 'fixed' },
     recommendation: {
       en: '8TB SATA HDDs are suitable for home servers and NAS backup storage.',
-      tr: "8TB SATA HDD\\'ler ev sunucuları ve NAS yedekleme depolaması için uygundur."
+      tr: "8TB SATA HDD\'ler ev sunucuları ve NAS yedekleme depolaması için uygundur."
     },
     brands: ['Seagate IronWolf 8TB']
   },
@@ -413,7 +413,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: 'gt4tb', speed: 'very_high', portability: 'portable' },
     recommendation: {
       en: 'Portable 4TB or 8TB Thunderbolt SSDs offer lightning-fast large-capacity mobile backups for professionals.',
-      tr: "Taşınabilir 4TB veya 8TB Thunderbolt SSD\\'ler profesyoneller için yıldırım hızında yüksek kapasiteli mobil yedekleme sunar."
+      tr: "Taşınabilir 4TB veya 8TB Thunderbolt SSD\'ler profesyoneller için yıldırım hızında yüksek kapasiteli mobil yedekleme sunar."
     },
     brands: ['G-Drive Mobile Pro 4TB']
   },
@@ -446,7 +446,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'personal', capacity: 'lt500', speed: 'high', portability: 'portable' },
     recommendation: {
       en: 'Portable SSDs with 500GB capacity are good for storing files across devices with decent speed.',
-      tr: "500GB kapasiteli taşınabilir SSD\\'ler, cihazlar arası dosya saklama için iyi hız sunar."
+      tr: "500GB kapasiteli taşınabilir SSD\'ler, cihazlar arası dosya saklama için iyi hız sunar."
     },
     brands: ['Crucial X6']
   },
@@ -470,7 +470,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'personal', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: 'Install a 500GB NVMe SSD on your PC for snappy performance in everyday personal tasks.',
-      tr: "Günlük kişisel görevlerde hızlı performans için PC\\'nize 500GB NVMe SSD kurun."
+      tr: "Günlük kişisel görevlerde hızlı performans için PC\'nize 500GB NVMe SSD kurun."
     },
     brands: ['WD Blue SN570']
   },
@@ -495,7 +495,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'personal', capacity: '500_1tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: '1TB USB 3.2 external SSDs are a reliable choice for fast, portable storage across multiple devices.',
-      tr: "1TB USB 3.2 harici SSD\'ler, birden çok cihaz arasında hızlı, taşınabilir depolama için güvenilir bir tercihtir."
+      tr: "1TB USB 3.2 harici SSD'ler, birden çok cihaz arasında hızlı, taşınabilir depolama için güvenilir bir tercihtir."
     },
     brands: ['SanDisk Extreme Portable']
   },
@@ -626,7 +626,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'lt500', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable low-speed drives under 500GB are not recommended for gaming. Upgrade to SSD for smoother performance.',
-      tr: "Taşınabilir düşük hızlı ve 500GB altı sürücüler oyun için önerilmez. Daha akıcı performans için SSD\'ye geçin."
+      tr: "Taşınabilir düşük hızlı ve 500GB altı sürücüler oyun için önerilmez. Daha akıcı performans için SSD'ye geçin."
     },
     brands: []
   },
@@ -634,7 +634,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'lt500', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Fixed low-speed HDDs with <500GB storage are not suitable for gaming. Upgrade capacity or speed.',
-      tr: "Sabit düşük hızlı ve 500GB altı HDD\'ler oyun için uygun değildir. Kapasite veya hızı yükseltin."
+      tr: "Sabit düşük hızlı ve 500GB altı HDD'ler oyun için uygun değildir. Kapasite veya hızı yükseltin."
     },
     brands: []
   },
@@ -650,7 +650,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'lt500', speed: 'high', portability: 'fixed' },
     recommendation: {
       en: 'Use a 500GB SATA SSD for entry-level gaming PCs to improve loading times.',
-      tr: "500GB SATA SSD, başlangıç seviyesi oyun PC\'lerinde yükleme sürelerini iyileştirir."
+      tr: "500GB SATA SSD, başlangıç seviyesi oyun PC'lerinde yükleme sürelerini iyileştirir."
     },
     brands: ['Kingston A400 500GB']
   },
@@ -675,7 +675,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: '500_1tb', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Avoid low-speed portable drives for gaming. Consider upgrading to an external SSD.',
-      tr: "Oyun için düşük hızlı taşınabilir sürücülerden kaçının. Harici SSD\\'ye geçmeyi düşünün."
+      tr: "Oyun için düşük hızlı taşınabilir sürücülerden kaçının. Harici SSD\'ye geçmeyi düşünün."
     },
     brands: []
   },
@@ -724,7 +724,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable HDDs with low speed and large size may store games, but will bottleneck performance.',
-      tr: "Düşük hızlı büyük boyutlu taşınabilir HDD\\'ler oyunları depolayabilir, ancak performansı kısıtlar."
+      tr: "Düşük hızlı büyük boyutlu taşınabilir HDD\'ler oyunları depolayabilir, ancak performansı kısıtlar."
     },
     brands: ['Toshiba Canvio Basics 2TB']
   },
@@ -732,7 +732,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: '1tb_4tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Large low-speed HDDs are not ideal for gaming. Upgrade to an SSD for better responsiveness.',
-      tr: "Büyük düşük hızlı HDD\\'ler oyun için ideal değildir. Daha iyi tepki süresi için SSD\\'ye geçin."
+      tr: "Büyük düşük hızlı HDD\'ler oyun için ideal değildir. Daha iyi tepki süresi için SSD\'ye geçin."
     },
     brands: ['WD Blue 2TB']
   },
@@ -781,7 +781,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Internal 6TB HDDs are good for game storage, but not for running games. Consider hybrid setup.',
-      tr: "6TB dahili HDD\\'ler oyun depolama için iyidir, ancak oyun çalıştırmak için değil. Hibrit sistem düşünün."
+      tr: "6TB dahili HDD\'ler oyun depolama için iyidir, ancak oyun çalıştırmak için değil. Hibrit sistem düşünün."
     },
     brands: ['Toshiba X300 6TB']
   },
@@ -789,7 +789,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: 'High-capacity 4TB+ USB 3.2 SSDs are rare but perfect for gamers needing both space and mobility.',
-      tr: "4TB+ USB 3.2 SSD\\'ler nadirdir ancak hem alan hem taşınabilirlik isteyen oyuncular için idealdir."
+      tr: "4TB+ USB 3.2 SSD\'ler nadirdir ancak hem alan hem taşınabilirlik isteyen oyuncular için idealdir."
     },
     brands: ['Crucial X6 4TB']
   },
@@ -805,7 +805,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'gt4tb', speed: 'very_high', portability: 'portable' },
     recommendation: {
       en: 'Thunderbolt 4 SSDs with >4TB provide ultimate speed and capacity for gamers on the move.',
-      tr: "4TB üzeri Thunderbolt 4 SSD\\'ler, hareket halindeki oyuncular için en yüksek hız ve kapasiteyi sağlar."
+      tr: "4TB üzeri Thunderbolt 4 SSD\'ler, hareket halindeki oyuncular için en yüksek hız ve kapasiteyi sağlar."
     },
     brands: ['OWC Envoy Pro FX 4TB']
   },
@@ -822,7 +822,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'lt500', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable low-speed drives under 500GB are barely sufficient for office use. Consider upgrading to SSD for reliability.',
-      tr: "500GB altı taşınabilir düşük hızlı sürücüler ofis kullanımı için zar zor yeterlidir. Güvenilirlik için SSD\'ye geçin."
+      tr: "500GB altı taşınabilir düşük hızlı sürücüler ofis kullanımı için zar zor yeterlidir. Güvenilirlik için SSD'ye geçin."
     },
     brands: ['WD Elements 320GB']
   },
@@ -830,7 +830,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'lt500', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Fixed 500GB HDDs are workable for basic office tasks, but SSD is advised for faster access.',
-      tr: "Sabit 500GB HDD\'ler temel ofis görevleri için işe yarar, ancak daha hızlı erişim için SSD önerilir."
+      tr: "Sabit 500GB HDD'ler temel ofis görevleri için işe yarar, ancak daha hızlı erişim için SSD önerilir."
     },
     brands: ['Seagate Barracuda 500GB']
   },
@@ -871,7 +871,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '500_1tb', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Portable HDDs around 1TB are common but slow. Recommended only for light document storage.',
-      tr: "1TB civarındaki taşınabilir HDD\\'ler yaygındır ancak yavaştır. Sadece hafif belge depolama için önerilir."
+      tr: "1TB civarındaki taşınabilir HDD\'ler yaygındır ancak yavaştır. Sadece hafif belge depolama için önerilir."
     },
     brands: ['Toshiba Canvio Basics 1TB']
   },
@@ -879,7 +879,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '500_1tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Internal 1TB HDDs work fine for legacy office systems, but SSDs improve productivity.',
-      tr: "Dahili 1TB HDD\\'ler eski ofis sistemleri için uygundur, ancak SSD\\'ler verimliliği artırır."
+      tr: "Dahili 1TB HDD\'ler eski ofis sistemleri için uygundur, ancak SSD\'ler verimliliği artırır."
     },
     brands: ['WD Blue 1TB']
   },
@@ -920,7 +920,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'low', portability: 'portable' },
     recommendation: {
       en: 'Large-capacity portable HDDs (e.g., 2TB) are cheap but slow. Suitable only for archiving office files.',
-      tr: "Büyük kapasiteli taşınabilir HDD\\'ler (örneğin 2TB) ucuzdur ancak yavaştır. Sadece ofis dosyalarının arşivlenmesi için uygundur."
+      tr: "Büyük kapasiteli taşınabilir HDD\'ler (örneğin 2TB) ucuzdur ancak yavaştır. Sadece ofis dosyalarının arşivlenmesi için uygundur."
     },
     brands: ['Seagate Expansion Portable 2TB']
   },
@@ -928,7 +928,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Internal 2TB HDDs are fine for backup-heavy workflows, but not for performance tasks.',
-      tr: "Dahili 2TB HDD\\'ler, yedekleme ağırlıklı iş akışları için uygundur ancak performans görevleri için değildir."
+      tr: "Dahili 2TB HDD\'ler, yedekleme ağırlıklı iş akışları için uygundur ancak performans görevleri için değildir."
     },
     brands: ['Toshiba P300 2TB']
   },
@@ -944,7 +944,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'high', portability: 'fixed' },
     recommendation: {
       en: 'Upgrade to a 2TB SATA SSD to enjoy fast load times and efficient software handling.',
-      tr: "Hızlı yükleme süreleri ve verimli yazılım kullanımı için 2TB SATA SSD\\'ye geçin."
+      tr: "Hızlı yükleme süreleri ve verimli yazılım kullanımı için 2TB SATA SSD\'ye geçin."
     },
     brands: ['Samsung 870 EVO 2TB']
   },
@@ -952,7 +952,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'very_high', portability: 'portable' },
     recommendation: {
       en: 'Thunderbolt SSDs (2TB+) provide ultra-fast data access for executives working with heavy documents.',
-      tr: "Thunderbolt SSD\\'ler (2TB+) büyük belgelerle çalışan yöneticiler için ultra hızlı veri erişimi sağlar."
+      tr: "Thunderbolt SSD\'ler (2TB+) büyük belgelerle çalışan yöneticiler için ultra hızlı veri erişimi sağlar."
     },
     brands: ['SanDisk Professional PRO-G40 2TB']
   },
@@ -960,7 +960,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: '1tb_4tb', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: '2TB NVMe SSDs offer enterprise-level speed for high-demand office environments.',
-      tr: "2TB NVMe SSD\\'ler, yüksek talepli ofis ortamları için kurumsal düzeyde hız sunar."
+      tr: "2TB NVMe SSD\'ler, yüksek talepli ofis ortamları için kurumsal düzeyde hız sunar."
     },
     brands: ['WD Black SN850X 2TB']
   },
@@ -977,7 +977,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'gt4tb', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Fixed 6TB HDDs are economical for long-term backups in office environments where speed is not critical.',
-      tr: "Sabit 6TB HDD\\'ler, hızın kritik olmadığı ofis ortamlarında uzun vadeli yedeklemeler için ekonomiktir."
+      tr: "Sabit 6TB HDD\'ler, hızın kritik olmadığı ofis ortamlarında uzun vadeli yedeklemeler için ekonomiktir."
     },
     brands: ['Seagate BarraCuda 6TB']
   },
@@ -985,7 +985,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'gt4tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: 'High-speed 4–5TB SSDs (USB 3.2) are useful for portable workstations dealing with large data volumes.',
-      tr: "Yüksek hızlı 4–5TB SSD\\'ler (USB 3.2), büyük veri hacimleriyle çalışan taşınabilir iş istasyonları için faydalıdır."
+      tr: "Yüksek hızlı 4–5TB SSD\'ler (USB 3.2), büyük veri hacimleriyle çalışan taşınabilir iş istasyonları için faydalıdır."
     },
     brands: ['Crucial X6 4TB']
   },
@@ -1001,7 +1001,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'gt4tb', speed: 'very_high', portability: 'portable' },
     recommendation: {
       en: 'Thunderbolt 4TB+ SSDs are premium options for mobile offices handling massive files daily.',
-      tr: "Thunderbolt 4TB+ SSD\\'ler, günlük büyük dosyalarla çalışan mobil ofisler için üst düzey seçeneklerdir."
+      tr: "Thunderbolt 4TB+ SSD\'ler, günlük büyük dosyalarla çalışan mobil ofisler için üst düzey seçeneklerdir."
     },
     brands: ['LaCie Rugged Thunderbolt 5TB']
   },
@@ -1009,7 +1009,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'gt4tb', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: 'NVMe SSDs over 4TB offer unmatched performance for enterprise-level office computing.',
-      tr: "4TB üzerindeki NVMe SSD\\'ler, kurumsal düzeyde ofis bilgi işlem için eşsiz performans sunar."
+      tr: "4TB üzerindeki NVMe SSD\'ler, kurumsal düzeyde ofis bilgi işlem için eşsiz performans sunar."
     },
     brands: ['Sabrent Rocket 4 Plus 8TB']
   },
