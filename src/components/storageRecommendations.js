@@ -997,8 +997,7 @@ const recommendations = [
     en: 'NVMe SSDs over 4TB offer unmatched performance for enterprise-level office computing.',
     tr: "4TB üzerindeki NVMe SSD'ler, kurumsal düzeyde ofis bilgi işlemi için rakipsiz performans sunar."
   },
-  brands: ['Sabrent Rocket 4 Plus 8TB']
+  brands: ['Sabrent Rocket 4 Plus 8TB'],
 }
 ];
-
 export default recommendations;
