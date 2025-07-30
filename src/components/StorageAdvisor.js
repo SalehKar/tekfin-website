@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './StorageAdvisor.css';
 
 const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
@@ -9,9 +8,7 @@ const StorageAdvisor = ({ language }) => {
   const [email, setEmail] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const handleEmailChange = (e) => setEmail(e.target.value);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +21,7 @@ const StorageAdvisor = ({ language }) => {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify({ email, usage, capacity, speed, portability }),
+        body: JSON.stringify({ email, usage, capacity, speed, portability })
       });
       setShowThankYou(true);
     } catch (error) {
@@ -32,89 +29,132 @@ const StorageAdvisor = ({ language }) => {
     }
   };
 
-  const isTurkish = language === 'tr';
+  const isTR = language === 'tr';
 
   return (
-    <div className="storage-advisor">
-      <h1 className="page-title">
-        {isTurkish ? 'Depolama Danışmanı' : 'Storage Advisor'}
-      </h1>
-      <p className="advisor-description">
-        {isTurkish
-          ? 'Akıllı aracımız, verileriniz için en uygun depolama seçeneğini önersin.'
-          : 'Let our smart tool recommend the best storage option for your data.'}
-      </p>
+    <div className="bg-white text-[#1f3b6f] px-4 py-12">
+      <div className="max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl font-bold mb-4 text-[#002855]">
+          {isTR ? 'Depolama Danışmanı' : 'Storage Advisor'}
+        </h1>
+        <p className="text-base text-gray-700 mb-10">
+          {isTR
+            ? 'Akıllı aracımız, verileriniz için en uygun depolama seçeneğini önersin.'
+            : 'Let our smart tool recommend the best storage option for your data.'}
+        </p>
 
-      {!showThankYou ? (
-        <form onSubmit={handleEmailSubmit} className="advisor-form">
-          <div className="form-group">
-            <label>{isTurkish ? 'Kullanım Amacı' : 'Usage Purpose'}</label>
-            <select value={usage} onChange={(e) => setUsage(e.target.value)} required>
-              <option value="">--</option>
-              <option value="personal">{isTurkish ? 'Kişisel Depolama' : 'Personal Storage'}</option>
-              <option value="gaming">{isTurkish ? 'Oyun' : 'Gaming'}</option>
-              <option value="video">{isTurkish ? 'Video Düzenleme' : 'Video Editing'}</option>
-              <option value="backup">{isTurkish ? 'Yedekleme' : 'Backup'}</option>
-              <option value="office">{isTurkish ? 'Ofis/İş' : 'Office/Business'}</option>
-            </select>
-          </div>
+        {!showThankYou ? (
+          <form
+            onSubmit={handleEmailSubmit}
+            className="grid grid-cols-1 gap-6 text-left"
+          >
+            <div>
+              <label className="block mb-1 font-medium">
+                {isTR ? 'Kullanım Amacı' : 'Usage Purpose'}
+              </label>
+              <select
+                value={usage}
+                onChange={(e) => setUsage(e.target.value)}
+                required
+                className="w-full border rounded px-3 py-2"
+              >
+                <option value="">--</option>
+                <option value="personal">{isTR ? 'Kişisel Depolama' : 'Personal Storage'}</option>
+                <option value="gaming">{isTR ? 'Oyun' : 'Gaming'}</option>
+                <option value="video">{isTR ? 'Video Düzenleme' : 'Video Editing'}</option>
+                <option value="backup">{isTR ? 'Yedekleme' : 'Backup'}</option>
+                <option value="office">{isTR ? 'Ofis/İş' : 'Office/Business'}</option>
+              </select>
+            </div>
 
-          <div className="form-group">
-            <label>{isTurkish ? 'Kapasite' : 'Capacity'}</label>
-            <select value={capacity} onChange={(e) => setCapacity(e.target.value)} required>
-              <option value="">--</option>
-              <option value="lt500">{isTurkish ? '500 GB altı' : 'Less than 500 GB'}</option>
-              <option value="500_1tb">500 GB – 1 TB</option>
-              <option value="1tb_4tb">1 TB – 4 TB</option>
-              <option value="gt4tb">{isTurkish ? '4 TB üzeri' : 'More than 4 TB'}</option>
-            </select>
-          </div>
+            <div>
+              <label className="block mb-1 font-medium">
+                {isTR ? 'Kapasite' : 'Capacity'}
+              </label>
+              <select
+                value={capacity}
+                onChange={(e) => setCapacity(e.target.value)}
+                required
+                className="w-full border rounded px-3 py-2"
+              >
+                <option value="">--</option>
+                <option value="lt500">{isTR ? '500 GB altı' : 'Less than 500 GB'}</option>
+                <option value="500_1tb">500 GB – 1 TB</option>
+                <option value="1tb_4tb">1 TB – 4 TB</option>
+                <option value="gt4tb">{isTR ? '4 TB üzeri' : 'More than 4 TB'}</option>
+              </select>
+            </div>
 
-          <div className="form-group">
-            <label>{isTurkish ? 'Hız' : 'Speed'}</label>
-            <select value={speed} onChange={(e) => setSpeed(e.target.value)} required>
-              <option value="">--</option>
-              <option value="very_high">{isTurkish ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
-              <option value="high">{isTurkish ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
-              <option value="medium">{isTurkish ? 'Orta (HDD)' : 'Medium (HDD)'}</option>
-            </select>
-          </div>
+            <div>
+              <label className="block mb-1 font-medium">
+                {isTR ? 'Hız' : 'Speed'}
+              </label>
+              <select
+                value={speed}
+                onChange={(e) => setSpeed(e.target.value)}
+                required
+                className="w-full border rounded px-3 py-2"
+              >
+                <option value="">--</option>
+                <option value="very_high">{isTR ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
+                <option value="high">{isTR ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
+                <option value="medium">{isTR ? 'Orta (HDD)' : 'Medium (HDD)'}</option>
+              </select>
+            </div>
 
-          <div className="form-group">
-            <label>{isTurkish ? 'Taşınabilirlik' : 'Portability'}</label>
-            <select value={portability} onChange={(e) => setPortability(e.target.value)} required>
-              <option value="">--</option>
-              <option value="portable">{isTurkish ? 'Taşınabilir' : 'Portable'}</option>
-              <option value="fixed">{isTurkish ? 'Sabit' : 'Fixed'}</option>
-            </select>
-          </div>
+            <div>
+              <label className="block mb-1 font-medium">
+                {isTR ? 'Taşınabilirlik' : 'Portability'}
+              </label>
+              <select
+                value={portability}
+                onChange={(e) => setPortability(e.target.value)}
+                required
+                className="w-full border rounded px-3 py-2"
+              >
+                <option value="">--</option>
+                <option value="portable">{isTR ? 'Taşınabilir' : 'Portable'}</option>
+                <option value="fixed">{isTR ? 'Sabit' : 'Fixed'}</option>
+              </select>
+            </div>
 
-          <div className="form-group" style={{ gridColumn: '1 / -1' }}>
-            <label htmlFor="email">{isTurkish ? 'E-posta Adresi' : 'Email Address'}</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-          </div>
+            <div>
+              <label htmlFor="email" className="block mb-1 font-medium">
+                {isTR ? 'E-posta Adresi' : 'Email Address'}
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={handleEmailChange}
+                required
+                className="w-full border rounded px-3 py-2"
+              />
+            </div>
 
-          <button type="submit" className="recommend-button">
-            {isTurkish ? 'Tavsiyeyi Al' : 'Get Recommendation'}
-          </button>
-        </form>
-      ) : (
-        <div className="recommendation-result">
-          <h2>{isTurkish ? 'Teşekkürler!' : 'Thank You!'}</h2>
-          <p>{isTurkish ? 'E-postanızı aldık.' : 'We’ve received your email.'}</p>
-          <div className="dev-alert">
-            {isTurkish
-              ? 'Tavsiye aracı şu anda geliştirilmektedir. Hazır olduğunda size bildirilecektir.'
-              : 'The recommendation tool is currently under development. You’ll be notified as soon as it’s ready.'}
+            <button
+              type="submit"
+              className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 mt-4"
+            >
+              {isTR ? 'Tavsiyeyi Al' : 'Get Recommendation'}
+            </button>
+          </form>
+        ) : (
+          <div className="mt-10">
+            <h2 className="text-2xl font-semibold text-blue-800 mb-2">
+              {isTR ? 'Teşekkürler!' : 'Thank You!'}
+            </h2>
+            <p className="text-gray-700 mb-4">
+              {isTR ? 'E-postanızı aldık.' : 'We’ve received your email.'}
+            </p>
+            <div className="text-sm text-gray-600 italic">
+              {isTR
+                ? 'Tavsiye aracı şu anda geliştirilmektedir. Hazır olduğunda size bildirilecektir.'
+                : 'The recommendation tool is currently under development. You’ll be notified as soon as it’s ready.'}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
