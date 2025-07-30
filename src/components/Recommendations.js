@@ -1,0 +1,67 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import recommendations from './storageRecommendations';
+
+const Recommendations = () => {
+  const location = useLocation();
+  const { usage, capacity, speed, portability, email } = location.state || {};
+
+  // تحديد اللغة بناءً على البريد الإلكتروني (افتراضي إلى tr إن لم يوجد غير ذلك)
+  const language = email?.endsWith('.com.tr') ? 'tr' : 'en';
+  const isTR = language === 'tr';
+
+  if (!usage || !capacity || !speed || !portability) {
+    return (
+      <div className="p-6 text-center text-red-600">
+        {isTR
+          ? 'Veriler eksik. Lütfen formu tekrar doldurun.'
+          : 'Missing data. Please fill the form again.'}
+      </div>
+    );
+  }
+
+  // إيجاد أول توصية مطابقة للشروط
+  const match = recommendations.find((item) =>
+    item.conditions.usage === usage &&
+    item.conditions.capacity === capacity &&
+    item.conditions.speed === speed &&
+    item.conditions.portability === portability
+  );
+
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-12 text-[#1f3b6f]">
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        {isTR ? 'Tavsiye Sonucu' : 'Your Recommendation'}
+      </h1>
+
+      {match ? (
+        <div className="bg-white rounded-lg shadow p-6">
+          <p className="text-lg mb-4">
+            {match.recommendation[language]}
+          </p>
+
+          {match.brands.length > 0 && (
+            <div className="mt-4">
+              <h2 className="font-semibold mb-2">
+                {isTR ? 'Önerilen Markalar:' : 'Recommended Brands:'}
+              </h2>
+              <ul className="list-disc pl-5 text-gray-700">
+                {match.brands.map((brand, index) => (
+                  <li key={index}>{brand}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="text-red-700 text-center mt-6">
+          {isTR
+            ? 'Bu kombinasyon için öneri bulunamadı. Lütfen farklı seçenekler deneyin.'
+            : 'No recommendation found for this combination. Please try different options.'}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Recommendations;
