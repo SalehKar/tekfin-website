@@ -272,7 +272,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: 'lt500', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: '500GB NVMe SSDs in fixed setups offer excellent backup speed, though larger capacity is often recommended.',
-      tr: 'Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, ancak genellikle daha büyük kapasite önerilir.'
+      tr: "Sabit kurulumlarda 500GB NVMe SSD'ler mükemmel yedekleme hızı sunar, ancak genellikle daha büyük kapasite önerilir."
     },
     brands: ['WD Black SN770'],
 
@@ -347,7 +347,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: '2TB USB 3.1 portable SSDs offer a good balance between speed, size, and mobility for daily backups.',
-      tr: '2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar.'
+      tr: "2TB USB 3.1 taşınabilir SSD'ler günlük yedeklemeler için hız, boyut ve taşınabilirlik arasında iyi bir denge sunar."
     },
     brands: ['SanDisk Extreme 2TB']
   },
@@ -355,7 +355,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'high', portability: 'fixed' },
     recommendation: {
       en: 'A 2TB SATA SSD in desktop ensures fast, frequent backups with better endurance over HDDs.',
-      tr: 'Masaüstü kullanımında 2TB SATA SSD, HDD'lere göre daha iyi dayanıklılık ile hızlı ve sık yedeklemeler sağlar.'
+      tr: "Masaüstü kullanımında 2TB SATA SSD, HDD'lere göre daha iyi dayanıklılık ile hızlı ve sık yedeklemeler sağlar."
     },
     brands: ['Kingston A400 2TB']
   },
@@ -371,7 +371,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'backup', capacity: '1tb_4tb', speed: 'very_high', portability: 'fixed' },
     recommendation: {
       en: '3TB or 4TB NVMe SSDs provide unmatched backup speeds in workstation environments.',
-      tr: '3TB veya 4TB NVMe SSD'ler, iş istasyonu ortamlarında rakipsiz yedekleme hızları sunar.'
+      tr: "3TB veya 4TB NVMe SSD'ler, iş istasyonu ortamlarında rakipsiz yedekleme hızları sunar."
     },
     brands: ['WD Black SN850X']
   },
@@ -495,7 +495,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'personal', capacity: '500_1tb', speed: 'high', portability: 'portable' },
     recommendation: {
       en: '1TB USB 3.2 external SSDs are a reliable choice for fast, portable storage across multiple devices.',
-      tr: '1TB USB 3.2 harici SSD'ler, birden çok cihaz arasında hızlı, taşınabilir depolama için güvenilir bir tercihtir.'
+      tr: "1TB USB 3.2 harici SSD'ler, birden çok cihaz arasında hızlı, taşınabilir depolama için güvenilir bir tercihtir."
     },
     brands: ['SanDisk Extreme Portable']
   },
@@ -634,7 +634,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'gaming', capacity: 'lt500', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Fixed low-speed HDDs with <500GB storage are not suitable for gaming. Upgrade capacity or speed.',
-      tr: 'Sabit düşük hızlı ve 500GB altı HDD'ler oyun için uygun değildir. Kapasite veya hızı yükseltin.'
+      tr: "Sabit düşük hızlı ve 500GB altı HDD'ler oyun için uygun değildir. Kapasite veya hızı yükseltin."
     },
     brands: []
   },
@@ -830,7 +830,7 @@ tr: "500GB boyutundaki ultra hızlı taşınabilir SSD'ler (örneğin Thunderbol
     conditions: { usage: 'office', capacity: 'lt500', speed: 'low', portability: 'fixed' },
     recommendation: {
       en: 'Fixed 500GB HDDs are workable for basic office tasks, but SSD is advised for faster access.',
-      tr: 'Sabit 500GB HDD'ler temel ofis görevleri için işe yarar, ancak daha hızlı erişim için SSD önerilir.'
+      tr: "Sabit 500GB HDD'ler temel ofis görevleri için işe yarar, ancak daha hızlı erişim için SSD önerilir."
     },
     brands: ['Seagate Barracuda 500GB']
   },
