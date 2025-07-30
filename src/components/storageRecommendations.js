@@ -650,7 +650,7 @@ tr: "Taşınabilir düşük hızlı ve 500GB altı sürücüler oyun için öner
     conditions: { usage: 'gaming', capacity: 'lt500', speed: 'high', portability: 'fixed' },
     recommendation: {
       en: 'Use a 500GB SATA SSD for entry-level gaming PCs to improve loading times.',
-      tr: '500GB SATA SSD, başlangıç seviyesi oyun PC'lerinde yükleme sürelerini iyileştirir.'
+tr: "500GB SATA SSD, başlangıç seviyesi oyun PC'lerinde yükleme sürelerini iyileştirir."
     },
     brands: ['Kingston A400 500GB']
   },
