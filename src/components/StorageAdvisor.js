@@ -28,8 +28,8 @@ const StorageAdvisor = ({ language }) => {
       });
 
       // ✅ الانتقال إلى صفحة التوصيات مع تمرير البيانات
-      navigate('/recommendations', {
-        state: { usage, capacity, speed, portability, email },
+    navigate('/recommendations', {
+  state: { usage, capacity, speed, portability, email, language },
       });
     } catch (error) {
       console.error('Error submitting email:', error);
