@@ -5,10 +5,8 @@ import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
 const Recommendations = () => {
   const location = useLocation();
-  const { usage, capacity, speed, portability, email } = location.state || {};
-
-  const language = email?.endsWith('.com.tr') ? 'tr' : 'en';
-  const isTR = language === 'tr';
+ const { usage, capacity, speed, portability, email, language } = location.state || {};
+const isTR = language === 'tr';
 
   if (!usage || !capacity || !speed || !portability) {
     return (
