@@ -348,7 +348,7 @@ const recommendations = [
     tr: "3TB veya 4TB NVMe SSD'ler, iş istasyonu ortamlarında rakipsiz yedekleme hızları sunar."
   },
   brands: ['WD Black SN850X']
-}
+},
 
 // --- BACKUP USAGE: gt4tb ---
 {
