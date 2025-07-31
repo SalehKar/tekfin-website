@@ -22,7 +22,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies 📦
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Build 🔧
         run: npm run build
@@ -32,4 +32,3 @@ jobs:
         with:
           folder: build
           branch: gh-pages
-
