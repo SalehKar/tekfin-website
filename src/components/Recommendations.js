@@ -7,8 +7,8 @@ const Recommendations = () => {
   const location = useLocation();
   const { usage, capacity, speed, portability } = location.state || {};
 
-  // تحديد اللغة بناءً على مسار الرابط
-  const currentPath = window.location.pathname;
+  // تحديد اللغة تلقائيًا من مسار الصفحة
+  const currentPath = location.pathname;
   const isTR = currentPath.startsWith('/tr');
   const language = isTR ? 'tr' : 'en';
 
