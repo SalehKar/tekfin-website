@@ -198,7 +198,7 @@ const recommendations = [
     tr: "Sabit 6–8TB 5400RPM HDD'ler (örneğin Seagate Archive), uzun vadeli video arşivleme için uygundur, aktif projeler için değil."
   },
   brands: ['Seagate Archive HDD'],
-}
+},
 
   // --- BACKUP USAGE: lt500 ---
 {
