@@ -7,7 +7,6 @@ const Recommendations = () => {
   const location = useLocation();
   const { usage, capacity, speed, portability, email } = location.state || {};
 
-  // تحديد اللغة بناءً على البريد الإلكتروني (افتراضي إلى tr إن لم يوجد غير ذلك)
   const language = email?.endsWith('.com.tr') ? 'tr' : 'en';
   const isTR = language === 'tr';
 
@@ -22,13 +21,9 @@ const Recommendations = () => {
     );
   }
 
-  const match = recommendations.find(
-    (item) =>
-      item.conditions.usage === usage &&
-      item.conditions.capacity === capacity &&
-      item.conditions.speed === speed &&
-      item.conditions.portability === portability
-  );
+  // تكوين المفتاح المناسب لتطابق التوصية
+  const key = `${usage}_${capacity}_${speed}_${portability}`;
+  const match = recommendations[key];
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12 text-[#1f3b6f]">
@@ -37,11 +32,10 @@ const Recommendations = () => {
         {isTR ? 'Tavsiye Sonucu' : 'Your Recommendation'}
       </h1>
 
-      {match ? (
+      {match && match[language] ? (
         <div className="bg-white rounded-lg shadow p-6">
-          <p className="text-lg mb-4">{match.recommendation[language]}</p>
-
-          {match.brands.length > 0 && (
+          <p className="text-lg mb-4">{match[language]}</p>
+          {match.brands?.length > 0 && (
             <div className="mt-4">
               <h2 className="font-semibold mb-2">
                 {isTR ? 'Önerilen Markalar:' : 'Recommended Brands:'}
