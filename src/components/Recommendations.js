@@ -5,8 +5,12 @@ import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
 const Recommendations = () => {
   const location = useLocation();
-  const { usage, capacity, speed, portability, language } = location.state || {};
-  const isTR = language === 'tr';
+  const { usage, capacity, speed, portability } = location.state || {};
+
+  // تحديد اللغة بناءً على مسار الرابط
+  const currentPath = window.location.pathname;
+  const isTR = currentPath.startsWith('/tr');
+  const language = isTR ? 'tr' : 'en';
 
   if (!usage || !capacity || !speed || !portability) {
     return (
