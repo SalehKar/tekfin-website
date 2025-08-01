@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = ({ language, setLanguage }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation();
+
+  // ✨ أغلق القائمة المنسدلة عند تغيير الصفحة
+  useEffect(() => {
+    setIsDropdownOpen(false);
+    setIsMobileOpen(false);
+  }, [location]);
 
   const translations = {
     tr: {
@@ -37,7 +44,9 @@ const Header = ({ language, setLanguage }) => {
           <Link to="/">
             <img src="/images/tekfin-logo.png" alt="Logo" className="h-10 w-auto" />
           </Link>
-          <span className="text-xl font-bold text-blue-800 hidden sm:inline">TEKFİN TEKNOLOJİ LİMİTED ŞIT</span>
+          <span className="text-xl font-bold text-blue-800 hidden sm:inline">
+            TEKFİN TEKNOLOJİ LİMİTED ŞİT
+          </span>
         </div>
 
         <nav className="hidden md:flex space-x-6 items-center">
@@ -53,10 +62,10 @@ const Header = ({ language, setLanguage }) => {
             </button>
             {isDropdownOpen && (
               <div className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg py-2">
-                <Link to="/data-recovery" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.dataRecovery}</Link>
-                <Link to="/wireless-networks" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.wirelessNetworks}</Link>
-                <Link to="/other-services" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.otherServices}</Link>
-                <Link to="/storage-advisor" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.storageAdvisor}</Link>
+                <Link to="/data-recovery" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.dataRecovery}</Link>
+                <Link to="/wireless-networks" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.wirelessNetworks}</Link>
+                <Link to="/other-services" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.otherServices}</Link>
+                <Link to="/storage-advisor" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.storageAdvisor}</Link>
               </div>
             )}
           </div>
@@ -71,7 +80,7 @@ const Header = ({ language, setLanguage }) => {
             className="md:hidden ml-4 focus:outline-none"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
           >
-            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
