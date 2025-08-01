@@ -11,7 +11,6 @@ const Recommendations = ({ language }) => {
     capacity,
     speed,
     portability,
-    email,
   } = location.state || {};
 
   const isTR = language === 'tr';
