@@ -25,7 +25,8 @@ function App() {
             <Route path="/about-us" element={<AboutUs language={language} />} />
             <Route path="/contact" element={<Contact language={language} />} />
             <Route path="/storage-advisor" element={<StorageAdvisor language={language} />} />
-          <Route path="/recommendations" element={<Recommendations language={language} />} />
+         <Route path="/recommendations" element={<Recommendations language={language} />} />
+
 
           </Routes>
         </main>
