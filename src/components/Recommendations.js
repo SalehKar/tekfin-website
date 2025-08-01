@@ -6,8 +6,8 @@ import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 const Recommendations = (props) => {
   const location = useLocation();
   const { usage, capacity, speed, portability } = location.state || {};
-  const isTR = props.language === 'tr'; // ✅ الاعتماد على props بدلاً من location.state
-  const language = props.language;
+  const language = props.language || 'tr'; // اللغة تأتي من props الآن
+  const isTR = language === 'tr';
 
   if (!usage || !capacity || !speed || !portability) {
     return (
