@@ -13,20 +13,30 @@ const Recommendations = () => {
     language: stateLang,
   } = location.state || {};
 
-  const language = stateLang || 'tr'; // fallback إلى التركية إذا لم تُمرر اللغة
+  const language = stateLang || 'tr'; // Fallback إلى التركية
   const isTR = language === 'tr';
 
+  // ✅ التحقق من اكتمال البيانات
   if (!usage || !capacity || !speed || !portability) {
     return (
       <div className="p-6 text-center text-red-600 flex flex-col items-center">
         <FaExclamationTriangle className="text-3xl mb-2" />
-        {isTR
-          ? 'Veriler eksik. Lütfen formu tekrar doldurun.'
-          : 'Missing data. Please fill the form again.'}
+        <p className="mb-4">
+          {isTR
+            ? 'Veriler eksik. Lütfen formu tekrar doldurun.'
+            : 'Missing data. Please fill the form again.'}
+        </p>
+        <button
+          onClick={() => window.history.back()}
+          className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          {isTR ? 'Forma Geri Dön' : 'Back to Form'}
+        </button>
       </div>
     );
   }
 
+  // ✅ مطابقة التوصية من الملف
   const match = recommendations.find(
     (item) =>
       item.conditions.usage === usage &&
@@ -45,6 +55,7 @@ const Recommendations = () => {
       {match && match.recommendation && match.recommendation[language] ? (
         <div className="bg-white rounded-lg shadow p-6">
           <p className="text-lg mb-4">{match.recommendation[language]}</p>
+
           {match.brands?.length > 0 && (
             <div className="mt-4">
               <h2 className="font-semibold mb-2">
@@ -61,9 +72,17 @@ const Recommendations = () => {
       ) : (
         <div className="text-red-700 text-center mt-6 flex flex-col items-center">
           <FaExclamationTriangle className="text-3xl mb-2" />
-          {isTR
-            ? 'Bu kombinasyon için öneri bulunamadı. Lütfen farklı seçenekler deneyin.'
-            : 'No recommendation found for this combination. Please try different options.'}
+          <p className="mb-4">
+            {isTR
+              ? 'Bu kombinasyon için öneri bulunamadı. Lütfen farklı seçenekler deneyin.'
+              : 'No recommendation found for this combination. Please try different options.'}
+          </p>
+          <button
+            onClick={() => window.history.back()}
+            className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            {isTR ? 'Forma Geri Dön' : 'Back to Form'}
+          </button>
         </div>
       )}
     </div>
