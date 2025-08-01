@@ -6,8 +6,8 @@ const Header = ({ language, setLanguage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
 
-  // ✨ أغلق القائمة المنسدلة عند تغيير الصفحة
   useEffect(() => {
+    // إغلاق القوائم عند الانتقال بين الصفحات
     setIsDropdownOpen(false);
     setIsMobileOpen(false);
   }, [location]);
@@ -38,46 +38,46 @@ const Header = ({ language, setLanguage }) => {
   const t = translations[language] || translations.en;
 
   return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <Link to="/">
             <img src="/images/tekfin-logo.png" alt="Logo" className="h-10 w-auto" />
           </Link>
-          <span className="text-xl font-bold text-blue-800 hidden sm:inline">
-            TEKFİN TEKNOLOJİ LİMİTED ŞİT
+          <span className="text-xl font-bold text-blue-900 hidden sm:inline tracking-wide">
+            TEKFİN TEKNOLOJİ
           </span>
         </div>
 
-        <nav className="hidden md:flex space-x-6 items-center">
-          <Link to="/" className="text-gray-700 hover:text-blue-700 font-medium">{t.home}</Link>
-          <Link to="/about-us" className="text-gray-700 hover:text-blue-700 font-medium">{t.about}</Link>
+        <nav className="hidden md:flex gap-8 items-center text-[15px]">
+          <Link to="/" className="text-gray-700 hover:text-blue-700 font-medium transition duration-150">{t.home}</Link>
+          <Link to="/about-us" className="text-gray-700 hover:text-blue-700 font-medium transition duration-150">{t.about}</Link>
 
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="text-gray-700 hover:text-blue-700 font-medium focus:outline-none"
+              className="text-gray-700 hover:text-blue-700 font-medium transition duration-150"
             >
               {t.services}
             </button>
             {isDropdownOpen && (
-              <div className="absolute z-10 mt-2 w-48 bg-white rounded-md shadow-lg py-2">
-                <Link to="/data-recovery" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.dataRecovery}</Link>
-                <Link to="/wireless-networks" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.wirelessNetworks}</Link>
-                <Link to="/other-services" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.otherServices}</Link>
-                <Link to="/storage-advisor" onClick={() => setIsDropdownOpen(false)} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{t.storageAdvisor}</Link>
+              <div className="absolute z-20 mt-2 w-52 bg-white rounded-xl shadow-lg py-2 text-sm">
+                <Link to="/data-recovery" className="block px-4 py-2 hover:bg-gray-100 text-gray-800">{t.dataRecovery}</Link>
+                <Link to="/wireless-networks" className="block px-4 py-2 hover:bg-gray-100 text-gray-800">{t.wirelessNetworks}</Link>
+                <Link to="/other-services" className="block px-4 py-2 hover:bg-gray-100 text-gray-800">{t.otherServices}</Link>
+                <Link to="/storage-advisor" className="block px-4 py-2 hover:bg-gray-100 text-gray-800">{t.storageAdvisor}</Link>
               </div>
             )}
           </div>
 
-          <Link to="/contact" className="text-gray-700 hover:text-blue-700 font-medium">{t.contact}</Link>
+          <Link to="/contact" className="text-gray-700 hover:text-blue-700 font-medium transition duration-150">{t.contact}</Link>
         </nav>
 
-        <div className="flex items-center space-x-2">
-          <button onClick={() => setLanguage('tr')} className={`px-2 py-1 rounded text-sm ${language === 'tr' ? 'bg-blue-700 text-white' : 'text-gray-700'}`}>TR</button>
-          <button onClick={() => setLanguage('en')} className={`px-2 py-1 rounded text-sm ${language === 'en' ? 'bg-blue-700 text-white' : 'text-gray-700'}`}>EN</button>
+        <div className="flex items-center gap-2">
+          <button onClick={() => setLanguage('tr')} className={`px-2 py-1 rounded text-sm ${language === 'tr' ? 'bg-blue-700 text-white' : 'text-gray-700 hover:text-blue-700'}`}>TR</button>
+          <button onClick={() => setLanguage('en')} className={`px-2 py-1 rounded text-sm ${language === 'en' ? 'bg-blue-700 text-white' : 'text-gray-700 hover:text-blue-700'}`}>EN</button>
           <button
-            className="md:hidden ml-4 focus:outline-none"
+            className="md:hidden ml-3 focus:outline-none"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
           >
             <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,16 +88,16 @@ const Header = ({ language, setLanguage }) => {
       </div>
 
       {isMobileOpen && (
-        <div className="md:hidden bg-white shadow px-4 py-4 space-y-2">
+        <div className="md:hidden bg-white shadow px-6 py-4 space-y-3 text-sm">
           <Link to="/" className="block text-gray-700 hover:text-blue-700">{t.home}</Link>
           <Link to="/about-us" className="block text-gray-700 hover:text-blue-700">{t.about}</Link>
           <div>
             <span className="block text-gray-700 font-medium mb-1">{t.services}</span>
             <div className="pl-4 space-y-1">
-              <Link to="/data-recovery" className="block text-gray-700 hover:text-blue-700 text-sm">{t.dataRecovery}</Link>
-              <Link to="/wireless-networks" className="block text-gray-700 hover:text-blue-700 text-sm">{t.wirelessNetworks}</Link>
-              <Link to="/other-services" className="block text-gray-700 hover:text-blue-700 text-sm">{t.otherServices}</Link>
-              <Link to="/storage-advisor" className="block text-gray-700 hover:text-blue-700 text-sm">{t.storageAdvisor}</Link>
+              <Link to="/data-recovery" className="block text-gray-700 hover:text-blue-700">{t.dataRecovery}</Link>
+              <Link to="/wireless-networks" className="block text-gray-700 hover:text-blue-700">{t.wirelessNetworks}</Link>
+              <Link to="/other-services" className="block text-gray-700 hover:text-blue-700">{t.otherServices}</Link>
+              <Link to="/storage-advisor" className="block text-gray-700 hover:text-blue-700">{t.storageAdvisor}</Link>
             </div>
           </div>
           <Link to="/contact" className="block text-gray-700 hover:text-blue-700">{t.contact}</Link>
