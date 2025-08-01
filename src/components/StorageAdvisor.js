@@ -95,17 +95,18 @@ const StorageAdvisor = ({ language }) => {
             <label className="block mb-1 font-medium">
               {isTR ? 'Hız' : 'Speed'}
             </label>
-            <select
-              value={speed}
-              onChange={(e) => setSpeed(e.target.value)}
-              required
-              className="w-full border rounded px-3 py-2"
-            >
-              <option value="">--</option>
-              <option value="very_high">{isTR ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
-              <option value="high">{isTR ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
-              <option value="medium">{isTR ? 'Orta (HDD)' : 'Medium (HDD)'}</option>
-            </select>
+        <select
+  value={speed}
+  onChange={(e) => setSpeed(e.target.value)}
+  required
+  className="w-full border rounded px-3 py-2"
+>
+  <option value="">--</option>
+  <option value="very_high">{isTR ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
+  <option value="high">{isTR ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
+  <option value="low">{isTR ? 'Düşük (HDD)' : 'Low (HDD)'}</option> {/* ← عدل هنا */}
+</select>
+
           </div>
 
           <div>
