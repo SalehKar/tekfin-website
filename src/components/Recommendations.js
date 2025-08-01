@@ -10,7 +10,6 @@ const Recommendations = () => {
     capacity,
     speed,
     portability,
-    email,
     language: stateLang,
   } = location.state || {};
 
