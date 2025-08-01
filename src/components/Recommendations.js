@@ -3,10 +3,11 @@ import { useLocation } from 'react-router-dom';
 import recommendations from './storageRecommendations';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
-const Recommendations = ({ language }) => {
+const Recommendations = (props) => {
   const location = useLocation();
   const { usage, capacity, speed, portability } = location.state || {};
-  const isTR = language === 'tr';
+  const isTR = props.language === 'tr'; // ✅ الاعتماد على props بدلاً من location.state
+  const language = props.language;
 
   if (!usage || !capacity || !speed || !portability) {
     return (
