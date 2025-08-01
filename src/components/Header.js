@@ -45,7 +45,7 @@ const Header = ({ language, setLanguage }) => {
             <img src="/images/tekfin-logo.png" alt="Logo" className="h-10 w-auto" />
           </Link>
           <span className="text-xl font-bold text-blue-900 hidden sm:inline tracking-wide">
-            TEKFİN TEKNOLOJİ
+            TEKFİN TEKNOLOJİ LİMİTED ŞİT
           </span>
         </div>
 
