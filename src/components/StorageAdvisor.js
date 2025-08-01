@@ -28,8 +28,8 @@ const StorageAdvisor = ({ language }) => {
       });
 
       // ✅ الانتقال إلى صفحة التوصيات مع تمرير البيانات
-    navigate('/recommendations', {
-  state: { usage, capacity, speed, portability, email, language },
+      navigate('/recommendations', {
+        state: { usage, capacity, speed, portability, email, language },
       });
     } catch (error) {
       console.error('Error submitting email:', error);
@@ -95,18 +95,17 @@ const StorageAdvisor = ({ language }) => {
             <label className="block mb-1 font-medium">
               {isTR ? 'Hız' : 'Speed'}
             </label>
-        <select
-  value={speed}
-  onChange={(e) => setSpeed(e.target.value)}
-  required
-  className="w-full border rounded px-3 py-2"
->
-  <option value="">--</option>
-  <option value="very_high">{isTR ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
-  <option value="high">{isTR ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
-  <option value="low">{isTR ? 'Düşük (HDD)' : 'Low (HDD)'}</option> {/* ← عدل هنا */}
-</select>
-
+            <select
+              value={speed}
+              onChange={(e) => setSpeed(e.target.value)}
+              required
+              className="w-full border rounded px-3 py-2"
+            >
+              <option value="">--</option>
+              <option value="very_high">{isTR ? 'Çok Yüksek (NVMe SSD)' : 'Very High (NVMe SSD)'}</option>
+              <option value="high">{isTR ? 'Yüksek (SATA SSD)' : 'High (SATA SSD)'}</option>
+              <option value="low">{isTR ? 'Düşük (HDD)' : 'Low (HDD)'}</option>
+            </select>
           </div>
 
           <div>

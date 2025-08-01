@@ -13,7 +13,7 @@ const Recommendations = () => {
     language: stateLang,
   } = location.state || {};
 
-  const language = stateLang || 'tr'; // Fallback إلى التركية
+  const language = stateLang || 'tr'; // fallback إلى التركية
   const isTR = language === 'tr';
 
   // ✅ التحقق من اكتمال البيانات
