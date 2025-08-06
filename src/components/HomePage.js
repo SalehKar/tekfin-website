@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// استيراد الأيقونات من مكتبة react-icons
+import { FaDatabase, FaWifi, FaCogs, FaShieldAlt, FaBolt, FaUsers } from 'react-icons/fa';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
@@ -81,6 +83,26 @@ const HomePage = ({ language }) => {
     other: 'from-yellow-500 to-orange-500'
   };
 
+  const serviceIcons = {
+    dataRecovery: <FaDatabase className="w-8 h-8 text-white" />,
+    wireless: <FaWifi className="w-8 h-8 text-white" />,
+    other: <FaCogs className="w-8 h-8 text-white" />
+  };
+
+  const whyChooseIcons = {
+    expertise: <FaDatabase className="w-8 h-8 text-white" />,
+    reliability: <FaShieldAlt className="w-8 h-8 text-white" />,
+    fastSolutions: <FaBolt className="w-8 h-8 text-white" />,
+    customerFocus: <FaUsers className="w-8 h-8 text-white" />
+  };
+
+  const whyColors = {
+    expertise: 'from-green-500 to-emerald-600',
+    reliability: 'from-blue-500 to-purple-600',
+    fastSolutions: 'from-cyan-500 to-sky-600',
+    customerFocus: 'from-pink-500 to-red-500'
+  };
+
   return (
     <div className="homepage">
       {/* Hero Section */}
@@ -108,16 +130,8 @@ const HomePage = ({ language }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {['dataRecovery', 'wireless', 'other'].map((key, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors[key]} rounded-full shadow overflow-hidden`}>
-                  <img
-                    src={`/images/icons/${key === 'dataRecovery'
-                      ? 'data-recovery-icon'
-                      : key === 'wireless'
-                        ? 'wireless-network-icon'
-                        : 'other-tech-services-icon'}.png`}
-                    alt={t.services[key].title}
-                    className="w-10 h-10 object-contain"
-                  />
+                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors[key]} rounded-full shadow`}>
+                  {serviceIcons[key]}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{t.services[key].title}</h3>
                 <p className="text-gray-700 text-sm">{t.services[key].description}</p>
@@ -132,15 +146,10 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { key: 'expertise', icon: 'data-recovery-icon', color: 'from-green-500 to-emerald-600' },
-              { key: 'reliability', icon: 'storage-advisor-icon', color: 'from-blue-500 to-purple-600' },
-              { key: 'fastSolutions', icon: 'wireless-network-icon', color: 'from-cyan-500 to-sky-600' },
-              { key: 'customerFocus', icon: 'contact-us-icon' }
-            ].map(({ key, icon, color }, index) => (
+            {Object.keys(whyChooseUs).map((key, index) => (
               <div key={index} className="text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${color} rounded-full shadow overflow-hidden`}>
-                  <img src={`/images/icons/${icon}.png`} alt={key} className="w-10 h-10 object-contain" />
+                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
+                  {whyChooseIcons[key]}
                 </div>
                 <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
               </div>
