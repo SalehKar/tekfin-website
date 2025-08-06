@@ -5,6 +5,8 @@ export default function ProcessTimeline({ steps, icons, title }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const currentRef = sectionRef.current; // ✅ حفظ القيمة لتجنب تحذير ESLint
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -17,13 +19,13 @@ export default function ProcessTimeline({ steps, icons, title }) {
       { threshold: 0.2 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -34,7 +36,6 @@ export default function ProcessTimeline({ steps, icons, title }) {
 
       {/* الكمبيوتر */}
       <div className="hidden md:flex justify-between items-center relative">
-        {/* خط أغمق + حركة */}
         <div
           className={`absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-blue-700 to-blue-900 ${
             isVisible ? "animate-lineGrow" : ""
