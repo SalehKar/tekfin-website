@@ -1,11 +1,45 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaDatabase, FaWifi, FaHdd, FaCloudUploadAlt } from 'react-icons/fa';
+import { FaDatabase, FaWifi, FaHdd, FaCloudUploadAlt, FaShieldAlt, FaBolt, FaUsers } from 'react-icons/fa';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
 
   const content = {
+    tr: {
+      mainTitle: "İşletme Veri Çözümleri",
+      subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
+      intro: "İşletmelerin en değerli varlığı olan verilerini saklamak, korumak ve kurtarmak için özel çözümler sunuyoruz. İstanbul merkezli firmamız, uzmanlık, ileri teknoloji ve müşteri odaklı yaklaşımı bir araya getirerek verilerinizin her zaman güvende ve erişilebilir olmasını sağlar.",
+      landingBtn: "Storage Advisor'ı Dene",
+      landingDescription: "Hangi depolama cihazına ihtiyacınız olduğundan emin değil misiniz? Akıllı öneri aracımızla saniyeler içinde size özel tavsiye alın!",
+      services: {
+        title: "Hizmetlerimiz",
+        dataSolutions: {
+          title: "İşletme Veri Çözümleri",
+          description: "Verinin iş başarısındaki kritik rolünü biliyoruz, bu yüzden gelişmiş veri çözümleri sunuyoruz:",
+          subServices: [
+            { title: "Veri Depolama", description: "Verilerinize her zaman kolay erişim sağlayan güvenli ve verimli depolama çözümleri.", icon: <FaHdd className="w-6 h-6 text-white" /> },
+            { title: "Veri Kurtarma", description: "En son teknolojilerle kritik işletme verilerinizin hızlı ve güvenilir kurtarılması.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
+            { title: "Yedekleme Hizmetleri", description: "Verilerinizi kayıp veya hasara karşı koruyan otomatik ve güvenli yedekleme sistemleri.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
+          ]
+        },
+        wireless: {
+          title: "Kablosuz Ağ Çözümleri (Gelecekte)",
+          description: "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecek hizmetlerimiz için bizi takip edin."
+        }
+      },
+      whyChooseUs: {
+        title: "Neden Bizi Seçmelisiniz?",
+        expertise: "Uzmanlık: Veri kurtarma ve işletme veri yönetimi alanında yılların deneyimi.",
+        reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği en büyük önceliğimizdir.",
+        fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
+        customerFocus: "Müşteri Odaklı: İhtiyaçlarınıza özel çözümler sunuyoruz."
+      },
+      cta: {
+        title: "İşletme verilerinizi korumak ve kurtarmak için bugün bizimle iletişime geçin!",
+        button: "Hemen İletişime Geçin!"
+      }
+    },
     en: {
       mainTitle: "Business Data Solutions",
       subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
@@ -51,6 +85,20 @@ const HomePage = ({ language }) => {
     wireless: 'from-cyan-500 to-sky-600'
   };
 
+  const whyChooseIcons = {
+    expertise: <FaDatabase className="w-8 h-8 text-white" />,
+    reliability: <FaShieldAlt className="w-8 h-8 text-white" />,
+    fastSolutions: <FaBolt className="w-8 h-8 text-white" />,
+    customerFocus: <FaUsers className="w-8 h-8 text-white" />
+  };
+
+  const whyColors = {
+    expertise: 'from-green-500 to-emerald-600',
+    reliability: 'from-blue-500 to-purple-600',
+    fastSolutions: 'from-yellow-500 to-orange-500',
+    customerFocus: 'from-pink-500 to-red-500'
+  };
+
   return (
     <div className="homepage">
       {/* Hero Section */}
@@ -59,13 +107,23 @@ const HomePage = ({ language }) => {
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
           <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
           <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
-          <div className="bg-white text-blue-800 p-4 rounded-lg shadow-lg inline-block">
-            <p className="text-lg font-semibold mb-2">{t.landingDescription}</p>
+          {/* New Storage Advisor Card */}
+          <div className="bg-white p-6 rounded-xl shadow-2xl inline-block max-w-md text-center transform hover:scale-105 transition">
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
+                <FaHdd className="w-8 h-8 text-white" />
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-blue-800 mb-2">{t.landingBtn}</h3>
+            <p className="text-gray-600 text-sm mb-4">{t.landingDescription}</p>
             <button
               onClick={() => navigate('/storage-advisor')}
-              className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full transition"
+              className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full flex items-center justify-center gap-2 mx-auto transition"
             >
-              {t.landingBtn}
+              <span>{t.landingBtn}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
           </div>
         </div>
@@ -76,7 +134,6 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
             {/* Business Data Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
@@ -98,7 +155,6 @@ const HomePage = ({ language }) => {
                 ))}
               </div>
             </div>
-
             {/* Wireless Network Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cyan-500 to-sky-600 rounded-full shadow">
@@ -107,7 +163,6 @@ const HomePage = ({ language }) => {
               <h3 className="text-xl font-semibold mb-2">{t.services.wireless.title}</h3>
               <p className="text-gray-700 text-sm">{t.services.wireless.description}</p>
             </div>
-
           </div>
         </div>
       </section>
@@ -117,15 +172,16 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.keys(t.whyChooseUs).filter(k => k !== 'title').map((key, index) => (
-              <div key={index} className="text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${Object.values(iconColors)[index]} rounded-full shadow`}>
-                  {/* Placeholder icon */}
-                  <FaDatabase className="w-8 h-8 text-white" />
+            {Object.keys(t.whyChooseUs)
+              .filter(k => k !== 'title')
+              .map((key, index) => (
+                <div key={index} className="text-center">
+                  <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
+                    {whyChooseIcons[key]}
+                  </div>
+                  <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
                 </div>
-                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>
