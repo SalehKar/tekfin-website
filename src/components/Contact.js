@@ -108,16 +108,17 @@ const Contact = ({ language }) => {
             <FaEnvelope className="text-xl text-yellow-500 mr-3" /> <p>{t.email}</p>
           </div>
           <div className="flex items-center text-gray-700">
-            <FaLinkedin className="text-xl text-blue-600 mr-3" />
-            <a
-              href="https://www.linkedin.com/company/tekfin-teknoloji-limited-şti/posts"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              LinkedIn
-            </a>
-          </div>
+  <FaLinkedin className="text-xl text-blue-600 mr-3" />
+  <a
+    href="https://www.linkedin.com/company/tekfin-teknoloji-limited-şti/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline"
+  >
+    LinkedIn
+  </a>
+</div>
+
           <div className="flex items-center text-gray-700">
             <FaClock className="text-xl text-purple-500 mr-3" /> <p>{t.hours}</p>
           </div>
