@@ -23,7 +23,7 @@ export default function BackupServices({ language = "tr" }) {
         "Sürekli İzleme ve Destek"
       ],
       cta: {
-        question: "Verilerinizi güvence altına almak ister misiniz?",
+        question: "Verilerinizi yedeklemek ister misiniz?",
         action: "Bizimle İletişime Geçin"
       }
     },
@@ -46,7 +46,7 @@ export default function BackupServices({ language = "tr" }) {
         "Continuous Monitoring & Support"
       ],
       cta: {
-        question: "Want to secure your data?",
+        question: "Want to back up your data?",
         action: "Contact Us"
       }
     }
