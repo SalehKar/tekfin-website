@@ -5,6 +5,7 @@ import hddIcon from "../assets/external-icons/hdd.svg";
 import ssdIcon from "../assets/external-icons/ssd.svg";
 import usbIcon from "../assets/external-icons/usb.svg";
 import raidIcon from "../assets/external-icons/raid.svg";
+import ProcessTimeline from "./ProcessTimeline";
 
 export default function DataRecovery({ language = "tr" }) {
   const content = {
@@ -118,24 +119,8 @@ export default function DataRecovery({ language = "tr" }) {
           </div>
         </div>
 
-        {/* Process - Timeline Style with Fixed Width */}
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
-          <div className="space-y-6">
-            {t.processSteps.map((step, i) => (
-              <div key={i} className="flex items-start gap-4 mx-auto max-w-2xl">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-lg">
-                  {icons[i]}
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition w-full">
-                  <p className="text-gray-800 font-medium">
-                    <span className="font-bold text-blue-800 mr-2">{i + 1}.</span> {step}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Process Timeline */}
+        <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
 
         {/* Call to Action */}
         <div className="mt-14 text-center">
