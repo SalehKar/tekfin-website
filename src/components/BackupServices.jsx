@@ -1,52 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaCloudUploadAlt, FaServer, FaSyncAlt, FaShieldAlt, FaCheckCircle } from "react-icons/fa";
+import { FaClipboardCheck, FaCloudUploadAlt, FaSyncAlt, FaShieldAlt, FaCheckCircle } from "react-icons/fa";
+import ProcessTimeline from "./ProcessTimeline";
 
 export default function BackupServices({ language = "tr" }) {
   const content = {
     tr: {
       title: "Yedekleme Hizmetleri",
       paragraph:
-        "Verilerinizin güvenliği ve sürekliliği için otomatik ve güvenilir yedekleme çözümleri sunuyoruz. İster bulut tabanlı, ister yerinde yedekleme olsun, ihtiyacınıza uygun çözümleri tasarlıyoruz.",
+        "Veri kaybını önlemek için otomatik yedekleme çözümleri sunuyoruz. Güvenli, hızlı ve iş sürekliliğini sağlayan sistemler ile verileriniz her zaman koruma altında.",
       services: [
-        { icon: <FaCloudUploadAlt className="w-8 h-8 text-blue-700" />, text: "Bulut Yedekleme" },
-        { icon: <FaServer className="w-8 h-8 text-blue-700" />, text: "Yerinde (On-Premises) Yedekleme" },
-        { icon: <FaSyncAlt className="w-8 h-8 text-blue-700" />, text: "Gerçek Zamanlı Yedekleme" },
-        { icon: <FaShieldAlt className="w-8 h-8 text-blue-700" />, text: "Şifreli Yedekleme" }
+        { icon: <FaClipboardCheck className="text-blue-800 w-10 h-10" />, text: "Otomatik Yedekleme Planları" },
+        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Bulut Yedekleme" },
+        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Gerçek Zamanlı Senkronizasyon" },
+        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Veri Şifreleme ve Güvenlik" }
       ],
-      processTitle: "Sürecimiz",
+      privacy: "🔒 Yedekleme verileriniz güvenli bir şekilde saklanır.",
+      processTitle: "Yedekleme Sürecimiz",
       processSteps: [
         "İhtiyaç Analizi",
-        "Çözüm Tasarımı",
-        "Kurulum ve Yapılandırma",
-        "Test ve Doğrulama",
-        "Sürekli İzleme ve Destek"
+        "Yedekleme Stratejisinin Belirlenmesi",
+        "Altyapı Kurulumu",
+        "Otomatik Yedekleme Başlatma",
+        "Düzenli Kontrol ve Güncelleme"
       ],
       cta: {
-        question: "Verilerinizi yedeklemek ister misiniz?",
+        question: "Verilerinizi yedeklemek mi istiyorsunuz?",
         action: "Bizimle İletişime Geçin"
       }
     },
     en: {
       title: "Backup Services",
       paragraph:
-        "We provide automated and reliable backup solutions to ensure the safety and continuity of your data. Whether cloud-based or on-premises, we design backup systems tailored to your needs.",
+        "We offer automated backup solutions to prevent data loss. With secure, fast, and business continuity-focused systems, your data is always protected.",
       services: [
-        { icon: <FaCloudUploadAlt className="w-8 h-8 text-blue-700" />, text: "Cloud Backup" },
-        { icon: <FaServer className="w-8 h-8 text-blue-700" />, text: "On-Premises Backup" },
-        { icon: <FaSyncAlt className="w-8 h-8 text-blue-700" />, text: "Real-Time Backup" },
-        { icon: <FaShieldAlt className="w-8 h-8 text-blue-700" />, text: "Encrypted Backup" }
+        { icon: <FaClipboardCheck className="text-blue-800 w-10 h-10" />, text: "Automated Backup Plans" },
+        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Cloud Backup" },
+        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Real-Time Synchronization" },
+        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Data Encryption & Security" }
       ],
-      processTitle: "Our Process",
+      privacy: "🔒 Your backup data is stored securely.",
+      processTitle: "Our Backup Process",
       processSteps: [
-        "Needs Assessment",
-        "Solution Design",
-        "Implementation & Configuration",
-        "Testing & Validation",
-        "Continuous Monitoring & Support"
+        "Needs Analysis",
+        "Backup Strategy Definition",
+        "Infrastructure Setup",
+        "Start Automatic Backup",
+        "Regular Check & Update"
       ],
       cta: {
-        question: "Want to back up your data?",
+        question: "Want to backup your data?",
         action: "Contact Us"
       }
     }
@@ -54,12 +57,12 @@ export default function BackupServices({ language = "tr" }) {
 
   const t = content[language];
 
-  const processIcons = [
-    <FaCheckCircle className="text-white w-5 h-5" />,
+  const icons = [
+    <FaClipboardCheck className="text-white w-5 h-5" />,
+    <FaCloudUploadAlt className="text-white w-5 h-5" />,
     <FaSyncAlt className="text-white w-5 h-5" />,
-    <FaServer className="text-white w-5 h-5" />,
     <FaShieldAlt className="text-white w-5 h-5" />,
-    <FaCloudUploadAlt className="text-white w-5 h-5" />
+    <FaCheckCircle className="text-white w-5 h-5" />
   ];
 
   return (
@@ -82,24 +85,11 @@ export default function BackupServices({ language = "tr" }) {
           ))}
         </div>
 
-        {/* Process - Timeline Style */}
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
-          <div className="space-y-6">
-            {t.processSteps.map((step, i) => (
-              <div key={i} className="flex items-start gap-4 mx-auto max-w-2xl">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-lg">
-                  {processIcons[i]}
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition w-full">
-                  <p className="text-gray-800 font-medium">
-                    <span className="font-bold text-blue-800 mr-2">{i + 1}.</span> {step}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Privacy */}
+        <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
+
+        {/* Process Timeline */}
+        <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
 
         {/* Call to Action */}
         <div className="mt-14 text-center">
