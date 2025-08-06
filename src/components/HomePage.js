@@ -146,14 +146,16 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.keys(whyChooseUs).map((key, index) => (
-              <div key={index} className="text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
-                  {whyChooseIcons[key]}
+            {Object.keys(t.whyChooseUs)
+              .filter(key => key !== 'title')
+              .map((key, index) => (
+                <div key={index} className="text-center">
+                  <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
+                    {whyChooseIcons[key]}
+                  </div>
+                  <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
                 </div>
-                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>
