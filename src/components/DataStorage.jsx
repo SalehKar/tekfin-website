@@ -1,66 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaCloud, FaServer, FaProjectDiagram, FaDatabase, FaTools, FaCheckCircle } from "react-icons/fa";
+import { FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt, FaServer } from "react-icons/fa";
+import ProcessTimeline from "./ProcessTimeline";
 
 export default function DataStorage({ language = "tr" }) {
   const content = {
     tr: {
       title: "Veri Depolama Çözümleri",
       paragraph:
-        "İşletmenizin veya kişisel verilerinizin güvenliği ve erişilebilirliği için yüksek performanslı, güvenli ve ölçeklenebilir veri depolama çözümleri sunuyoruz. İster bulut tabanlı, ister yerinde sistemler olsun, ihtiyacınıza uygun çözümleri tasarlıyoruz.",
+        "İşletmeniz veya kişisel verileriniz için güvenli ve verimli depolama çözümleri sunuyoruz. Verilerinizin her zaman erişilebilir olmasını sağlamak için en son teknolojileri kullanıyoruz.",
       services: [
-        { icon: <FaCloud className="w-8 h-8 text-blue-700" />, text: "Bulut Depolama" },
-        { icon: <FaServer className="w-8 h-8 text-blue-700" />, text: "Yerinde (On-Premises) Depolama" },
-        { icon: <FaProjectDiagram className="w-8 h-8 text-blue-700" />, text: "Hibrit Depolama" },
-        { icon: <FaDatabase className="w-8 h-8 text-blue-700" />, text: "NAS / SAN Sistemleri" }
+        { icon: <FaDatabase className="text-blue-800 w-10 h-10" />, text: "Yüksek Kapasiteli Depolama" },
+        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Güvenli Veri Koruma" },
+        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Kolay Erişim ve Senkronizasyon" },
+        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Bulut Yedekleme Entegrasyonu" }
       ],
-      whyTitle: "Neden Bizi Tercih Etmelisiniz?",
-      whyList: [
-        "✅ Yüksek hızlı veri erişimi",
-        "🔒 Gelişmiş güvenlik ve şifreleme",
-        "📈 Ölçeklenebilir çözümler",
-        "👨‍💻 Profesyonel teknik destek"
-      ],
-      processTitle: "Sürecimiz",
+      privacy: "🔒 Verileriniz güvenli altyapımızda korunur.",
+      processTitle: "Depolama Sürecimiz",
       processSteps: [
         "İhtiyaç Analizi",
         "Çözüm Tasarımı",
-        "Kurulum ve Yapılandırma",
-        "Test ve Optimizasyon",
-        "Sürekli Destek"
+        "Altyapı Kurulumu",
+        "Veri Aktarımı",
+        "Sürekli İzleme ve Destek"
       ],
       cta: {
-        question: "Veri depolama çözümünüzü geliştirmek ister misiniz?",
+        question: "Verilerinizi güvenle depolamak ister misiniz?",
         action: "Bizimle İletişime Geçin"
       }
     },
     en: {
       title: "Data Storage Solutions",
       paragraph:
-        "We provide high-performance, secure, and scalable data storage solutions for your business or personal needs. Whether cloud-based or on-premises, we design solutions tailored to your requirements.",
+        "We provide secure and efficient storage solutions for your business or personal data, ensuring your information is always accessible using the latest technologies.",
       services: [
-        { icon: <FaCloud className="w-8 h-8 text-blue-700" />, text: "Cloud Storage" },
-        { icon: <FaServer className="w-8 h-8 text-blue-700" />, text: "On-Premises Storage" },
-        { icon: <FaProjectDiagram className="w-8 h-8 text-blue-700" />, text: "Hybrid Storage" },
-        { icon: <FaDatabase className="w-8 h-8 text-blue-700" />, text: "NAS / SAN Systems" }
+        { icon: <FaDatabase className="text-blue-800 w-10 h-10" />, text: "High-Capacity Storage" },
+        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Secure Data Protection" },
+        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Easy Access & Synchronization" },
+        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Cloud Backup Integration" }
       ],
-      whyTitle: "Why Choose Us?",
-      whyList: [
-        "✅ High-speed data access",
-        "🔒 Advanced security and encryption",
-        "📈 Scalable solutions",
-        "👨‍💻 Professional technical support"
-      ],
-      processTitle: "Our Process",
+      privacy: "🔒 Your data is protected in our secure infrastructure.",
+      processTitle: "Our Storage Process",
       processSteps: [
-        "Needs Assessment",
+        "Needs Analysis",
         "Solution Design",
-        "Implementation & Configuration",
-        "Testing & Optimization",
-        "Ongoing Support"
+        "Infrastructure Setup",
+        "Data Migration",
+        "Continuous Monitoring & Support"
       ],
       cta: {
-        question: "Want to improve your data storage solution?",
+        question: "Want to store your data securely?",
         action: "Contact Us"
       }
     }
@@ -68,11 +57,11 @@ export default function DataStorage({ language = "tr" }) {
 
   const t = content[language];
 
-  const processIcons = [
-    <FaCheckCircle className="text-white w-5 h-5" />,
-    <FaProjectDiagram className="text-white w-5 h-5" />,
-    <FaTools className="text-white w-5 h-5" />,
+  const icons = [
     <FaDatabase className="text-white w-5 h-5" />,
+    <FaShieldAlt className="text-white w-5 h-5" />,
+    <FaSyncAlt className="text-white w-5 h-5" />,
+    <FaCloudUploadAlt className="text-white w-5 h-5" />,
     <FaServer className="text-white w-5 h-5" />
   ];
 
@@ -96,39 +85,11 @@ export default function DataStorage({ language = "tr" }) {
           ))}
         </div>
 
-        {/* Why Choose Us */}
-        <div className="mb-10 max-w-5xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.whyTitle}</h3>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {t.whyList.map((item, i) => (
-              <div
-                key={i}
-                className="bg-white border border-blue-100 p-4 rounded-lg shadow text-center hover:shadow-md transition"
-              >
-                <p className="text-blue-800 font-medium">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Privacy */}
+        <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
 
-        {/* Process - Timeline Style */}
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
-          <div className="space-y-6">
-            {t.processSteps.map((step, i) => (
-              <div key={i} className="flex items-start gap-4 mx-auto max-w-2xl">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-lg">
-                  {processIcons[i]}
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition w-full">
-                  <p className="text-gray-800 font-medium">
-                    <span className="font-bold text-blue-800 mr-2">{i + 1}.</span> {step}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Process Timeline */}
+        <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
 
         {/* Call to Action */}
         <div className="mt-14 text-center">
