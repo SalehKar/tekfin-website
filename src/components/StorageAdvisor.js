@@ -50,7 +50,7 @@ const StorageAdvisor = ({ language }) => {
     setAiRecommendation('');
 
     try {
-      const response = await fetch('/api/ai/storage-recommendation', {
+      const response = await fetch("/.netlify/functions/storage-recommendation", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
