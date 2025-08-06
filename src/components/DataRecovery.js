@@ -119,7 +119,7 @@ export default function DataRecovery({ language = "tr" }) {
           </div>
         </div>
 
-        {/* Process Timeline */}
+        {/* Process Timeline مع الحركات */}
         <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
 
         {/* Call to Action */}
