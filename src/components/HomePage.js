@@ -136,7 +136,7 @@ const HomePage = ({ language }) => {
               { key: 'expertise', icon: 'data-recovery-icon', color: 'from-green-500 to-emerald-600' },
               { key: 'reliability', icon: 'storage-advisor-icon', color: 'from-blue-500 to-purple-600' },
               { key: 'fastSolutions', icon: 'wireless-network-icon', color: 'from-cyan-500 to-sky-600' },
-              { key: 'customerFocus', icon: 'contact-us-icon', color: 'from-pink-500 to-red-500' }
+              { key: 'customerFocus', icon: 'contact-us-icon' }
             ].map(({ key, icon, color }, index) => (
               <div key={index} className="text-center">
                 <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${color} rounded-full shadow overflow-hidden`}>
