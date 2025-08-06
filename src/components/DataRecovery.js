@@ -118,12 +118,12 @@ export default function DataRecovery({ language = "tr" }) {
           </div>
         </div>
 
-        {/* Process - New Timeline Style */}
+        {/* Process - Timeline Style with Fixed Width */}
         <div className="max-w-4xl mx-auto">
           <h3 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.processTitle}</h3>
           <div className="space-y-6">
             {t.processSteps.map((step, i) => (
-              <div key={i} className="flex items-start gap-4">
+              <div key={i} className="flex items-start gap-4 mx-auto max-w-2xl">
                 <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-lg">
                   {icons[i]}
                 </div>
