@@ -127,17 +127,17 @@ const Contact = ({ language }) => {
             <FaClock className="text-xl text-purple-500 mt-1" />
             <p className="text-sm">{t.hours}</p>
           </div>
-          <div className="flex items-start text-gray-700 gap-3">
-            <FaLinkedin className="text-xl text-blue-700 mt-1" />
-            <a
-              href="https://www.linkedin.com/company/tekfin-teknoloji-limited-%C5%9Fti"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-blue-700 hover:underline"
-            >
-              LinkedIn
-            </a>
-          </div>
+     <div className="flex items-start text-gray-700 gap-3">
+  <FaLinkedin className="text-xl text-blue-700 mt-1" />
+  <a
+    href="https://www.linkedin.com/company/tekfin-teknoloji-limited-sti"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-sm text-blue-700 hover:underline"
+  >
+    LinkedIn
+  </a>
+</div>
 
           <button
             onClick={handleWhatsAppClick}
