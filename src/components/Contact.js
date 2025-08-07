@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
 
 const Contact = ({ language }) => {
   const [formData, setFormData] = useState({
@@ -98,7 +98,9 @@ const Contact = ({ language }) => {
 
   const handleWhatsAppClick = () => {
     const phoneNumber = '+905528095556';
-    const message = isTR ? 'Merhaba, TekFin Teknoloji ile iletişime geçmek istiyorum.' : 'Hello, I would like to contact TekFin Teknoloji.';
+    const message = isTR
+      ? 'Merhaba, TekFin Teknoloji ile iletişime geçmek istiyorum.'
+      : 'Hello, I would like to contact TekFin Teknoloji.';
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -126,7 +128,7 @@ const Contact = ({ language }) => {
             <p className="text-sm">{t.hours}</p>
           </div>
           <div className="flex items-start text-gray-700 gap-3">
-            <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 mt-1" />
+            <FaLinkedin className="text-xl text-blue-700 mt-1" />
             <a
               href="https://www.linkedin.com/company/tekfin-teknoloji-limited-%C5%9Fti"
               target="_blank"
@@ -137,23 +139,23 @@ const Contact = ({ language }) => {
             </a>
           </div>
 
-<button
-  onClick={handleWhatsAppClick}
-  className="w-full flex items-center justify-center bg-green-500 text-white py-3 px-6 rounded-lg text-sm font-semibold hover:bg-green-600 transition duration-300 mt-4"
->
-  <FaWhatsapp className="text-base mr-2" />
-  {t.whatsappButton}
-</button>
+          <button
+            onClick={handleWhatsAppClick}
+            className="w-full flex items-center justify-center bg-green-500 text-white py-3 px-6 rounded-lg text-sm font-semibold hover:bg-green-600 transition duration-300 mt-4"
+          >
+            <FaWhatsapp className="text-base mr-2" />
+            {t.whatsappButton}
+          </button>
 
           {/* Google Maps */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4257.043536986945!2d28.94425589081935!3d41.02122252079607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2str!4v1754527562837!5m2!1sar!2str"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4778.430377301186!2d28.945141497224295!3d41.02039129751813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2str!4v1754528170081!5m2!1sen!2str"
             width="100%"
             height="200"
             className="rounded-md mt-4 border"
             allowFullScreen=""
             loading="lazy"
-            title="TekFin Location Map"
+            title="TekFin Teknoloji Location"
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
