@@ -10,8 +10,12 @@ const HomePage = ({ language }) => {
       mainTitle: "İşletme Veri Çözümleri",
       subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
       intro: "İşletmelerin en değerli varlığı olan verilerini saklamak, korumak ve kurtarmak için özel çözümler sunuyoruz. İstanbul merkezli firmamız, uzmanlık, ileri teknoloji ve müşteri odaklı yaklaşımı bir araya getirerek verilerinizin her zaman güvende ve erişilebilir olmasını sağlar.",
-      landingBtn: "Storage Advisor'ı Dene",
-      landingDescription: "Hangi depolama cihazına ihtiyacınız olduğundan emin değil misiniz? Akıllı öneri aracımızla saniyeler içinde size özel tavsiye alın!",
+
+      // UPDATED: Storage Advisor texts
+      landingTitle: "Depolama Danışmanı",
+      landingDescription: "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
+      landingCta: "Öneri Alın",
+
       services: {
         title: "Hizmetlerimiz",
         dataSolutions: {
@@ -44,8 +48,12 @@ const HomePage = ({ language }) => {
       mainTitle: "Business Data Solutions",
       subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
       intro: "We provide tailored data solutions that help businesses store, protect, and recover their most valuable asset — their data. Based in Istanbul, we combine expertise, advanced technology, and customer focus to ensure your data is always safe and accessible.",
-      landingBtn: "Try Storage Advisor Tool",
-      landingDescription: "Not sure what storage device you need? Use our smart advisor to get a tailored recommendation in seconds!",
+
+      // UPDATED: Storage Advisor texts
+      landingTitle: "Storage Advisor",
+      landingDescription: "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
+      landingCta: "Get Recommendation",
+
       services: {
         title: "Our Services",
         dataSolutions: {
@@ -107,25 +115,33 @@ const HomePage = ({ language }) => {
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
           <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
           <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
-          {/* New Storage Advisor Card */}
-          <div className="bg-white p-6 rounded-xl shadow-2xl inline-block max-w-md text-center transform hover:scale-105 transition">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
-                <FaHdd className="w-8 h-8 text-white" />
+
+          {/* Storage Advisor Card (refined) */}
+          <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
+            <div className="flex items-start gap-4">
+              {/* Icon circle with blended green + blue */}
+              <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
+                <FaHdd className="w-7 h-7 text-white" />
+              </div>
+
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
+                <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
+
+                <button
+                  onClick={() => navigate('/storage-advisor')}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                  aria-label={t.landingTitle}
+                >
+                  <span>{t.landingCta}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
             </div>
-            <h3 className="text-xl font-bold text-blue-800 mb-2">{t.landingBtn}</h3>
-            <p className="text-gray-600 text-sm mb-4">{t.landingDescription}</p>
-            <button
-              onClick={() => navigate('/storage-advisor')}
-              className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold rounded-full flex items-center justify-center gap-2 mx-auto transition"
-            >
-              <span>{t.landingBtn}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
+
         </div>
       </section>
 
@@ -155,6 +171,7 @@ const HomePage = ({ language }) => {
                 ))}
               </div>
             </div>
+
             {/* Wireless Network Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cyan-500 to-sky-600 rounded-full shadow">
@@ -190,7 +207,7 @@ const HomePage = ({ language }) => {
       <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-          <button
+        <button
             onClick={() => navigate('/contact')}
             className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
           >
