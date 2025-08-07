@@ -10,11 +10,11 @@ const AboutUs = ({ language }) => {
       },
       vision: {
         title: "Our Vision",
-        text: "To play a pioneering role in the world of technology, becoming a global reference point for data security and accessibility."
+        text: "To play a pioneering role in the world of technology, becoming a global reference point for data solutions and accessibility."
       },
       mission: {
         title: "Our Mission",
-        text: "To provide our customers with the highest quality data recovery and technology solutions, protecting their digital assets and ensuring business continuity."
+        text: "To provide our customers with the highest quality business data solutions, protecting their digital assets and ensuring business continuity."
       },
       values: {
         title: "Our Values",
@@ -35,11 +35,11 @@ const AboutUs = ({ language }) => {
       },
       vision: {
         title: "Vizyonumuz",
-        text: "Teknoloji dünyasında öncü bir rol oynayarak, veri güvenliği konusunda global bir referans noktası olmak."
+        text: "Veri çözümleri ve erişilebilirlik konusunda küresel bir referans noktası haline gelerek teknoloji dünyasında öncü bir rol oynamak."
       },
       mission: {
         title: "Misyonumuz",
-        text: "Müşterilerimize yüksek kaliteli veri kurtarma ve teknoloji çözümleri sunmak, dijital varlıklarını korumak ve iş sürekliliğini sağlamak."
+        text: "Müşterilerimize en yüksek kalitede İş Veri Çözümleri sunarak dijital varlıklarını korumak ve iş sürekliliğini sağlamak."
       },
       values: {
         title: "Değerlerimiz",
