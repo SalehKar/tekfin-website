@@ -61,23 +61,19 @@ const Contact = ({ language }) => {
   };
 
   const validateForm = () => {
-    let isValid = true;
-
     if (!formData.name || !formData.email || !formData.message) {
-      isValid = false;
+      setStatus(t.requiredField);
+      return false;
     } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) {
-      isValid = false;
+      setStatus(t.invalidEmail);
+      return false;
     }
-
-    return isValid;
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      setStatus(isTR ? 'Lütfen tüm gerekli alanları doldurun.' : 'Please fill in all required fields.');
-      return;
-    }
+    if (!validateForm()) return;
 
     setStatus(isTR ? 'Gönderiliyor...' : 'Sending...');
 
@@ -113,24 +109,24 @@ const Contact = ({ language }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Contact Info */}
         <div className="space-y-6">
-          <div className="flex items-center text-gray-700 gap-3">
-            <FaMapMarkerAlt className="text-xl text-red-500" />
+          <div className="flex items-start text-gray-700 gap-3">
+            <FaMapMarkerAlt className="text-xl text-red-500 mt-1" />
             <p className="text-sm">{t.address}</p>
           </div>
-          <div className="flex items-center text-gray-700 gap-3">
-            <FaPhone className="text-xl text-blue-700" />
+          <div className="flex items-start text-gray-700 gap-3">
+            <FaPhone className="text-xl text-blue-700 mt-1" />
             <p className="text-sm">{t.phone}</p>
           </div>
-          <div className="flex items-center text-gray-700 gap-3">
-            <FaEnvelope className="text-xl text-yellow-500" />
+          <div className="flex items-start text-gray-700 gap-3">
+            <FaEnvelope className="text-xl text-yellow-500 mt-1" />
             <p className="text-sm">{t.email}</p>
           </div>
-          <div className="flex items-center text-gray-700 gap-3">
-            <FaClock className="text-xl text-purple-500" />
+          <div className="flex items-start text-gray-700 gap-3">
+            <FaClock className="text-xl text-purple-500 mt-1" />
             <p className="text-sm">{t.hours}</p>
           </div>
-          <div className="flex items-center text-gray-700 gap-3">
-            <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5" />
+          <div className="flex items-start text-gray-700 gap-3">
+            <img src="/linkedin.svg" alt="LinkedIn" className="w-5 h-5 mt-1" />
             <a
               href="https://www.linkedin.com/company/tekfin-teknoloji-limited-%C5%9Fti"
               target="_blank"
@@ -141,28 +137,29 @@ const Contact = ({ language }) => {
             </a>
           </div>
 
-          <button
-            onClick={handleWhatsAppClick}
-            className="w-full flex items-center justify-center bg-green-500 text-white py-3 px-6 rounded-lg text-sm font-semibold hover:bg-green-600 transition duration-300 mt-4"
-          >
-            <FaWhatsapp className="text-xl mr-2" />
-            {t.whatsappButton}
-          </button>
+<button
+  onClick={handleWhatsAppClick}
+  className="w-full flex items-center justify-center bg-green-500 text-white py-3 px-6 rounded-lg text-sm font-semibold hover:bg-green-600 transition duration-300 mt-4"
+>
+  <FaWhatsapp className="text-base mr-2" />
+  {t.whatsappButton}
+</button>
 
           {/* Google Maps */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18..."
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4257.043536986945!2d28.94425589081935!3d41.02122252079607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2str!4v1754527562837!5m2!1sar!2str"
             width="100%"
             height="200"
             className="rounded-md mt-4 border"
             allowFullScreen=""
             loading="lazy"
-            title="Map"
-          ></iframe>
+            title="TekFin Location Map"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
 
         {/* Contact Form */}
-        <div className="bg-gray-50 p-6 rounded-lg shadow-inner w-full">
+        <div className="bg-gray-50 p-6 rounded-lg shadow-inner w-full max-w-lg mx-auto lg:mx-0">
           <h2 className="text-2xl font-bold text-[#1f3b6f] mb-4 text-center">{t.formTitle}</h2>
           <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
             <input type="hidden" name="form-name" value="contact" />
@@ -202,7 +199,7 @@ const Contact = ({ language }) => {
             />
             <textarea
               name="message"
-              rows="6"
+              rows="8"
               placeholder={t.messagePlaceholder}
               value={formData.message}
               onChange={handleChange}
@@ -212,9 +209,14 @@ const Contact = ({ language }) => {
 
             <button
               type="submit"
-              className="w-full bg-[#1f3b6f] text-white py-2 px-4 rounded-md font-medium hover:bg-blue-800 transition"
+              disabled={status.includes('Gönderiliyor') || status.includes('Sending')}
+              className={`w-full py-2 px-4 rounded-md font-medium transition
+                ${status.includes('Gönderiliyor') || status.includes('Sending')
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-[#1f3b6f] text-white hover:bg-blue-800'}
+              `}
             >
-              {t.submitButton}
+              {status.includes('Gönderiliyor') || status.includes('Sending') ? (isTR ? 'Gönderiliyor...' : 'Sending...') : t.submitButton}
             </button>
 
             {status && (
