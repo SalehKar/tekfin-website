@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
+import { MdStorage } from 'react-icons/md';
 import ogImageSrc from '../assets/storage-advisor-og.png';
 
 const StorageAdvisor = ({ language }) => {
