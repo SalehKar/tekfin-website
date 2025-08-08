@@ -8,92 +8,99 @@ const HomePage = ({ language }) => {
 
   const content = {
     tr: {
-      metaTitle: "TekFin Teknoloji – İşletme Veri Çözümleri ve Kablosuz Ağ Çözümleri",
-      metaDescription: "İstanbul merkezli TekFin Teknoloji, işletmelere veri depolama, veri kurtarma ve kablosuz ağ çözümleri sunar.",
-      ogTitle: "TekFin Teknoloji – İşletme Veri Çözümleri",
-      ogDescription: "Verilerinizi güvenle saklayın, koruyun ve geri kazanın.",
+      metaTitle: "TekFin Teknoloji – Veri Kurtarma, Veri Depolama ve Kablosuz Ağ Çözümleri",
+      metaDescription: "TekFin Teknoloji, İstanbul merkezli olarak işletmelere profesyonel veri kurtarma, güvenli veri depolama ve kablosuz ağ çözümleri sunar. İşletme verilerinizi güvenle saklayın, koruyun ve geri kazanın.",
+      ogTitle: "TekFin Teknoloji – Veri Kurtarma ve Depolama Hizmetleri",
+      ogDescription: "İşletmenizin verilerini güvenle saklayın, koruyun ve hızlıca geri kazanın.",
 
-      mainTitle: "İşletme Veri Çözümleri",
-      subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
-      intro: "İşletmelerin en değerli varlığı olan verilerini saklamak, korumak ve kurtarmak için özel çözümler sunuyoruz. İstanbul merkezli firmamız, uzmanlık, ileri teknoloji ve müşteri odaklı yaklaşımı bir araya getirerek verilerinizin her zaman güvende ve erişilebilir olmasını sağlar.",
+      mainTitle: "İşletmeler için Veri Kurtarma ve Depolama Çözümleri",
+      subtitle: "Veri kurtarma, güvenli depolama ve yedekleme çözümleriyle işletmenizin dijital güvenliğini sağlayın.",
+      intro: "İstanbul merkezli TekFin Teknoloji olarak, işletmelerin en değerli varlığı olan verilerini koruma, kurtarma ve güvenli bir şekilde depolama konularında profesyonel çözümler sunuyoruz. Modern teknolojiler, uzman ekip ve müşteri odaklı yaklaşımımızla verilerinizin her zaman güvende ve erişilebilir olmasını sağlıyoruz.",
 
-      landingTitle: "Depolama Danışmanı",
-      landingDescription: "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
+      landingTitle: "Depolama Danışmanı – En Uygun Çözümü Bulun",
+      landingDescription: "Hangi veri depolama çözümünün işletmeniz için en uygun olduğunu bilmiyor musunuz? Akıllı depolama danışmanımızla saniyeler içinde kişiselleştirilmiş öneriler alın.",
       landingCta: "Öneri Alın",
 
       services: {
-        title: "Hizmetlerimiz",
+        title: "Hizmetlerimiz – Veri Kurtarma ve Depolama",
         dataSolutions: {
-          title: "İşletme Veri Çözümleri",
-          description: "Verinin iş başarısındaki kritik rolünü biliyoruz, bu yüzden gelişmiş veri çözümleri sunuyoruz:",
+          title: "Profesyonel Veri Çözümleri",
+          description: "Veri kurtarma, veri depolama ve yedekleme hizmetlerimizle işletmenizin dijital güvenliğini sağlıyoruz:",
           subServices: [
-            { title: "Veri Depolama", description: "Verilerinize her zaman kolay erişim sağlayan güvenli ve verimli depolama çözümleri.", icon: <FaHdd className="w-6 h-6 text-white" /> },
-            { title: "Veri Kurtarma", description: "En son teknolojilerle kritik işletme verilerinizin hızlı ve güvenilir kurtarılması.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
-            { title: "Yedekleme Hizmetleri", description: "Verilerinizi kayıp veya hasara karşı koruyan otomatik ve güvenli yedekleme sistemleri.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
+            { title: "Veri Depolama", description: "İşletme verileriniz için güvenli, hızlı ve verimli depolama çözümleri.", icon: <FaHdd className="w-6 h-6 text-white" /> },
+            { title: "Veri Kurtarma", description: "Kritik verilerinizi en son teknolojilerle hızlı ve güvenilir şekilde kurtarıyoruz.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
+            { title: "Yedekleme Hizmetleri", description: "Veri kaybına karşı otomatik ve güvenli yedekleme sistemleri.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
           ]
         },
         wireless: {
-          title: "Kablosuz Ağ Çözümleri (Gelecekte)",
-          description: "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecek hizmetlerimiz için bizi takip edin."
+          title: "Kablosuz Ağ Çözümleri (Yakında)",
+          description: "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz."
         }
       },
       whyChooseUs: {
-        title: "Neden Bizi Seçmelisiniz?",
-        expertise: "Uzmanlık: Veri kurtarma ve işletme veri yönetimi alanında yılların deneyimi.",
-        reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği en büyük önceliğimizdir.",
-        fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
-        customerFocus: "Müşteri Odaklı: İhtiyaçlarınıza özel çözümler sunuyoruz."
+        title: "Neden TekFin Teknoloji’yi Seçmelisiniz?",
+        expertise: "Uzmanlık: Veri kurtarma ve veri yönetimi alanında uzun yıllara dayanan tecrübe.",
+        reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği önceliğimizdir.",
+        fastSolutions: "Hızlı Müdahale: Acil durumlarda bile hızlı ve etkili çözümler.",
+        customerFocus: "Müşteri Odaklı: İşletmenize özel çözümler üretiyoruz."
       },
       cta: {
-        title: "İşletme verilerinizi korumak ve kurtarmak için bugün bizimle iletişime geçin!",
-        button: "Hemen İletişime Geçin!"
+        title: "Veri kurtarma ve depolama çözümleri için hemen bizimle iletişime geçin!",
+        button: "Hemen İletişime Geçin"
       }
     },
     en: {
-      metaTitle: "TekFin Teknoloji – Business Data Solutions & Wireless Network Solutions",
-      metaDescription: "TekFin Teknoloji, based in Istanbul, offers data storage, recovery, and wireless network solutions for businesses.",
-      ogTitle: "TekFin Teknoloji – Business Data Solutions",
-      ogDescription: "Store, protect, and recover your data with confidence.",
+      metaTitle: "TekFin Teknoloji – Business Data Recovery, Storage & Wireless Solutions",
+      metaDescription: "TekFin Teknoloji, based in Istanbul, provides professional business data recovery, secure storage, and wireless network solutions. Protect, store, and recover your business data with confidence.",
+      ogTitle: "TekFin Teknoloji – Business Data Recovery & Storage Services",
+      ogDescription: "Securely store, protect, and recover your business data with confidence.",
 
-      mainTitle: "Business Data Solutions",
-      subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
-      intro: "We provide tailored data solutions that help businesses store, protect, and recover their most valuable asset — their data. Based in Istanbul, we combine expertise, advanced technology, and customer focus to ensure your data is always safe and accessible.",
+      mainTitle: "Business Data Recovery and Storage Solutions",
+      subtitle: "Data recovery, secure storage, and backup solutions to safeguard your business.",
+      intro: "At TekFin Teknoloji, based in Istanbul, we deliver professional solutions to protect, recover, and securely store your company's most valuable asset – its data. Combining modern technologies, expert teams, and a customer-focused approach, we ensure your data is always safe and accessible.",
 
-      landingTitle: "Storage Advisor",
-      landingDescription: "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
+      landingTitle: "Storage Advisor – Find Your Best Fit",
+      landingDescription: "Not sure which storage solution fits your business? Get tailored recommendations in seconds with our smart storage advisor.",
       landingCta: "Get Recommendation",
 
       services: {
-        title: "Our Services",
+        title: "Our Services – Data Recovery & Storage",
         dataSolutions: {
-          title: "Business Data Solutions",
-          description: "We understand the critical role of data in business success, which is why we offer advanced data solutions:",
+          title: "Professional Data Solutions",
+          description: "We provide data recovery, storage, and backup services to safeguard your business:",
           subServices: [
-            { title: "Data Storage", description: "Secure and efficient storage solutions ensuring your data is always accessible.", icon: <FaHdd className="w-6 h-6 text-white" /> },
-            { title: "Data Recovery", description: "Fast and reliable recovery of critical business data using cutting-edge technology.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
-            { title: "Backup Services", description: "Automated and secure backup systems to protect your data from loss or damage.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
+            { title: "Data Storage", description: "Secure, fast, and efficient storage solutions for your business data.", icon: <FaHdd className="w-6 h-6 text-white" /> },
+            { title: "Data Recovery", description: "Recover critical business data quickly and reliably with the latest technologies.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
+            { title: "Backup Services", description: "Automated, secure backup systems to protect against data loss.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
           ]
         },
         wireless: {
-          title: "Wireless Network Solutions (Future)",
-          description: "We aim to provide secure, fast, and seamless solutions for your business wireless network needs. Stay tuned for updates."
+          title: "Wireless Network Solutions (Coming Soon)",
+          description: "We aim to deliver secure, fast, and seamless wireless network solutions for your business."
         }
       },
       whyChooseUs: {
-        title: "Why Choose Us?",
-        expertise: "Expertise: Years of experience in data recovery and business data management.",
-        reliability: "Reliability: The confidentiality and security of your data are our top priority.",
-        fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
-        customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
+        title: "Why Choose TekFin Teknoloji?",
+        expertise: "Expertise: Years of experience in data recovery and management.",
+        reliability: "Reliability: Your data privacy and security are our top priorities.",
+        fastSolutions: "Fast Intervention: Quick and effective solutions even in emergencies.",
+        customerFocus: "Customer-Centric: Solutions tailored to your business."
       },
       cta: {
-        title: "Contact us today to protect and recover your business data!",
-        button: "Contact Us Now!"
+        title: "Contact us today for professional data recovery and storage solutions!",
+        button: "Contact Us Now"
       }
     }
   };
 
-  const t = content[language] || content.en;
+  // Language selection with fallback
+  let t;
+  if (language && content.hasOwnProperty(language)) {
+    t = content[language];
+  } else {
+    console.warn(`⚠️ Language "${language}" is not supported. Falling back to English.`);
+    t = content.en;
+  }
 
   const iconColors = {
     storage: 'from-green-500 to-emerald-600',
