@@ -272,7 +272,7 @@ const StorageAdvisor = ({ language }) => {
   return (
     <div className="bg-white text-[#1f3b6f] px-4 py-12">
       {/* Page SEO */}
-     <Helmet>
+  <Helmet>
   <title>{t.metaTitle}</title>
   <meta name="description" content={t.metaDescription} />
   <link rel="canonical" href={canonical} />
@@ -281,13 +281,15 @@ const StorageAdvisor = ({ language }) => {
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content={ogLocale} />
-  <meta property="og:image" content={ogImageSrc} />
-  <meta name="twitter:image" content={ogImageSrc} />
+  <meta property="og:image" content={ogImage} /> {/* بدل ogImageSrc */}
+  <meta name="twitter:image" content={ogImage} /> {/* بدل ogImageSrc */}
   <meta property="og:site_name" content="TekFin Teknoloji" />
   <meta property="og:updated_time" content={new Date().toISOString()} />
   <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
   <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
+  <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script> {/* إضافة breadcrumb */}
 </Helmet>
+
 
       <div className="max-w-3xl mx-auto text-center">
         {/* H1 مع أيقونة واحدة فقط */}
