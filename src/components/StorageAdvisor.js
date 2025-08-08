@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
+import { MdStorage } from 'react-icons/md';
 
 const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
@@ -16,7 +18,6 @@ const StorageAdvisor = ({ language }) => {
   const navigate = useNavigate();
   const isTR = language === 'tr';
 
-  // نصوص السيو والمحتوى (بدون JSX داخل الكائن لتفادي أخطاء)
   const copy = {
     tr: {
       metaTitle: 'Depolama Danışmanı – Veri Depolama Tavsiyesi | TekFin Teknoloji',
@@ -87,18 +88,7 @@ const StorageAdvisor = ({ language }) => {
         dataStorage: 'Veri Depolama Hizmetleri',
         dataRecovery: 'Veri Kurtarma',
         contact: 'İletişim'
-      },
-      // إضافات SEO/UX
-      compareH3: 'SSD mi HDD mi? NVMe, SATA ve NAS Karşılaştırması',
-      compareBullets: [
-        'NVMe SSD: çok yüksek hız, düşük gecikme (video düzenleme/3D).',
-        'SATA SSD: fiyat/performans, ofis ve genel kullanım için ideal.',
-        'HDD: büyük kapasite, arşiv ve yedekleme için ekonomik.',
-        'NAS: merkezi depolama, paylaşımlı erişim, otomatik yedekleme.'
-      ],
-      ctaH2: 'Ücretsiz Depolama Tavsiyesi ile Hemen Başlayın',
-      ctaP: 'Kişiselleştirilmiş öneri, uygun donanım listesi ve maliyet tahmini ile karar verin.',
-      ctaBtn: 'Uzmanla Görüş – Ücretsiz'
+      }
     },
     en: {
       metaTitle: 'Storage Advisor – Data Storage Recommendation | TekFin Teknoloji',
@@ -169,18 +159,7 @@ const StorageAdvisor = ({ language }) => {
         dataStorage: 'Data Storage Services',
         dataRecovery: 'Data Recovery',
         contact: 'Contact'
-      },
-      // إضافات SEO/UX
-      compareH3: 'SSD vs HDD vs NVMe – Quick Comparison',
-      compareBullets: [
-        'NVMe SSD: ultra-high speed, low latency (video editing/3D).',
-        'SATA SSD: great price/performance for office & general use.',
-        'HDD: large capacity, economical for archive & backup.',
-        'NAS: centralized storage, shared access, automated backups.'
-      ],
-      ctaH2: 'Start Now with a Free Storage Recommendation',
-      ctaP: 'Get a tailored suggestion, hardware list, and rough cost estimate to decide faster.',
-      ctaBtn: 'Talk to an Expert – Free'
+      }
     }
   };
 
@@ -274,40 +253,6 @@ const StorageAdvisor = ({ language }) => {
     inLanguage: isTR ? 'tr' : 'en'
   };
 
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: isTR ? 'Ana Sayfa' : 'Home', item: 'https://tekfingroup.com/' },
-      { '@type': 'ListItem', position: 2, name: isTR ? 'Depolama Danışmanı' : 'Storage Advisor', item: canonical }
-    ]
-  };
-
-  // HowTo Schema (خطوات استخدام الأداة)
-  const howtoSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: isTR ? 'Depolama Danışmanı Nasıl Kullanılır' : 'How to Use the Storage Advisor',
-    step: [
-      { '@type': 'HowToStep', name: isTR ? 'Formu açın' : 'Open the form', text: isTR ? 'Formu Göster düğmesine tıklayın.' : 'Click the Show Form button.' },
-      { '@type': 'HowToStep', name: isTR ? 'Seçimleri yapın' : 'Make selections', text: isTR ? 'Kullanım amacı, kapasite, hız ve taşınabilirliği seçin.' : 'Choose usage, capacity, speed, and portability.' },
-      { '@type': 'HowToStep', name: isTR ? 'E-postayı girin' : 'Enter your email', text: isTR ? 'Sonucu alabilmek için e-posta adresinizi yazın.' : 'Enter your email to receive the recommendation.' },
-      { '@type': 'HowToStep', name: isTR ? 'Öneriyi alın' : 'Get recommendation', text: isTR ? 'Tavsiyeyi Al düğmesi ile sonucu görüntüleyin.' : 'Click Get Recommendation to view results.' }
-    ]
-  };
-
-  // Service Schema (تعريف الخدمة)
-  const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: isTR ? 'Depolama Danışmanı' : 'Storage Advisor',
-    provider: { '@type': 'Organization', name: 'TekFin Teknoloji', url: 'https://tekfingroup.com/' },
-    areaServed: isTR ? 'Türkiye' : 'Turkey',
-    serviceType: isTR ? 'Veri Depolama Danışmanlığı' : 'Data Storage Consulting',
-    url: canonical
-  };
-
   return (
     <div className="bg-white text-[#1f3b6f] px-4 py-12">
       {/* Page SEO */}
@@ -320,23 +265,20 @@ const StorageAdvisor = ({ language }) => {
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={ogLocale} />
-        {/* JSON-LD Schemas */}
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:updated_time" content={new Date().toISOString()} />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(howtoSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
-        {/* H1 محسن بالكلمات المفتاحية */}
-        <h1 className="text-4xl font-bold mb-4 text-[#002855]">
+        {/* H1 محسن بالكلمات المفتاحية مع أيقونة */}
+        <h1 className="text-4xl font-bold mb-4 text-[#002855] flex items-center gap-3">
+          <MdStorage className="text-blue-700" aria-hidden="true" />
           {t.h1}
         </h1>
 
-        <p className="text-base text-gray-700 mb-6">
-          {t.intro}
-        </p>
+        <p className="text-base text-gray-700 mb-6">{t.intro}</p>
 
         {/* روابط داخلية لتعزيز السيو والزحف */}
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="mb-10">
@@ -362,20 +304,11 @@ const StorageAdvisor = ({ language }) => {
 
         {/* AI-Powered Custom Recommendation Section */}
         <section className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 text-left">
-          <h2 className="text-2xl font-bold mb-4 text-[#002855]">
+          <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
+            <FaRobot className="text-blue-600" aria-hidden="true" />
             {t.aiH2}
           </h2>
-          <p className="text-gray-700 mb-4">
-            {t.aiLead}
-          </p>
-
-          {/* H3 إضافي لتقوية الكلمات المفتاحية */}
-          <h3 className="text-lg font-semibold mb-2">
-            {t.compareH3}
-          </h3>
-          <ul className="list-disc pl-5 mb-4 text-gray-700">
-            {t.compareBullets.map((b, i) => <li key={i}>{b}</li>)}
-          </ul>
+          <p className="text-gray-700 mb-4">{t.aiLead}</p>
 
           <div>
             <label htmlFor="customReq" className="sr-only">
@@ -402,7 +335,7 @@ const StorageAdvisor = ({ language }) => {
               className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-live="polite"
             >
-              {isLoadingAI ? (t.buttons.aiBusy) : (t.buttons.aiGet)}
+              {isLoadingAI ? t.buttons.aiBusy : t.buttons.aiGet}
             </button>
           </div>
 
@@ -411,21 +344,18 @@ const StorageAdvisor = ({ language }) => {
               <h3 className="font-bold text-lg mb-3 text-[#002855]">
                 {isTR ? '🎯 AI Önerisi:' : '🎯 AI Recommendation:'}
               </h3>
-              <div className="text-gray-700 whitespace-pre-line">
-                {aiRecommendation}
-              </div>
+              <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
             </div>
           )}
         </section>
 
         {/* Traditional Form Section */}
         <section className="mb-8">
-          <h2 className="text-2xl font-bold mb-2 text-[#002855]">
+          <h2 className="text-2xl font-bold mb-2 text-[#002855] flex items-center gap-2">
+            <FaWpforms className="text-blue-600" aria-hidden="true" />
             {t.formH2}
           </h2>
-          <p className="text-gray-700 mb-4">
-            {t.advisorLead}
-          </p>
+          <p className="text-gray-700 mb-4">{t.advisorLead}</p>
           <button
             onClick={() => setShowAISection(!showAISection)}
             className="mb-4 text-blue-600 hover:text-blue-800 underline"
@@ -443,9 +373,7 @@ const StorageAdvisor = ({ language }) => {
             className="grid grid-cols-1 gap-6 text-left"
           >
             <div>
-              <label className="block mb-1 font-medium">
-                {t.labels.usage}
-              </label>
+              <label className="block mb-1 font-medium">{t.labels.usage}</label>
               <select
                 value={usage}
                 onChange={(e) => setUsage(e.target.value)}
@@ -462,9 +390,7 @@ const StorageAdvisor = ({ language }) => {
             </div>
 
             <div>
-              <label className="block mb-1 font-medium">
-                {t.labels.capacity}
-              </label>
+              <label className="block mb-1 font-medium">{t.labels.capacity}</label>
               <select
                 value={capacity}
                 onChange={(e) => setCapacity(e.target.value)}
@@ -480,9 +406,7 @@ const StorageAdvisor = ({ language }) => {
             </div>
 
             <div>
-              <label className="block mb-1 font-medium">
-                {t.labels.speed}
-              </label>
+              <label className="block mb-1 font-medium">{t.labels.speed}</label>
               <select
                 value={speed}
                 onChange={(e) => setSpeed(e.target.value)}
@@ -497,9 +421,7 @@ const StorageAdvisor = ({ language }) => {
             </div>
 
             <div>
-              <label className="block mb-1 font-medium">
-                {t.labels.portability}
-              </label>
+              <label className="block mb-1 font-medium">{t.labels.portability}</label>
               <select
                 value={portability}
                 onChange={(e) => setPortability(e.target.value)}
@@ -537,21 +459,10 @@ const StorageAdvisor = ({ language }) => {
           </form>
         )}
 
-        {/* CTA Section قبل الـ FAQ */}
-        <section className="mt-12 text-center">
-          <h2 className="text-2xl font-bold mb-2 text-[#002855]">{t.ctaH2}</h2>
-          <p className="text-gray-700 mb-4">{t.ctaP}</p>
-          <button
-            onClick={() => navigate('/contact')}
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-pink-500 to-red-500 text-white hover:from-pink-600 hover:to-red-600 transition"
-          >
-            {t.ctaBtn}
-          </button>
-        </section>
-
         {/* FAQ Section (H2 واضح) */}
         <section className="mt-12 text-left max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4 text-[#002855]">
+          <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
+            <FaQuestionCircle className="text-blue-600" aria-hidden="true" />
             {t.faqH2}
           </h2>
           <div className="space-y-4">
