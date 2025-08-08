@@ -1,7 +1,46 @@
 <!DOCTYPE html>
 <html lang="tr">
   <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Styles -->
     <link href="%PUBLIC_URL%/css/styles.css" rel="stylesheet" />
+
+    <!-- Primary SEO -->
+    <title>TekFin Teknoloji – İşletme Veri Depolama, Kurtarma ve Kablosuz Ağ Çözümleri</title>
+    <meta
+      name="description"
+      content="İstanbul merkezli TekFin Teknoloji, işletmelere veri depolama, veri kurtarma ve kablosuz ağ çözümleri sunar. Verilerinizi güvenle koruyun."
+    />
+    <link rel="canonical" href="https://tekfingroup.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="TekFin Teknoloji – Veri Depolama ve Kurtarma Çözümleri" />
+    <meta property="og:description" content="İşletmeler için veri kurtarma, güvenli depolama ve yedekleme hizmetleri. İstanbul ve Türkiye genelinde hızlı, güvenilir çözümler." />
+    <meta property="og:url" content="https://tekfingroup.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <!-- Eğer لديك صورة OG حقيقية، فعّل السطر التالي وضع رابط الصورة المطلق -->
+    <!-- <meta property="og:image" content="https://tekfingroup.com/assets/img/og-image.jpg" /> -->
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TekFin Teknoloji",
+      "url": "https://tekfingroup.com/",
+      "logo": "https://tekfingroup.com/favicon.ico",
+      "sameAs": []
+    }
+    </script>
+
+    <!-- PWA -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZNDT746CM"></script>
@@ -11,27 +50,13 @@
       gtag('js', new Date());
       gtag('config', 'G-6ZNDT746CM');
     </script>
-
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-
-    <!-- Default Meta Description (will be overridden by Helmet on each page) -->
-    <meta
-      name="description"
-      content="TekFin Teknoloji – İstanbul merkezli, işletmelere veri depolama, veri kurtarma ve kablosuz ağ çözümleri sunar. Güvenilir ve hızlı hizmetlerimizle verilerinizi koruyun."
-    />
-
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
-    <title>TekFin Teknoloji</title>
   </head>
   <body>
     <noscript>Bu uygulamayı çalıştırmak için JavaScript'i etkinleştirmeniz gerekir.</noscript>
+
     <div id="root"></div>
 
+    <!-- Netlify form (invisible) -->
     <form name="contact" netlify hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
@@ -40,6 +65,7 @@
       <textarea name="message"></textarea>
     </form>
 
+    <!-- Scripts -->
     <script src="%PUBLIC_URL%/js/scripts.js"></script>
   </body>
 </html>
