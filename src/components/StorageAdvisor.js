@@ -20,16 +20,16 @@ const StorageAdvisor = ({ language }) => {
 
   const copy = {
     tr: {
-      metaTitle: 'Depolama Danışmanı – Veri Depolama Tavsiyesi | TekFin Teknoloji',
+      metaTitle: 'Depolama Danışmanı – Akıllı Depolama Seçenekleri | TekFin Teknoloji',
       metaDescription:
         'Akıllı Depolama Danışmanı ile işletmeniz için en uygun veri depolama çözümünü bulun. SSD/HDD, kapasite, hız ve taşınabilirlik için kişisel tavsiyeler – TekFin Teknoloji İstanbul.',
       ogTitle: 'TekFin Depolama Danışmanı – İşletmeler için Veri Depolama Tavsiyesi',
       ogDescription:
         'Kullanım amacınıza göre en iyi SSD/HDD, kapasite ve hız önerisini saniyeler içinde alın. Veri depolama, yedekleme ve performans odaklı çözümler.',
-      h1: 'Depolama Danışmanı – İşletmeler için Veri Depolama Tavsiyesi',
+      h1: 'Depolama Danışmanı – Akıllı Depolama Seçenekleri',
       intro:
         'Akıllı aracımız, kullanım amacınız, kapasite ihtiyacınız, performans beklentiniz ve taşınabilirlik gereksiniminize göre en uygun veri depolama çözümünü önerir. SSD/HDD, NVMe/SATA ve yedekleme seçeneklerini karşılaştırarak güvenli ve performanslı bir tercih yapmanıza yardımcı olur.',
-      aiH2: '🤖 AI Destekli Özel Öneri – Veri Depolama Çözümleri',
+      aiH2: '🤖 Yapay Zekâ Destekli Özel Öneri',
       aiLead:
         'İhtiyaçlarınızı detaylı açıklayın; yapay zekâ, kullanım senaryonuza uygun SSD/HDD, kapasite ve hız kombinasyonunu önersin.',
       formH2: '📋 Geleneksel Form – Hızlı Depolama Tavsiyesi',
@@ -88,19 +88,20 @@ const StorageAdvisor = ({ language }) => {
         dataStorage: 'Veri Depolama Hizmetleri',
         dataRecovery: 'Veri Kurtarma',
         contact: 'İletişim'
-      }
+      },
+      moreInfo: 'Daha fazla bilgi için:'
     },
     en: {
-      metaTitle: 'Storage Advisor – Data Storage Recommendation | TekFin Teknoloji',
+      metaTitle: 'Storage Advisor – Smart Storage Picks | TekFin Teknoloji',
       metaDescription:
         'Use our Storage Advisor to find the best data storage solution for your business. Personalized SSD/HDD, capacity, speed & portability recommendations – TekFin Teknoloji Istanbul.',
       ogTitle: 'TekFin Storage Advisor – Business Data Storage Recommendation',
       ogDescription:
         'Get tailored suggestions for SSD/HDD, capacity and speed in seconds. Compare NVMe/SATA and backup options for secure, high-performance storage.',
-      h1: 'Storage Advisor – Business Data Storage Recommendation',
+      h1: 'Storage Advisor – Smart Storage Picks',
       intro:
         'Our smart tool recommends the right data storage solution based on your use case, capacity needs, performance requirements and portability. Compare SSD/HDD, NVMe/SATA and backup options to choose a secure, high-performance setup.',
-      aiH2: '🤖 AI-Powered Custom Recommendation – Data Storage',
+      aiH2: '🤖 AI-Powered Custom Recommendation',
       aiLead:
         'Describe your needs; the AI suggests the best SSD/HDD, capacity and performance mix for your scenario.',
       formH2: '📋 Traditional Form – Quick Storage Recommendation',
@@ -159,7 +160,8 @@ const StorageAdvisor = ({ language }) => {
         dataStorage: 'Data Storage Services',
         dataRecovery: 'Data Recovery',
         contact: 'Contact'
-      }
+      },
+      moreInfo: 'For more details:'
     }
   };
 
@@ -229,6 +231,7 @@ const StorageAdvisor = ({ language }) => {
 
   const canonical = 'https://tekfingroup.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
+  const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
   // FAQ Schema JSON-LD
   const faqSchema = {
@@ -253,6 +256,17 @@ const StorageAdvisor = ({ language }) => {
     inLanguage: isTR ? 'tr' : 'en'
   };
 
+  // Breadcrumb Schema
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tekfingroup.com/" },
+      { "@type": "ListItem", "position": 2, "name": isTR ? "Hizmetler" : "Services", "item": "https://tekfingroup.com/services" },
+      { "@type": "ListItem", "position": 3, "name": t.h1, "item": canonical }
+    ]
+  };
+
   return (
     <div className="bg-white text-[#1f3b6f] px-4 py-12">
       {/* Page SEO */}
@@ -260,15 +274,30 @@ const StorageAdvisor = ({ language }) => {
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
         <link rel="canonical" href={canonical} />
+        {/* hreflang */}
+        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="tr" />
+        <link rel="alternate" href="https://tekfingroup.com/en/storage-advisor" hrefLang="en" />
+        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="x-default" />
+        {/* Open Graph */}
         <meta property="og:title" content={t.ogTitle} />
         <meta property="og:description" content={t.ogDescription} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={ogLocale} />
         <meta property="og:site_name" content="TekFin Teknoloji" />
-        <meta property="og:updated_time" content={new Date().toISOString()} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={isTR ? 'Depolama Danışmanı' : 'Storage Advisor'} />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.ogTitle} />
+        <meta name="twitter:description" content={t.ogDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        {/* Schemas */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
@@ -459,7 +488,7 @@ const StorageAdvisor = ({ language }) => {
           </form>
         )}
 
-        {/* FAQ Section (H2 واضح) */}
+        {/* FAQ Section */}
         <section className="mt-12 text-left max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaQuestionCircle className="text-blue-600" aria-hidden="true" />
@@ -473,6 +502,19 @@ const StorageAdvisor = ({ language }) => {
               </details>
             ))}
           </div>
+
+          {/* External reference link (improves "External Links" metric) */}
+          <p className="text-sm text-gray-600 mt-6">
+            {t.moreInfo}{' '}
+            <a
+              href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/"
+              target="_blank"
+              rel="noopener"
+              className="text-blue-700 underline"
+            >
+              3-2-1 backup best practices
+            </a>
+          </p>
         </section>
       </div>
     </div>
