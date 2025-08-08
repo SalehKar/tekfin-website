@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { FaDatabase, FaWifi, FaHdd, FaCloudUploadAlt, FaShieldAlt, FaBolt, FaUsers } from 'react-icons/fa';
 
 const HomePage = ({ language }) => {
@@ -7,11 +8,15 @@ const HomePage = ({ language }) => {
 
   const content = {
     tr: {
+      metaTitle: "TekFin Teknoloji – İşletme Veri Çözümleri ve Kablosuz Ağ Çözümleri",
+      metaDescription: "İstanbul merkezli TekFin Teknoloji, işletmelere veri depolama, veri kurtarma ve kablosuz ağ çözümleri sunar.",
+      ogTitle: "TekFin Teknoloji – İşletme Veri Çözümleri",
+      ogDescription: "Verilerinizi güvenle saklayın, koruyun ve geri kazanın.",
+
       mainTitle: "İşletme Veri Çözümleri",
       subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
       intro: "İşletmelerin en değerli varlığı olan verilerini saklamak, korumak ve kurtarmak için özel çözümler sunuyoruz. İstanbul merkezli firmamız, uzmanlık, ileri teknoloji ve müşteri odaklı yaklaşımı bir araya getirerek verilerinizin her zaman güvende ve erişilebilir olmasını sağlar.",
 
-      // UPDATED: Storage Advisor texts
       landingTitle: "Depolama Danışmanı",
       landingDescription: "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
       landingCta: "Öneri Alın",
@@ -45,11 +50,15 @@ const HomePage = ({ language }) => {
       }
     },
     en: {
+      metaTitle: "TekFin Teknoloji – Business Data Solutions & Wireless Network Solutions",
+      metaDescription: "TekFin Teknoloji, based in Istanbul, offers data storage, recovery, and wireless network solutions for businesses.",
+      ogTitle: "TekFin Teknoloji – Business Data Solutions",
+      ogDescription: "Store, protect, and recover your data with confidence.",
+
       mainTitle: "Business Data Solutions",
       subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
       intro: "We provide tailored data solutions that help businesses store, protect, and recover their most valuable asset — their data. Based in Istanbul, we combine expertise, advanced technology, and customer focus to ensure your data is always safe and accessible.",
 
-      // UPDATED: Storage Advisor texts
       landingTitle: "Storage Advisor",
       landingDescription: "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
       landingCta: "Get Recommendation",
@@ -109,6 +118,16 @@ const HomePage = ({ language }) => {
 
   return (
     <div className="homepage">
+      {/* Helmet for SEO */}
+      <Helmet>
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
+        <meta property="og:title" content={t.ogTitle} />
+        <meta property="og:description" content={t.ogDescription} />
+        <meta property="og:url" content="https://tekfingroup.com" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
@@ -116,21 +135,18 @@ const HomePage = ({ language }) => {
           <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
           <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
 
-          {/* Storage Advisor Card (refined) */}
+          {/* Storage Advisor Card */}
           <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
             <div className="flex items-start gap-4">
-              {/* Icon circle with blended green + blue */}
               <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
                 <FaHdd className="w-7 h-7 text-white" />
               </div>
-
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
                 <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
-
                 <button
                   onClick={() => navigate('/storage-advisor')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition"
                   aria-label={t.landingTitle}
                 >
                   <span>{t.landingCta}</span>
@@ -207,7 +223,7 @@ const HomePage = ({ language }) => {
       <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-        <button
+          <button
             onClick={() => navigate('/contact')}
             className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
           >
