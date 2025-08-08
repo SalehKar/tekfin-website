@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { FaDatabase, FaWifi, FaHdd, FaCloudUploadAlt, FaShieldAlt, FaBolt, FaUsers } from 'react-icons/fa';
 
 const HomePage = ({ language }) => {
@@ -8,14 +7,12 @@ const HomePage = ({ language }) => {
 
   const content = {
     tr: {
-      metaTitle: "TekFin Teknoloji – Veri Kurtarma, Veri Depolama ve Kablosuz Ağ Çözümleri",
-      metaDescription: "İstanbul merkezli TekFin Teknoloji, işletmelere profesyonel veri kurtarma, güvenli veri depolama ve kablosuz ağ çözümleri sunar. Verilerinizi güvenle saklayın, koruyun ve kurtarın.",
-      ogTitle: "TekFin Teknoloji – Veri Kurtarma ve Depolama Çözümleri",
-      ogDescription: "Veri kurtarma, yedekleme ve kablosuz ağ çözümlerinde uzmanız. İstanbul'da işletmelere güvenilir hizmetler sunuyoruz.",
-
-      mainTitle: "Profesyonel Veri Kurtarma ve Depolama Çözümleri",
-      subtitle: "İşletme Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın",
-      intro: "TekFin Teknoloji, İstanbul merkezli olarak işletmelere veri kurtarma, güvenli veri depolama ve yedekleme hizmetleri sunar. Kritik verilerinizin korunması, kurtarılması ve yönetilmesi için son teknoloji çözümler geliştiriyoruz.",
+      metaTitle: "İşletme Veri Depolama, Kurtarma ve Kablosuz Ağ Çözümleri | TekFin Teknoloji",
+      metaDescription: "TekFin Teknoloji, İstanbul merkezli profesyonel işletme veri depolama, veri kurtarma ve kablosuz ağ çözümleri sunar. Verilerinizi güvenle saklayın, koruyun ve geri kazanın.",
+      
+      mainTitle: "İşletme Veri Depolama ve Kurtarma Çözümleri",
+      subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
+      intro: "İstanbul merkezli TekFin Teknoloji olarak, işletmelerin en değerli varlığı olan verilerini depolamak, korumak ve kurtarmak için yüksek güvenlikli ve profesyonel çözümler sunuyoruz. Uzman ekibimiz, ileri teknoloji altyapımız ve müşteri odaklı yaklaşımımız ile verilerinizin her zaman erişilebilir ve güvenli olmasını sağlıyoruz.",
 
       landingTitle: "Depolama Danışmanı",
       landingDescription: "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
@@ -24,7 +21,7 @@ const HomePage = ({ language }) => {
       services: {
         title: "Hizmetlerimiz",
         dataSolutions: {
-          title: "Veri Kurtarma ve Depolama",
+          title: "Profesyonel Veri Depolama ve Kurtarma",
           description: "Verinin iş başarısındaki kritik rolünü biliyoruz, bu yüzden gelişmiş veri çözümleri sunuyoruz:",
           subServices: [
             { title: "Veri Depolama", description: "Verilerinize her zaman kolay erişim sağlayan güvenli ve verimli depolama çözümleri.", icon: <FaHdd className="w-6 h-6 text-white" /> },
@@ -38,26 +35,24 @@ const HomePage = ({ language }) => {
         }
       },
       whyChooseUs: {
-        title: "Neden TekFin Teknoloji?",
-        expertise: "Uzmanlık: Veri kurtarma ve veri yönetiminde yılların deneyimi.",
-        reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği önceliğimizdir.",
-        fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı müdahale.",
-        customerFocus: "Müşteri Odaklı: İhtiyaçlarınıza özel çözümler."
+        title: "Neden TekFin Teknoloji'yi Seçmelisiniz?",
+        expertise: "Uzmanlık: Veri kurtarma ve işletme veri yönetimi alanında yılların deneyimi.",
+        reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği en büyük önceliğimizdir.",
+        fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
+        customerFocus: "Müşteri Odaklı: İhtiyaçlarınıza özel çözümler sunuyoruz."
       },
       cta: {
-        title: "Verilerinizi korumak ve kurtarmak için hemen bizimle iletişime geçin!",
-        button: "Hemen İletişime Geçin"
+        title: "İşletme verilerinizi korumak ve kurtarmak için bugün bizimle iletişime geçin!",
+        button: "Hemen İletişime Geçin!"
       }
     },
     en: {
-      metaTitle: "TekFin Teknoloji – Data Recovery, Storage & Wireless Solutions",
-      metaDescription: "TekFin Teknoloji, based in Istanbul, provides professional data recovery, secure data storage, and wireless network solutions for businesses. Protect, store, and recover your data with confidence.",
-      ogTitle: "TekFin Teknoloji – Data Recovery & Storage Solutions",
-      ogDescription: "We specialize in data recovery, backup, and wireless network solutions. Trusted by businesses in Istanbul.",
+      metaTitle: "Business Data Storage, Recovery & Wireless Solutions | TekFin Teknoloji",
+      metaDescription: "TekFin Teknoloji, based in Istanbul, provides professional business data storage, data recovery, and wireless network solutions. Store, protect, and recover your data with confidence.",
 
-      mainTitle: "Professional Data Recovery & Storage Solutions",
-      subtitle: "Store, Protect, and Recover Your Business Data with Confidence",
-      intro: "TekFin Teknoloji, based in Istanbul, delivers secure data storage, professional data recovery, and backup solutions to businesses. We use advanced technology to protect, recover, and manage your critical data.",
+      mainTitle: "Business Data Storage and Recovery Solutions",
+      subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
+      intro: "At TekFin Teknoloji, based in Istanbul, we deliver high-security and professional solutions for storing, protecting, and recovering your most valuable business asset — your data. With our expert team, advanced technology infrastructure, and customer-focused approach, we ensure your data is always secure and accessible.",
 
       landingTitle: "Storage Advisor",
       landingDescription: "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
@@ -66,7 +61,7 @@ const HomePage = ({ language }) => {
       services: {
         title: "Our Services",
         dataSolutions: {
-          title: "Data Recovery & Storage",
+          title: "Professional Data Storage and Recovery",
           description: "We understand the critical role of data in business success, which is why we offer advanced data solutions:",
           subServices: [
             { title: "Data Storage", description: "Secure and efficient storage solutions ensuring your data is always accessible.", icon: <FaHdd className="w-6 h-6 text-white" /> },
@@ -80,15 +75,15 @@ const HomePage = ({ language }) => {
         }
       },
       whyChooseUs: {
-        title: "Why TekFin Teknoloji?",
-        expertise: "Expertise: Years of experience in data recovery and management.",
-        reliability: "Reliability: Your data security and privacy are our top priority.",
-        fastSolutions: "Fast Solutions: Quick response even in emergencies.",
-        customerFocus: "Customer-Centric: Solutions tailored to your needs."
+        title: "Why Choose TekFin Teknoloji?",
+        expertise: "Expertise: Years of experience in data recovery and business data management.",
+        reliability: "Reliability: The confidentiality and security of your data are our top priority.",
+        fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
+        customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
       },
       cta: {
         title: "Contact us today to protect and recover your business data!",
-        button: "Contact Us Now"
+        button: "Contact Us Now!"
       }
     }
   };
@@ -118,21 +113,35 @@ const HomePage = ({ language }) => {
 
   return (
     <div className="homepage">
-      <Helmet>
-        <title>{t.metaTitle}</title>
-        <meta name="description" content={t.metaDescription} />
-        <meta property="og:title" content={t.ogTitle} />
-        <meta property="og:description" content={t.ogDescription} />
-        <meta property="og:url" content="https://tekfingroup.com" />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
           <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
           <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
+
+          {/* Storage Advisor Card */}
+          <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
+            <div className="flex items-start gap-4">
+              <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
+                <FaHdd className="w-7 h-7 text-white" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
+                <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
+                <button
+                  onClick={() => navigate('/storage-advisor')}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition"
+                  aria-label={t.landingTitle}
+                >
+                  <span>{t.landingCta}</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -192,7 +201,7 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Call to Action */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
