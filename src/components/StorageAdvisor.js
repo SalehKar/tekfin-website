@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
 import { MdStorage } from 'react-icons/md';
-import ogImageSrc from '../assets/storage-advisor-og.png';
 
 const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
@@ -30,7 +29,6 @@ const StorageAdvisor = ({ language }) => {
       h1: 'Depolama Danışmanı – Akıllı Depolama Seçenekleri',
       intro:
         'Akıllı aracımız, kullanım amacınız, kapasite ihtiyacınız, performans beklentiniz ve taşınabilirlik gereksiniminize göre en uygun veri depolama çözümünü önerir. SSD/HDD, NVMe/SATA ve yedekleme seçeneklerini karşılaştırarak güvenli ve performanslı bir tercih yapmanıza yardımcı olur.',
-      // أزلنا الإيموجي من العناوين لأننا نستخدم أيقونات React
       aiH2: 'Yapay Zekâ Destekli Özel Öneri',
       aiLead:
         'İhtiyaçlarınızı detaylı açıklayın; yapay zekâ, kullanım senaryonuza uygun SSD/HDD, kapasite ve hız kombinasyonunu önersin.',
@@ -44,7 +42,7 @@ const StorageAdvisor = ({ language }) => {
         },
         {
           q: 'Yedekleme için harici HDD mi, bulut mu?',
-          a: '3-2-1 yaklaşımı: 3 kopya, 2 farklı ortam, 1 tanesi off-site. Harici HDD + bulut kombinasyonu genellikle idealdir.'
+          a: 'Verilerinizin farklı depolama ortamlarında birden fazla kopyasını bulundurmanızı öneririz; bunlardan en az biri uzakta saklanmalıdır. Harici HDD ile bulut depolama kombinasyonu idealdir.'
         },
         {
           q: 'Kurumsal depolama için nereden başlamalıyım?',
@@ -82,8 +80,8 @@ const StorageAdvisor = ({ language }) => {
         fixed: 'Sabit'
       },
       buttons: {
-        aiGet: 'AI Önerisi Al',
-        aiBusy: 'AI Analiz Ediyor...',
+        aiGet: 'Yapay Zekâ Önerisi Al',
+        aiBusy: 'Yapay Zekâ Analiz Ediyor...',
         getRec: 'Tavsiyeyi Al'
       },
       links: {
@@ -102,7 +100,6 @@ const StorageAdvisor = ({ language }) => {
       h1: 'Storage Advisor – Smart Storage Picks',
       intro:
         'Our smart tool recommends the right data storage solution based on your use case, capacity needs, performance requirements and portability. Compare SSD/HDD, NVMe/SATA and backup options to choose a secure, high-performance setup.',
-      // أزلنا الإيموجي من العناوين لأننا نستخدم أيقونات React
       aiH2: 'AI-Powered Custom Recommendation',
       aiLead:
         'Describe your needs; the AI suggests the best SSD/HDD, capacity and performance mix for your scenario.',
@@ -116,7 +113,7 @@ const StorageAdvisor = ({ language }) => {
         },
         {
           q: 'External HDD vs Cloud for backups?',
-          a: 'Follow a 3-2-1 style approach: 3 copies, 2 media, 1 off-site. External HDD + cloud is generally a solid baseline.'
+          a: 'We recommend keeping multiple copies of your data on different storage media, including at least one stored off-site. A combination of an external HDD and cloud storage is ideal.'
         },
         {
           q: 'Where to start for corporate storage?',
@@ -232,7 +229,7 @@ const StorageAdvisor = ({ language }) => {
 
   const canonical = 'https://tekfingroup.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
-  // تأكد أن الملف مرفوع فعلياً هنا: public/assets/storage-advisor-og.png
+  // نستخدم الصورة في الميتا فقط كـ URL ثابت
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
   // FAQ Schema JSON-LD
@@ -246,7 +243,7 @@ const StorageAdvisor = ({ language }) => {
     }))
   };
 
-  // WebApplication Schema JSON-LD (تعريف الأداة)
+  // WebApplication Schema JSON-LD
   const appSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -260,36 +257,47 @@ const StorageAdvisor = ({ language }) => {
 
   // Breadcrumb Schema
   const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tekfingroup.com/" },
-      { "@type": "ListItem", "position": 2, "name": isTR ? "Hizmetler" : "Services", "item": "https://tekfingroup.com/services" },
-      { "@type": "ListItem", "position": 3, "name": t.h1, "item": canonical }
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tekfingroup.com/' },
+      { '@type': 'ListItem', position: 2, name: isTR ? 'Hizmetler' : 'Services', item: 'https://tekfingroup.com/services' },
+      { '@type': 'ListItem', position: 3, name: t.h1, item: canonical }
     ]
   };
 
   return (
     <div className="bg-white text-[#1f3b6f] px-4 py-12">
       {/* Page SEO */}
-  <Helmet>
-  <title>{t.metaTitle}</title>
-  <meta name="description" content={t.metaDescription} />
-  <link rel="canonical" href={canonical} />
-  <meta property="og:title" content={t.ogTitle} />
-  <meta property="og:description" content={t.ogDescription} />
-  <meta property="og:url" content={canonical} />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content={ogLocale} />
-  <meta property="og:image" content={ogImage} /> {/* بدل ogImageSrc */}
-  <meta name="twitter:image" content={ogImage} /> {/* بدل ogImageSrc */}
-  <meta property="og:site_name" content="TekFin Teknoloji" />
-  <meta property="og:updated_time" content={new Date().toISOString()} />
-  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-  <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
-  <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script> {/* إضافة breadcrumb */}
-</Helmet>
-
+      <Helmet>
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
+        <link rel="canonical" href={canonical} />
+        {/* hreflang */}
+        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="tr" />
+        <link rel="alternate" href="https://tekfingroup.com/en/storage-advisor" hrefLang="en" />
+        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="x-default" />
+        {/* Open Graph */}
+        <meta property="og:title" content={t.ogTitle} />
+        <meta property="og:description" content={t.ogDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={ogLocale} />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={isTR ? 'Depolama Danışmanı' : 'Storage Advisor'} />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.ogTitle} />
+        <meta name="twitter:description" content={t.ogDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        {/* Schemas */}
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
         {/* H1 مع أيقونة واحدة فقط */}
@@ -299,9 +307,6 @@ const StorageAdvisor = ({ language }) => {
         </h1>
 
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
-
-        {/* إن أردت إظهار الصورة داخل الصفحة (ليست ضرورية): */}
-        {/* <img src="/assets/storage-advisor-og.png" alt="Storage Advisor" className="mx-auto mb-6 rounded-lg" /> */}
 
         {/* روابط داخلية لتعزيز السيو والزحف */}
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="mb-10">
@@ -325,7 +330,7 @@ const StorageAdvisor = ({ language }) => {
           </ul>
         </nav>
 
-        {/* AI Section — أيقونة React فقط بدون إيموجي */}
+        {/* AI Section — أيقونة React فقط */}
         <section className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 text-left">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaRobot className="text-blue-600" aria-hidden="true" />
@@ -358,7 +363,7 @@ const StorageAdvisor = ({ language }) => {
               className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-live="polite"
             >
-              {isLoadingAI ? t.buttons.aiBusy : t.buttons.aiGet}
+              {isTR ? copy.tr.buttons.aiGet : copy.en.buttons.aiGet}
             </button>
           </div>
 
@@ -372,7 +377,7 @@ const StorageAdvisor = ({ language }) => {
           )}
         </section>
 
-        {/* Traditional Form Section — أيقونة React فقط بدون إيموجي */}
+        {/* Traditional Form Section — أيقونة React فقط */}
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-2 text-[#002855] flex items-center gap-2">
             <FaWpforms className="text-blue-600" aria-hidden="true" />
@@ -482,7 +487,7 @@ const StorageAdvisor = ({ language }) => {
           </form>
         )}
 
-        {/* FAQ Section — أيقونة React فقط بدون إيموجي */}
+        {/* FAQ Section — أيقونة React فقط */}
         <section className="mt-12 text-left max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaQuestionCircle className="text-blue-600" aria-hidden="true" />
@@ -496,8 +501,6 @@ const StorageAdvisor = ({ language }) => {
               </details>
             ))}
           </div>
-
-          {/* حُذِفت الفقرة ذات الرابط الخارجي كما طلبت */}
         </section>
       </div>
     </div>
