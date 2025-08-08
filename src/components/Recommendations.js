@@ -1,42 +1,31 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import recommendations from './storageRecommendations';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 
-const Recommendations = () => {
+const Recommendations = ({ language }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const {
     usage,
     capacity,
     speed,
     portability,
-    language: stateLang,
   } = location.state || {};
 
-  const language = stateLang || 'tr'; // fallback إلى التركية
   const isTR = language === 'tr';
 
-  // ✅ التحقق من اكتمال البيانات
   if (!usage || !capacity || !speed || !portability) {
     return (
       <div className="p-6 text-center text-red-600 flex flex-col items-center">
         <FaExclamationTriangle className="text-3xl mb-2" />
-        <p className="mb-4">
-          {isTR
-            ? 'Veriler eksik. Lütfen formu tekrar doldurun.'
-            : 'Missing data. Please fill the form again.'}
-        </p>
-        <button
-          onClick={() => window.history.back()}
-          className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          {isTR ? 'Forma Geri Dön' : 'Back to Form'}
-        </button>
+        {isTR
+          ? 'Veriler eksik. Lütfen formu tekrar doldurun.'
+          : 'Missing data. Please fill the form again.'}
       </div>
     );
   }
 
-  // ✅ مطابقة التوصية من الملف
   const match = recommendations.find(
     (item) =>
       item.conditions.usage === usage &&
@@ -68,21 +57,20 @@ const Recommendations = () => {
               </ul>
             </div>
           )}
+
+          <button
+            onClick={() => navigate('/storage-advisor')}
+            className="mt-6 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800"
+          >
+            {isTR ? 'Forma Geri Dön' : 'Back to Form'}
+          </button>
         </div>
       ) : (
         <div className="text-red-700 text-center mt-6 flex flex-col items-center">
           <FaExclamationTriangle className="text-3xl mb-2" />
-          <p className="mb-4">
-            {isTR
-              ? 'Bu kombinasyon için öneri bulunamadı. Lütfen farklı seçenekler deneyin.'
-              : 'No recommendation found for this combination. Please try different options.'}
-          </p>
-          <button
-            onClick={() => window.history.back()}
-            className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            {isTR ? 'Forma Geri Dön' : 'Back to Form'}
-          </button>
+          {isTR
+            ? 'Bu kombinasyon için öneri bulunamadı. Lütfen farklı seçenekler deneyin.'
+            : 'No recommendation found for this combination. Please try different options.'}
         </div>
       )}
     </div>
