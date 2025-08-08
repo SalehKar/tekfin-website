@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { FaDatabase, FaWifi, FaHdd, FaCloudUploadAlt, FaShieldAlt, FaBolt, FaUsers } from 'react-icons/fa';
 
@@ -7,13 +7,11 @@ const HomePage = ({ language }) => {
 
   const content = {
     tr: {
-      metaTitle: "İşletme Veri Depolama, Kurtarma ve Kablosuz Ağ Çözümleri | TekFin Teknoloji",
-      metaDescription: "TekFin Teknoloji, İstanbul merkezli profesyonel işletme veri depolama, veri kurtarma ve kablosuz ağ çözümleri sunar. Verilerinizi güvenle saklayın, koruyun ve geri kazanın.",
-      
-      mainTitle: "İşletme Veri Depolama ve Kurtarma Çözümleri",
+      mainTitle: "İşletme Veri Çözümleri",
       subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
-      intro: "İstanbul merkezli TekFin Teknoloji olarak, işletmelerin en değerli varlığı olan verilerini depolamak, korumak ve kurtarmak için yüksek güvenlikli ve profesyonel çözümler sunuyoruz. Uzman ekibimiz, ileri teknoloji altyapımız ve müşteri odaklı yaklaşımımız ile verilerinizin her zaman erişilebilir ve güvenli olmasını sağlıyoruz.",
+      intro: "İşletmelerin en değerli varlığı olan verilerini saklamak, korumak ve kurtarmak için özel çözümler sunuyoruz. İstanbul merkezli firmamız, uzmanlık, ileri teknoloji ve müşteri odaklı yaklaşımı bir araya getirerek verilerinizin her zaman güvende ve erişilebilir olmasını sağlar.",
 
+      // UPDATED: Storage Advisor texts
       landingTitle: "Depolama Danışmanı",
       landingDescription: "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
       landingCta: "Öneri Alın",
@@ -21,7 +19,7 @@ const HomePage = ({ language }) => {
       services: {
         title: "Hizmetlerimiz",
         dataSolutions: {
-          title: "Profesyonel Veri Depolama ve Kurtarma",
+          title: "İşletme Veri Çözümleri",
           description: "Verinin iş başarısındaki kritik rolünü biliyoruz, bu yüzden gelişmiş veri çözümleri sunuyoruz:",
           subServices: [
             { title: "Veri Depolama", description: "Verilerinize her zaman kolay erişim sağlayan güvenli ve verimli depolama çözümleri.", icon: <FaHdd className="w-6 h-6 text-white" /> },
@@ -35,7 +33,7 @@ const HomePage = ({ language }) => {
         }
       },
       whyChooseUs: {
-        title: "Neden TekFin Teknoloji'yi Seçmelisiniz?",
+        title: "Neden Bizi Seçmelisiniz?",
         expertise: "Uzmanlık: Veri kurtarma ve işletme veri yönetimi alanında yılların deneyimi.",
         reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği en büyük önceliğimizdir.",
         fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
@@ -47,13 +45,11 @@ const HomePage = ({ language }) => {
       }
     },
     en: {
-      metaTitle: "Business Data Storage, Recovery & Wireless Solutions | TekFin Teknoloji",
-      metaDescription: "TekFin Teknoloji, based in Istanbul, provides professional business data storage, data recovery, and wireless network solutions. Store, protect, and recover your data with confidence.",
-
-      mainTitle: "Business Data Storage and Recovery Solutions",
+      mainTitle: "Business Data Solutions",
       subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
-      intro: "At TekFin Teknoloji, based in Istanbul, we deliver high-security and professional solutions for storing, protecting, and recovering your most valuable business asset — your data. With our expert team, advanced technology infrastructure, and customer-focused approach, we ensure your data is always secure and accessible.",
+      intro: "We provide tailored data solutions that help businesses store, protect, and recover their most valuable asset — their data. Based in Istanbul, we combine expertise, advanced technology, and customer focus to ensure your data is always safe and accessible.",
 
+      // UPDATED: Storage Advisor texts
       landingTitle: "Storage Advisor",
       landingDescription: "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
       landingCta: "Get Recommendation",
@@ -61,7 +57,7 @@ const HomePage = ({ language }) => {
       services: {
         title: "Our Services",
         dataSolutions: {
-          title: "Professional Data Storage and Recovery",
+          title: "Business Data Solutions",
           description: "We understand the critical role of data in business success, which is why we offer advanced data solutions:",
           subServices: [
             { title: "Data Storage", description: "Secure and efficient storage solutions ensuring your data is always accessible.", icon: <FaHdd className="w-6 h-6 text-white" /> },
@@ -75,7 +71,7 @@ const HomePage = ({ language }) => {
         }
       },
       whyChooseUs: {
-        title: "Why Choose TekFin Teknoloji?",
+        title: "Why Choose Us?",
         expertise: "Expertise: Years of experience in data recovery and business data management.",
         reliability: "Reliability: The confidentiality and security of your data are our top priority.",
         fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
@@ -120,18 +116,21 @@ const HomePage = ({ language }) => {
           <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
           <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
 
-          {/* Storage Advisor Card */}
+          {/* Storage Advisor Card (refined) */}
           <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
             <div className="flex items-start gap-4">
+              {/* Icon circle with blended green + blue */}
               <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
                 <FaHdd className="w-7 h-7 text-white" />
               </div>
+
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
                 <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
+
                 <button
                   onClick={() => navigate('/storage-advisor')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                   aria-label={t.landingTitle}
                 >
                   <span>{t.landingCta}</span>
@@ -142,6 +141,7 @@ const HomePage = ({ language }) => {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -150,6 +150,7 @@ const HomePage = ({ language }) => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Business Data Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
                 <FaDatabase className="w-8 h-8 text-white" />
@@ -171,6 +172,7 @@ const HomePage = ({ language }) => {
               </div>
             </div>
 
+            {/* Wireless Network Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cyan-500 to-sky-600 rounded-full shadow">
                 <FaWifi className="w-8 h-8 text-white" />
@@ -201,11 +203,11 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-          <button
+        <button
             onClick={() => navigate('/contact')}
             className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
           >
