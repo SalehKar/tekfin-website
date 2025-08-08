@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
-import { MdStorage } from 'react-icons/md';
+import ogImageSrc from '../assets/storage-advisor-og.png';
 
 const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
@@ -29,10 +29,11 @@ const StorageAdvisor = ({ language }) => {
       h1: 'Depolama Danışmanı – Akıllı Depolama Seçenekleri',
       intro:
         'Akıllı aracımız, kullanım amacınız, kapasite ihtiyacınız, performans beklentiniz ve taşınabilirlik gereksiniminize göre en uygun veri depolama çözümünü önerir. SSD/HDD, NVMe/SATA ve yedekleme seçeneklerini karşılaştırarak güvenli ve performanslı bir tercih yapmanıza yardımcı olur.',
-      aiH2: '🤖 Yapay Zekâ Destekli Özel Öneri',
+      // أزلنا الإيموجي من العناوين لأننا نستخدم أيقونات React
+      aiH2: 'Yapay Zekâ Destekli Özel Öneri',
       aiLead:
         'İhtiyaçlarınızı detaylı açıklayın; yapay zekâ, kullanım senaryonuza uygun SSD/HDD, kapasite ve hız kombinasyonunu önersin.',
-      formH2: '📋 Geleneksel Form – Hızlı Depolama Tavsiyesi',
+      formH2: 'Geleneksel Form – Hızlı Depolama Tavsiyesi',
       navH2: 'İlgili Hizmetler ve Kaynaklar',
       faqH2: 'Sık Sorulan Sorular',
       faq: [
@@ -42,7 +43,7 @@ const StorageAdvisor = ({ language }) => {
         },
         {
           q: 'Yedekleme için harici HDD mi, bulut mu?',
-          a: '3-2-1 yedekleme kuralını öneriyoruz: 3 kopya, 2 farklı ortam, 1 tanesi off-site. Harici HDD + bulut kombinasyonu idealdir.'
+          a: '3-2-1 yaklaşımı: 3 kopya, 2 farklı ortam, 1 tanesi off-site. Harici HDD + bulut kombinasyonu genellikle idealdir.'
         },
         {
           q: 'Kurumsal depolama için nereden başlamalıyım?',
@@ -80,16 +81,15 @@ const StorageAdvisor = ({ language }) => {
         fixed: 'Sabit'
       },
       buttons: {
-        aiGet: '✨ AI Önerisi Al',
-        aiBusy: '🔄 AI Analiz Ediyor...',
+        aiGet: 'AI Önerisi Al',
+        aiBusy: 'AI Analiz Ediyor...',
         getRec: 'Tavsiyeyi Al'
       },
       links: {
         dataStorage: 'Veri Depolama Hizmetleri',
         dataRecovery: 'Veri Kurtarma',
         contact: 'İletişim'
-      },
-      moreInfo: 'Daha fazla bilgi için:'
+      }
     },
     en: {
       metaTitle: 'Storage Advisor – Smart Storage Picks | TekFin Teknoloji',
@@ -101,10 +101,11 @@ const StorageAdvisor = ({ language }) => {
       h1: 'Storage Advisor – Smart Storage Picks',
       intro:
         'Our smart tool recommends the right data storage solution based on your use case, capacity needs, performance requirements and portability. Compare SSD/HDD, NVMe/SATA and backup options to choose a secure, high-performance setup.',
-      aiH2: '🤖 AI-Powered Custom Recommendation',
+      // أزلنا الإيموجي من العناوين لأننا نستخدم أيقونات React
+      aiH2: 'AI-Powered Custom Recommendation',
       aiLead:
         'Describe your needs; the AI suggests the best SSD/HDD, capacity and performance mix for your scenario.',
-      formH2: '📋 Traditional Form – Quick Storage Recommendation',
+      formH2: 'Traditional Form – Quick Storage Recommendation',
       navH2: 'Related Services & Resources',
       faqH2: 'Frequently Asked Questions',
       faq: [
@@ -114,7 +115,7 @@ const StorageAdvisor = ({ language }) => {
         },
         {
           q: 'External HDD vs Cloud for backups?',
-          a: 'Follow the 3-2-1 rule: 3 copies, 2 media, 1 off-site. A mix of external HDD + cloud is a solid baseline.'
+          a: 'Follow a 3-2-1 style approach: 3 copies, 2 media, 1 off-site. External HDD + cloud is generally a solid baseline.'
         },
         {
           q: 'Where to start for corporate storage?',
@@ -152,16 +153,15 @@ const StorageAdvisor = ({ language }) => {
         fixed: 'Fixed'
       },
       buttons: {
-        aiGet: '✨ Get AI Recommendation',
-        aiBusy: '🔄 AI Analyzing...',
+        aiGet: 'Get AI Recommendation',
+        aiBusy: 'AI Analyzing...',
         getRec: 'Get Recommendation'
       },
       links: {
         dataStorage: 'Data Storage Services',
         dataRecovery: 'Data Recovery',
         contact: 'Contact'
-      },
-      moreInfo: 'For more details:'
+      }
     }
   };
 
@@ -231,6 +231,7 @@ const StorageAdvisor = ({ language }) => {
 
   const canonical = 'https://tekfingroup.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
+  // تأكد أن الملف مرفوع فعلياً هنا: public/assets/storage-advisor-og.png
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
   // FAQ Schema JSON-LD
@@ -270,44 +271,34 @@ const StorageAdvisor = ({ language }) => {
   return (
     <div className="bg-white text-[#1f3b6f] px-4 py-12">
       {/* Page SEO */}
-      <Helmet>
-        <title>{t.metaTitle}</title>
-        <meta name="description" content={t.metaDescription} />
-        <link rel="canonical" href={canonical} />
-        {/* hreflang */}
-        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="tr" />
-        <link rel="alternate" href="https://tekfingroup.com/en/storage-advisor" hrefLang="en" />
-        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="x-default" />
-        {/* Open Graph */}
-        <meta property="og:title" content={t.ogTitle} />
-        <meta property="og:description" content={t.ogDescription} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content={ogLocale} />
-        <meta property="og:site_name" content="TekFin Teknoloji" />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={isTR ? 'Depolama Danışmanı' : 'Storage Advisor'} />
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t.ogTitle} />
-        <meta name="twitter:description" content={t.ogDescription} />
-        <meta name="twitter:image" content={ogImage} />
-        {/* Schemas */}
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-      </Helmet>
+     <Helmet>
+  <title>{t.metaTitle}</title>
+  <meta name="description" content={t.metaDescription} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={t.ogTitle} />
+  <meta property="og:description" content={t.ogDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content={ogLocale} />
+  <meta property="og:image" content={ogImageSrc} />
+  <meta name="twitter:image" content={ogImageSrc} />
+  <meta property="og:site_name" content="TekFin Teknoloji" />
+  <meta property="og:updated_time" content={new Date().toISOString()} />
+  <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+  <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
+</Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
-        {/* H1 محسن بالكلمات المفتاحية مع أيقونة */}
+        {/* H1 مع أيقونة واحدة فقط */}
         <h1 className="text-4xl font-bold mb-4 text-[#002855] flex items-center gap-3">
           <MdStorage className="text-blue-700" aria-hidden="true" />
           {t.h1}
         </h1>
 
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
+
+        {/* إن أردت إظهار الصورة داخل الصفحة (ليست ضرورية): */}
+        {/* <img src="/assets/storage-advisor-og.png" alt="Storage Advisor" className="mx-auto mb-6 rounded-lg" /> */}
 
         {/* روابط داخلية لتعزيز السيو والزحف */}
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="mb-10">
@@ -331,7 +322,7 @@ const StorageAdvisor = ({ language }) => {
           </ul>
         </nav>
 
-        {/* AI-Powered Custom Recommendation Section */}
+        {/* AI Section — أيقونة React فقط بدون إيموجي */}
         <section className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 text-left">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaRobot className="text-blue-600" aria-hidden="true" />
@@ -371,14 +362,14 @@ const StorageAdvisor = ({ language }) => {
           {aiRecommendation && (
             <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
               <h3 className="font-bold text-lg mb-3 text-[#002855]">
-                {isTR ? '🎯 AI Önerisi:' : '🎯 AI Recommendation:'}
+                {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
               </h3>
               <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
             </div>
           )}
         </section>
 
-        {/* Traditional Form Section */}
+        {/* Traditional Form Section — أيقونة React فقط بدون إيموجي */}
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-2 text-[#002855] flex items-center gap-2">
             <FaWpforms className="text-blue-600" aria-hidden="true" />
@@ -488,7 +479,7 @@ const StorageAdvisor = ({ language }) => {
           </form>
         )}
 
-        {/* FAQ Section */}
+        {/* FAQ Section — أيقونة React فقط بدون إيموجي */}
         <section className="mt-12 text-left max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaQuestionCircle className="text-blue-600" aria-hidden="true" />
@@ -503,12 +494,7 @@ const StorageAdvisor = ({ language }) => {
             ))}
           </div>
 
-          {/* External reference link (improves "External Links" metric) */}
-          <p className="text-sm text-gray-600 mt-6">
-            {t.moreInfo}{' '}
-           
-              3-2-1 backup best practice
-          </p>
+          {/* حُذِفت الفقرة ذات الرابط الخارجي كما طلبت */}
         </section>
       </div>
     </div>
