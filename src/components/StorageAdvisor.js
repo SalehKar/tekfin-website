@@ -506,14 +506,8 @@ const StorageAdvisor = ({ language }) => {
           {/* External reference link (improves "External Links" metric) */}
           <p className="text-sm text-gray-600 mt-6">
             {t.moreInfo}{' '}
-            <a
-              href="https://www.backblaze.com/blog/the-3-2-1-backup-strategy/"
-              target="_blank"
-              rel="noopener"
-              className="text-blue-700 underline"
-            >
-              3-2-1 backup best practices
-            </a>
+           
+              3-2-1 backup best practice
           </p>
         </section>
       </div>
