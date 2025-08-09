@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
 import { MdStorage } from 'react-icons/md';
+import EmailRecommendation from "../components/EmailRecommendation";
 
 const StorageAdvisor = ({ language }) => {
   const [usage, setUsage] = useState('');
