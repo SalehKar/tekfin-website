@@ -3,9 +3,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
 import { MdStorage } from 'react-icons/md';
-import EmailRecommendation from "../components/EmailRecommendation";
+import EmailRecommendation from '../components/EmailRecommendation';
 
-const StorageAdvisor = ({ language }) => {
+const StorageAdvisor = ({ language = 'en' }) => {
   const [usage, setUsage] = useState('');
   const [capacity, setCapacity] = useState('');
   const [speed, setSpeed] = useState('');
@@ -40,30 +40,30 @@ const StorageAdvisor = ({ language }) => {
       faq: [
         {
           q: 'Hangi durumlarda NVMe SSD tercih etmeliyim?',
-          a: 'Video düzenleme, 3D tasarım ve yüksek I/O gerektiren iş yüklerinde NVMe SSD en iyi seçimdir. Ofis ve genel kullanımda SATA SSD çoğu zaman yeterlidir.'
+          a: 'Video düzenleme, 3D tasarım ve yüksek I/O gerektiren iş yüklerinde NVMe SSD en iyi seçimdir. Ofis ve genel kullanımda SATA SSD çoğu zaman yeterlidir.',
         },
         {
           q: 'Yedekleme için harici HDD mi, bulut mu?',
-          a: 'Verilerinizin farklı depolama ortamlarında birden fazla kopyasını bulundurmanızı öneririz; bunlardan en az biri uzakta saklanmalıdır. Harici HDD ile bulut depolama kombinasyonu idealdir.'
+          a: 'Verilerinizin farklı depolama ortamlarında birden fazla kopyasını bulundurmanızı öneririz; bunlardan en az biri uzakta saklanmalıdır. Harici HDD ile bulut depolama kombinasyonu idealdir.',
         },
         {
           q: 'Kurumsal depolama için nereden başlamalıyım?',
-          a: 'Kapasite büyüme hızı, erişim performansı ve bütçeyi belirleyin. Ardından NAS/SAN ve SSD/HDD katmanlamasını planlayın.'
-        }
+          a: 'Kapasite büyüme hızı, erişim performansı ve bütçeyi belirleyin. Ardından NAS/SAN ve SSD/HDD katmanlamasını planlayın.',
+        },
       ],
       advisorLead: 'Akıllı aracımız, verileriniz için en uygun depolama seçeneğini önersin.',
       showForm: 'Formu Göster',
       hideForm: 'Formu Gizle',
       placeholders: {
         example:
-          'Örnek: "Video düzenleme için hızlı bir NVMe SSD arıyorum, 1 TB kapasite, bütçem 2000 TL"'
+          'Örnek: "Video düzenleme için hızlı bir NVMe SSD arıyorum, 1 TB kapasite, bütçem 2000 TL"',
       },
       labels: {
         usage: 'Kullanım Amacı',
         capacity: 'Kapasite',
         speed: 'Hız',
         portability: 'Taşınabilirlik',
-        email: 'E-posta Adresi'
+        email: 'E-posta Adresi',
       },
       select: {
         personal: 'Kişisel Depolama',
@@ -79,20 +79,20 @@ const StorageAdvisor = ({ language }) => {
         sata: 'Yüksek (SATA SSD)',
         hdd: 'Düşük (HDD)',
         portable: 'Taşınabilir',
-        fixed: 'Sabit'
+        fixed: 'Sabit',
       },
       buttons: {
         aiGet: 'Yapay Zekâ Önerisi Al',
         aiBusy: 'Yapay Zekâ Analiz Ediyor...',
         getRec: 'Tavsiyeyi Al',
         copy: 'Kopyala',
-        copied: 'Kopyalandı!'
+        copied: 'Kopyalandı!',
       },
       links: {
         dataStorage: 'Veri Depolama Hizmetleri',
         dataRecovery: 'Veri Kurtarma',
-        contact: 'İletişim'
-      }
+        contact: 'İletişim',
+      },
     },
     en: {
       metaTitle: 'Storage Advisor – Smart Storage Picks | TekFin Teknoloji',
@@ -113,30 +113,30 @@ const StorageAdvisor = ({ language }) => {
       faq: [
         {
           q: 'When should I choose NVMe SSD?',
-          a: 'For video editing, 3D design and high I/O workloads NVMe SSD is ideal. For office/general use, SATA SSD is often sufficient.'
+          a: 'For video editing, 3D design and high I/O workloads NVMe SSD is ideal. For office/general use, SATA SSD is often sufficient.',
         },
         {
           q: 'External HDD vs Cloud for backups?',
-          a: 'We recommend keeping multiple copies of your data on different storage media, including at least one stored off-site. A combination of an external HDD and cloud storage is ideal.'
+          a: 'We recommend keeping multiple copies of your data on different storage media, including at least one stored off-site. A combination of an external HDD and cloud storage is ideal.',
         },
         {
           q: 'Where to start for corporate storage?',
-          a: 'Define growth rate, performance and budget, then plan NAS/SAN and SSD/HDD tiering accordingly.'
-        }
+          a: 'Define growth rate, performance and budget, then plan NAS/SAN and SSD/HDD tiering accordingly.',
+        },
       ],
       advisorLead: 'Let our smart tool recommend the best storage option for your data.',
       showForm: 'Show Form',
       hideForm: 'Hide Form',
       placeholders: {
         example:
-          'Example: "I need a fast NVMe SSD for video editing, 1TB capacity, budget is 2000 TL"'
+          'Example: "I need a fast NVMe SSD for video editing, 1TB capacity, budget is 2000 TL"',
       },
       labels: {
         usage: 'Usage Purpose',
         capacity: 'Capacity',
         speed: 'Speed',
         portability: 'Portability',
-        email: 'Email Address'
+        email: 'Email Address',
       },
       select: {
         personal: 'Personal Storage',
@@ -152,21 +152,21 @@ const StorageAdvisor = ({ language }) => {
         sata: 'High (SATA SSD)',
         hdd: 'Low (HDD)',
         portable: 'Portable',
-        fixed: 'Fixed'
+        fixed: 'Fixed',
       },
       buttons: {
         aiGet: 'Get AI Recommendation',
         aiBusy: 'AI Analyzing...',
         getRec: 'Get Recommendation',
         copy: 'Copy',
-        copied: 'Copied!'
+        copied: 'Copied!',
       },
       links: {
         dataStorage: 'Data Storage Services',
         dataRecovery: 'Data Recovery',
-        contact: 'Contact'
-      }
-    }
+        contact: 'Contact',
+      },
+    },
   };
 
   const t = copy[language] || copy.en;
@@ -182,13 +182,13 @@ const StorageAdvisor = ({ language }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json'
+          Accept: 'application/json',
         },
-        body: JSON.stringify({ email, usage, capacity, speed, portability })
+        body: JSON.stringify({ email, usage, capacity, speed, portability }),
       });
 
       navigate('/recommendations', {
-        state: { usage, capacity, speed, portability, email, language }
+        state: { usage, capacity, speed, portability, email, language },
       });
     } catch (error) {
       console.error('Error submitting email:', error);
@@ -208,7 +208,7 @@ const StorageAdvisor = ({ language }) => {
       const response = await fetch('/.netlify/functions/storage-recommendation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ requirements: customRequirements, language })
+        body: JSON.stringify({ requirements: customRequirements, language }),
       });
       const data = await response.json();
 
@@ -239,31 +239,39 @@ const StorageAdvisor = ({ language }) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // fallback
       const ta = document.createElement('textarea');
       ta.value = aiRecommendation;
       document.body.appendChild(ta);
-      ta.select(); document.execCommand('copy');
+      ta.select();
+      document.execCommand('copy');
       document.body.removeChild(ta);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
   };
 
-  const canonical = 'https://tekfingroup.com/storage-advisor';
+  // ===== SEO =====
+  const canonical = isTR
+    ? 'https://tekfingroup.com/storage-advisor'
+    : 'https://tekfingroup.com/en/storage-advisor';
+  const canonicalTr = 'https://tekfingroup.com/storage-advisor';
+  const canonicalEn = 'https://tekfingroup.com/en/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
+  const ogLocaleAlt = isTR ? 'en_US' : 'tr_TR';
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
+  // FAQ Schema JSON-LD
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: (t.faq || []).map(({ q, a }) => ({
       '@type': 'Question',
       name: q,
-      acceptedAnswer: { '@type': 'Answer', text: a }
-    }))
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
   };
 
+  // WebApplication Schema JSON-LD
   const appSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -272,17 +280,23 @@ const StorageAdvisor = ({ language }) => {
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'TRY' },
-    inLanguage: isTR ? 'tr' : 'en'
+    inLanguage: isTR ? 'tr' : 'en',
   };
 
+  // Breadcrumb Schema JSON-LD
   const breadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tekfingroup.com/' },
-      { '@type': 'ListItem', position: 2, name: isTR ? 'Hizmetler' : 'Services', item: 'https://tekfingroup.com/services' },
-      { '@type': 'ListItem', position: 3, name: t.h1, item: canonical }
-    ]
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: isTR ? 'Hizmetler' : 'Services',
+        item: 'https://tekfingroup.com/services',
+      },
+      { '@type': 'ListItem', position: 3, name: t.h1, item: canonical },
+    ],
   };
 
   return (
@@ -291,24 +305,30 @@ const StorageAdvisor = ({ language }) => {
       <Helmet>
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
         <link rel="canonical" href={canonical} />
-        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="tr" />
-        <link rel="alternate" href="https://tekfingroup.com/en/storage-advisor" hrefLang="en" />
-        <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="x-default" />
+        {/* hreflang */}
+        <link rel="alternate" href={canonicalTr} hrefLang="tr" />
+        <link rel="alternate" href={canonicalEn} hrefLang="en" />
+        <link rel="alternate" href={canonicalTr} hrefLang="x-default" />
+        {/* Open Graph */}
         <meta property="og:title" content={t.ogTitle} />
         <meta property="og:description" content={t.ogDescription} />
         <meta property="og:url" content={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={ogLocaleAlt} />
         <meta property="og:site_name" content="TekFin Teknoloji" />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={isTR ? 'Depolama Danışmanı' : 'Storage Advisor'} />
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.ogTitle} />
         <meta name="twitter:description" content={t.ogDescription} />
         <meta name="twitter:image" content={ogImage} />
+        {/* Schemas */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
@@ -323,7 +343,7 @@ const StorageAdvisor = ({ language }) => {
 
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
 
-        {/* Internal Links */}
+        {/* Internal links (SEO) */}
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="mb-10">
           <h2 className="sr-only">{t.navH2}</h2>
           <ul className="flex flex-wrap gap-4 justify-center text-sm">
@@ -363,7 +383,7 @@ const StorageAdvisor = ({ language }) => {
               onChange={(e) => setCustomRequirements(e.target.value)}
               placeholder={t.placeholders.example}
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[100px]"
-              rows="4"
+              rows={4}
               aria-describedby="ai-helper"
             />
             <div id="ai-helper" className="text-xs text-gray-500 mt-1">
@@ -382,21 +402,13 @@ const StorageAdvisor = ({ language }) => {
             </button>
           </div>
 
-         {aiRecommendation && (
-  <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
-    <h3 className="font-bold text-lg mb-3 text-[#002855]">
-      {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
-    </h3>
-    <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
+          {aiRecommendation && (
+            <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
+              <h3 className="font-bold text-lg mb-3 text-[#002855]">
+                {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
+              </h3>
 
-    {/* Email send form */}
-    <EmailRecommendation
-      recommendation={aiRecommendation}
-      defaultReplyTo="storage-advisor@tekfingroup.com"
-      lang={language}
-    />
-  </div>
-)}
+              <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
 
               {/* Actions: Copy + Email */}
               <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -405,13 +417,13 @@ const StorageAdvisor = ({ language }) => {
                   className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded border"
                   aria-live="polite"
                 >
-                  {copied ? (isTR ? copy.tr.buttons.copied : copy.en.buttons.copied)
-                          : (isTR ? copy.tr.buttons.copy : copy.en.buttons.copy)}
+                  {copied ? (isTR ? copy.tr.buttons.copied : copy.en.buttons.copied) : (isTR ? copy.tr.buttons.copy : copy.en.buttons.copy)}
                 </button>
 
                 <EmailRecommendation
                   recommendation={aiRecommendation}
                   defaultReplyTo="storage-advisor@tekfingroup.com"
+                  lang={language}
                 />
               </div>
             </div>
