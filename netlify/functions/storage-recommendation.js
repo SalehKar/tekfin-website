@@ -1,5 +1,5 @@
-// Netlify Function (Node) — /.netlify/functions/storage-recommendation
-import OpenAI from "openai";
+// Netlify Function (Node, CommonJS)
+const OpenAI = require("openai");
 
 const HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -7,8 +7,7 @@ const HEADERS = {
   "Content-Type": "application/json",
 };
 
-export async function handler(event) {
-  // CORS preflight
+exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 200, headers: HEADERS, body: "" };
   }
@@ -52,11 +51,11 @@ export async function handler(event) {
       temperature: 0.7,
     });
 
-    const recommendation = resp.choices[0].message.content?.trim() || "";
+    const recommendation = (resp.choices?.[0]?.message?.content || "").trim();
     return { statusCode: 200, headers: HEADERS, body: JSON.stringify({ success: true, recommendation, language }) };
   } catch (e) {
     const msg = String(e?.message || e);
     const code = /auth/i.test(msg) ? 401 : /rate limit/i.test(msg) ? 429 : 500;
     return { statusCode: code, headers: HEADERS, body: JSON.stringify({ error: msg }) };
   }
-}
+};
