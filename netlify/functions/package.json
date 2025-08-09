@@ -1,0 +1,10 @@
+{
+  "name": "storage-recommendation-function",
+  "version": "1.0.0",
+  "description": "Netlify function for AI-powered storage recommendations",
+  "main": "storage-recommendation.js",
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}
+
