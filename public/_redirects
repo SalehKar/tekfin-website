@@ -1,1 +1,8 @@
 /*    /index.html   200
+
+
+# Prevent directory listing
+/assets/* /404.html 404
+/static/* /404.html 404
+/*/. /404.html 404
+
