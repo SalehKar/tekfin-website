@@ -15,6 +15,7 @@ const StorageAdvisor = ({ language }) => {
   const [aiRecommendation, setAiRecommendation] = useState('');
   const [isLoadingAI, setIsLoadingAI] = useState(false);
   const [showAISection, setShowAISection] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const navigate = useNavigate();
   const isTR = language === 'tr';
@@ -83,7 +84,9 @@ const StorageAdvisor = ({ language }) => {
       buttons: {
         aiGet: 'Yapay Zekâ Önerisi Al',
         aiBusy: 'Yapay Zekâ Analiz Ediyor...',
-        getRec: 'Tavsiyeyi Al'
+        getRec: 'Tavsiyeyi Al',
+        copy: 'Kopyala',
+        copied: 'Kopyalandı!'
       },
       links: {
         dataStorage: 'Veri Depolama Hizmetleri',
@@ -154,7 +157,9 @@ const StorageAdvisor = ({ language }) => {
       buttons: {
         aiGet: 'Get AI Recommendation',
         aiBusy: 'AI Analyzing...',
-        getRec: 'Get Recommendation'
+        getRec: 'Get Recommendation',
+        copy: 'Copy',
+        copied: 'Copied!'
       },
       links: {
         dataStorage: 'Data Storage Services',
@@ -228,12 +233,27 @@ const StorageAdvisor = ({ language }) => {
     }
   };
 
+  const copyRecommendation = async () => {
+    try {
+      await navigator.clipboard.writeText(aiRecommendation);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = aiRecommendation;
+      document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   const canonical = 'https://tekfingroup.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
-  // نستخدم الصورة في الميتا فقط كـ URL ثابت
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
-  // FAQ Schema JSON-LD
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -244,7 +264,6 @@ const StorageAdvisor = ({ language }) => {
     }))
   };
 
-  // WebApplication Schema JSON-LD
   const appSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -256,7 +275,6 @@ const StorageAdvisor = ({ language }) => {
     inLanguage: isTR ? 'tr' : 'en'
   };
 
-  // Breadcrumb Schema
   const breadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -274,11 +292,9 @@ const StorageAdvisor = ({ language }) => {
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
         <link rel="canonical" href={canonical} />
-        {/* hreflang */}
         <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="tr" />
         <link rel="alternate" href="https://tekfingroup.com/en/storage-advisor" hrefLang="en" />
         <link rel="alternate" href="https://tekfingroup.com/storage-advisor" hrefLang="x-default" />
-        {/* Open Graph */}
         <meta property="og:title" content={t.ogTitle} />
         <meta property="og:description" content={t.ogDescription} />
         <meta property="og:url" content={canonical} />
@@ -289,19 +305,17 @@ const StorageAdvisor = ({ language }) => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={isTR ? 'Depolama Danışmanı' : 'Storage Advisor'} />
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.ogTitle} />
         <meta name="twitter:description" content={t.ogDescription} />
         <meta name="twitter:image" content={ogImage} />
-        {/* Schemas */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
-        {/* H1 مع أيقونة واحدة فقط */}
+        {/* H1 */}
         <h1 className="text-4xl font-bold mb-4 text-[#002855] flex items-center gap-3">
           <MdStorage className="text-blue-700" aria-hidden="true" />
           {t.h1}
@@ -309,7 +323,7 @@ const StorageAdvisor = ({ language }) => {
 
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
 
-        {/* روابط داخلية لتعزيز السيو والزحف */}
+        {/* Internal Links */}
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="mb-10">
           <h2 className="sr-only">{t.navH2}</h2>
           <ul className="flex flex-wrap gap-4 justify-center text-sm">
@@ -331,7 +345,7 @@ const StorageAdvisor = ({ language }) => {
           </ul>
         </nav>
 
-        {/* AI Section — أيقونة React فقط */}
+        {/* AI Section */}
         <section className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 text-left">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaRobot className="text-blue-600" aria-hidden="true" />
@@ -374,11 +388,28 @@ const StorageAdvisor = ({ language }) => {
                 {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
               </h3>
               <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
+
+              {/* Actions: Copy + Email */}
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <button
+                  onClick={copyRecommendation}
+                  className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded border"
+                  aria-live="polite"
+                >
+                  {copied ? (isTR ? copy.tr.buttons.copied : copy.en.buttons.copied)
+                          : (isTR ? copy.tr.buttons.copy : copy.en.buttons.copy)}
+                </button>
+
+                <EmailRecommendation
+                  recommendation={aiRecommendation}
+                  defaultReplyTo="storage-advisor@tekfingroup.com"
+                />
+              </div>
             </div>
           )}
         </section>
 
-        {/* Traditional Form Section — أيقونة React فقط */}
+        {/* Traditional Form Section */}
         <section className="mb-8">
           <h2 className="text-2xl font-bold mb-2 text-[#002855] flex items-center gap-2">
             <FaWpforms className="text-blue-600" aria-hidden="true" />
@@ -488,7 +519,7 @@ const StorageAdvisor = ({ language }) => {
           </form>
         )}
 
-        {/* FAQ Section — أيقونة React فقط */}
+        {/* FAQ Section */}
         <section className="mt-12 text-left max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
             <FaQuestionCircle className="text-blue-600" aria-hidden="true" />
