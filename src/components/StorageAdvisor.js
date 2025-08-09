@@ -382,12 +382,21 @@ const StorageAdvisor = ({ language }) => {
             </button>
           </div>
 
-          {aiRecommendation && (
-            <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
-              <h3 className="font-bold text-lg mb-3 text-[#002855]">
-                {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
-              </h3>
-              <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
+         {aiRecommendation && (
+  <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
+    <h3 className="font-bold text-lg mb-3 text-[#002855]">
+      {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
+    </h3>
+    <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
+
+    {/* Email send form */}
+    <EmailRecommendation
+      recommendation={aiRecommendation}
+      defaultReplyTo="storage-advisor@tekfingroup.com"
+      lang={language}
+    />
+  </div>
+)}
 
               {/* Actions: Copy + Email */}
               <div className="mt-4 flex flex-wrap items-center gap-3">
