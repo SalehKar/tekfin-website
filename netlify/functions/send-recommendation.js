@@ -26,20 +26,26 @@ exports.handler = async (event) => {
   if (!recommendation)
     return { statusCode: 400, headers: HEADERS, body: JSON.stringify({ error: "Missing recommendation" }) };
 
-  // Env vars from Netlify
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, FROM_EMAIL } = process.env;
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !FROM_EMAIL) {
-    return { statusCode: 500, headers: HEADERS, body: JSON.stringify({ error: "SMTP env vars missing" }) };
+  // Env vars
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, FROM_EMAIL, ZOHO_DC } = process.env;
+  if (!SMTP_USER || !SMTP_PASS) {
+    return { statusCode: 500, headers: HEADERS, body: JSON.stringify({ error: "Missing SMTP_USER/SMTP_PASS" }) };
   }
 
-  // Zoho يتطلب غالبًا أن يكون From نفس المستخدم أو alias مُفعل
-  const fromAddr = FROM_EMAIL || SMTP_USER;
+  // حدّد الهوست تلقائياً:
+  // 1) لو SMTP_HOST موجود -> استعمله
+  // 2) غير ذلك: استخدم ZOHO_DC (eu|com) لتحديد نطاق Zoho
+  const dc = String(ZOHO_DC || "").toLowerCase(); // "eu" أو "com"
+  const resolvedHost =
+    SMTP_HOST?.trim() ||
+    (dc === "eu" ? "smtp.zoho.eu" : "smtp.zoho.com");
 
-  // اضبط النقل حسب البورت
-  const port = Number(SMTP_PORT);
-  const secure = port === 465; // SSL لـ 465، أما 587 فهو TLS (secure:false + requireTLS)
+  // المنفذ: إن ما تعيّن، افتراض 465
+  const port = Number(SMTP_PORT || 465);
+  const secure = port === 465; // SSL على 465، STARTTLS على 587
+
   const transportOptions = {
-    host: SMTP_HOST,
+    host: resolvedHost,
     port,
     secure,
     auth: { user: SMTP_USER, pass: SMTP_PASS },
@@ -48,10 +54,13 @@ exports.handler = async (event) => {
     socketTimeout: 15000,
   };
 
+  // Zoho يشترط أن يكون المرسِل نفس المستخدم أو Alias مفعّل
+  const fromAddr = (FROM_EMAIL && FROM_EMAIL.trim()) || SMTP_USER;
+
   try {
     const transporter = nodemailer.createTransport(transportOptions);
 
-    // جرّب الاتصال أولاً لتوضيح الخطأ الحقيقي إن وجد
+    // فحص الاتصال قبل الإرسال لإخراج خطأ واضح بدلاً من 502 عام
     await transporter.verify();
 
     const text = [
@@ -72,9 +81,8 @@ exports.handler = async (event) => {
 
     return { statusCode: 200, headers: HEADERS, body: JSON.stringify({ ok: true, id: info.messageId }) };
   } catch (e) {
-    // اطبع تفاصيل الخطأ في لوج نتلايفي واسرج الرسالة للواجهة للمساعدة
     console.error("send-recommendation error:", e && e.response ? e.response : e);
-    const msg = e && (e.message || e.code || e.response && e.response.toString()) || "Unknown error";
+    const msg = e?.message || e?.code || (e?.response && String(e.response)) || "Unknown error";
     return { statusCode: 502, headers: HEADERS, body: JSON.stringify({ error: msg }) };
   }
 };
