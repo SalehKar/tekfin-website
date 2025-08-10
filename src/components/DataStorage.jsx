@@ -8,7 +8,7 @@ export default function DataStorage({ language = "tr" }) {
     tr: {
       title: "Veri Depolama Çözümleri",
       paragraph:
-        "İşletmeniz veya kişisel verileriniz için güvenli ve verimli depolama çözümleri sunuyoruz. Verilerinizin her zaman erişilebilir olmasını sağlamak için en son teknolojileri kullanıyoruz.",
+        "İşletmeniz veya kişisel verileriniz için verimli depolama çözümleri sunuyoruz. Verilerinizin her zaman erişilebilir olmasını sağlamak için en son teknolojileri kullanıyoruz.",
       services: [
         { icon: <FaDatabase className="text-blue-800 w-10 h-10" />, text: "Yüksek Kapasiteli Depolama" },
         { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Güvenli Veri Koruma" },
@@ -25,14 +25,14 @@ export default function DataStorage({ language = "tr" }) {
         "Sürekli İzleme ve Destek"
       ],
       cta: {
-        question: "Verilerinizi güvenle depolamak ister misiniz?",
+        question: "İşinizle birlikte büyüyen bir depolama mı arıyorsunuz?",
         action: "Bizimle İletişime Geçin"
       }
     },
     en: {
       title: "Data Storage Solutions",
       paragraph:
-        "We provide secure and efficient storage solutions for your business or personal data, ensuring your information is always accessible using the latest technologies.",
+        "We provide efficient storage solutions for your business or personal data, ensuring your information is always accessible using the latest technologies.",
       services: [
         { icon: <FaDatabase className="text-blue-800 w-10 h-10" />, text: "High-Capacity Storage" },
         { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Secure Data Protection" },
@@ -49,7 +49,7 @@ export default function DataStorage({ language = "tr" }) {
         "Continuous Monitoring & Support"
       ],
       cta: {
-        question: "Want to store your data securely?",
+        question: "Looking for storage that grows with your business?",
         action: "Contact Us"
       }
     }
