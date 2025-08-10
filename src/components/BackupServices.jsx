@@ -15,7 +15,7 @@ export default function BackupServices({ language = "tr" }) {
         { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Gerçek Zamanlı Senkronizasyon" },
         { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Veri Şifreleme ve Güvenlik" }
       ],
-      privacy: "🔒 Yedekleme verileriniz güvenli bir şekilde saklanır.",
+      privacy: "🔒 Yedek verileriniz – koruma altında ve her zaman erişilebilir",
       processTitle: "Yedekleme Sürecimiz",
       processSteps: [
         "İhtiyaç Analizi",
@@ -39,7 +39,7 @@ export default function BackupServices({ language = "tr" }) {
         { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Real-Time Synchronization" },
         { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Data Encryption & Security" }
       ],
-      privacy: "🔒 Your backup data is stored securely.",
+      privacy: "🔒 Your backup data – protected and available anytime",
       processTitle: "Our Backup Process",
       processSteps: [
         "Needs Analysis",
