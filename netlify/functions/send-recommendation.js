@@ -28,16 +28,24 @@ const formatRecommendation = (raw) => {
       listType = null;
     }
   };
+// regex لتحديد السطور التي تبدأ بعناوين معروفة
+const labelOnly = /^(Type|Capacity|Estimated Price Range|Price Range|Recommended Brands|Brands|Rationale|Notes|Speed|Portability|Brief Rationale)\s*:\s*(.*)$/i;
 
-  // تسميات نغّلطها إذا ظهرت كسطر مستقل أو داخل عنصر قائمة
-  const labelOnly = /^(Type|Capacity|Estimated Price Range|Price Range|Recommended Brands|Brands|Rationale|Notes|Speed|Portability)\s*:\s*(.*)$/i;
-  const boldifyLabel = (text) => {
-    const m = labelOnly.exec(text);
-    if (!m) return text;
-    const label = m[1].trim();
-    const rest = m[2] || "";
-    return `<strong>${label}:</strong> ${rest}`;
-  };
+const boldifyLabel = (text) => {
+  const m = labelOnly.exec(text);
+  if (!m) return text;
+
+  const label = m[1].trim();
+  const rest = m[2] || "";
+
+  // إذا كان العنوان هو "Brief Rationale" نضيف له لون + خط سفلي
+  if (/^Brief Rationale$/i.test(label)) {
+    return `<strong style="color:#d35400; text-decoration:underline;">${label}:</strong> ${rest}`;
+  }
+
+  // باقي العناوين غامقة فقط
+  return `<strong>${label}:</strong> ${rest}`;
+};
 
   for (let line of lines) {
     if (!line) { closeList(); continue; }
