@@ -1,4 +1,3 @@
-// Netlify Function: send-recommendation.js (CommonJS)
 const nodemailer = require("nodemailer");
 
 const HEADERS = {
@@ -13,6 +12,57 @@ const stripBold = (text) =>
   (text || "")
     .replace(/\*\*(.*?)\*\*/g, "$1")
     .replace(/\*\*/g, "");
+
+// تحويل النص الخام إلى HTML منسق (قوائم، فقرات، عناوين غامقة)
+const formatRecommendation = (raw) => {
+  const cleaned = stripBold(raw || "").trim();
+  if (!cleaned) return "";
+
+  const lines = cleaned.split("\n").map(l => l.trim()).filter(Boolean);
+  let html = "";
+  let listType = null; // "ul" أو "ol"
+
+  // regex لتحديد السطور التي تبدأ بعناوين معروفة
+  const labelRegex = /^(Type|Capacity|Estimated Price Range|Price Range|Recommended Brands|Brands|Rationale|Notes|Speed|Portability)\s*:\s*/i;
+
+  const closeList = () => {
+    if (listType) {
+      html += `</${listType}>`;
+      listType = null;
+    }
+  };
+
+  for (let line of lines) {
+    if (/^\d+[\.\)]\s+/.test(line)) {
+      // قائمة مرتبة
+      if (listType !== "ol") {
+        closeList();
+        listType = "ol";
+        html += "<ol>";
+      }
+      html += `<li>${line.replace(/^\d+[\.\)]\s+/, "")}</li>`;
+    } else if (/^[-•]\s+/.test(line)) {
+      // قائمة نقطية
+      if (listType !== "ul") {
+        closeList();
+        listType = "ul";
+        html += "<ul>";
+      }
+      html += `<li>${line.replace(/^[-•]\s+/, "")}</li>`;
+    } else if (labelRegex.test(line)) {
+      // سطر يبدأ بعنوان معروف → غامق
+      closeList();
+      html += `<p><strong>${line.replace(labelRegex, (m) => m.trim())}</strong>${line.replace(labelRegex, "")}</p>`;
+    } else {
+      // فقرة عادية
+      closeList();
+      html += `<p>${line}</p>`;
+    }
+  }
+
+  closeList();
+  return html;
+};
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS")
@@ -37,11 +87,9 @@ exports.handler = async (event) => {
   }
 
   const email = (body.email || "").trim();
-  let recommendation = (body.recommendation || "").trim();
+  const rawRecommendation = (body.recommendation || "").trim();
+  const recommendationHTML = formatRecommendation(rawRecommendation);
   const subject = (body.subject || "Your AI Storage Recommendation").trim();
-
-  // إزالة ** من التوصية
-  recommendation = stripBold(recommendation);
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return {
@@ -50,15 +98,14 @@ exports.handler = async (event) => {
       body: JSON.stringify({ error: "Valid email required" }),
     };
 
-  if (!recommendation)
+  if (!rawRecommendation)
     return {
       statusCode: 400,
       headers: HEADERS,
       body: JSON.stringify({ error: "Missing recommendation" }),
     };
 
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, FROM_EMAIL } =
-    process.env;
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, FROM_EMAIL } = process.env;
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !FROM_EMAIL)
     return {
@@ -84,7 +131,7 @@ exports.handler = async (event) => {
 
         <div style="padding: 20px;">
           <h2 style="color: #2c3e50; margin-bottom: 10px;">Your AI Storage Recommendation</h2>
-          <p style="white-space: pre-line; line-height: 1.6; color: #333;">${recommendation}</p>
+          <div style="line-height: 1.6; color: #333;">${recommendationHTML}</div>
         </div>
 
         <div style="background-color: #f5f5f5; padding: 15px; text-align: center; font-size: 13px; color: #666;">
