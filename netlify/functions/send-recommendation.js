@@ -13,17 +13,14 @@ const stripBold = (text) =>
     .replace(/\*\*(.*?)\*\*/g, "$1")
     .replace(/\*\*/g, "");
 
-// تحويل النص الخام إلى HTML منسق (قوائم، فقرات، عناوين غامقة)
+// تنسيق التوصية: عناوين ماركداون + قوائم + فقرات + تسميات غامقة
 const formatRecommendation = (raw) => {
-  const cleaned = stripBold(raw || "").trim();
+  const cleaned = stripBold((raw || "").trim());
   if (!cleaned) return "";
 
-  const lines = cleaned.split("\n").map(l => l.trim()).filter(Boolean);
+  const lines = cleaned.split("\n").map(l => l.trim());
   let html = "";
-  let listType = null; // "ul" أو "ol"
-
-  // regex لتحديد السطور التي تبدأ بعناوين معروفة
-  const labelRegex = /^(Type|Capacity|Estimated Price Range|Price Range|Recommended Brands|Brands|Rationale|Notes|Speed|Portability)\s*:\s*/i;
+  let listType = null; // "ul" | "ol"
 
   const closeList = () => {
     if (listType) {
@@ -32,32 +29,50 @@ const formatRecommendation = (raw) => {
     }
   };
 
+  // تسميات نغّلطها إذا ظهرت كسطر مستقل أو داخل عنصر قائمة
+  const labelOnly = /^(Type|Capacity|Estimated Price Range|Price Range|Recommended Brands|Brands|Rationale|Notes|Speed|Portability)\s*:\s*(.*)$/i;
+  const boldifyLabel = (text) => {
+    const m = labelOnly.exec(text);
+    if (!m) return text;
+    const label = m[1].trim();
+    const rest = m[2] || "";
+    return `<strong>${label}:</strong> ${rest}`;
+  };
+
   for (let line of lines) {
-    if (/^\d+[\.\)]\s+/.test(line)) {
-      // قائمة مرتبة
-      if (listType !== "ol") {
-        closeList();
-        listType = "ol";
-        html += "<ol>";
-      }
-      html += `<li>${line.replace(/^\d+[\.\)]\s+/, "")}</li>`;
-    } else if (/^[-•]\s+/.test(line)) {
-      // قائمة نقطية
-      if (listType !== "ul") {
-        closeList();
-        listType = "ul";
-        html += "<ul>";
-      }
-      html += `<li>${line.replace(/^[-•]\s+/, "")}</li>`;
-    } else if (labelRegex.test(line)) {
-      // سطر يبدأ بعنوان معروف → غامق
+    if (!line) { closeList(); continue; }
+
+    // عناوين ماركداون # / ## / ###
+    const h = /^(#{1,3})\s+(.*)$/.exec(line);
+    if (h) {
       closeList();
-      html += `<p><strong>${line.replace(labelRegex, (m) => m.trim())}</strong>${line.replace(labelRegex, "")}</p>`;
-    } else {
-      // فقرة عادية
-      closeList();
-      html += `<p>${line}</p>`;
+      const level = h[1].length; // 1..3
+      const text = h[2].trim();
+      html += `<h${level} style="margin:0 0 10px 0;font-weight:700;">${text}</h${level}>`;
+      continue;
     }
+
+    // قائمة مرتبة 1. أو 1)
+    const num = /^\d+[\.\)]\s+(.*)$/.exec(line);
+    if (num) {
+      const content = boldifyLabel(num[1].trim());
+      if (listType !== "ol") { closeList(); listType = "ol"; html += "<ol>"; }
+      html += `<li>${content}</li>`;
+      continue;
+    }
+
+    // قائمة نقطية - أو •
+    const bul = /^[-•]\s+(.*)$/.exec(line);
+    if (bul) {
+      const content = boldifyLabel(bul[1].trim());
+      if (listType !== "ul") { closeList(); listType = "ul"; html += "<ul>"; }
+      html += `<li>${content}</li>`;
+      continue;
+    }
+
+    // سطر فقرة مع تسمية محتملة
+    closeList();
+    html += `<p>${boldifyLabel(line)}</p>`;
   }
 
   closeList();
@@ -124,21 +139,16 @@ exports.handler = async (event) => {
 
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <!-- صورة الغلاف -->
         <div style="background-color: #f5f5f5;">
           <img src="https://www.tekfingroup.com/email-cover.png" alt="Cover" style="width: 100%; display: block;" />
         </div>
-
         <div style="padding: 20px;">
           <h2 style="color: #2c3e50; margin-bottom: 10px;">Your AI Storage Recommendation</h2>
           <div style="line-height: 1.6; color: #333;">${recommendationHTML}</div>
         </div>
-
         <div style="background-color: #f5f5f5; padding: 15px; text-align: center; font-size: 13px; color: #666;">
           <p>Tekfin Group - Istanbul, Turkey</p>
-          <p>
-            <a href="https://www.tekfingroup.com" style="color: #2c3e50; text-decoration: none;">Visit our website</a>
-          </p>
+          <p><a href="https://www.tekfingroup.com" style="color: #2c3e50; text-decoration: none;">Visit our website</a></p>
         </div>
       </div>
     `;
