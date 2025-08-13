@@ -1,8 +1,6 @@
-/*    /index.html   200
-
-
-# Prevent directory listing
-/assets/* /404.html 404
-/static/* /404.html 404
+# Prevent directory listing for folders
 /*/. /404.html 404
+
+# Catch-all for non-existent files/paths (React Router handles existing paths)
+/* /index.html 200
 
