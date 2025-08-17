@@ -18,9 +18,16 @@
   to = "/404.html"
   status = 404
 
+# This rule should be last to ensure other redirects/headers are processed first
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Explicitly redirect non-existent directories to 404
+[[redirects]]
+  from = "/*/.+"
+  to = "/404.html"
+  status = 404
 
 
