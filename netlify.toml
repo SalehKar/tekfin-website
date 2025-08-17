@@ -23,4 +23,20 @@
   to = "/404.html"
   status = 404
 
+[[redirects]]
+  from = "/nonexistent-folder/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/public/*"
+  to = "/404.html"
+  status = 404
+
+# Catch-all for non-existent paths to custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
 
