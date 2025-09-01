@@ -20,13 +20,14 @@
 
 [[redirects]]
   from = "/storage-advisor"
-  to = "/storage-advisor.html"
+  to = "/.netlify/functions/og-handler"
   status = 200
+  force = true
 
 # This rule should be last to ensure other redirects/headers are processed first
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/og-handler"
   status = 200
 
 # Explicitly redirect non-existent directories to 404
