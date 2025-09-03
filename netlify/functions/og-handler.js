@@ -4,22 +4,22 @@ exports.handler = async (event, context) => {
   // تحديد البيانات الافتراضية للشركة
   const defaultOG = {
     title: "TekFin Teknoloji – Veri Depolama ve Kurtarma | Data Recovery & Storage Solutions",
-    description: "İşletmelere özel veri kurtarma، güvenli depolama çözümleri. / Specialized recovery and storage for businesses.",
+    description: "İşletmelere özel veri kurtarma, güvenli depolama çözümleri. / Specialized recovery and storage for businesses.",
     image: "https://tekfingroup.com/images/tekfin-logo-square.png?v=4",
     url: "https://tekfingroup.com/"
   };
   
   // تحديد البيانات الخاصة بأداة اختيار جهاز التخزين
   const storageAdvisorOG = {
-    title: "TekFin Teknoloji – أداة اختيار جهاز التخزين بالذكاء الاصطناعي",
-    description: "احصل على توصيات مخصصة لاحتياجاتك من أجهزة التخزين باستخدام أداة TekFin Teknoloji المدعومة بالذكاء الاصطناعي.",
+    title: "TekFin Teknoloji – Yapay Zeka Destekli Depolama Danışmanı | AI-Powered Storage Advisor",
+    description: "İhtiyaçlarınıza özel depolama çözümleri için yapay zeka destekli TekFin Teknoloji aracını kullanın. / Get personalized storage recommendations with TekFin Teknoloji's AI-powered tool.",
     image: "https://tekfingroup.com/images/ai-storage-tool-logo.png?v=1",
     url: "https://tekfingroup.com/storage-advisor"
   };
   
   // تحديد البيانات المناسبة بناءً على المسار
   let ogData = defaultOG;
-  if (path && path.includes('/storage-advisor')) {
+  if (path && path.includes("/storage-advisor")) {
     ogData = storageAdvisorOG;
   }
   
@@ -73,11 +73,11 @@ exports.handler = async (event, context) => {
     <link rel="manifest" href="/manifest.json" />
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-TFRHB9GB'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TFRHB9GB');</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':
+    new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
+    \'https://www.googletagmanager.com/gtm.js?id=GTM-TFRHB9GB\'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,\'script\',\'dataLayer\',\'GTM-TFRHB9GB\');</script>
     <!-- End Google Tag Manager -->
 
     <!-- Google tag (gtag.js) -->
@@ -85,8 +85,8 @@ exports.handler = async (event, context) => {
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6ZNDT746CM');
+      gtag(\'js\', new Date());
+      gtag(\'config\', \'G-6ZNDT746CM\');
     </script>
   </head>
   <body>
@@ -95,7 +95,7 @@ exports.handler = async (event, context) => {
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <noscript>Bu uygulamayı çalıştırmak için JavaScript'i etkinleştirmeniz gerekir.</noscript>
+    <noscript>Bu uygulamayı çalıştırmak için JavaScript\'i etkinleştirmeniz gerekir.</noscript>
 
     <div id="root"></div>
 
