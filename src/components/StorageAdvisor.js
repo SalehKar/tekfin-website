@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaRobot, FaWpforms, FaQuestionCircle } from 'react-icons/fa';
+import { FaRobot, FaWpforms, FaQuestionCircle, FaShareAlt } from 'react-icons/fa'; // NEW
 import { MdStorage } from 'react-icons/md';
 import EmailRecommendation from '../components/EmailRecommendation';
 
@@ -16,6 +16,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const [isLoadingAI, setIsLoadingAI] = useState(false);
   const [showAISection, setShowAISection] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [shared, setShared] = useState(false); // NEW
 
   const navigate = useNavigate();
   const isTR = language === 'tr';
@@ -87,6 +88,8 @@ const StorageAdvisor = ({ language = 'en' }) => {
         getRec: 'Tavsiyeyi Al',
         copy: 'Kopyala',
         copied: 'Kopyalandı!',
+        share: 'Bağlantıyı Paylaş',          // NEW
+        shared: 'Paylaşıldı!'                // NEW
       },
       links: {
         dataStorage: 'Veri Depolama Hizmetleri',
@@ -160,6 +163,8 @@ const StorageAdvisor = ({ language = 'en' }) => {
         getRec: 'Get Recommendation',
         copy: 'Copy',
         copied: 'Copied!',
+        share: 'Share Link',                 // NEW
+        shared: 'Copied!'                    // NEW (shows after copy fallback)
       },
       links: {
         dataStorage: 'Data Storage Services',
@@ -260,6 +265,31 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const ogLocaleAlt = isTR ? 'en_US' : 'tr_TR';
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
+  // ===== SHARE (NEW) =====
+  const handleShare = async () => {
+    const shareUrl = canonical;
+    const shareTitle = t.ogTitle || t.metaTitle;
+    const shareText = isTR ? 'Depolama Danışmanı bağlantısı:' : 'Storage Advisor link:';
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+        setShared(true);
+        setTimeout(() => setShared(false), 2000);
+        return;
+      }
+    } catch (e) {
+      // user might cancel; fall back to copy
+    }
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setShared(true);
+      setTimeout(() => setShared(false), 2000);
+    } catch (e) {
+      const wa = `https://wa.me/?text=${encodeURIComponent(`${shareTitle}\n${shareUrl}`)}`;
+      window.open(wa, '_blank');
+    }
+  };
+
   // FAQ Schema JSON-LD
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -335,11 +365,23 @@ const StorageAdvisor = ({ language = 'en' }) => {
       </Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
-        {/* H1 */}
-        <h1 className="text-4xl font-bold mb-4 text-[#002855] flex items-center gap-3">
+        {/* Header + Share */}
+        <h1 className="text-4xl font-bold mb-3 text-[#002855] flex items-center gap-3 justify-center">
           <MdStorage className="text-blue-700" aria-hidden="true" />
           {t.h1}
         </h1>
+
+        {/* Share Button (NEW) */}
+        <div className="mb-6 flex justify-center">
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded border"
+            aria-live="polite"
+          >
+            <FaShareAlt aria-hidden="true" />
+            {shared ? t.buttons.shared : t.buttons.share}
+          </button>
+        </div>
 
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
 
@@ -417,7 +459,9 @@ const StorageAdvisor = ({ language = 'en' }) => {
                   className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded border"
                   aria-live="polite"
                 >
-                  {copied ? (isTR ? copy.tr.buttons.copied : copy.en.buttons.copied) : (isTR ? copy.tr.buttons.copy : copy.en.buttons.copy)}
+                  {copied
+                    ? (isTR ? copy.tr.buttons.copied : copy.en.buttons.copied)
+                    : (isTR ? copy.tr.buttons.copy : copy.en.buttons.copy)}
                 </button>
 
                 <EmailRecommendation
