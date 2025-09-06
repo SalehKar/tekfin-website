@@ -3,8 +3,8 @@ exports.handler = async (event, context) => {
   
   // تحديد البيانات الافتراضية للشركة
   const defaultOG = {
-    title: "TekFin Teknoloji – Veri Depolama ve Kurtarma | Data Recovery & Storage Solutions",
-    description: "İşletmelere özel veri kurtarma, güvenli depolama çözümleri. / Specialized recovery and storage for businesses.",
+    title: "TekFin Teknoloji – İşletme Veri Çözümleri | Business Data Solutions",
+    description: "İşletmeler için uzman veri depolama ve kurtarma çözümleri. / Specialized data storage and recovery solutions for businesses.",
     image: "https://tekfingroup.com/images/tekfin-logo-square.png?v=4",
     url: "https://tekfingroup.com/"
   };
