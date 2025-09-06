@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaRobot, FaWpforms, FaQuestionCircle, FaShareAlt } from 'react-icons/fa'; // NEW
+import { FaRobot, FaWpforms, FaQuestionCircle, FaShareAlt } from 'react-icons/fa';
 import { MdStorage } from 'react-icons/md';
 import EmailRecommendation from '../components/EmailRecommendation';
 
@@ -16,7 +16,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const [isLoadingAI, setIsLoadingAI] = useState(false);
   const [showAISection, setShowAISection] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [shared, setShared] = useState(false); // NEW
+  const [shared, setShared] = useState(false);
 
   const navigate = useNavigate();
   const isTR = language === 'tr';
@@ -88,8 +88,8 @@ const StorageAdvisor = ({ language = 'en' }) => {
         getRec: 'Tavsiyeyi Al',
         copy: 'Kopyala',
         copied: 'Kopyalandı!',
-        share: 'Bağlantıyı Paylaş',          // NEW
-        shared: 'Paylaşıldı!'                // NEW
+        share: 'Yapay Zekâ Aracını Paylaş',
+        shared: 'Paylaşıldı!',
       },
       links: {
         dataStorage: 'Veri Depolama Hizmetleri',
@@ -163,8 +163,8 @@ const StorageAdvisor = ({ language = 'en' }) => {
         getRec: 'Get Recommendation',
         copy: 'Copy',
         copied: 'Copied!',
-        share: 'Share Link',                 // NEW
-        shared: 'Copied!'                    // NEW (shows after copy fallback)
+        share: 'Share the AI Tool',
+        shared: 'Shared!',
       },
       links: {
         dataStorage: 'Data Storage Services',
@@ -265,11 +265,11 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const ogLocaleAlt = isTR ? 'en_US' : 'tr_TR';
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
 
-  // ===== SHARE (NEW) =====
+  // ===== SHARE =====
   const handleShare = async () => {
     const shareUrl = canonical;
     const shareTitle = t.ogTitle || t.metaTitle;
-    const shareText = isTR ? 'Depolama Danışmanı bağlantısı:' : 'Storage Advisor link:';
+    const shareText = isTR ? 'Yapay Zekâ Aracı:' : 'AI Tool:';
     try {
       if (navigator.share) {
         await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
@@ -278,7 +278,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
         return;
       }
     } catch (e) {
-      // user might cancel; fall back to copy
+      // user canceled; continue to fallback
     }
     try {
       await navigator.clipboard.writeText(shareUrl);
@@ -365,23 +365,11 @@ const StorageAdvisor = ({ language = 'en' }) => {
       </Helmet>
 
       <div className="max-w-3xl mx-auto text-center">
-        {/* Header + Share */}
+        {/* H1 */}
         <h1 className="text-4xl font-bold mb-3 text-[#002855] flex items-center gap-3 justify-center">
           <MdStorage className="text-blue-700" aria-hidden="true" />
           {t.h1}
         </h1>
-
-        {/* Share Button (NEW) */}
-        <div className="mb-6 flex justify-center">
-          <button
-            onClick={handleShare}
-            className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded border"
-            aria-live="polite"
-          >
-            <FaShareAlt aria-hidden="true" />
-            {shared ? t.buttons.shared : t.buttons.share}
-          </button>
-        </div>
 
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
 
@@ -409,10 +397,24 @@ const StorageAdvisor = ({ language = 'en' }) => {
 
         {/* AI Section */}
         <section className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 text-left">
-          <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2">
-            <FaRobot className="text-blue-600" aria-hidden="true" />
-            {t.aiH2}
-          </h2>
+          {/* Title + Share inline */}
+          <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <h2 className="text-2xl font-bold text-[#002855] flex items-center gap-2 m-0">
+              <FaRobot className="text-blue-600" aria-hidden="true" />
+              {t.aiH2}
+            </h2>
+
+            {/* Share button next to title */}
+            <button
+              onClick={handleShare}
+              className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded border self-start sm:self-auto"
+              aria-live="polite"
+            >
+              <FaShareAlt aria-hidden="true" />
+              {shared ? t.buttons.shared : t.buttons.share}
+            </button>
+          </div>
+
           <p className="text-gray-700 mb-4">{t.aiLead}</p>
 
           <div>
