@@ -1,3 +1,13 @@
+[[redirects]]
+from = "/share/tr"
+to = "/share/tr/index.html"
+status = 200
+
+[[redirects]]
+from = "/share/en"
+to = "/share/en/index.html"
+status = 200
+
 [build]
 command = "npm run build"
 publish = "build"
