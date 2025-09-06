@@ -1,11 +1,32 @@
 [build]
 command = "npm run build"
-publish = "build"  
+publish = "build"
 
 [functions]
 directory = "netlify/functions"
 
-# React SPA routing
+# قدّم صفحات الميتا الثابتة كما هي (TR و EN) قبل أي توجيه عام
+[[redirects]]
+from = "/storage-advisor"
+to = "/storage-advisor/index.html"
+status = 200
+
+[[redirects]]
+from = "/storage-advisor/"
+to = "/storage-advisor/index.html"
+status = 200
+
+[[redirects]]
+from = "/en/storage-advisor"
+to = "/en/storage-advisor/index.html"
+status = 200
+
+[[redirects]]
+from = "/en/storage-advisor/"
+to = "/en/storage-advisor/index.html"
+status = 200
+
+# توجيه عام لتطبيق React (SPA) لباقي الصفحات
 [[redirects]]
 from = "/*"
 to = "/index.html"
