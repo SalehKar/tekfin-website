@@ -1,4 +1,7 @@
-/storage-advisor        /index.html   200
-/en/storage-advisor     /index.html   200
+/share/storage-advisor/tr   /share/storage-advisor/tr/index.html   200
+/share/storage-advisor/en   /share/storage-advisor/en/index.html   200
 
-/*                      /index.html   200
+/storage-advisor            /index.html                            200
+/en/storage-advisor         /index.html                            200
+
+/*                           /index.html                            200
