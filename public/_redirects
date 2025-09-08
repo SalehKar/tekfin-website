@@ -1,5 +1,7 @@
 /storage-advisor        /storage-advisor/index.html        200
+/storage-advisor/       /storage-advisor/index.html        200
 /en/storage-advisor     /en/storage-advisor/index.html     200
+/en/storage-advisor/    /en/storage-advisor/index.html     200
 
 /assets/*               /404.html                          404
 /static/*               /404.html                          404
