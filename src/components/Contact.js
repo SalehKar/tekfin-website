@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
+import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
 
 const Contact = ({ language }) => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,6 @@ const Contact = ({ language }) => {
     tr: {
       title: 'Bize Ulaşın',
       address: 'Adres: İstanbul, Türkiye',
-      phone: 'Telefon: +90 552 809 5556',
       email: 'E-posta: info@tekfingroup.com',
       hours: 'Çalışma Saatleri: Pazartesi - Cuma: 09:00 - 18:00',
       formTitle: 'Bize Mesaj Gönderin',
@@ -36,7 +35,6 @@ const Contact = ({ language }) => {
     en: {
       title: 'Contact Us',
       address: 'Address: Istanbul, Turkey',
-      phone: 'Phone: +90 552 809 5556',
       email: 'Email: info@tekfingroup.com',
       hours: 'Working Hours: Monday - Friday: 09:00 - 18:00',
       formTitle: 'Send Us a Message',
@@ -115,10 +113,9 @@ const Contact = ({ language }) => {
             <FaMapMarkerAlt className="text-xl text-red-500 mt-1" />
             <p className="text-sm">{t.address}</p>
           </div>
-          <div className="flex items-start text-gray-700 gap-3">
-            <FaPhone className="text-xl text-blue-700 mt-1" />
-            <p className="text-sm">{t.phone}</p>
-          </div>
+
+          {/* Phone ❌ محذوف */}
+
           <div className="flex items-start text-gray-700 gap-3">
             <FaEnvelope className="text-xl text-yellow-500 mt-1" />
             <p className="text-sm">{t.email}</p>
@@ -127,17 +124,17 @@ const Contact = ({ language }) => {
             <FaClock className="text-xl text-purple-500 mt-1" />
             <p className="text-sm">{t.hours}</p>
           </div>
-     <div className="flex items-start text-gray-700 gap-3">
-  <FaLinkedin className="text-xl text-blue-700 mt-1" />
-  <a
-    href="https://www.linkedin.com/company/tekfin-teknoloji-limited-sti"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-sm text-blue-700 hover:underline"
-  >
-    LinkedIn
-  </a>
-</div>
+          <div className="flex items-start text-gray-700 gap-3">
+            <FaLinkedin className="text-xl text-blue-700 mt-1" />
+            <a
+              href="https://www.linkedin.com/company/tekfin-teknoloji-limited-sti"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-blue-700 hover:underline"
+            >
+              LinkedIn
+            </a>
+          </div>
 
           <button
             onClick={handleWhatsAppClick}
@@ -215,10 +212,11 @@ const Contact = ({ language }) => {
               className={`w-full py-2 px-4 rounded-md font-medium transition
                 ${status.includes('Gönderiliyor') || status.includes('Sending')
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#1f3b6f] text-white hover:bg-blue-800'}
-              `}
+                  : 'bg-[#1f3b6f] text-white hover:bg-blue-800'}`}
             >
-              {status.includes('Gönderiliyor') || status.includes('Sending') ? (isTR ? 'Gönderiliyor...' : 'Sending...') : t.submitButton}
+              {status.includes('Gönderiliyor') || status.includes('Sending')
+                ? (isTR ? 'Gönderiliyor...' : 'Sending...')
+                : t.submitButton}
             </button>
 
             {status && (
