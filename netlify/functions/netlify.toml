@@ -1,21 +1,11 @@
-[[redirects]]
-from = "/share/tr"
-to = "/share/tr/index.html"
-status = 200
-
-[[redirects]]
-from = "/share/en"
-to = "/share/en/index.html"
-status = 200
-
 [build]
 command = "npm run build"
-publish = "build"
+publish = "build"   # إذا مشروعك Vite غيّرها إلى "dist"
 
 [functions]
 directory = "netlify/functions"
 
-# قدّم صفحات الميتا الثابتة كما هي (TR و EN) قبل أي توجيه عام
+# صفحات ثابتة (تُقدَّم كما هي)
 [[redirects]]
 from = "/storage-advisor"
 to = "/storage-advisor/index.html"
@@ -36,7 +26,7 @@ from = "/en/storage-advisor/"
 to = "/en/storage-advisor/index.html"
 status = 200
 
-# توجيه عام لتطبيق React (SPA) لباقي الصفحات
+# fallback عام لكل صفحات React Router
 [[redirects]]
 from = "/*"
 to = "/index.html"
