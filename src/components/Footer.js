@@ -14,7 +14,6 @@ const Footer = ({ language }) => {
       backupServices: 'Yedekleme Hizmetleri',
       storageAdvisor: 'Depolama Danışmanı',
       address: 'İstanbul, Türkiye',
-      phone: 'Telefon: +90 552 809 55 56',
       email: 'E-posta: info@tekfingroup.com'
     },
     en: {
@@ -28,7 +27,6 @@ const Footer = ({ language }) => {
       backupServices: 'Backup Services',
       storageAdvisor: 'Storage Advisor',
       address: 'Istanbul, Turkey',
-      phone: 'Phone: +90 552 809 55 56',
       email: 'Email: info@tekfingroup.com'
     }
   };
