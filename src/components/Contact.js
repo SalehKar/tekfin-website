@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
 
 const Contact = ({ language }) => {
   const [formData, setFormData] = useState({
@@ -26,7 +26,6 @@ const Contact = ({ language }) => {
       subjectPlaceholder: 'Konu',
       messagePlaceholder: 'Mesajınız',
       submitButton: 'Gönder',
-      whatsappButton: 'WhatsApp ile İletişime Geç',
       successMessage: 'Mesajınız başarıyla gönderildi!',
       errorMessage: 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.',
       requiredField: 'Bu alan zorunludur.',
@@ -44,7 +43,6 @@ const Contact = ({ language }) => {
       subjectPlaceholder: 'Subject',
       messagePlaceholder: 'Your Message',
       submitButton: 'Send',
-      whatsappButton: 'Contact via WhatsApp',
       successMessage: 'Your message has been sent successfully!',
       errorMessage: 'An error occurred while sending your message. Please try again.',
       requiredField: 'This field is required.',
@@ -94,14 +92,6 @@ const Contact = ({ language }) => {
     }
   };
 
-  const handleWhatsAppClick = () => {
-    const phoneNumber = '+905528095556';
-    const message = isTR
-      ? 'Merhaba, TekFin Teknoloji ile iletişime geçmek istiyorum.'
-      : 'Hello, I would like to contact TekFin Teknoloji.';
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   return (
     <div className="container mx-auto pt-28 px-6 pb-12 bg-white rounded-lg">
       <h1 className="text-4xl font-bold text-center text-[#1f3b6f] mb-10">{t.title}</h1>
@@ -113,8 +103,6 @@ const Contact = ({ language }) => {
             <FaMapMarkerAlt className="text-xl text-red-500 mt-1" />
             <p className="text-sm">{t.address}</p>
           </div>
-
-          {/* Phone ❌ محذوف */}
 
           <div className="flex items-start text-gray-700 gap-3">
             <FaEnvelope className="text-xl text-yellow-500 mt-1" />
@@ -135,14 +123,6 @@ const Contact = ({ language }) => {
               LinkedIn
             </a>
           </div>
-
-          <button
-            onClick={handleWhatsAppClick}
-            className="w-full flex items-center justify-center bg-green-500 text-white py-3 px-6 rounded-lg text-sm font-semibold hover:bg-green-600 transition duration-300 mt-4"
-          >
-            <FaWhatsapp className="text-base mr-2" />
-            {t.whatsappButton}
-          </button>
 
           {/* Google Maps */}
           <iframe
