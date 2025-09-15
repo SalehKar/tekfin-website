@@ -1,29 +1,25 @@
 exports.handler = async (event, context) => {
   const { path } = event;
-  
-  // تحديد البيانات الافتراضية للشركة
+
   const defaultOG = {
     title: "TekFin Teknoloji – İşletme Veri Çözümleri | Business Data Solutions",
     description: "İşletmeler için uzman veri depolama ve kurtarma çözümleri. / Specialized data storage and recovery solutions for businesses.",
     image: "https://tekfingroup.com/images/tekfin-logo-square.png?v=4",
     url: "https://tekfingroup.com/"
   };
-  
-  // تحديد البيانات الخاصة بأداة اختيار جهاز التخزين
+
   const storageAdvisorOG = {
     title: "TekFin Teknoloji – Yapay Zeka Destekli Depolama Danışmanı | AI-Powered Storage Advisor",
     description: "İhtiyaçlarınıza özel depolama çözümleri için yapay zeka destekli TekFin Teknoloji aracını kullanın. / Get personalized storage recommendations with TekFin Teknoloji's AI-powered tool.",
     image: "https://tekfingroup.com/images/ai-storage-tool-logo.png?v=1",
     url: "https://tekfingroup.com/storage-advisor"
   };
-  
-  // تحديد البيانات المناسبة بناءً على المسار
+
   let ogData = defaultOG;
   if (path && path.includes("/storage-advisor")) {
     ogData = storageAdvisorOG;
   }
-  
-  // إنشاء HTML مع Open Graph meta tags المناسبة
+
   const html = `<!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -72,22 +68,16 @@ exports.handler = async (event, context) => {
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':
-    new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
-    \'https://www.googletagmanager.com/gtm.js?id=GTM-TFRHB9GB\'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,\'script\',\'dataLayer\',\'GTM-TFRHB9GB\');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZNDT746CM"></script>
+    <!-- Google Tag Manager (ONLY) -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag(\'js\', new Date());
-      gtag(\'config\', \'G-6ZNDT746CM\');
     </script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TFRHB9GB');</script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -95,7 +85,7 @@ exports.handler = async (event, context) => {
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <noscript>Bu uygulamayı çalıştırmak için JavaScript\'i etkinleştirmeniz gerekir.</noscript>
+    <noscript>Bu uygulamayı çalıştırmak için JavaScript'i etkinleştirmeniz gerekir.</noscript>
 
     <div id="root"></div>
 
@@ -122,4 +112,3 @@ exports.handler = async (event, context) => {
     body: html
   };
 };
-
