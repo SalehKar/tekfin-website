@@ -4,6 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle, FaShareAlt } from 'react-icons/fa';
 import { MdStorage } from 'react-icons/md';
 import EmailRecommendation from '../components/EmailRecommendation';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 
 const StorageAdvisor = ({ language = 'en' }) => {
   const [usage, setUsage] = useState('');
@@ -445,8 +448,11 @@ const canonical = 'https://tekfingroup.com/storage-advisor';
               <h3 className="font-bold text-lg mb-3 text-[#002855]">
                 {isTR ? 'AI Önerisi:' : 'AI Recommendation:'}
               </h3>
-
-              <div className="text-gray-700 whitespace-pre-line">{aiRecommendation}</div>
+<div className="text-gray-700 leading-relaxed [&_ol]:list-decimal [&_ol]:pl-6 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-[#002855] [&_strong]:text-[#002855]">
+  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+    {aiRecommendation}
+  </ReactMarkdown>
+</div>
 
               {/* Actions: Copy + Email */}
               <div className="mt-4 flex flex-wrap items-center gap-3">
