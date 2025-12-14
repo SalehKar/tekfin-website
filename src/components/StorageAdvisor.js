@@ -256,11 +256,9 @@ const StorageAdvisor = ({ language = 'en' }) => {
   };
 
   // ===== SEO =====
-  const canonical = isTR
-    ? 'https://tekfingroup.com/storage-advisor'
-    : 'https://tekfingroup.com/en/storage-advisor';
-  const canonicalTr = 'https://tekfingroup.com/storage-advisor';
-  const canonicalEn = 'https://tekfingroup.com/en/storage-advisor';
+const canonical = 'https://tekfingroup.com/storage-advisor';
+const canonicalTr = 'https://tekfingroup.com/storage-advisor';
+const canonicalEn = 'https://tekfingroup.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
   const ogLocaleAlt = isTR ? 'en_US' : 'tr_TR';
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
@@ -337,10 +335,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
         <meta name="description" content={t.metaDescription} />
         <meta name="robots" content="index,follow,max-image-preview:large" />
         <link rel="canonical" href={canonical} />
-        {/* hreflang */}
-        <link rel="alternate" href={canonicalTr} hrefLang="tr" />
-        <link rel="alternate" href={canonicalEn} hrefLang="en" />
-        <link rel="alternate" href={canonicalTr} hrefLang="x-default" />
+    
         {/* Open Graph */}
         <meta property="og:title" content={t.ogTitle} />
         <meta property="og:description" content={t.ogDescription} />
@@ -436,14 +431,16 @@ const StorageAdvisor = ({ language = 'en' }) => {
                 : 'Tip: Include use case, capacity (GB/TB), performance (NVMe/SATA/HDD) and budget.'}
             </div>
 
-            <button
-              onClick={handleAIRecommendation}
-              disabled={isLoadingAI}
-              className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-live="polite"
-            >
-              {isTR ? copy.tr.buttons.aiGet : copy.en.buttons.aiGet}
-            </button>
+              <button
+  onClick={handleAIRecommendation}
+  disabled={isLoadingAI}
+  className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {isLoadingAI
+    ? (isTR ? 'Yapay Zekâ Analiz Ediyor...' : 'AI Analyzing...')
+    : t.buttons.aiGet}
+</button>
+
           </div>
 
           {aiRecommendation && (
