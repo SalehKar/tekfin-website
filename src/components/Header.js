@@ -19,6 +19,11 @@ const Header = ({ language, setLanguage }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  useEffect(() => {
+  document.body.style.overflow = isMobileOpen ? 'hidden' : '';
+  return () => { document.body.style.overflow = ''; };
+}, [isMobileOpen]);
+
 
   const translations = {
     tr: {
@@ -144,11 +149,12 @@ const Header = ({ language, setLanguage }) => {
             />
             {/* Sheet */}
             <div
-              className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+          className="fixed top-0 left-0 right-0 z-50 md:hidden"
+            
               role="dialog"
               aria-modal="true"
             >
-              <div className="mx-3 mb-3 rounded-2xl bg-white shadow-xl ring-1 ring-black/5">
+                <div className="mx-3 mt-3 rounded-2xl bg-white shadow-xl ring-1 ring-black/5 max-h-[85vh] overflow-y-auto">
                 {/* Header Row */}
                 <div className="flex items-center justify-between px-5 pt-4">
                   <div className="font-semibold text-blue-900">{t.menu}</div>
