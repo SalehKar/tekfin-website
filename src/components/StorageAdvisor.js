@@ -428,15 +428,14 @@ const canonical = 'https://tekfingroup.com/storage-advisor';
                 ? 'İpucu: Kullanım senaryosu, kapasite (GB/TB), performans (NVMe/SATA/HDD) ve bütçeyi belirtin.'
                 : 'Tip: Include use case, capacity (GB/TB), performance (NVMe/SATA/HDD) and budget.'}
             </div>
-
-              <button
+  
+<button
+  type="button"
   onClick={handleAIRecommendation}
   disabled={isLoadingAI}
   className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
 >
-  {isLoadingAI
-    ? (isTR ? 'Yapay Zekâ Analiz Ediyor...' : 'AI Analyzing...')
-    : t.buttons.aiGet}
+  {isLoadingAI ? t.buttons.aiBusy : t.buttons.aiGet}
 </button>
 
           </div>
