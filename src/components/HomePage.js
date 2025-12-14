@@ -202,6 +202,34 @@ const HomePage = ({ language }) => {
           </div>
         </div>
       </section>
+{/* Telegram Channel Section */}
+<section className="py-14 bg-blue-50">
+  <div className="container mx-auto px-4 text-center max-w-2xl">
+    <h2 className="text-2xl font-bold text-blue-900 mb-3">
+      {language === 'tr'
+        ? 'Telegram kanalımızı takip edin'
+        : 'Follow our Telegram channel'}
+    </h2>
+
+    <p className="text-gray-700 text-sm mb-6">
+      {language === 'tr'
+        ? 'Güncellemeler, duyurular ve veri çözümleriyle ilgili içerikler için'
+        : 'For updates, announcements, and insights about data solutions'}
+    </p>
+
+    <a
+      href="https://t.me/TekfinGroup"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] px-7 py-3 text-white font-semibold hover:opacity-90 transition"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
+        <path d="M9.04 15.44l-.39 5.53c.56 0 .8-.24 1.1-.53l2.64-2.52 5.48 4.01c1 .55 1.72.26 1.97-.92l3.57-16.76c.3-1.39-.5-1.94-1.5-1.56L1.27 9.76c-1.36.53-1.34 1.29-.24 1.63l5.46 1.7L18.1 5.6c.55-.34 1.05-.15.64.21"/>
+      </svg>
+      Telegram
+    </a>
+  </div>
+</section>
 
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
