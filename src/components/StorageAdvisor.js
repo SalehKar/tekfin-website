@@ -257,8 +257,6 @@ const StorageAdvisor = ({ language = 'en' }) => {
 
   // ===== SEO =====
 const canonical = 'https://tekfingroup.com/storage-advisor';
-const canonicalTr = 'https://tekfingroup.com/storage-advisor';
-const canonicalEn = 'https://tekfingroup.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
   const ogLocaleAlt = isTR ? 'en_US' : 'tr_TR';
   const ogImage = 'https://tekfingroup.com/assets/storage-advisor-og.png';
