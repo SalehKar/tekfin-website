@@ -1,9 +1,11 @@
+```js
 // Netlify Function (Node, CommonJS) — /.netlify/functions/storage-recommendation
 const OpenAI = require("openai");
 
 const HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Content-Type": "application/json",
 };
 
@@ -12,6 +14,7 @@ exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 200, headers: HEADERS, body: "" };
   }
+
   // Enforce POST
   if (event.httpMethod !== "POST") {
     return {
@@ -34,7 +37,7 @@ exports.handler = async (event) => {
   }
 
   const requirements = (body.requirements || "").trim();
-  const language = (body.language || "en").trim().toLowerCase();
+  const language = String(body.language || "en").trim().toLowerCase();
 
   if (!requirements) {
     return {
@@ -60,10 +63,44 @@ exports.handler = async (event) => {
   try {
     const client = new OpenAI({ apiKey });
 
+    // Force consistent Markdown output so it renders nicely on the website (ReactMarkdown)
+    // and still formats well in your email formatter (numbered lists + labels).
     const system =
       language === "tr"
-        ? "Sen bir depolama cihazı uzmanısın. Kullanıcının ihtiyaçlarına göre en uygun depolama çözümünü öner. Dahil et: 1) Tür (SSD/HDD/NVMe) 2) Kapasite 3) Türkiye için tahmini fiyat aralığı (TRY) 4) Önerilen markalar 5) Kısa gerekçe. Kısa ve net yaz."
-        : "You are a storage expert. Recommend the most suitable storage solution. Include: 1) Type (SSD/HDD/NVMe) 2) Capacity 3) Estimated price range (TRY for Turkey; USD otherwise) 4) Recommended brands 5) Brief rationale. Be concise and practical.";
+        ? `Sen bir depolama cihazı uzmanısın.
+ÇIKTIYI SADECE Markdown olarak ver (HTML yok).
+Aşağıdaki formatı AYNEN uygula (başlıklar ve sıralama dahil):
+
+## Önerilen Depolama Çözümü
+
+1. **Type:** ...
+2. **Capacity:** ...
+3. **Estimated Price Range (TRY):** ...
+4. **Recommended Brands:** ...
+5. **Brief Rationale:** ...
+
+Kurallar:
+- Her madde mutlaka olsun, boş bırakma.
+- Fiyatı Türkiye için TRY olarak ver (yaklaşık aralık).
+- Markaları virgülle ayır.
+- Kısa, net, iş odaklı yaz.`
+        : `You are a storage expert.
+OUTPUT MUST BE Markdown only (no HTML).
+Follow this EXACT format (including headings and order):
+
+## Recommended Storage Solution
+
+1. **Type:** ...
+2. **Capacity:** ...
+3. **Estimated Price Range (TRY):** ...
+4. **Recommended Brands:** ...
+5. **Brief Rationale:** ...
+
+Rules:
+- Include every item; do not omit any.
+- Price must be in TRY (approximate range) for Turkey.
+- Separate brands with commas.
+- Keep it concise, practical, business-focused.`;
 
     const userPrompt =
       language === "tr"
@@ -86,6 +123,7 @@ exports.handler = async (event) => {
     clearTimeout(timeout);
 
     const recommendation = (resp.choices?.[0]?.message?.content || "").trim();
+
     return {
       statusCode: 200,
       headers: HEADERS,
@@ -93,10 +131,16 @@ exports.handler = async (event) => {
     };
   } catch (e) {
     clearTimeout(timeout);
-    // Log to Netlify functions logs
     console.error("storage-recommendation error:", e);
+
     const msg = String(e?.message || e);
     const code = /auth/i.test(msg) ? 401 : /rate limit/i.test(msg) ? 429 : 500;
-    return { statusCode: code, headers: HEADERS, body: JSON.stringify({ error: msg }) };
+
+    return {
+      statusCode: code,
+      headers: HEADERS,
+      body: JSON.stringify({ error: msg }),
+    };
   }
 };
+```
