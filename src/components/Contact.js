@@ -6,8 +6,6 @@ const Contact = ({ language }) => {
   const [searchParams] = useSearchParams();
   const intent = (searchParams.get('intent') || 'consultation').toLowerCase();
 
-  const isTR = language === 'tr';
-
   const content = {
     tr: {
       pageTitle: 'İletişim',
