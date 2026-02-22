@@ -13,6 +13,7 @@ import {
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
+  const goContact = (intent) => navigate(`/contact?intent=${intent}`);
 
   const content = {
     tr: {
@@ -219,14 +220,13 @@ const HomePage = ({ language }) => {
 
           {/* Hero CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-            <button
-              onClick={() => navigate('/contact')}
+            <button onClick={() => goContact('assessment')}> {t.heroCtas.primary} </button>
+
               className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
             >
               {t.heroCtas.primary}
             </button>
-            <button
-              onClick={() => navigate('/contact')}
+           <button onClick={() => goContact('consultation')}> {t.heroCtas.secondary} </button>
               className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
             >
               {t.heroCtas.secondary}
@@ -313,14 +313,12 @@ const HomePage = ({ language }) => {
                 </ul>
 
                 <div className="mt-4 flex flex-col sm:flex-row gap-2">
-                  <button
-                    onClick={() => navigate('/contact')}
+                 <button onClick={() => goContact('assessment')}> {t.heroCtas.primary} </button>
                     className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
                   >
                     {t.heroCtas.primary}
                   </button>
-                  <button
-                    onClick={() => navigate('/contact')}
+                <button onClick={() => goContact('consultation')}> {t.heroCtas.secondary} </button>
                     className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
                   >
                     {t.heroCtas.secondary}
