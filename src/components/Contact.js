@@ -1,56 +1,114 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
 
 const Contact = ({ language }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-  const [status, setStatus] = useState('');
+  const [searchParams] = useSearchParams();
+  const intent = (searchParams.get('intent') || 'consultation').toLowerCase();
 
   const isTR = language === 'tr';
 
   const content = {
     tr: {
-      title: 'Bize Ulaşın',
+      pageTitle: 'İletişim',
       address: 'Adres: İstanbul, Türkiye',
       email: 'E-posta: info@tekfingroup.com',
       hours: 'Çalışma Saatleri: Pazartesi - Cuma: 09:00 - 18:00',
-      formTitle: 'Bize Mesaj Gönderin',
+
+      intents: {
+        assessment: {
+          title: 'Ücretsiz Veri Risk Analizi',
+          description:
+            'Kısa bir değerlendirme ile mevcut depolama/yedekleme yapınızı anlamaya yardımcı oluruz. Uygun bir yaklaşım ve sonraki adımları netleştiririz.',
+          defaultSubject: 'Ücretsiz Veri Risk Analizi Talebi'
+        },
+        consultation: {
+          title: 'Danışmanlık Talebi',
+          description:
+            'İhtiyacınızı ve önceliklerinizi anlayalım. Ardından kapsam, yaklaşım ve olası zaman planını paylaşalım.',
+          defaultSubject: 'Danışmanlık Talebi'
+        }
+      },
+
+      formTitle: 'Formu Doldurun',
       namePlaceholder: 'Adınız Soyadınız',
       emailPlaceholder: 'E-posta Adresiniz',
       phonePlaceholder: 'Telefon Numaranız',
+      companyPlaceholder: 'Şirket Adı (opsiyonel)',
+      sizePlaceholder: 'Çalışan Sayısı (opsiyonel)',
       subjectPlaceholder: 'Konu',
-      messagePlaceholder: 'Mesajınız',
+      messagePlaceholder: 'Kısa açıklama (mevcut yapı, ihtiyaç, öncelik)',
       submitButton: 'Gönder',
       successMessage: 'Mesajınız başarıyla gönderildi!',
       errorMessage: 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.',
       requiredField: 'Bu alan zorunludur.',
       invalidEmail: 'Geçersiz e-posta adresi.',
+      sending: 'Gönderiliyor...'
     },
+
     en: {
-      title: 'Contact Us',
+      pageTitle: 'Contact',
       address: 'Address: Istanbul, Turkey',
       email: 'Email: info@tekfingroup.com',
       hours: 'Working Hours: Monday - Friday: 09:00 - 18:00',
-      formTitle: 'Send Us a Message',
+
+      intents: {
+        assessment: {
+          title: 'Free Data Risk Assessment',
+          description:
+            'A short evaluation to understand your current storage/backup setup. We clarify the right approach and next steps.',
+          defaultSubject: 'Request: Free Data Risk Assessment'
+        },
+        consultation: {
+          title: 'Request Consultation',
+          description:
+            'We’ll understand your priorities, then propose a clear scope, approach, and possible timeline.',
+          defaultSubject: 'Request: Consultation'
+        }
+      },
+
+      formTitle: 'Fill the Form',
       namePlaceholder: 'Your Name',
       emailPlaceholder: 'Your Email',
       phonePlaceholder: 'Your Phone Number',
+      companyPlaceholder: 'Company Name (optional)',
+      sizePlaceholder: 'Company Size (optional)',
       subjectPlaceholder: 'Subject',
-      messagePlaceholder: 'Your Message',
+      messagePlaceholder: 'Brief notes (current setup, needs, priorities)',
       submitButton: 'Send',
       successMessage: 'Your message has been sent successfully!',
       errorMessage: 'An error occurred while sending your message. Please try again.',
       requiredField: 'This field is required.',
       invalidEmail: 'Invalid email address.',
-    },
+      sending: 'Sending...'
+    }
   };
 
-  const t = content[language];
+  const t = content[language] || content.en;
+
+  const intentCopy = useMemo(() => {
+    return t.intents[intent] || t.intents.consultation;
+  }, [t, intent]);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    size: '',
+    subject: '',
+    message: ''
+  });
+
+  const [status, setStatus] = useState('');
+
+  // Pre-fill subject based on intent (only if subject is empty)
+  useEffect(() => {
+    setFormData(prev => {
+      if (prev.subject?.trim()) return prev;
+      return { ...prev, subject: intentCopy.defaultSubject };
+    });
+  }, [intentCopy.defaultSubject]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -71,18 +129,30 @@ const Contact = ({ language }) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    setStatus(isTR ? 'Gönderiliyor...' : 'Sending...');
+    setStatus(t.sending);
 
     try {
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ 'form-name': 'contact', ...formData }).toString(),
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          intent, // capture intent in submissions
+          ...formData
+        }).toString()
       });
 
       if (response.ok) {
         setStatus(t.successMessage);
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          size: '',
+          subject: intentCopy.defaultSubject,
+          message: ''
+        });
       } else {
         setStatus(t.errorMessage);
       }
@@ -92,9 +162,16 @@ const Contact = ({ language }) => {
     }
   };
 
+  const isSending = status === t.sending;
+
   return (
     <div className="container mx-auto pt-28 px-6 pb-12 bg-white rounded-lg">
-      <h1 className="text-4xl font-bold text-center text-[#1f3b6f] mb-10">{t.title}</h1>
+      <h1 className="text-4xl font-bold text-center text-[#1f3b6f] mb-3">
+        {intentCopy.title}
+      </h1>
+      <p className="text-center text-gray-700 max-w-2xl mx-auto mb-10">
+        {intentCopy.description}
+      </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Contact Info */}
@@ -108,10 +185,12 @@ const Contact = ({ language }) => {
             <FaEnvelope className="text-xl text-yellow-500 mt-1" />
             <p className="text-sm">{t.email}</p>
           </div>
+
           <div className="flex items-start text-gray-700 gap-3">
             <FaClock className="text-xl text-purple-500 mt-1" />
             <p className="text-sm">{t.hours}</p>
           </div>
+
           <div className="flex items-start text-gray-700 gap-3">
             <FaLinkedin className="text-xl text-blue-700 mt-1" />
             <a
@@ -140,8 +219,17 @@ const Contact = ({ language }) => {
         {/* Contact Form */}
         <div className="bg-gray-50 p-6 rounded-lg shadow-inner w-full max-w-lg mx-auto lg:mx-0">
           <h2 className="text-2xl font-bold text-[#1f3b6f] mb-4 text-center">{t.formTitle}</h2>
-          <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-4">
+
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
+            className="space-y-4"
+          >
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="intent" value={intent} />
+
             <input
               type="text"
               name="name"
@@ -151,6 +239,7 @@ const Contact = ({ language }) => {
               className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
               required
             />
+
             <input
               type="email"
               name="email"
@@ -160,6 +249,7 @@ const Contact = ({ language }) => {
               className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
               required
             />
+
             <input
               type="tel"
               name="phone"
@@ -168,6 +258,26 @@ const Contact = ({ language }) => {
               onChange={handleChange}
               className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
             />
+
+            {/* Light B2B qualifiers (optional) */}
+            <input
+              type="text"
+              name="company"
+              placeholder={t.companyPlaceholder}
+              value={formData.company}
+              onChange={handleChange}
+              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+            />
+
+            <input
+              type="text"
+              name="size"
+              placeholder={t.sizePlaceholder}
+              value={formData.size}
+              onChange={handleChange}
+              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+            />
+
             <input
               type="text"
               name="subject"
@@ -176,6 +286,7 @@ const Contact = ({ language }) => {
               onChange={handleChange}
               className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
             />
+
             <textarea
               name="message"
               rows="8"
@@ -184,24 +295,21 @@ const Contact = ({ language }) => {
               onChange={handleChange}
               className="w-full p-3 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
               required
-            ></textarea>
+            />
 
             <button
               type="submit"
-              disabled={status.includes('Gönderiliyor') || status.includes('Sending')}
-              className={`w-full py-2 px-4 rounded-md font-medium transition
-                ${status.includes('Gönderiliyor') || status.includes('Sending')
+              disabled={isSending}
+              className={`w-full py-2 px-4 rounded-md font-medium transition ${
+                isSending
                   ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#1f3b6f] text-white hover:bg-blue-800'}`}
+                  : 'bg-[#1f3b6f] text-white hover:bg-blue-800'
+              }`}
             >
-              {status.includes('Gönderiliyor') || status.includes('Sending')
-                ? (isTR ? 'Gönderiliyor...' : 'Sending...')
-                : t.submitButton}
+              {isSending ? t.sending : t.submitButton}
             </button>
 
-            {status && (
-              <p className="text-center mt-2 text-sm text-gray-700">{status}</p>
-            )}
+            {status && <p className="text-center mt-2 text-sm text-gray-700">{status}</p>}
           </form>
         </div>
       </div>
