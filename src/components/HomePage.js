@@ -387,27 +387,28 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
+{/* Call to Action Section */}
+<section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
+  <div className="container mx-auto px-4">
+    <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={() => navigate('/contact')}
-              className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
-            >
-              {t.cta.primary}
-            </button>
-            <button
-              onClick={() => navigate('/contact')}
-              className="px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
-            >
-              {t.cta.secondary}
-            </button>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      <button
+        onClick={() => navigate('/contact?intent=assessment')}
+        className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+      >
+        {t.cta.primary}
+      </button>
+
+      <button
+        onClick={() => navigate('/contact?intent=consultation')}
+        className="px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+      >
+        {t.cta.secondary}
+      </button>
+    </div>
+  </div>
+</section>
     </div>
   );
 };
