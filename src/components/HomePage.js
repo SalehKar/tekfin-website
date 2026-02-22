@@ -414,5 +414,4 @@ return (
     </section>
   </div>
 );
-
 export default HomePage;
