@@ -209,180 +209,210 @@ const HomePage = ({ language }) => {
     customerFocus: 'from-pink-500 to-red-500'
   };
 
-  return (
-    <div className="homepage">
-{/* Hero CTAs */}
-<div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-  <button
-    onClick={() => goContact('assessment')}
-    className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
-  >
-    {t.heroCtas.primary}
-  </button>
+return (
+  <div className="homepage">
+    {/* Hero Section */}
+    <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
+      <div className="container mx-auto px-4 text-center max-w-4xl">
+        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
+        <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
+        <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
 
-  <button
-    onClick={() => goContact('consultation')}
-    className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
-  >
-    {t.heroCtas.secondary}
-  </button>
-</div>
-          {/* Storage Advisor Card */}
-          <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
-            <div className="flex items-start gap-4">
-              <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
-                <FaHdd className="w-7 h-7 text-white" />
+        {/* Hero CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+          <button
+            onClick={() => goContact('assessment')}
+            className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+          >
+            {t.heroCtas.primary}
+          </button>
+
+          <button
+            onClick={() => goContact('consultation')}
+            className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+          >
+            {t.heroCtas.secondary}
+          </button>
+        </div>
+
+        {/* Storage Advisor Card */}
+        <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
+          <div className="flex items-start gap-4">
+            <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
+              <FaHdd className="w-7 h-7 text-white" />
+            </div>
+
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
+              <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
+
+              <button
+                onClick={() => navigate('/storage-advisor')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                aria-label={t.landingTitle}
+              >
+                <span>{t.landingCta}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Solutions Section */}
+    <section className="py-16 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.solutions.title}</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Business Data Solutions */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
+              <FaDatabase className="w-8 h-8 text-white" />
+            </div>
+
+            <h3 className="text-xl font-semibold mb-3 text-center">{t.solutions.dataSolutions.title}</h3>
+            <p className="text-gray-700 text-sm mb-5 text-center">{t.solutions.dataSolutions.description}</p>
+
+            <div className="space-y-4">
+              {t.solutions.dataSolutions.subServices.map((service, i) => {
+                const gradients = [iconColors.storage, iconColors.backup, iconColors.recovery];
+                return (
+                  <div key={i} className="flex items-start space-x-3">
+                    <div className={`flex justify-center items-center w-10 h-10 bg-gradient-to-br ${gradients[i]} rounded-full`}>
+                      {service.icon}
+                    </div>
+                    <div>
+                      <strong>{service.title}</strong>
+                      <p className="text-sm text-gray-600">{service.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Built-in Protection Layer (embedded) */}
+            <div className="mt-6 rounded-xl border border-gray-100 bg-gray-50 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <FaShieldAlt className="w-5 h-5 text-white" />
+                </div>
+                <h4 className="font-semibold text-blue-900">{t.solutions.protectionLayer.title}</h4>
               </div>
 
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
-                <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
+              <p className="text-sm text-gray-600 mb-3">{t.solutions.protectionLayer.description}</p>
+
+              <ul className="space-y-2">
+                {t.solutions.protectionLayer.bullets.map((b, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                    <FaCheckCircle className="mt-0.5 w-4 h-4 text-emerald-600" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                <button
+                  onClick={() => goContact('assessment')}
+                  className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
+                >
+                  {t.heroCtas.primary}
+                </button>
 
                 <button
-                  onClick={() => navigate('/storage-advisor')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-                  aria-label={t.landingTitle}
+                  onClick={() => goContact('consultation')}
+                  className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
                 >
-                  <span>{t.landingCta}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  {t.heroCtas.secondary}
                 </button>
               </div>
             </div>
           </div>
 
-      {/* Solutions Section (was Services) */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.solutions.title}</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Business Data Solutions */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
-                <FaDatabase className="w-8 h-8 text-white" />
-              </div>
-
-              <h3 className="text-xl font-semibold mb-3 text-center">{t.solutions.dataSolutions.title}</h3>
-              <p className="text-gray-700 text-sm mb-5 text-center">{t.solutions.dataSolutions.description}</p>
-
-              <div className="space-y-4">
-                {t.solutions.dataSolutions.subServices.map((service, i) => {
-                  const gradients = [iconColors.storage, iconColors.backup, iconColors.recovery];
-                  return (
-                    <div key={i} className="flex items-start space-x-3">
-                      <div className={`flex justify-center items-center w-10 h-10 bg-gradient-to-br ${gradients[i]} rounded-full`}>
-                        {service.icon}
-                      </div>
-                      <div>
-                        <strong>{service.title}</strong>
-                        <p className="text-sm text-gray-600">{service.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Built-in Protection Layer (embedded, not a headline product) */}
-             <div className="mt-4 flex flex-col sm:flex-row gap-2">
-  <button
-    onClick={() => goContact('assessment')}
-    className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
-  >
-    {t.heroCtas.primary}
-  </button>
-
-  <button
-    onClick={() => goContact('consultation')}
-    className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
-  >
-    {t.heroCtas.secondary}
-  </button>
-</div>
-
-            {/* Wireless Network Solutions */}
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors.wireless} rounded-full shadow`}>
-                <FaWifi className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{t.solutions.wireless.title}</h3>
-              <p className="text-gray-700 text-sm">{t.solutions.wireless.description}</p>
+          {/* Wireless Network Solutions */}
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors.wireless} rounded-full shadow`}>
+              <FaWifi className="w-8 h-8 text-white" />
             </div>
+            <h3 className="text-xl font-semibold mb-2">{t.solutions.wireless.title}</h3>
+            <p className="text-gray-700 text-sm">{t.solutions.wireless.description}</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.keys(t.whyChooseUs)
-              .filter(k => k !== 'title')
-              .map((key, index) => (
-                <div key={index} className="text-center">
-                  <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
-                    {whyChooseIcons[key]}
-                  </div>
-                  <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
+    {/* Why Choose Us Section */}
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {Object.keys(t.whyChooseUs)
+            .filter(k => k !== 'title')
+            .map((key, index) => (
+              <div key={index} className="text-center">
+                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
+                  {whyChooseIcons[key]}
                 </div>
-              ))}
-          </div>
+                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
+              </div>
+            ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Telegram Channel Section */}
-      <section className="py-14 bg-blue-50">
-        <div className="container mx-auto px-4 text-center max-w-2xl">
-          <h2 className="text-2xl font-bold text-blue-900 mb-3">
-            {language === 'tr' ? 'Telegram kanalımızı takip edin' : 'Follow our Telegram channel'}
-          </h2>
+    {/* Telegram Channel Section */}
+    <section className="py-14 bg-blue-50">
+      <div className="container mx-auto px-4 text-center max-w-2xl">
+        <h2 className="text-2xl font-bold text-blue-900 mb-3">
+          {language === 'tr' ? 'Telegram kanalımızı takip edin' : 'Follow our Telegram channel'}
+        </h2>
 
-          <p className="text-gray-700 text-sm mb-6">
-            {language === 'tr'
-              ? 'Güncellemeler, duyurular ve veri çözümleriyle ilgili içerikler için'
-              : 'For updates, announcements, and insights about data solutions'}
-          </p>
+        <p className="text-gray-700 text-sm mb-6">
+          {language === 'tr'
+            ? 'Güncellemeler, duyurular ve veri çözümleriyle ilgili içerikler için'
+            : 'For updates, announcements, and insights about data solutions'}
+        </p>
 
-          <a
-            href="https://t.me/TekfinGroup"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] px-7 py-3 text-white font-semibold hover:opacity-90 transition"
+        <a
+          href="https://t.me/TekfinGroup"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] px-7 py-3 text-white font-semibold hover:opacity-90 transition"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
+            <path d="M9.04 15.44l-.39 5.53c.56 0 .8-.24 1.1-.53l2.64-2.52 5.48 4.01c1 .55 1.72.26 1.97-.92l3.57-16.76c.3-1.39-.5-1.94-1.5-1.56L1.27 9.76c-1.36.53-1.34 1.29-.24 1.63l5.46 1.7L18.1 5.6c.55-.34 1.05-.15.64.21" />
+          </svg>
+          Telegram
+        </a>
+      </div>
+    </section>
+
+    {/* Call to Action Section */}
+    <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <button
+            onClick={() => goContact('assessment')}
+            className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
-              <path d="M9.04 15.44l-.39 5.53c.56 0 .8-.24 1.1-.53l2.64-2.52 5.48 4.01c1 .55 1.72.26 1.97-.92l3.57-16.76c.3-1.39-.5-1.94-1.5-1.56L1.27 9.76c-1.36.53-1.34 1.29-.24 1.63l5.46 1.7L18.1 5.6c.55-.34 1.05-.15.64.21" />
-            </svg>
-            Telegram
-          </a>
+            {t.cta.primary}
+          </button>
+
+          <button
+            onClick={() => goContact('consultation')}
+            className="px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+          >
+            {t.cta.secondary}
+          </button>
         </div>
-      </section>
-
-{/* Call to Action Section */}
-<section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
-  <div className="container mx-auto px-4">
-    <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-
-    <div className="flex flex-col sm:flex-row gap-3 justify-center">
-      <button
-        onClick={() => navigate('/contact?intent=assessment')}
-        className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
-      >
-        {t.cta.primary}
-      </button>
-
-      <button
-        onClick={() => navigate('/contact?intent=consultation')}
-        className="px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
-      >
-        {t.cta.secondary}
-      </button>
-    </div>
+      </div>
+    </section>
   </div>
-</section>
-    </div>
-  );
-};
+);
 
 export default HomePage;
