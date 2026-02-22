@@ -252,9 +252,6 @@ const HomePage = ({ language }) => {
             </div>
           </div>
 
-        </div>
-      </section>
-
       {/* Solutions Section (was Services) */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
