@@ -1,6 +1,16 @@
-import React from 'react'; 
+```jsx
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaDatabase, FaWifi, FaHdd, FaCloudUploadAlt, FaShieldAlt, FaBolt, FaUsers } from 'react-icons/fa';
+import {
+  FaDatabase,
+  FaWifi,
+  FaHdd,
+  FaCloudUploadAlt,
+  FaShieldAlt,
+  FaBolt,
+  FaUsers,
+  FaCheckCircle
+} from 'react-icons/fa';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
@@ -8,88 +18,180 @@ const HomePage = ({ language }) => {
   const content = {
     tr: {
       mainTitle: "İşletme Veri Çözümleri",
-      subtitle: "Verilerinizi Güvenle Saklayın, Koruyun ve Geri Kazanın.",
-      intro: "İşletmelerin en değerli varlığı olan verilerini saklamak, korumak ve kurtarmak için özel çözümler sunuyoruz. İstanbul merkezli firmamız, uzmanlık, ileri teknoloji ve müşteri odaklı yaklaşımı bir araya getirerek verilerinizin her zaman güvende ve erişilebilir olmasını sağlar.",
+      subtitle: "Verilerinizi yapılandırın, yedekleyin ve ihtiyaç anında güvenle geri yükleyin.",
+      intro:
+        "TekFin, büyüyen işletmeler için veri altyapısını uçtan uca tasarlar: doğru depolama mimarisi, otomatik yedekleme katmanları ve doğrulanmış kurtarma planı. Amaç; sadece veri saklamak değil, iş sürekliliğini garanti altına almaktır.",
 
-      // UPDATED: Storage Advisor texts
+      heroCtas: {
+        primary: "Ücretsiz Veri Risk Analizi",
+        secondary: "Danışmanlık Talep Et"
+      },
+
+      // Storage Advisor
       landingTitle: "Depolama Danışmanı",
-      landingDescription: "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
+      landingDescription:
+        "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
       landingCta: "Öneri Alın",
 
-      services: {
-        title: "Hizmetlerimiz",
-        dataSolutions: {
-          title: "İşletme Veri Çözümleri",
-          description: "Verinin iş başarısındaki kritik rolünü biliyoruz, bu yüzden gelişmiş veri çözümleri sunuyoruz:",
-          subServices: [
-            { title: "Veri Depolama", description: "Verilerinize her zaman kolay erişim sağlayan güvenli ve verimli depolama çözümleri.", icon: <FaHdd className="w-6 h-6 text-white" /> },
-            { title: "Veri Kurtarma", description: "En son teknolojilerle kritik işletme verilerinizin hızlı ve güvenilir kurtarılması.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
-            { title: "Yedekleme Hizmetleri", description: "Verilerinizi kayıp veya hasara karşı koruyan otomatik ve güvenli yedekleme sistemleri.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
-          ]
-        },
-        wireless: {
-          title: "Kablosuz Ağ Çözümleri (Gelecekte)",
-          description: "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecek hizmetlerimiz için bizi takip edin."
-        }
-      },
-      whyChooseUs: {
-        title: "Neden Bizi Seçmelisiniz?",
-        expertise: "Uzmanlık: Veri kurtarma ve işletme veri yönetimi alanında yılların deneyimi.",
-        reliability: "Güvenilirlik: Verilerinizin gizliliği ve güvenliği en büyük önceliğimizdir.",
-        fastSolutions: "Hızlı Çözümler: Acil durumlarda bile hızlı ve etkili müdahale.",
-        customerFocus: "Müşteri Odaklı: İhtiyaçlarınıza özel çözümler sunuyoruz."
-      },
-      cta: {
-        title: "İşletme verilerinizi korumak ve kurtarmak için bugün bizimle iletişime geçin!",
-        button: "Hemen İletişime Geçin!"
-      }
-    },
-    en: {
-      mainTitle: "Business Data Solutions",
-      subtitle: "Store, Protect, and Recover Your Business Data with Confidence.",
-      intro: "We provide tailored data solutions that help businesses store, protect, and recover their most valuable asset — their data. Based in Istanbul, we combine expertise, advanced technology, and customer focus to ensure your data is always safe and accessible.",
-
-      // UPDATED: Storage Advisor texts
-      landingTitle: "Storage Advisor",
-      landingDescription: "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
-      landingCta: "Get Recommendation",
-
-      services: {
-        title: "Our Services",
+      solutions: {
+        title: "Çözümler",
         dataSolutions: {
           title: "Business Data Solutions",
-          description: "We understand the critical role of data in business success, which is why we offer advanced data solutions:",
+          description:
+            "Üç temel çözüm katmanı ile veri altyapınızı kurar ve yönetilebilir hale getiririz:",
           subServices: [
-            { title: "Data Storage", description: "Secure and efficient storage solutions ensuring your data is always accessible.", icon: <FaHdd className="w-6 h-6 text-white" /> },
-            { title: "Data Recovery", description: "Fast and reliable recovery of critical business data using cutting-edge technology.", icon: <FaDatabase className="w-6 h-6 text-white" /> },
-            { title: "Backup Services", description: "Automated and secure backup systems to protect your data from loss or damage.", icon: <FaCloudUploadAlt className="w-6 h-6 text-white" /> }
+            {
+              title: "Veri Depolama",
+              description:
+                "Güvenli, verimli ve ölçeklenebilir depolama mimarisi: erişilebilirlik, performans ve büyüme planınıza uygun kapasite.",
+              icon: <FaHdd className="w-6 h-6 text-white" />
+            },
+            {
+              title: "Yedekleme Hizmetleri",
+              description:
+                "Otomatik ve çok katmanlı yedekleme stratejisi: yerel + offsite/sıfır sürpriz için izleme ve raporlama.",
+              icon: <FaCloudUploadAlt className="w-6 h-6 text-white" />
+            },
+            {
+              title: "Veri Kurtarma",
+              description:
+                "Hızlı ve güvenilir kurtarma çerçevesi: kurtarma hedefleri (RTO/RPO), senaryolar ve periyodik geri yükleme doğrulaması.",
+              icon: <FaDatabase className="w-6 h-6 text-white" />
+            }
           ]
         },
+
+        protectionLayer: {
+          title: "Entegre Koruma Katmanı",
+          description:
+            "Güvenlik ayrı bir ürün değil; tasarladığımız her çözümün içinde yer alır:",
+          bullets: [
+            "Şifreleme ve güvenli veri işleme",
+            "Erişim kontrolü ve yetkilendirme yaklaşımı",
+            "Yedekleme başarısızlığı için izleme ve uyarılar",
+            "Depolama sağlığı takibi (disk/RAID durumları)",
+            "Periyodik geri yükleme testi ve doğrulama"
+          ]
+        },
+
         wireless: {
-          title: "Wireless Network Solutions (Future)",
-          description: "We aim to provide secure, fast, and seamless solutions for your business wireless network needs. Stay tuned for updates."
+          title: "Kablosuz Ağ Çözümleri (Gelecekte)",
+          description:
+            "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecek hizmetlerimiz için bizi takip edin."
         }
       },
+
       whyChooseUs: {
-        title: "Why Choose Us?",
-        expertise: "Expertise: Years of experience in data recovery and business data management.",
-        reliability: "Reliability: The confidentiality and security of your data are our top priority.",
-        fastSolutions: "Fast Solutions: Quick and effective intervention even in emergencies.",
-        customerFocus: "Customer-Centric: We offer solutions tailored to your needs."
+        title: "Neden TekFin?",
+        expertise:
+          "Uzmanlık: Veri depolama, yedekleme ve kurtarma süreçlerinde pratik, işletme odaklı yaklaşım.",
+        reliability:
+          "Güvenilirlik: Veri gizliliği ve güvenliği tasarımın merkezindedir.",
+        fastSolutions:
+          "Hız: Kritik durumlarda net süreç ve hızlı aksiyon.",
+        customerFocus:
+          "İş Odaklılık: Teknik değil sonuç konuşuruz — süreklilik ve erişilebilirlik."
       },
+
       cta: {
-        title: "Contact us today to protect and recover your business data!",
-        button: "Contact Us Now!"
+        title: "Veri kaybı bir ihtimal değil, bir risk yönetimi konusudur. Bugün başlayın.",
+        primary: "Ücretsiz Veri Risk Analizi",
+        secondary: "İletişime Geçin"
+      }
+    },
+
+    en: {
+      mainTitle: "Business Data Solutions",
+      subtitle: "Structured storage, automated backups, and verified recovery — built for growing businesses.",
+      intro:
+        "TekFin designs end-to-end data foundations for growing teams: the right storage architecture, multi-layer automated backups, and a verified recovery framework. The goal isn’t just storing data — it’s business continuity.",
+
+      heroCtas: {
+        primary: "Free Data Risk Assessment",
+        secondary: "Request Consultation"
+      },
+
+      // Storage Advisor
+      landingTitle: "Storage Advisor",
+      landingDescription:
+        "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
+      landingCta: "Get Recommendation",
+
+      solutions: {
+        title: "Solutions",
+        dataSolutions: {
+          title: "Business Data Solutions",
+          description:
+            "We build a reliable data foundation through three solution layers:",
+          subServices: [
+            {
+              title: "Data Storage",
+              description:
+                "Secure, efficient, and scalable storage architecture aligned with your capacity and growth needs.",
+              icon: <FaHdd className="w-6 h-6 text-white" />
+            },
+            {
+              title: "Backup Services",
+              description:
+                "Automated, multi-layer backup strategy with monitoring and reporting to prevent silent failures.",
+              icon: <FaCloudUploadAlt className="w-6 h-6 text-white" />
+            },
+            {
+              title: "Data Recovery",
+              description:
+                "A fast and reliable recovery framework with defined objectives (RTO/RPO) and periodic restore verification.",
+              icon: <FaDatabase className="w-6 h-6 text-white" />
+            }
+          ]
+        },
+
+        protectionLayer: {
+          title: "Built-in Protection Layer",
+          description:
+            "Protection is embedded into every solution — not sold as a separate product:",
+          bullets: [
+            "Encryption & secure data handling",
+            "Access control & authorization approach",
+            "Monitoring & alerts for backup failures",
+            "Storage health monitoring (disk/RAID status)",
+            "Periodic restore testing & verification"
+          ]
+        },
+
+        wireless: {
+          title: "Wireless Network Solutions (Future)",
+          description:
+            "We aim to provide secure, fast, and seamless solutions for your business wireless network needs. Stay tuned for updates."
+        }
+      },
+
+      whyChooseUs: {
+        title: "Why TekFin?",
+        expertise:
+          "Practical expertise: storage, backup, and recovery designed for real business operations.",
+        reliability:
+          "Reliability: confidentiality and security are built into the architecture.",
+        fastSolutions:
+          "Fast response: clear process and quick action when it matters.",
+        customerFocus:
+          "Business-first: we sell outcomes — continuity, access, and recoverability."
+      },
+
+      cta: {
+        title: "Data loss isn’t a surprise. It’s a risk you can control. Start today.",
+        primary: "Free Data Risk Assessment",
+        secondary: "Contact Us"
       }
     }
   };
 
   const t = content[language] || content.en;
 
+  // Icons gradient colors for the three solution layers
   const iconColors = {
     storage: 'from-green-500 to-emerald-600',
-    recovery: 'from-blue-500 to-indigo-600',
     backup: 'from-yellow-500 to-orange-500',
+    recovery: 'from-blue-500 to-indigo-600',
     wireless: 'from-cyan-500 to-sky-600'
   };
 
@@ -116,10 +218,25 @@ const HomePage = ({ language }) => {
           <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
           <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
 
-          {/* Storage Advisor Card (refined) */}
+          {/* Hero CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+            <button
+              onClick={() => navigate('/contact')}
+              className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+            >
+              {t.heroCtas.primary}
+            </button>
+            <button
+              onClick={() => navigate('/contact')}
+              className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+            >
+              {t.heroCtas.secondary}
+            </button>
+          </div>
+
+          {/* Storage Advisor Card */}
           <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
             <div className="flex items-start gap-4">
-              {/* Icon circle with blended green + blue */}
               <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
                 <FaHdd className="w-7 h-7 text-white" />
               </div>
@@ -145,40 +262,81 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Solutions Section (was Services) */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.services.title}</h2>
+          <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.solutions.title}</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Business Data Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
                 <FaDatabase className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-center">{t.services.dataSolutions.title}</h3>
-              <p className="text-gray-700 text-sm mb-4 text-center">{t.services.dataSolutions.description}</p>
+
+              <h3 className="text-xl font-semibold mb-3 text-center">{t.solutions.dataSolutions.title}</h3>
+              <p className="text-gray-700 text-sm mb-5 text-center">{t.solutions.dataSolutions.description}</p>
+
               <div className="space-y-4">
-                {t.services.dataSolutions.subServices.map((service, i) => (
-                  <div key={i} className="flex items-start space-x-3">
-                    <div className={`flex justify-center items-center w-10 h-10 bg-gradient-to-br ${Object.values(iconColors)[i]} rounded-full`}>
-                      {service.icon}
+                {t.solutions.dataSolutions.subServices.map((service, i) => {
+                  const gradients = [iconColors.storage, iconColors.backup, iconColors.recovery];
+                  return (
+                    <div key={i} className="flex items-start space-x-3">
+                      <div className={`flex justify-center items-center w-10 h-10 bg-gradient-to-br ${gradients[i]} rounded-full`}>
+                        {service.icon}
+                      </div>
+                      <div>
+                        <strong>{service.title}</strong>
+                        <p className="text-sm text-gray-600">{service.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <strong>{service.title}</strong>
-                      <p className="text-sm text-gray-600">{service.description}</p>
-                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Built-in Protection Layer (embedded, not a headline product) */}
+              <div className="mt-6 rounded-xl border border-gray-100 bg-gray-50 p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <FaShieldAlt className="w-5 h-5 text-white" />
                   </div>
-                ))}
+                  <h4 className="font-semibold text-blue-900">{t.solutions.protectionLayer.title}</h4>
+                </div>
+                <p className="text-sm text-gray-600 mb-3">{t.solutions.protectionLayer.description}</p>
+
+                <ul className="space-y-2">
+                  {t.solutions.protectionLayer.bullets.map((b, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                      <FaCheckCircle className="mt-0.5 w-4 h-4 text-emerald-600" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                  <button
+                    onClick={() => navigate('/contact')}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
+                  >
+                    {t.heroCtas.primary}
+                  </button>
+                  <button
+                    onClick={() => navigate('/contact')}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
+                  >
+                    {t.heroCtas.secondary}
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Wireless Network Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cyan-500 to-sky-600 rounded-full shadow">
+              <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors.wireless} rounded-full shadow`}>
                 <FaWifi className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t.services.wireless.title}</h3>
-              <p className="text-gray-700 text-sm">{t.services.wireless.description}</p>
+              <h3 className="text-xl font-semibold mb-2">{t.solutions.wireless.title}</h3>
+              <p className="text-gray-700 text-sm">{t.solutions.wireless.description}</p>
             </div>
           </div>
         </div>
@@ -202,45 +360,53 @@ const HomePage = ({ language }) => {
           </div>
         </div>
       </section>
-{/* Telegram Channel Section */}
-<section className="py-14 bg-blue-50">
-  <div className="container mx-auto px-4 text-center max-w-2xl">
-    <h2 className="text-2xl font-bold text-blue-900 mb-3">
-      {language === 'tr'
-        ? 'Telegram kanalımızı takip edin'
-        : 'Follow our Telegram channel'}
-    </h2>
 
-    <p className="text-gray-700 text-sm mb-6">
-      {language === 'tr'
-        ? 'Güncellemeler, duyurular ve veri çözümleriyle ilgili içerikler için'
-        : 'For updates, announcements, and insights about data solutions'}
-    </p>
+      {/* Telegram Channel Section */}
+      <section className="py-14 bg-blue-50">
+        <div className="container mx-auto px-4 text-center max-w-2xl">
+          <h2 className="text-2xl font-bold text-blue-900 mb-3">
+            {language === 'tr' ? 'Telegram kanalımızı takip edin' : 'Follow our Telegram channel'}
+          </h2>
 
-    <a
-      href="https://t.me/TekfinGroup"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] px-7 py-3 text-white font-semibold hover:opacity-90 transition"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
-        <path d="M9.04 15.44l-.39 5.53c.56 0 .8-.24 1.1-.53l2.64-2.52 5.48 4.01c1 .55 1.72.26 1.97-.92l3.57-16.76c.3-1.39-.5-1.94-1.5-1.56L1.27 9.76c-1.36.53-1.34 1.29-.24 1.63l5.46 1.7L18.1 5.6c.55-.34 1.05-.15.64.21"/>
-      </svg>
-      Telegram
-    </a>
-  </div>
-</section>
+          <p className="text-gray-700 text-sm mb-6">
+            {language === 'tr'
+              ? 'Güncellemeler, duyurular ve veri çözümleriyle ilgili içerikler için'
+              : 'For updates, announcements, and insights about data solutions'}
+          </p>
+
+          <a
+            href="https://t.me/TekfinGroup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] px-7 py-3 text-white font-semibold hover:opacity-90 transition"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
+              <path d="M9.04 15.44l-.39 5.53c.56 0 .8-.24 1.1-.53l2.64-2.52 5.48 4.01c1 .55 1.72.26 1.97-.92l3.57-16.76c.3-1.39-.5-1.94-1.5-1.56L1.27 9.76c-1.36.53-1.34 1.29-.24 1.63l5.46 1.7L18.1 5.6c.55-.34 1.05-.15.64.21" />
+            </svg>
+            Telegram
+          </a>
+        </div>
+      </section>
 
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-        <button
-            onClick={() => navigate('/contact')}
-            className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold rounded-full hover:from-pink-600 hover:to-red-600 transition"
-          >
-            {t.cta.button}
-          </button>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button
+              onClick={() => navigate('/contact')}
+              className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+            >
+              {t.cta.primary}
+            </button>
+            <button
+              onClick={() => navigate('/contact')}
+              className="px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+            >
+              {t.cta.secondary}
+            </button>
+          </div>
         </div>
       </section>
     </div>
@@ -248,3 +414,4 @@ const HomePage = ({ language }) => {
 };
 
 export default HomePage;
+```
