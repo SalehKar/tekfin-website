@@ -413,4 +413,3 @@ const HomePage = ({ language }) => {
 };
 
 export default HomePage;
-```
