@@ -288,38 +288,21 @@ const HomePage = ({ language }) => {
               </div>
 
               {/* Built-in Protection Layer (embedded, not a headline product) */}
-              <div className="mt-6 rounded-xl border border-gray-100 bg-gray-50 p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                    <FaShieldAlt className="w-5 h-5 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-blue-900">{t.solutions.protectionLayer.title}</h4>
-                </div>
-                <p className="text-sm text-gray-600 mb-3">{t.solutions.protectionLayer.description}</p>
+             <div className="mt-4 flex flex-col sm:flex-row gap-2">
+  <button
+    onClick={() => goContact('assessment')}
+    className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
+  >
+    {t.heroCtas.primary}
+  </button>
 
-                <ul className="space-y-2">
-                  {t.solutions.protectionLayer.bullets.map((b, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                      <FaCheckCircle className="mt-0.5 w-4 h-4 text-emerald-600" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-4 flex flex-col sm:flex-row gap-2">
-                 <button onClick={() => goContact('assessment')}> {t.heroCtas.primary} 
-                    className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
-                  >
-                    {t.heroCtas.primary}
-                  </button>
-                <button onClick={() => goContact('consultation')}> {t.heroCtas.secondary} 
-                    className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
-                  >
-                    {t.heroCtas.secondary}
-                  </button>
-                </div>
-              </div>
-            </div>
+  <button
+    onClick={() => goContact('consultation')}
+    className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
+  >
+    {t.heroCtas.secondary}
+  </button>
+</div>
 
             {/* Wireless Network Solutions */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
