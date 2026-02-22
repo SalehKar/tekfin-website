@@ -211,28 +211,22 @@ const HomePage = ({ language }) => {
 
   return (
     <div className="homepage">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
-          <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
-          <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
+{/* Hero CTAs */}
+<div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+  <button
+    onClick={() => goContact('assessment')}
+    className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+  >
+    {t.heroCtas.primary}
+  </button>
 
-          {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-            <button onClick={() => goContact('assessment')}> {t.heroCtas.primary} </button>
-
-              className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
-            >
-              {t.heroCtas.primary}
-            </button>
-           <button onClick={() => goContact('consultation')}> {t.heroCtas.secondary} </button>
-              className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
-            >
-              {t.heroCtas.secondary}
-            </button>
-          </div>
-
+  <button
+    onClick={() => goContact('consultation')}
+    className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+  >
+    {t.heroCtas.secondary}
+  </button>
+</div>
           {/* Storage Advisor Card */}
           <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
             <div className="flex items-start gap-4">
