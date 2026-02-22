@@ -1,60 +1,69 @@
+```jsx
 import React from 'react';
 
 const AboutUs = ({ language }) => {
   const content = {
     en: {
-      title: "About Us",
+      title: "About TekFin",
       story: {
-        title: "Our Story",
-        text: "Our Istanbul-based company was founded out of a passion for technology and a drive to create smart, practical solutions. We began with data recovery services and quickly became a trusted name for businesses in need of fast and reliable support. Looking ahead, we plan to expand into wireless networking and other innovative tech fields, always adapting to our clients' evolving needs."
+        title: "Who We Are",
+        text:
+          "TekFin is an Istanbul-based company focused on Business Data Solutions. We help growing businesses build reliable data foundations through structured storage, automated backup strategies, and verified recovery planning. We started with data recovery — where precision and trust matter most — and expanded our scope to cover end-to-end data continuity."
       },
       vision: {
         title: "Our Vision",
-        text: "To play a pioneering role in the world of technology, becoming a global reference point for data solutions and accessibility."
+        text:
+          "To become a trusted reference for practical, business-first data solutions that improve reliability and long-term operational resilience."
       },
       mission: {
         title: "Our Mission",
-        text: "To provide our customers with the highest quality business data solutions, protecting their digital assets and ensuring business continuity."
+        text:
+          "To design and implement data architectures that keep critical business information organized, protected, and recoverable — with clear processes and measurable outcomes."
       },
       values: {
-        title: "Our Values",
+        title: "Our Principles",
         items: [
-          { icon: "🔒", text: "Reliability: We highly value our customers' data and trust." },
-          { icon: "💡", text: "Innovation: We constantly research new technologies and methods." },
-          { icon: "😊", text: "Customer Satisfaction: We aim to exceed expectations." },
-          { icon: "🔍", text: "Transparency: We adopt open and honest communication." },
-          { icon: "🎯", text: "Expertise: We work with top experts, ensuring continuous growth." }
+          { icon: "🔒", text: "Trust & Confidentiality: We treat business data as a critical asset and handle it with strict confidentiality." },
+          { icon: "🧩", text: "Structured Thinking: We focus on architecture, clarity, and documentation — not quick fixes." },
+          { icon: "✅", text: "Verification: Backups are only valuable when recovery is tested and confirmed." },
+          { icon: "🔍", text: "Transparency: Clear communication, clear scope, and clear expectations." },
+          { icon: "🎯", text: "Business Outcomes: Our work is measured by continuity, reliability, and reduced operational risk." },
+          { icon: "📈", text: "Continuous Improvement: We stay current with modern tools and methods to serve evolving needs." }
         ]
       }
     },
     tr: {
-      title: "Hakkımızda",
+      title: "TekFin Hakkında",
       story: {
-        title: "Hikayemiz",
-        text: "İstanbul merkezli şirketimiz, teknolojiye olan tutkumuz ve akıllı çözümler üretme arzumuzla kuruldu. Veri kurtarma hizmetleriyle başladık ve hızla güvenilir bir marka haline geldik. Gelecekte kablosuz ağ ve yenilikçi teknoloji alanlarına da açılmayı planlıyoruz."
+        title: "Biz Kimiz",
+        text:
+          "TekFin, İstanbul merkezli bir Business Data Solutions şirketidir. Büyüyen işletmeler için yapılandırılmış depolama, otomatik yedekleme stratejileri ve doğrulanmış kurtarma planlaması ile güvenilir veri altyapıları kurarız. Veri kurtarma ile başladık — güven ve hassasiyetin kritik olduğu bir alanda — ve zamanla veri sürekliliğini kapsayan uçtan uca çözümlere genişledik."
       },
       vision: {
         title: "Vizyonumuz",
-        text: "Veri çözümleri ve erişilebilirlik konusunda küresel bir referans noktası haline gelerek teknoloji dünyasında öncü bir rol oynamak."
+        text:
+          "İşletme odaklı, pratik ve güvenilir veri çözümleri ile operasyonel dayanıklılığı artıran güvenilir bir referans noktası olmak."
       },
       mission: {
         title: "Misyonumuz",
-        text: "Müşterilerimize en yüksek kalitede İş Veri Çözümleri sunarak dijital varlıklarını korumak ve iş sürekliliğini sağlamak."
+        text:
+          "Kritik işletme verilerini düzenli, korumalı ve geri kazanılabilir hale getiren veri mimarileri tasarlamak ve uygulamak — net süreçler ve ölçülebilir çıktılarla."
       },
       values: {
-        title: "Değerlerimiz",
+        title: "İlkelerimiz",
         items: [
-          { icon: "🔒", text: "Güvenilirlik: Verilerinize en üst düzeyde değer veriyoruz." },
-          { icon: "💡", text: "Yenilikçilik: Yeni teknolojileri sürekli araştırıyor ve uyguluyoruz." },
-          { icon: "😊", text: "Müşteri Memnuniyeti: Beklentileri aşmayı hedefliyoruz." },
-          { icon: "🔍", text: "Şeffaflık: Açık ve dürüst iletişim benimsiyoruz." },
-          { icon: "🎯", text: "Uzmanlık: En iyi uzmanlarla çalışıyoruz." }
+          { icon: "🔒", text: "Güven & Gizlilik: İşletme verilerini kritik varlık olarak görür, yüksek gizlilikle yönetiriz." },
+          { icon: "🧩", text: "Yapılandırılmış Yaklaşım: Geçici çözümler yerine mimari, açıklık ve dokümantasyon odaklı çalışırız." },
+          { icon: "✅", text: "Doğrulama: Yedek, ancak geri yükleme test edilip doğrulandığında anlamlıdır." },
+          { icon: "🔍", text: "Şeffaflık: Net iletişim, net kapsam ve net beklenti." },
+          { icon: "🎯", text: "İş Sonuçları: Süreklilik, güvenilirlik ve risk azaltımı üzerinden değer üretiriz." },
+          { icon: "📈", text: "Sürekli Gelişim: Değişen ihtiyaçlar için güncel araç ve yöntemlerle çalışırız." }
         ]
       }
     }
   };
 
-  const t = content[language];
+  const t = content[language] || content.en;
 
   return (
     <div className="bg-white text-[#1f3b6f] px-4 py-12">
@@ -81,7 +90,10 @@ const AboutUs = ({ language }) => {
           <h2 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.values.title}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {t.values.items.map((val, idx) => (
-              <div key={idx} className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-start gap-3">
+              <div
+                key={idx}
+                className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-start gap-3"
+              >
                 <div className="text-2xl text-[#002855]">{val.icon}</div>
                 <p className="text-sm text-gray-800 leading-snug">{val.text}</p>
               </div>
