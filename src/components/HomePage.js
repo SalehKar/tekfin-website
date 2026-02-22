@@ -27,6 +27,12 @@ const HomePage = ({ language }) => {
         secondary: "Danışmanlık Talep Et"
       },
 
+      heroHighlights: [
+        "Uçtan uca veri mimarisi",
+        "7/24 izleme yaklaşımı",
+        "Doğrulanmış kurtarma planı"
+      ],
+
       // Storage Advisor
       landingTitle: "Depolama Danışmanı",
       landingDescription:
@@ -110,6 +116,12 @@ const HomePage = ({ language }) => {
         primary: "Free Data Risk Assessment",
         secondary: "Request Consultation"
       },
+
+      heroHighlights: [
+        "End-to-end data architecture",
+        "24/7 monitoring approach",
+        "Verified recovery framework"
+      ],
 
       // Storage Advisor
       landingTitle: "Storage Advisor",
@@ -212,7 +224,9 @@ const HomePage = ({ language }) => {
 return (
   <div className="homepage">
     {/* Hero Section */}
-    <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
+      <div className="pointer-events-none absolute -top-16 -right-16 h-52 w-52 rounded-full bg-cyan-400/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-300/20 blur-3xl" />
       <div className="container mx-auto px-4 text-center max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
         <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
@@ -235,8 +249,19 @@ return (
           </button>
         </div>
 
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+          {t.heroHighlights.map((highlight, index) => (
+            <span
+              key={index}
+              className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium tracking-wide"
+            >
+              {highlight}
+            </span>
+          ))}
+        </div>
+
         {/* Storage Advisor Card */}
-        <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
+        <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-2xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
           <div className="flex items-start gap-4">
             <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
               <FaHdd className="w-7 h-7 text-white" />
@@ -263,13 +288,13 @@ return (
     </section>
 
     {/* Solutions Section */}
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-gradient-to-b from-slate-100 to-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.solutions.title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Business Data Solutions */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white p-6 rounded-lg shadow-md ring-1 ring-blue-100">
             <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
               <FaDatabase className="w-8 h-8 text-white" />
             </div>
@@ -333,7 +358,7 @@ return (
           </div>
 
           {/* Wireless Network Solutions */}
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+          <div className="bg-white p-6 rounded-lg shadow-md text-center ring-1 ring-cyan-100">
             <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors.wireless} rounded-full shadow`}>
               <FaWifi className="w-8 h-8 text-white" />
             </div>
