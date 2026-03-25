@@ -16,7 +16,6 @@ const Footer = ({ language }) => {
       storageAdvisor: 'Depolama Danışmanı',
       address: 'İstanbul, Türkiye',
       email: 'info@tekfingroup.com',
-      phone: '+90 533 386 68 41',
       followUs: 'Bizi takip edin'
     },
     en: {
@@ -31,7 +30,6 @@ const Footer = ({ language }) => {
       storageAdvisor: 'Storage Advisor',
       address: 'Istanbul, Turkey',
       email: 'info@tekfingroup.com',
-      phone: '+90 533 386 68 41',
       followUs: 'Follow us'
     }
   };
