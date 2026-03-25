@@ -29,7 +29,7 @@ const Header = ({ language, setLanguage }) => {
     tr: {
       home: 'Ana Sayfa',
       about: 'Hakkımızda',
-      dataSolutions: 'Veri Çözümleri',
+      dataSolutions: 'Çözümler',
       dataRecovery: 'Veri Kurtarma',
       dataStorage: 'Veri Depolama',
       backupServices: 'Yedekleme Hizmetleri',
@@ -42,7 +42,7 @@ const Header = ({ language, setLanguage }) => {
     en: {
       home: 'Home',
       about: 'About',
-      dataSolutions: 'Data Solutions',
+      dataSolutions: 'Solutions',
       dataRecovery: 'Data Recovery',
       dataStorage: 'Data Storage',
       backupServices: 'Backup Services',
@@ -60,10 +60,10 @@ const Header = ({ language, setLanguage }) => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all ${
-          scrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur'
+          scrolled ? 'bg-white/95 shadow-lg ring-1 ring-blue-100' : 'bg-white/80 backdrop-blur-md ring-1 ring-white/40'
         }`}
       >
-        <div className="container mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="container mx-auto px-6 py-3.5 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Link to="/">
@@ -75,15 +75,15 @@ const Header = ({ language, setLanguage }) => {
           </div>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex gap-8 items-center text-sm font-medium">
-            <Link to="/" className="text-blue-900 hover:text-blue-600 transition">{t.home}</Link>
-            <Link to="/about-us" className="text-blue-900 hover:text-blue-600 transition">{t.about}</Link>
+          <nav className="hidden md:flex gap-7 items-center text-sm font-medium">
+            <Link to="/" className="text-blue-900 hover:text-blue-600 transition px-2 py-1 rounded-md hover:bg-blue-50">{t.home}</Link>
+            <Link to="/about-us" className="text-blue-900 hover:text-blue-600 transition px-2 py-1 rounded-md hover:bg-blue-50">{t.about}</Link>
 
             {/* Data Solutions Dropdown (Desktop) */}
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="text-blue-900 hover:text-blue-600 transition flex items-center gap-1"
+                className="text-blue-900 hover:text-blue-600 transition flex items-center gap-1 px-2 py-1 rounded-md hover:bg-blue-50"
                 aria-expanded={isDropdownOpen}
                 aria-controls="data-solutions-menu"
               >
@@ -102,7 +102,7 @@ const Header = ({ language, setLanguage }) => {
               )}
             </div>
 
-            <Link to="/contact" className="text-blue-900 hover:text-blue-600 transition">{t.contact}</Link>
+            <Link to="/contact" className="text-blue-900 hover:text-blue-600 transition px-2 py-1 rounded-md hover:bg-blue-50">{t.contact}</Link>
           </nav>
 
           {/* Language + Mobile Menu Toggle */}
