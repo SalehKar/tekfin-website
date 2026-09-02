@@ -106,7 +106,7 @@ exports.handler = async (event) => {
   // نصوص تأتي من الـ frontend أو fallback للإنجليزية
   const subject = (body.subject || "Your AI Storage Recommendation").trim();
   const title = (body.title || "Your AI Storage Recommendation").trim();
-  const footer1 = (body.footer1 || "Tekfin Group - Istanbul, Turkey").trim();
+  const footer1 = (body.footer1 || "TekFin Teknoloji - Istanbul, Turkey").trim();
   const btn = (body.btn || "Visit our website").trim();
 
   const recommendationHTML = formatRecommendation(rawRecommendation);
@@ -128,7 +128,7 @@ exports.handler = async (event) => {
 
   const {
     SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS,
-    FROM_EMAIL, FROM_NAME = "Tekfin Group"
+    FROM_EMAIL, FROM_NAME = "TekFin Teknoloji"
   } = process.env;
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !FROM_EMAIL)
@@ -149,7 +149,7 @@ exports.handler = async (event) => {
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
         <div style="background-color: #f5f5f5;">
-          <img src="https://www.tekfingroup.com/email-cover.png" alt="Cover" style="width: 100%; display: block;" />
+          <img src="https://tekfinteknoloji.com/email-cover.png" alt="Cover" style="width: 100%; display: block;" />
         </div>
         <div style="padding: 20px;">
           <h2 style="color: #2c3e50; margin-bottom: 10px;">${title}</h2>
@@ -157,7 +157,7 @@ exports.handler = async (event) => {
         </div>
         <div style="background-color: #f5f5f5; padding: 15px; text-align: center; font-size: 13px; color: #666;">
           <p>${footer1}</p>
-          <p><a href="https://www.tekfingroup.com" style="color: #2c3e50; text-decoration: none;">${btn}</a></p>
+          <p><a href="https://tekfinteknoloji.com" style="color: #2c3e50; text-decoration: none;">${btn}</a></p>
         </div>
       </div>
     `;
