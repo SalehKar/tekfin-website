@@ -14,7 +14,7 @@ const Footer = ({ language }) => {
       backupServices: 'Yedekleme Hizmetleri',
       storageAdvisor: 'Depolama Danışmanı',
       address: 'İstanbul, Türkiye',
-      email: 'E-posta: info@tekfingroup.com'
+      email: 'E-posta: info@tekfinteknoloji.com'
     },
     en: {
       company: 'TEKFİN TEKNOLOJİ LİMİTED ŞTİ',
@@ -27,7 +27,7 @@ const Footer = ({ language }) => {
       backupServices: 'Backup Services',
       storageAdvisor: 'Storage Advisor',
       address: 'Istanbul, Turkey',
-      email: 'Email: info@tekfingroup.com'
+      email: 'Email: info@tekfinteknoloji.com'
     }
   };
 
