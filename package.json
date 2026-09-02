@@ -2,7 +2,7 @@
   "name": "tekfin-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.tekfingroup.com",
+  "homepage": "https://tekfinteknoloji.com",
   "proxy": "http://localhost:5001",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
