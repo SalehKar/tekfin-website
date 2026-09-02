@@ -27,6 +27,18 @@ jobs:
       - name: Build 🔧
         run: npm run build
 
+      - name: Configure GitHub Pages routing
+        run: |
+          # GitHub Pages serves files by URL path. Create an index.html
+          # for every React Router route so direct visits and refreshes work.
+          for route in about-us contact data-recovery data-storage backup-services storage-advisor recommendations; do
+            mkdir -p "build/$route"
+            cp build/index.html "build/$route/index.html"
+          done
+
+          # Keep the custom domain on the deployed gh-pages branch.
+          printf '%s\n' 'tekfinteknoloji.com' > build/CNAME
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
