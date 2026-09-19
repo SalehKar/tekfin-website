@@ -164,7 +164,8 @@ const StorageAdvisor = ({ language = 'en' }) => {
     ],
   };
 
-  return (\n    <div className="tk-advisor-page">
+  return (
+    <div className="tk-advisor-page">
       <Helmet>
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
