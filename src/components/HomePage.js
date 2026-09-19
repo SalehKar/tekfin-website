@@ -224,36 +224,36 @@ const HomePage = ({ language }) => {
 return (
   <div className="homepage">
     {/* Hero Section */}
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-800 text-white py-20">
-      <div className="pointer-events-none absolute -top-16 -right-16 h-52 w-52 rounded-full bg-cyan-400/20 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-300/20 blur-3xl" />
-      <div className="container mx-auto px-4 text-center max-w-4xl">
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">{t.mainTitle}</h1>
-        <p className="text-xl md:text-2xl font-light mb-6">{t.subtitle}</p>
-        <p className="text-base md:text-lg mb-8 text-white/90">{t.intro}</p>
+    <section className="relative overflow-hidden bg-slate-950 text-white py-20 md:py-24">
+      <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="container mx-auto px-5 text-center max-w-5xl">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-5">{t.mainTitle}</h1>
+        <p className="text-lg md:text-2xl font-medium text-slate-200 max-w-3xl mx-auto mb-6">{t.subtitle}</p>
+        <p className="text-base md:text-lg leading-8 mb-9 text-slate-300 max-w-3xl mx-auto">{t.intro}</p>
 
         {/* Hero CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <button
             onClick={() => goContact('assessment')}
-            className="px-7 py-3.5 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+            className="px-7 py-3.5 bg-white text-slate-950 font-bold rounded-xl shadow-lg hover:bg-slate-100 transition"
           >
             {t.heroCtas.primary}
           </button>
 
           <button
             onClick={() => goContact('consultation')}
-            className="px-7 py-3.5 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+            className="px-7 py-3.5 bg-white/5 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 transition"
           >
             {t.heroCtas.secondary}
           </button>
         </div>
 
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-2.5">
           {t.heroHighlights.map((highlight, index) => (
             <span
               key={index}
-              className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium tracking-wide"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 tracking-wide"
             >
               {highlight}
             </span>
@@ -261,9 +261,9 @@ return (
         </div>
 
         {/* Storage Advisor Card */}
-        <div className="bg-white/95 backdrop-blur p-6 md:p-7 rounded-2xl shadow-2xl inline-block max-w-md text-left ring-1 ring-black/5 transform hover:scale-105 transition">
+        <div className="bg-white p-6 md:p-7 rounded-2xl shadow-2xl inline-block max-w-xl w-full text-left ring-1 ring-slate-200 transition hover:-translate-y-1">
           <div className="flex items-start gap-4">
-            <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-gradient-to-br from-emerald-500 to-sky-600 rounded-full shadow">
+            <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-blue-900 rounded-2xl shadow">
               <FaHdd className="w-7 h-7 text-white" />
             </div>
 
@@ -273,7 +273,7 @@ return (
 
               <button
                 onClick={() => navigate('/storage-advisor')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-600 hover:to-sky-700 text-white font-semibold rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-900 hover:bg-blue-800 text-white font-semibold rounded-xl transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
                 aria-label={t.landingTitle}
               >
                 <span>{t.landingCta}</span>
@@ -292,9 +292,9 @@ return (
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.solutions.title}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Business Data Solutions */}
-          <div className="bg-white p-6 rounded-lg shadow-md ring-1 ring-blue-100">
+          <div className="bg-white p-7 rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 lg:col-span-2">
             <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
               <FaDatabase className="w-8 h-8 text-white" />
             </div>
@@ -320,7 +320,7 @@ return (
             </div>
 
             {/* Built-in Protection Layer (embedded) */}
-            <div className="mt-6 rounded-xl border border-gray-100 bg-gray-50 p-5">
+            <div className="mt-7 rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                   <FaShieldAlt className="w-5 h-5 text-white" />
@@ -358,7 +358,7 @@ return (
           </div>
 
           {/* Wireless Network Solutions */}
-          <div className="bg-white p-6 rounded-lg shadow-md text-center ring-1 ring-cyan-100">
+          <div className="bg-slate-50 p-7 rounded-2xl shadow-sm ring-1 ring-slate-200 text-center lg:col-span-1">
             <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors.wireless} rounded-full shadow`}>
               <FaWifi className="w-8 h-8 text-white" />
             </div>
@@ -378,7 +378,7 @@ return (
             .filter(k => k !== 'title')
             .map((key, index) => (
               <div key={index} className="text-center">
-                <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${whyColors[key]} rounded-full shadow`}>
+                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 rounded-xl bg-slate-100 text-blue-900">
                   {whyChooseIcons[key]}
                 </div>
                 <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
@@ -416,21 +416,21 @@ return (
     </section>
 
     {/* Call to Action Section */}
-    <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-700 text-white text-center">
+    <section className="py-20 bg-slate-950 text-white text-center">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={() => goContact('assessment')}
-            className="px-8 py-4 bg-white text-blue-900 font-bold rounded-full hover:bg-white/90 transition"
+            className="px-8 py-4 bg-white text-slate-950 font-bold rounded-xl hover:bg-slate-100 transition"
           >
             {t.cta.primary}
           </button>
 
           <button
             onClick={() => goContact('consultation')}
-            className="px-8 py-4 bg-white/10 border border-white/30 text-white font-semibold rounded-full hover:bg-white/15 transition"
+            className="px-8 py-4 bg-white/5 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 transition"
           >
             {t.cta.secondary}
           </button>
