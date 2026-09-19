@@ -164,8 +164,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
     ],
   };
 
-  return (
-    <div className="bg-white text-[#1f3b6f] px-4 py-12">
+  return (\n    <div className="tk-advisor-page">
       <Helmet>
         <title>{t.metaTitle}</title>
         <meta name="description" content={t.metaDescription} />
