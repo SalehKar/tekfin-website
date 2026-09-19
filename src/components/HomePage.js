@@ -1,15 +1,20 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  FaDatabase,
-  FaWifi,
-  FaHdd,
-  FaCloudUploadAlt,
-  FaShieldAlt,
-  FaBolt,
-  FaUsers,
-  FaCheckCircle
-} from 'react-icons/fa';
+  ArrowRight,
+  Database,
+  HardDrive,
+  CloudUpload,
+  RotateCcw,
+  ShieldCheck,
+  Activity,
+  Network,
+  Check,
+  LockKeyhole,
+  Server,
+  BookOpen
+} from 'lucide-react';
+import Newsletter from './Newsletter';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
@@ -17,420 +22,279 @@ const HomePage = ({ language }) => {
 
   const content = {
     tr: {
-      mainTitle: "İşletme Veri Çözümleri",
-      subtitle: "Verilerinizi yapılandırın, yedekleyin ve ihtiyaç anında güvenle geri yükleyin.",
-      intro:
-        "TekFin, büyüyen işletmeler için veri altyapısını uçtan uca tasarlar: doğru depolama mimarisi, otomatik yedekleme katmanları ve doğrulanmış kurtarma planı. Amaç; sadece veri saklamak değil, iş sürekliliğini garanti altına almaktır.",
-
-      heroCtas: {
-        primary: "Ücretsiz Veri Risk Analizi",
-        secondary: "Danışmanlık Talep Et"
-      },
-
-      heroHighlights: [
-        "Uçtan uca veri mimarisi",
-        "7/24 izleme yaklaşımı",
-        "Doğrulanmış kurtarma planı"
+      eyebrow: 'TEKFİN • BUSINESS DATA INFRASTRUCTURE',
+      title: 'İşletmeniz için daha sağlam bir veri altyapısı.',
+      titleAccent: 'Veri altyapısı.',
+      subtitle: 'Verilerinizi doğru yapılandırın, güvenilir şekilde yedekleyin ve ihtiyaç anında geri yükleyin.',
+      intro: 'TekFin, büyüyen işletmeler için depolama, yedekleme ve veri kurtarma altyapısını birlikte tasarlar. Hedefimiz yalnızca veri saklamak değil, iş sürekliliğini destekleyen yönetilebilir bir yapı kurmaktır.',
+      primary: 'Ücretsiz Veri Risk Analizi',
+      secondary: 'Danışmanlık Talep Et',
+      advisor: 'Depolama Danışmanı',
+      advisorText: 'İhtiyacınıza uygun depolama yaklaşımını belirleyin.',
+      advisorCta: 'Öneri Alın',
+      solutionsEyebrow: 'ÇÖZÜMLER',
+      solutionsTitle: 'Verinin yaşam döngüsünü tek bir yapı içinde yönetin.',
+      solutionsText: 'Depolama, yedekleme ve kurtarma birbirinden bağımsız ürünler değil; birlikte tasarlanması gereken bir veri altyapısıdır.',
+      storage: 'Veri Depolama',
+      storageText: 'Performans, kapasite ve büyüme ihtiyacınıza göre doğru depolama mimarisi.',
+      backup: 'Yedekleme Hizmetleri',
+      backupText: 'Otomatik ve çok katmanlı yedekleme yaklaşımı, izleme ve raporlama.',
+      recovery: 'Veri Kurtarma',
+      recoveryText: 'RTO/RPO hedefleri, kurtarma senaryoları ve periyodik geri yükleme doğrulaması.',
+      protectionEyebrow: 'BUILT-IN PROTECTION',
+      protectionTitle: 'Koruma, çözümün üzerine eklenmez. İçine yerleştirilir.',
+      protectionText: 'Güvenlik ve izleme, TekFin veri altyapısının tasarım katmanının parçasıdır.',
+      protectionItems: ['Şifreleme ve güvenli veri işleme', 'Erişim kontrolü ve yetkilendirme', 'Yedekleme başarısızlığı için uyarılar', 'Disk / RAID sağlık takibi', 'Periyodik geri yükleme testi'],
+      whyEyebrow: 'NEDEN TEKFİN',
+      whyTitle: 'Teknik altyapıyı işletme ihtiyacıyla birleştiriyoruz.',
+      whyItems: [
+        ['Pratik uzmanlık', 'Depolama, yedekleme ve kurtarma süreçlerinde işletme odaklı yaklaşım.'],
+        ['Güvenilirlik', 'Veri gizliliği, güvenli erişim ve doğrulanabilir süreçler tasarımın merkezindedir.'],
+        ['Hızlı aksiyon', 'Kritik durumlarda net süreç ve uygulanabilir teknik çözüm.'],
+        ['İş sürekliliği', 'Teknik bileşenlerden önce erişilebilirlik, kurtarılabilirlik ve sürekliliğe odaklanırız.']
       ],
-
-      // Storage Advisor
-      landingTitle: "Depolama Danışmanı",
-      landingDescription:
-        "Hangi depolama çözümünün size uygun olduğundan emin değil misiniz? Akıllı danışmanımızla saniyeler içinde kişiselleştirilmiş öneri alın!",
-      landingCta: "Öneri Alın",
-
-      solutions: {
-        title: "Çözümler",
-        dataSolutions: {
-          title: "Business Data Solutions",
-          description:
-            "Üç temel çözüm katmanı ile veri altyapınızı kurar ve yönetilebilir hale getiririz:",
-          subServices: [
-            {
-              title: "Veri Depolama",
-              description:
-                "Güvenli, verimli ve ölçeklenebilir depolama mimarisi: erişilebilirlik, performans ve büyüme planınıza uygun kapasite.",
-              icon: <FaHdd className="w-6 h-6 text-white" />
-            },
-            {
-              title: "Yedekleme Hizmetleri",
-              description:
-                "Otomatik ve çok katmanlı yedekleme stratejisi: yerel + offsite/sıfır sürpriz için izleme ve raporlama.",
-              icon: <FaCloudUploadAlt className="w-6 h-6 text-white" />
-            },
-            {
-              title: "Veri Kurtarma",
-              description:
-                "Hızlı ve güvenilir kurtarma çerçevesi: kurtarma hedefleri (RTO/RPO), senaryolar ve periyodik geri yükleme doğrulaması.",
-              icon: <FaDatabase className="w-6 h-6 text-white" />
-            }
-          ]
-        },
-
-        protectionLayer: {
-          title: "Entegre Koruma Katmanı",
-          description:
-            "Güvenlik ayrı bir ürün değil; tasarladığımız her çözümün içinde yer alır:",
-          bullets: [
-            "Şifreleme ve güvenli veri işleme",
-            "Erişim kontrolü ve yetkilendirme yaklaşımı",
-            "Yedekleme başarısızlığı için izleme ve uyarılar",
-            "Depolama sağlığı takibi (disk/RAID durumları)",
-            "Periyodik geri yükleme testi ve doğrulama"
-          ]
-        },
-
-        wireless: {
-          title: "Kablosuz Ağ Çözümleri (Gelecekte)",
-          description:
-            "İşletmenizin kablosuz ağ ihtiyaçları için güvenli, hızlı ve kesintisiz çözümler sunmayı hedefliyoruz. Gelecek hizmetlerimiz için bizi takip edin."
-        }
-      },
-
-      whyChooseUs: {
-        title: "Neden TekFin?",
-        expertise:
-          "Uzmanlık: Veri depolama, yedekleme ve kurtarma süreçlerinde pratik, işletme odaklı yaklaşım.",
-        reliability:
-          "Güvenilirlik: Veri gizliliği ve güvenliği tasarımın merkezindedir.",
-        fastSolutions:
-          "Hız: Kritik durumlarda net süreç ve hızlı aksiyon.",
-        customerFocus:
-          "İş Odaklılık: Teknik değil sonuç konuşuruz — süreklilik ve erişilebilirlik."
-      },
-
-      cta: {
-        title: "Veri kaybı bir ihtimal değil, bir risk yönetimi konusudur. Bugün başlayın.",
-        primary: "Ücretsiz Veri Risk Analizi",
-        secondary: "İletişime Geçin"
-      }
+      future: 'Gelecek hizmetler',
+      futureText: 'Managed Backup, Cloud DR, Remote Monitoring ve Storage Advisor gibi hizmetleri zaman içinde veri altyapısı portföyümüze ekleyeceğiz.',
+      newsletterEyebrow: 'TEKFİN INSIGHTS',
+      newsletterTitle: 'Veri altyapısı hakkında bilimsel ve pratik içerikler.',
+      newsletterText: 'Yeni içerikler, teknik analizler ve işletmeler için veri yönetimi notları yayınlandıkça haberdar olun.',
+      newsletterCta: 'İçeriklerden haberdar olun',
+      ctaTitle: 'Veri kaybı bir sürpriz olmak zorunda değil.',
+      ctaText: 'Mevcut veri altyapınızı birlikte değerlendirelim ve işletmeniz için uygulanabilir bir yol haritası oluşturalım.',
+      ctaPrimary: 'Ücretsiz Veri Risk Analizi',
+      ctaSecondary: 'İletişime Geçin'
     },
-
     en: {
-      mainTitle: "Business Data Solutions",
-      subtitle: "Structured storage, automated backups, and verified recovery — built for growing businesses.",
-      intro:
-        "TekFin designs end-to-end data foundations for growing teams: the right storage architecture, multi-layer automated backups, and a verified recovery framework. The goal isn’t just storing data — it’s business continuity.",
-
-      heroCtas: {
-        primary: "Free Data Risk Assessment",
-        secondary: "Request Consultation"
-      },
-
-      heroHighlights: [
-        "End-to-end data architecture",
-        "24/7 monitoring approach",
-        "Verified recovery framework"
+      eyebrow: 'TEKFİN • BUSINESS DATA INFRASTRUCTURE',
+      title: 'A stronger data foundation for your business.',
+      titleAccent: 'data foundation.',
+      subtitle: 'Structure your data, back it up reliably, and restore it when your business needs it.',
+      intro: 'TekFin designs storage, backup, and recovery infrastructure as one connected system for growing businesses. The goal is not simply to store data, but to build a manageable foundation that supports continuity.',
+      primary: 'Free Data Risk Assessment',
+      secondary: 'Request Consultation',
+      advisor: 'Storage Advisor',
+      advisorText: 'Find the storage approach that fits your requirements.',
+      advisorCta: 'Get Recommendation',
+      solutionsEyebrow: 'SOLUTIONS',
+      solutionsTitle: 'Manage the data lifecycle as one system.',
+      solutionsText: 'Storage, backup, and recovery are not isolated products; they are parts of one data infrastructure that should be designed together.',
+      storage: 'Data Storage',
+      storageText: 'Storage architecture aligned with performance, capacity, and growth requirements.',
+      backup: 'Backup Services',
+      backupText: 'Automated, multi-layer backup with monitoring and reporting.',
+      recovery: 'Data Recovery',
+      recoveryText: 'RTO/RPO objectives, recovery scenarios, and periodic restore verification.',
+      protectionEyebrow: 'BUILT-IN PROTECTION',
+      protectionTitle: 'Protection is not added on top. It is built in.',
+      protectionText: 'Security and monitoring are part of the TekFin data infrastructure design layer.',
+      protectionItems: ['Encryption and secure data handling', 'Access control and authorization', 'Alerts for backup failures', 'Disk / RAID health monitoring', 'Periodic restore testing'],
+      whyEyebrow: 'WHY TEKFIN',
+      whyTitle: 'We connect technical infrastructure to business requirements.',
+      whyItems: [
+        ['Practical expertise', 'Business-focused experience across storage, backup, and recovery workflows.'],
+        ['Reliability', 'Confidentiality, secure access, and verifiable processes are built into the architecture.'],
+        ['Fast response', 'Clear processes and practical technical action when it matters.'],
+        ['Business continuity', 'We focus on availability, recoverability, and continuity before technical components.']
       ],
-
-      // Storage Advisor
-      landingTitle: "Storage Advisor",
-      landingDescription:
-        "Not sure which storage fits your needs? Get a tailored recommendation in seconds with our smart advisor!",
-      landingCta: "Get Recommendation",
-
-      solutions: {
-        title: "Solutions",
-        dataSolutions: {
-          title: "Business Data Solutions",
-          description:
-            "We build a reliable data foundation through three solution layers:",
-          subServices: [
-            {
-              title: "Data Storage",
-              description:
-                "Secure, efficient, and scalable storage architecture aligned with your capacity and growth needs.",
-              icon: <FaHdd className="w-6 h-6 text-white" />
-            },
-            {
-              title: "Backup Services",
-              description:
-                "Automated, multi-layer backup strategy with monitoring and reporting to prevent silent failures.",
-              icon: <FaCloudUploadAlt className="w-6 h-6 text-white" />
-            },
-            {
-              title: "Data Recovery",
-              description:
-                "A fast and reliable recovery framework with defined objectives (RTO/RPO) and periodic restore verification.",
-              icon: <FaDatabase className="w-6 h-6 text-white" />
-            }
-          ]
-        },
-
-        protectionLayer: {
-          title: "Built-in Protection Layer",
-          description:
-            "Protection is embedded into every solution — not sold as a separate product:",
-          bullets: [
-            "Encryption & secure data handling",
-            "Access control & authorization approach",
-            "Monitoring & alerts for backup failures",
-            "Storage health monitoring (disk/RAID status)",
-            "Periodic restore testing & verification"
-          ]
-        },
-
-        wireless: {
-          title: "Wireless Network Solutions (Future)",
-          description:
-            "We aim to provide secure, fast, and seamless solutions for your business wireless network needs. Stay tuned for updates."
-        }
-      },
-
-      whyChooseUs: {
-        title: "Why TekFin?",
-        expertise:
-          "Practical expertise: storage, backup, and recovery designed for real business operations.",
-        reliability:
-          "Reliability: confidentiality and security are built into the architecture.",
-        fastSolutions:
-          "Fast response: clear process and quick action when it matters.",
-        customerFocus:
-          "Business-first: we sell outcomes — continuity, access, and recoverability."
-      },
-
-      cta: {
-        title: "Data loss isn’t a surprise. It’s a risk you can control. Start today.",
-        primary: "Free Data Risk Assessment",
-        secondary: "Request Consultation"
-      }
+      future: 'Future services',
+      futureText: 'Managed Backup, Cloud DR, Remote Monitoring, and Storage Advisor capabilities will expand the data infrastructure portfolio over time.',
+      newsletterEyebrow: 'TEKFİN INSIGHTS',
+      newsletterTitle: 'Scientific and practical content about data infrastructure.',
+      newsletterText: 'Get updates when we publish technical analysis and practical data management insights for businesses.',
+      newsletterCta: 'Stay informed',
+      ctaTitle: 'Data loss does not have to be a surprise.',
+      ctaText: 'Let us assess your current data infrastructure and define a practical path forward.',
+      ctaPrimary: 'Free Data Risk Assessment',
+      ctaSecondary: 'Contact TekFin'
     }
   };
 
   const t = content[language] || content.en;
 
-  // Icons gradient colors for the three solution layers
-  const iconColors = {
-    storage: 'from-green-500 to-emerald-600',
-    backup: 'from-yellow-500 to-orange-500',
-    recovery: 'from-blue-500 to-indigo-600',
-    wireless: 'from-cyan-500 to-sky-600'
-  };
+  const solutions = [
+    { icon: HardDrive, title: t.storage, text: t.storageText, tone: 'bg-orange-50 text-orange-600', href: '/data-storage' },
+    { icon: CloudUpload, title: t.backup, text: t.backupText, tone: 'bg-blue-50 text-blue-600', href: '/backup-services' },
+    { icon: RotateCcw, title: t.recovery, text: t.recoveryText, tone: 'bg-violet-50 text-violet-600', href: '/data-recovery' }
+  ];
 
-  const whyChooseIcons = {
-    expertise: <FaDatabase className="w-8 h-8 text-white" />,
-    reliability: <FaShieldAlt className="w-8 h-8 text-white" />,
-    fastSolutions: <FaBolt className="w-8 h-8 text-white" />,
-    customerFocus: <FaUsers className="w-8 h-8 text-white" />
-  };
-
-
-return (
-  <div className="homepage">
-    {/* Hero Section */}
-    <section className="relative overflow-hidden bg-slate-950 text-white py-20 md:py-24">
-      <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
-      <div className="container mx-auto px-5 text-center max-w-5xl">
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-5">{t.mainTitle}</h1>
-        <p className="text-lg md:text-2xl font-medium text-slate-200 max-w-3xl mx-auto mb-6">{t.subtitle}</p>
-        <p className="text-base md:text-lg leading-8 mb-9 text-slate-300 max-w-3xl mx-auto">{t.intro}</p>
-
-        {/* Hero CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-          <button
-            onClick={() => goContact('assessment')}
-            className="px-7 py-3.5 bg-white text-slate-950 font-bold rounded-xl shadow-lg hover:bg-slate-100 transition"
-          >
-            {t.heroCtas.primary}
-          </button>
-
-          <button
-            onClick={() => goContact('consultation')}
-            className="px-7 py-3.5 bg-white/5 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 transition"
-          >
-            {t.heroCtas.secondary}
-          </button>
-        </div>
-
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-2.5">
-          {t.heroHighlights.map((highlight, index) => (
-            <span
-              key={index}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 tracking-wide"
-            >
-              {highlight}
-            </span>
-          ))}
-        </div>
-
-        {/* Storage Advisor Card */}
-        <div className="bg-white p-6 md:p-7 rounded-2xl shadow-2xl inline-block max-w-xl w-full text-left ring-1 ring-slate-200 transition hover:-translate-y-1">
-          <div className="flex items-start gap-4">
-            <div className="shrink-0 w-14 h-14 flex items-center justify-center bg-blue-900 rounded-2xl shadow">
-              <FaHdd className="w-7 h-7 text-white" />
+  return (
+    <div className="bg-white text-slate-950">
+      <section className="relative overflow-hidden bg-[#f7f7f4]">
+        <div className="absolute inset-0 opacity-60" style={{ backgroundImage: 'linear-gradient(rgba(15,23,42,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,.045) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
+        <div className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-blue-200/30 blur-3xl" />
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:py-28">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 text-[11px] font-semibold tracking-[.16em] text-slate-600 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-blue-600" />
+              {t.eyebrow}
             </div>
-
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-blue-900 mb-1">{t.landingTitle}</h3>
-              <p className="text-gray-600 text-sm mb-3">{t.landingDescription}</p>
-
-              <button
-                onClick={() => navigate('/storage-advisor')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-900 hover:bg-blue-800 text-white font-semibold rounded-xl transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
-                aria-label={t.landingTitle}
-              >
-                <span>{t.landingCta}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+            <h1 className="max-w-3xl text-4xl font-bold leading-[1.02] tracking-[-.04em] sm:text-5xl lg:text-[4.6rem]">
+              {t.title}
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-slate-700 sm:text-xl">{t.subtitle}</p>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">{t.intro}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button onClick={() => goContact('assessment')} className="group inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700">
+                {t.primary}<ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+              </button>
+              <button onClick={() => goContact('consultation')} className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition hover:border-slate-950">
+                {t.secondary}
               </button>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    {/* Solutions Section */}
-    <section className="py-16 bg-gradient-to-b from-slate-100 to-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.solutions.title}</h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Business Data Solutions */}
-          <div className="bg-white p-7 rounded-2xl shadow-sm ring-1 ring-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 lg:col-span-2">
-            <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow">
-              <FaDatabase className="w-8 h-8 text-white" />
-            </div>
-
-            <h3 className="text-xl font-semibold mb-3 text-center">{t.solutions.dataSolutions.title}</h3>
-            <p className="text-gray-700 text-sm mb-5 text-center">{t.solutions.dataSolutions.description}</p>
-
-            <div className="space-y-4">
-              {t.solutions.dataSolutions.subServices.map((service, i) => {
-                const gradients = [iconColors.storage, iconColors.backup, iconColors.recovery];
-                return (
-                  <div key={i} className="flex items-start space-x-3">
-                    <div className={`flex justify-center items-center w-10 h-10 bg-gradient-to-br ${gradients[i]} rounded-full`}>
-                      {service.icon}
-                    </div>
-                    <div>
-                      <strong>{service.title}</strong>
-                      <p className="text-sm text-gray-600">{service.description}</p>
+          <div className="relative mx-auto w-full max-w-xl">
+            <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-3 shadow-2xl">
+              <div className="rounded-[1.5rem] border border-white/10 bg-[#111827] p-5 sm:p-7">
+                <div className="mb-7 flex items-center justify-between">
+                  <div>
+                    <p className="text-[10px] font-semibold tracking-[.2em] text-slate-500">DATA INFRASTRUCTURE</p>
+                    <p className="mt-1 text-sm font-semibold text-white">Business Continuity Layer</p>
+                  </div>
+                  <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-[11px] font-semibold text-emerald-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> {language === 'tr' ? 'Koruma aktif' : 'Protection active'}
+                  </div>
+                </div>
+                <div className="relative grid grid-cols-2 gap-3">
+                  <div className="absolute left-1/2 top-[28%] h-px w-[47%] bg-gradient-to-r from-blue-400/70 to-transparent" />
+                  <div className="absolute left-[25%] top-1/2 h-[34%] w-px bg-gradient-to-b from-orange-400/70 to-transparent" />
+                  <div className="col-span-2 rounded-2xl border border-blue-400/20 bg-blue-400/10 p-5">
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-xl bg-blue-500/15 p-3 text-blue-300"><Network className="h-5 w-5" /></div>
+                      <div><p className="text-xs text-slate-400">CORE</p><p className="font-semibold text-white">Business Continuity</p></div>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Built-in Protection Layer (embedded) */}
-            <div className="mt-7 rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <FaShieldAlt className="w-5 h-5 text-white" />
+                  {[
+                    [Database, language === 'tr' ? 'Storage' : 'Storage', 'blue'],
+                    [CloudUpload, language === 'tr' ? 'Backup' : 'Backup', 'orange'],
+                    [RotateCcw, language === 'tr' ? 'Recovery' : 'Recovery', 'violet'],
+                    [ShieldCheck, language === 'tr' ? 'Protection' : 'Protection', 'emerald']
+                  ].map(([Icon, label, tone], i) => (
+                    <div key={i} className="rounded-2xl border border-white/10 bg-white/[.035] p-4">
+                      <Icon className={`h-5 w-5 ${tone === 'orange' ? 'text-orange-300' : tone === 'violet' ? 'text-violet-300' : tone === 'emerald' ? 'text-emerald-300' : 'text-blue-300'}`} />
+                      <p className="mt-5 text-sm font-semibold text-white">{label}</p>
+                      <p className="mt-1 text-[11px] text-slate-500">{language === 'tr' ? 'Yönetilen katman' : 'Managed layer'}</p>
+                    </div>
+                  ))}
                 </div>
-                <h4 className="font-semibold text-blue-900">{t.solutions.protectionLayer.title}</h4>
-              </div>
-
-              <p className="text-sm text-gray-600 mb-3">{t.solutions.protectionLayer.description}</p>
-
-              <ul className="space-y-2">
-                {t.solutions.protectionLayer.bullets.map((b, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <FaCheckCircle className="mt-0.5 w-4 h-4 text-emerald-600" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-4 flex flex-col sm:flex-row gap-2">
-                <button
-                  onClick={() => goContact('assessment')}
-                  className="w-full sm:w-auto px-5 py-2.5 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-950 transition"
-                >
-                  {t.heroCtas.primary}
-                </button>
-
-                <button
-                  onClick={() => goContact('consultation')}
-                  className="w-full sm:w-auto px-5 py-2.5 bg-white border border-gray-200 text-gray-900 font-semibold rounded-full hover:bg-gray-50 transition"
-                >
-                  {t.heroCtas.secondary}
-                </button>
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  {[
+                    [Activity, language === 'tr' ? 'İzleme' : 'Monitoring'],
+                    [LockKeyhole, language === 'tr' ? 'Erişim' : 'Access'],
+                    [Check, language === 'tr' ? 'Doğrulama' : 'Verification']
+                  ].map(([Icon, label], i) => (
+                    <div key={i} className="flex items-center gap-2 rounded-xl bg-white/[.035] px-3 py-2.5 text-[11px] font-medium text-slate-400">
+                      <Icon className="h-4 w-4 text-slate-300" /> {label}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Wireless Network Solutions */}
-          <div className="bg-slate-50 p-7 rounded-2xl shadow-sm ring-1 ring-slate-200 text-center lg:col-span-1">
-            <div className={`flex justify-center items-center w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${iconColors.wireless} rounded-full shadow`}>
-              <FaWifi className="w-8 h-8 text-white" />
+            <div className="absolute -bottom-5 -left-4 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-xl sm:block">
+              <div className="flex items-center gap-3"><Server className="h-5 w-5 text-blue-600" /><div><p className="text-[10px] text-slate-400">TEKFİN</p><p className="text-xs font-bold text-slate-900">{language === 'tr' ? 'Veri altyapısı' : 'Data infrastructure'}</p></div></div>
             </div>
-            <h3 className="text-xl font-semibold mb-2">{t.solutions.wireless.title}</h3>
-            <p className="text-gray-700 text-sm">{t.solutions.wireless.description}</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Why Choose Us Section */}
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">{t.whyChooseUs.title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {Object.keys(t.whyChooseUs)
-            .filter(k => k !== 'title')
-            .map((key, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center items-center w-12 h-12 mx-auto mb-4 rounded-xl bg-slate-100 text-blue-900">
-                  {whyChooseIcons[key]}
-                </div>
-                <p className="text-gray-800 font-medium text-sm">{t.whyChooseUs[key]}</p>
+      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+        <div className="grid grid-cols-1 gap-3 rounded-3xl border border-slate-200 bg-white p-3 sm:grid-cols-3">
+          {[
+            [Database, language === 'tr' ? 'Depolama' : 'Storage'],
+            [CloudUpload, language === 'tr' ? 'Yedekleme' : 'Backup'],
+            [RotateCcw, language === 'tr' ? 'Kurtarma' : 'Recovery']
+          ].map(([Icon, label], i) => (
+            <div key={i} className="flex items-center gap-3 rounded-2xl bg-slate-50 px-5 py-4">
+              <Icon className="h-5 w-5 text-slate-700" /><span className="text-sm font-semibold">{label}</span>
+              <span className="ml-auto h-1.5 w-1.5 rounded-full bg-blue-600" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+        <div className="max-w-3xl">
+          <div className="mb-4 text-xs font-bold tracking-[.2em] text-blue-600">{t.solutionsEyebrow}</div>
+          <h2 className="text-3xl font-bold tracking-[-.03em] sm:text-5xl">{t.solutionsTitle}</h2>
+          <p className="mt-5 text-base leading-7 text-slate-500 sm:text-lg">{t.solutionsText}</p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-3">
+          {solutions.map(({ icon: Icon, title, text, tone, href }, i) => (
+            <button key={i} onClick={() => navigate(href)} className="group text-left rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className={`mb-14 flex h-12 w-12 items-center justify-center rounded-2xl ${tone}`}><Icon className="h-6 w-6" /></div>
+              <div className="flex items-end justify-between gap-4">
+                <div><h3 className="text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-500">{text}</p></div>
+                <span className="shrink-0 rounded-full border border-slate-200 p-2 transition group-hover:border-slate-950"><ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[.85fr_1.15fr] lg:py-28">
+          <div>
+            <div className="mb-4 text-xs font-bold tracking-[.2em] text-blue-300">{t.protectionEyebrow}</div>
+            <h2 className="text-3xl font-bold tracking-[-.03em] sm:text-5xl">{t.protectionTitle}</h2>
+            <p className="mt-5 max-w-xl text-slate-400 leading-7">{t.protectionText}</p>
+          </div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {t.protectionItems.map((item, i) => (
+              <div key={i} className="rounded-2xl border border-white/10 bg-white/[.035] p-5">
+                <Check className="h-5 w-5 text-blue-300" />
+                <p className="mt-6 text-sm font-semibold text-slate-100">{item}</p>
               </div>
             ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Telegram Channel Section */}
-    <section className="py-14 bg-blue-50">
-      <div className="container mx-auto px-4 text-center max-w-2xl">
-        <h2 className="text-2xl font-bold text-blue-900 mb-3">
-          {language === 'tr' ? 'Telegram kanalımızı takip edin' : 'Follow our Telegram channel'}
-        </h2>
-
-        <p className="text-gray-700 text-sm mb-6">
-          {language === 'tr'
-            ? 'Güncellemeler, duyurular ve veri çözümleriyle ilgili içerikler için'
-            : 'For updates, announcements, and insights about data solutions'}
-        </p>
-
-        <a
-          href="https://t.me/TekfinGroup"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] px-7 py-3 text-white font-semibold hover:opacity-90 transition"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
-            <path d="M9.04 15.44l-.39 5.53c.56 0 .8-.24 1.1-.53l2.64-2.52 5.48 4.01c1 .55 1.72.26 1.97-.92l3.57-16.76c.3-1.39-.5-1.94-1.5-1.56L1.27 9.76c-1.36.53-1.34 1.29-.24 1.63l5.46 1.7L18.1 5.6c.55-.34 1.05-.15.64.21" />
-          </svg>
-          Telegram
-        </a>
-      </div>
-    </section>
-
-    {/* Call to Action Section */}
-    <section className="py-20 bg-slate-950 text-white text-center">
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-6">{t.cta.title}</h2>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <button
-            onClick={() => goContact('assessment')}
-            className="px-8 py-4 bg-white text-slate-950 font-bold rounded-xl hover:bg-slate-100 transition"
-          >
-            {t.cta.primary}
-          </button>
-
-          <button
-            onClick={() => goContact('consultation')}
-            className="px-8 py-4 bg-white/5 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 transition"
-          >
-            {t.cta.secondary}
-          </button>
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+        <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+          <div>
+            <div className="mb-4 text-xs font-bold tracking-[.2em] text-blue-600">{t.whyEyebrow}</div>
+            <h2 className="text-3xl font-bold tracking-[-.03em] sm:text-5xl">{t.whyTitle}</h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {t.whyItems.map(([title, text], i) => (
+              <div key={i} className="rounded-2xl border border-slate-200 p-6">
+                <div className="mb-8 text-sm font-bold text-slate-400">0{i + 1}</div>
+                <h3 className="font-bold">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">{text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="bg-[#f7f7f4]">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+          <div className="flex flex-col gap-5 rounded-[2rem] border border-slate-200 bg-white p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 text-xs font-bold tracking-[.16em] text-slate-400"><BookOpen className="h-4 w-4" /> {t.future}</div>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{t.futureText}</p>
+            </div>
+            <button onClick={() => navigate('/storage-advisor')} className="inline-flex shrink-0 items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+              {t.advisor}<ArrowRight className="ml-2 h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <Newsletter language={language} />
+
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+        <div className="overflow-hidden rounded-[2rem] bg-blue-600 px-7 py-14 text-white sm:px-12 lg:px-16">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold tracking-[-.03em] sm:text-5xl">{t.ctaTitle}</h2>
+            <p className="mt-5 max-w-2xl leading-7 text-blue-100">{t.ctaText}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <button onClick={() => goContact('assessment')} className="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-blue-700 hover:bg-blue-50">{t.ctaPrimary}</button>
+              <button onClick={() => goContact('consultation')} className="rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/15">{t.ctaSecondary}</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
