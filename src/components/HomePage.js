@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Database, CloudUpload, RotateCcw, ShieldCheck, Check } from 'lucide-react';
+import { ArrowRight, Database, RotateCcw, ShieldCheck, Check } from 'lucide-react';
 
 const StorageAdvisorMark = () => (
   <svg viewBox="0 0 120 120" className="h-28 w-28" aria-hidden="true">
