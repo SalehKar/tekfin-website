@@ -1,0 +1,84 @@
+/* TekFin inner-page template: shared visual system for all secondary pages */
+.tk-inner-page,
+.tk-service-page,
+.tk-advisor-page,
+.tk-results-page,
+.tk-contact-page {
+  --tk-bg:#f7f7f4; --tk-ink:#122033; --tk-muted:#667085; --tk-blue:#1769ff;
+  min-height:calc(100vh - 80px);
+  background:var(--tk-bg) !important;
+  color:var(--tk-ink) !important;
+  padding:112px 24px 88px !important;
+}
+.tk-inner-page > div,
+.tk-service-page > div,
+.tk-advisor-page > div,
+.tk-results-page > div { max-width:1180px !important; margin:0 auto !important; }
+.tk-service-page > div > h2,
+.tk-inner-page > div > h1,
+.tk-advisor-page h1,
+.tk-results-page h1 {
+  font-size:clamp(2.4rem,5vw,4.8rem) !important;
+  line-height:1.02 !important; letter-spacing:-.055em !important;
+  color:var(--tk-ink) !important; text-align:left !important;
+  margin:0 0 22px !important; font-weight:800 !important;
+}
+.tk-service-page > div > h2::before,
+.tk-inner-page > div > h1::before,
+.tk-advisor-page h1::before,
+.tk-results-page h1::before {
+  content:"TEKFIN / BUSINESS DATA";
+  display:block; font-size:11px; letter-spacing:.18em; font-weight:700;
+  color:var(--tk-blue); margin-bottom:18px;
+}
+.tk-service-page > div > p:first-of-type,
+.tk-inner-page .story > p,
+.tk-advisor-page .advisor-description {
+  max-width:760px !important; color:var(--tk-muted) !important;
+  font-size:1.08rem !important; line-height:1.8 !important;
+}
+.tk-service-page .max-w-5xl { max-width:100% !important; }
+.tk-service-page .grid {
+  margin-top:54px !important; gap:0 !important;
+  border-top:1px solid #dfe3e8; border-left:1px solid #dfe3e8;
+}
+.tk-service-page .grid > div {
+  min-height:190px; border-right:1px solid #dfe3e8; border-bottom:1px solid #dfe3e8;
+  border-radius:0 !important; box-shadow:none !important; background:#fff !important;
+  padding:30px !important; align-items:flex-start !important; text-align:left !important;
+  transition:transform .2s ease,background .2s ease;
+}
+.tk-service-page .grid > div:hover { transform:translateY(-4px); background:#f0f5ff !important; }
+.tk-service-page .grid svg { width:30px !important; height:30px !important; color:var(--tk-blue) !important; }
+.tk-service-page .grid img { width:42px !important; height:42px !important; object-fit:contain; }
+.tk-service-page .grid p { margin-top:28px !important; font-size:1rem !important; line-height:1.5 !important; color:var(--tk-ink) !important; }
+.tk-service-page .mt-14 { margin-top:72px !important; padding:44px !important; background:#122033 !important; color:#fff !important; text-align:left !important; border-radius:28px; }
+.tk-service-page .mt-14 p { color:#cbd5e1 !important; }
+.tk-service-page .mt-14 a { background:var(--tk-blue) !important; border-radius:999px !important; padding:13px 22px !important; }
+.tk-inner-page .grid { gap:18px !important; }
+.tk-inner-page .grid > div { background:#fff !important; border:1px solid #e1e5ea; border-radius:20px !important; box-shadow:none !important; padding:30px !important; }
+.tk-inner-page .grid > div:hover { transform:translateY(-3px); }
+.tk-inner-page .values-grid { margin-top:20px; }
+.tk-inner-page .value-item { width:auto !important; text-align:left !important; }
+.tk-inner-page .story { background:#122033 !important; color:#fff; border-radius:28px !important; padding:44px !important; }
+.tk-inner-page .story h2 { color:#fff !important; }
+.tk-inner-page .story p { color:#cbd5e1 !important; }
+.tk-contact-page { max-width:none !important; }
+.tk-contact-page .contact-content { max-width:1180px; margin:0 auto; border-radius:28px !important; box-shadow:none !important; border:1px solid #e1e5ea; }
+.tk-contact-page .contact-title { font-size:clamp(2.5rem,5vw,4.5rem) !important; color:var(--tk-ink) !important; }
+.tk-contact-page .contact-form { background:#fff !important; border:0 !important; box-shadow:none !important; }
+.tk-contact-page .submit-button { background:var(--tk-blue) !important; border-radius:999px !important; }
+.tk-advisor-page { max-width:none !important; }
+.tk-advisor-page .advisor-form,
+.tk-advisor-page .recommendation-result { max-width:900px !important; }
+.tk-advisor-page .advisor-form { background:#fff; padding:32px; border:1px solid #e1e5ea; border-radius:24px; }
+.tk-advisor-page input,.tk-advisor-page select,.tk-advisor-page textarea { border-color:#d9dee6 !important; border-radius:12px !important; min-height:48px; }
+.tk-advisor-page .recommend-button { background:var(--tk-blue) !important; border-radius:999px !important; }
+.tk-results-page .bg-white { border:1px solid #e1e5ea; border-radius:24px !important; box-shadow:none !important; padding:36px !important; }
+.tk-results-page button { background:var(--tk-blue) !important; border-radius:999px !important; }
+@media(max-width:768px){
+  .tk-inner-page,.tk-service-page,.tk-advisor-page,.tk-results-page,.tk-contact-page { padding:92px 16px 60px !important; }
+  .tk-service-page .grid { grid-template-columns:1fr !important; }
+  .tk-service-page .mt-14 { padding:28px !important; }
+  .tk-inner-page .story { padding:28px !important; }
+}
