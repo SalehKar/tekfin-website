@@ -60,22 +60,22 @@ const Header = ({ language, setLanguage }) => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all ${
-          scrolled ? 'bg-white/95 shadow-lg ring-1 ring-blue-100' : 'bg-white/80 backdrop-blur-md ring-1 ring-white/40'
+          scrolled ? 'bg-white/95 shadow-md ring-1 ring-slate-200' : 'bg-white/90 backdrop-blur-md ring-1 ring-slate-200/70'
         }`}
       >
-        <div className="container mx-auto px-6 py-3.5 flex items-center justify-between">
+        <div className="container mx-auto px-5 lg:px-8 py-3 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Link to="/">
-              <img src="/images/tekfin-logo.png" alt="Logo" className="h-10 w-auto" />
+              <img src="/images/tekfin-logo.png" alt="Logo" className="h-12 md:h-14 w-auto" />
             </Link>
-            <span className="text-lg font-bold text-blue-900 hidden sm:inline tracking-wide">
+            <span className="text-sm lg:text-base font-bold text-slate-800 hidden lg:inline tracking-wide">
               TEKFİN TEKNOLOJİ LİMİTED ŞTİ
             </span>
           </div>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex gap-7 items-center text-sm font-medium">
+          <nav className="hidden md:flex gap-1.5 items-center text-sm font-medium">
             <Link to="/" className="text-blue-900 hover:text-blue-600 transition px-2 py-1 rounded-md hover:bg-blue-50">{t.home}</Link>
             <Link to="/about-us" className="text-blue-900 hover:text-blue-600 transition px-2 py-1 rounded-md hover:bg-blue-50">{t.about}</Link>
 
@@ -102,7 +102,7 @@ const Header = ({ language, setLanguage }) => {
               )}
             </div>
 
-            <Link to="/contact" className="text-blue-900 hover:text-blue-600 transition px-2 py-1 rounded-md hover:bg-blue-50">{t.contact}</Link>
+            <Link to="/contact" className="ml-2 rounded-full bg-blue-900 px-5 py-2 text-white shadow-sm transition hover:bg-blue-800">{t.contact}</Link>
           </nav>
 
           {/* Language + Mobile Menu Toggle */}
