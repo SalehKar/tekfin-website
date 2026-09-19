@@ -1,10 +1,10 @@
 {
-  "name": "storage-recommendation-function",
+  "name": "tekfin-netlify-functions",
   "version": "1.0.0",
-  "description": "Netlify function for AI-powered storage recommendations",
-  "main": "storage-recommendation.js",
+  "private": true,
+  "description": "Netlify Functions for TekFin website",
   "dependencies": {
-    "openai": "^4.0.0"
+    "nodemailer": "^7.0.5",
+    "openai": "^4.104.0"
   }
 }
-
