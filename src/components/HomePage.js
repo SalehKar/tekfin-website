@@ -18,13 +18,13 @@ const HomePage = ({ language }) => {
   const goContact = intent => navigate(`/contact?intent=${intent}`);
   const tr = language === 'tr';
   const t = tr ? {
-    eyebrow:'İŞLETME VERİ ÇÖZÜMLERİ', title:'Verilerinizi saklayın. Koruyun. Geri yükleyin.', accent:'İşletmenizin sürekliliğini güvence altına alın.',
+    eyebrow:'İŞLETME VERİ ÇÖZÜMLERİ', title:'İşletmeniz için daha sağlam bir veri altyapısı.', accent:'Verilerinizi yapılandırın, yedekleyin ve ihtiyaç anında güvenle geri yükleyin.',
     subtitle:'Büyüyen işletmeler için güvenilir depolama, yedekleme ve veri kurtarma çözümleri.',
     solutions:'Çözümlerimiz', contact:'İletişime Geçin', advisor:'Depolama Danışmanı', advisorText:'İşletmeniz için doğru depolama çözümünü bulun.', tryAdvisor:'Depolama Danışmanını Deneyin',
     expert:'Uzman öneriler', save:'Zaman ve maliyet tasarrufu', future:'Geleceğe hazır yapı',
     cards:[['Veri Depolama','İşletmeniz için ölçeklenebilir ve güvenilir depolama.',Database,'/data-storage'],['Yedekleme Hizmetleri','Verilerinizi güvenilir yedekleme çözümleriyle koruyun.',ShieldCheck,'/backup-services'],['Veri Kurtarma','İhtiyaç anında hızlı ve kontrollü veri kurtarma.',RotateCcw,'/data-recovery'],['Veri Koruma','Kapsamlı koruma yaklaşımıyla işletmenizi destekleyin.',ShieldCheck,'/backup-services']]
   } : {
-    eyebrow:'BUSINESS DATA SOLUTIONS', title:'Store. Protect. Recover.', accent:'Keep Your Business Running.', subtitle:'Reliable storage, backup and recovery solutions for a more resilient business.', solutions:'Our Solutions', contact:'Contact Us', advisor:'Storage Advisor', advisorText:'Find the right storage solution for your business.', tryAdvisor:'Try Storage Advisor',
+    eyebrow:'BUSINESS DATA SOLUTIONS', title:'A stronger data foundation for your business.', accent:'Structured storage. Reliable backup. Verified recovery.', subtitle:'Reliable storage, backup and recovery solutions for a more resilient business.', solutions:'Our Solutions', contact:'Contact Us', advisor:'Storage Advisor', advisorText:'Find the right storage solution for your business.', tryAdvisor:'Try Storage Advisor',
     expert:'Expert recommendations', save:'Save time and cost', future:'Get future-ready',
     cards:[['Data Storage','Scalable and reliable storage for your business.',Database,'/data-storage'],['Backup Services','Protect your data with reliable backup solutions.',ShieldCheck,'/backup-services'],['Data Recovery','Fast and controlled data recovery when needed.',RotateCcw,'/data-recovery'],['Data Protection','Comprehensive protection for your business.',ShieldCheck,'/backup-services']]
   };
@@ -35,7 +35,7 @@ const HomePage = ({ language }) => {
       <div className="relative mx-auto grid min-h-[470px] max-w-7xl lg:grid-cols-[1.65fr_.8fr]">
         <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:px-12">
           <div className="mb-5 text-xs font-bold tracking-[.24em] text-blue-300">{t.eyebrow}</div>
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[4.25rem]">{tr ? t.title : <>Store. Protect. Recover.<br/><span className="text-blue-400">Keep Your Business Running.</span></>}</h1>
+          <h1 className="max-w-4xl text-4xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[4.25rem]">{tr ? t.title : <>A stronger data foundation<br/><span className="text-blue-400">for your business.</span></>}</h1>
           {tr && <h2 className="mt-3 max-w-4xl text-3xl font-extrabold tracking-[-.035em] text-blue-400 sm:text-4xl">{t.accent}</h2>}
           <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 sm:text-xl">{t.subtitle}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
