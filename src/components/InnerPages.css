@@ -18,7 +18,7 @@
 .tk-inner-page > div > h1,
 .tk-advisor-page h1,
 .tk-results-page h1 {
-  font-size:clamp(2.4rem,5vw,4.8rem) !important;
+  font-size:clamp(2.25rem,4vw,3.6rem) !important;
   line-height:1.02 !important; letter-spacing:-.055em !important;
   color:var(--tk-ink) !important; text-align:left !important;
   margin:0 0 22px !important; font-weight:800 !important;
@@ -35,7 +35,7 @@
 .tk-inner-page .story > p,
 .tk-advisor-page .advisor-description {
   max-width:760px !important; color:var(--tk-muted) !important;
-  font-size:1.08rem !important; line-height:1.8 !important;
+  font-size:1rem !important; line-height:1.7 !important;
 }
 .tk-service-page .max-w-5xl { max-width:100% !important; }
 .tk-service-page .grid {
@@ -81,4 +81,24 @@
   .tk-service-page .grid { grid-template-columns:1fr !important; }
   .tk-service-page .mt-14 { padding:28px !important; }
   .tk-inner-page .story { padding:28px !important; }
+}
+
+
+/* Typography scale — keep hierarchy controlled and consistent with the home template */
+.tk-service-page h3,
+.tk-inner-page h3,
+.tk-advisor-page h2,
+.tk-results-page h2 { font-size:1.25rem !important; line-height:1.35 !important; font-weight:700 !important; }
+.tk-service-page p,
+.tk-inner-page p,
+.tk-advisor-page p,
+.tk-results-page p { line-height:1.7; }
+.tk-service-page .mt-14 p { font-size:1rem !important; }
+.tk-contact-page .contact-title { font-size:clamp(2.25rem,4vw,3.6rem) !important; line-height:1.05 !important; }
+@media(max-width:768px){
+  .tk-service-page > div > h2,
+  .tk-inner-page > div > h1,
+  .tk-advisor-page h1,
+  .tk-results-page h1,
+  .tk-contact-page .contact-title { font-size:2.35rem !important; line-height:1.08 !important; }
 }
