@@ -7,15 +7,17 @@ const Footer = ({ language }) => {
 
   return (
     <footer className="bg-[#031b2f] text-white">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-9 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[1.35fr_.8fr_.8fr_1.1fr]">
           <div>
-            <img
-              src="/images/tekfin-logo.png"
-              alt="TekFin Teknoloji"
-              className="h-16 w-auto rounded bg-white px-2 py-1"
-            />
-            <p className="mt-5 max-w-sm text-sm leading-6 text-slate-300">
+            <div className="flex h-16 w-[150px] items-center overflow-hidden rounded bg-white">
+              <img
+                src="/images/tekfin-logo.png"
+                alt="TekFin Teknoloji"
+                className="h-24 w-auto max-w-none scale-[1.55]"
+              />
+            </div>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-slate-300">
               {tr
                 ? 'TekFin, işletmeler için veri depolama, yedekleme ve veri kurtarma altyapısını birlikte tasarlar.'
                 : 'TekFin designs and manages data storage, backup, and recovery infrastructure for growing businesses.'}
@@ -24,7 +26,7 @@ const Footer = ({ language }) => {
               href="https://t.me/TekfinGroup"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-200 hover:text-blue-300"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slate-200 hover:text-blue-300"
             >
               <Send className="h-4 w-4 text-blue-400" />
               {tr ? 'Telegram kanalımız' : 'Telegram'}
@@ -68,7 +70,7 @@ const Footer = ({ language }) => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-7 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} TEKFİN TEKNOLOJİ LİMİTED ŞTİ. {tr ? 'Tüm hakları saklıdır.' : 'All rights reserved.'}</p>
           <p>İstanbul, Türkiye • info@tekfinteknoloji.com</p>
         </div>
