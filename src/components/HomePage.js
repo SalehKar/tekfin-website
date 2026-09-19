@@ -1,242 +1,94 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Database, HardDrive, CloudUpload, RotateCcw, ShieldCheck, Activity, Network, LockKeyhole, Check, Server, BookOpen, Gauge } from 'lucide-react';
-import Newsletter from './Newsletter';
+import { ArrowRight, Database, CloudUpload, RotateCcw, ShieldCheck, Check } from 'lucide-react';
 
 const StorageAdvisorMark = () => (
-  <div className="flex h-28 w-28 items-center justify-center rounded-[2rem] border border-blue-300/20 bg-blue-400/10 shadow-[0_0_50px_rgba(37,99,235,.18)]">
-    <svg viewBox="0 0 120 120" className="h-20 w-20" aria-hidden="true">
-      <defs>
-        <linearGradient id="advisorBlue" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#7dd3fc"/>
-          <stop offset="55%" stopColor="#2563eb"/>
-          <stop offset="100%" stopColor="#0ea5e9"/>
-        </linearGradient>
-      </defs>
-      <ellipse cx="60" cy="39" rx="27" ry="10" fill="none" stroke="url(#advisorBlue)" strokeWidth="7"/>
-      <path d="M33 39v19c0 6 12 11 27 11s27-5 27-11V39" fill="none" stroke="url(#advisorBlue)" strokeWidth="7"/>
-      <path d="M33 58v19c0 6 12 11 27 11s27-5 27-11V58" fill="none" stroke="url(#advisorBlue)" strokeWidth="7"/>
-      <path d="M24 82c14 14 39 18 61 9 10-4 18-11 23-20" fill="none" stroke="#e0f2fe" strokeWidth="5" strokeLinecap="round"/>
-      <path d="M99 64l10 7-12 3" fill="#38bdf8"/>
-      <path d="M18 43c7-14 22-23 39-25" fill="none" stroke="#60a5fa" strokeWidth="4" strokeLinecap="round" opacity=".8"/>
-    </svg>
-  </div>
+  <svg viewBox="0 0 120 120" className="h-28 w-28" aria-hidden="true">
+    <defs><linearGradient id="advisorBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#7dd3fc"/><stop offset="55%" stopColor="#2563eb"/><stop offset="100%" stopColor="#0ea5e9"/></linearGradient></defs>
+    <ellipse cx="60" cy="39" rx="27" ry="10" fill="none" stroke="url(#advisorBlue)" strokeWidth="7"/>
+    <path d="M33 39v19c0 6 12 11 27 11s27-5 27-11V39M33 58v19c0 6 12 11 27 11s27-5 27-11V58" fill="none" stroke="url(#advisorBlue)" strokeWidth="7"/>
+    <path d="M24 82c14 14 39 18 61 9 10-4 18-11 23-20" fill="none" stroke="#e0f2fe" strokeWidth="5" strokeLinecap="round"/>
+    <path d="M99 64l10 7-12 3" fill="#38bdf8"/>
+    <path d="M18 43c7-14 22-23 39-25" fill="none" stroke="#60a5fa" strokeWidth="4" strokeLinecap="round" opacity=".8"/>
+  </svg>
 );
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
-  const goContact = (intent) => navigate(`/contact?intent=${intent}`);
+  const goContact = intent => navigate(`/contact?intent=${intent}`);
+  const tr = language === 'tr';
+  const t = tr ? {
+    eyebrow:'İŞLETME VERİ ÇÖZÜMLERİ', title:'Verilerinizi saklayın. Koruyun. Geri yükleyin.', accent:'İşletmenizin sürekliliğini güvence altına alın.',
+    subtitle:'Büyüyen işletmeler için güvenilir depolama, yedekleme ve veri kurtarma çözümleri.',
+    solutions:'Çözümlerimiz', contact:'İletişime Geçin', advisor:'Depolama Danışmanı', advisorText:'İşletmeniz için doğru depolama çözümünü bulun.', tryAdvisor:'Depolama Danışmanını Deneyin',
+    expert:'Uzman öneriler', save:'Zaman ve maliyet tasarrufu', future:'Geleceğe hazır yapı',
+    cards:[['Veri Depolama','İşletmeniz için ölçeklenebilir ve güvenilir depolama.',Database,'/data-storage'],['Yedekleme Hizmetleri','Verilerinizi güvenilir yedekleme çözümleriyle koruyun.',ShieldCheck,'/backup-services'],['Veri Kurtarma','İhtiyaç anında hızlı ve kontrollü veri kurtarma.',RotateCcw,'/data-recovery'],['Veri Koruma','Kapsamlı koruma yaklaşımıyla işletmenizi destekleyin.',ShieldCheck,'/backup-services']]
+  } : {
+    eyebrow:'BUSINESS DATA SOLUTIONS', title:'Store. Protect. Recover.', accent:'Keep Your Business Running.', subtitle:'Reliable storage, backup and recovery solutions for a more resilient business.', solutions:'Our Solutions', contact:'Contact Us', advisor:'Storage Advisor', advisorText:'Find the right storage solution for your business.', tryAdvisor:'Try Storage Advisor',
+    expert:'Expert recommendations', save:'Save time and cost', future:'Get future-ready',
+    cards:[['Data Storage','Scalable and reliable storage for your business.',Database,'/data-storage'],['Backup Services','Protect your data with reliable backup solutions.',ShieldCheck,'/backup-services'],['Data Recovery','Fast and controlled data recovery when needed.',RotateCcw,'/data-recovery'],['Data Protection','Comprehensive protection for your business.',ShieldCheck,'/backup-services']]
+  };
 
-  const t = language === 'tr'
-    ? {
-        eyebrow: 'TEKFİN • İŞLETME VERİ ÇÖZÜMLERİ',
-        title: 'İşletmeniz için daha sağlam bir veri altyapısı.',
-        subtitle: 'Verilerinizi doğru yapılandırın, güvenilir şekilde yedekleyin ve ihtiyaç anında geri yükleyin.',
-        intro: 'TekFin, büyüyen işletmeler için depolama, yedekleme ve veri kurtarma altyapısını birlikte tasarlar. Hedefimiz yalnızca veri saklamak değil, iş sürekliliğini destekleyen yönetilebilir bir yapı kurmaktır.',
-        primary: 'Ücretsiz Veri Risk Analizi',
-        secondary: 'Danışmanlık Talep Et',
-        advisor: 'Depolama Danışmanı',
-        advisorCta: 'Öneri Alın',
-        solutionsTitle: 'Verinin yaşam döngüsünü tek bir yapı içinde yönetin.',
-        solutionsText: 'Depolama, yedekleme ve kurtarma birlikte tasarlanması gereken tek bir veri altyapısının parçalarıdır.',
-        protectionTitle: 'Koruma, çözümün üzerine eklenmez. İçine yerleştirilir.',
-        protectionText: 'Güvenlik ve izleme, TekFin veri altyapısının tasarım katmanının parçasıdır.',
-        whyTitle: 'Teknik altyapıyı işletme ihtiyacıyla birleştiriyoruz.',
-        ctaTitle: 'Veri kaybı bir sürpriz olmak zorunda değil.',
-        ctaText: 'Mevcut veri altyapınızı birlikte değerlendirelim ve işletmeniz için uygulanabilir bir yol haritası oluşturalım.'
-      }
-    : {
-        eyebrow: 'TEKFİN • BUSINESS DATA SOLUTIONS',
-        title: 'A stronger data foundation for your business.',
-        subtitle: 'Structure your data, back it up reliably, and restore it when your business needs it.',
-        intro: 'TekFin designs storage, backup, and recovery infrastructure as one connected system for growing businesses. The goal is not simply to store data, but to build a manageable foundation that supports continuity.',
-        primary: 'Free Data Risk Assessment',
-        secondary: 'Request Consultation',
-        advisor: 'Storage Advisor',
-        advisorCta: 'Get Recommendation',
-        solutionsTitle: 'Manage the data lifecycle as one system.',
-        solutionsText: 'Storage, backup, and recovery are parts of one data infrastructure that should be designed together.',
-        protectionTitle: 'Protection is not added on top. It is built in.',
-        protectionText: 'Security and monitoring are part of the TekFin data infrastructure design layer.',
-        whyTitle: 'We connect technical infrastructure to business requirements.',
-        ctaTitle: 'Data loss does not have to be a surprise.',
-        ctaText: 'Let us assess your current data infrastructure and define a practical path forward.'
-      };
-
-  const solutions = language === 'tr'
-    ? [
-        ['Veri Depolama', 'Performans, kapasite ve büyüme ihtiyacınıza göre doğru depolama mimarisi.', HardDrive, '/data-storage'],
-        ['Yedekleme Hizmetleri', 'Otomatik ve çok katmanlı yedekleme yaklaşımı, izleme ve raporlama.', CloudUpload, '/backup-services'],
-        ['Veri Kurtarma', 'RTO/RPO hedefleri, kurtarma senaryoları ve geri yükleme doğrulaması.', RotateCcw, '/data-recovery']
-      ]
-    : [
-        ['Data Storage', 'Storage architecture aligned with performance, capacity, and growth requirements.', HardDrive, '/data-storage'],
-        ['Backup Services', 'Automated, multi-layer backup with monitoring and reporting.', CloudUpload, '/backup-services'],
-        ['Data Recovery', 'RTO/RPO objectives, recovery scenarios, and restore verification.', RotateCcw, '/data-recovery']
-      ];
-
-  const protection = language === 'tr'
-    ? ['Şifreleme ve güvenli veri işleme', 'Erişim kontrolü ve yetkilendirme', 'Yedekleme başarısızlığı için uyarılar', 'Disk / RAID sağlık takibi', 'Periyodik geri yükleme testi']
-    : ['Encryption and secure data handling', 'Access control and authorization', 'Alerts for backup failures', 'Disk / RAID health monitoring', 'Periodic restore testing'];
-
-  const why = language === 'tr'
-    ? [
-        ['Pratik uzmanlık', 'Depolama, yedekleme ve kurtarma süreçlerinde işletme odaklı yaklaşım.'],
-        ['Güvenilirlik', 'Veri gizliliği ve doğrulanabilir süreçler tasarımın merkezindedir.'],
-        ['Hızlı aksiyon', 'Kritik durumlarda net süreç ve uygulanabilir teknik çözüm.'],
-        ['İş sürekliliği', 'Erişilebilirlik, kurtarılabilirlik ve sürekliliğe odaklanırız.']
-      ]
-    : [
-        ['Practical expertise', 'Business-focused experience across storage, backup, and recovery.'],
-        ['Reliability', 'Confidentiality and verifiable processes are built into the architecture.'],
-        ['Fast response', 'Clear processes and practical technical action when it matters.'],
-        ['Business continuity', 'We focus on availability, recoverability, and continuity.']
-      ];
-
-  return (
-    <div className="bg-white text-slate-950">
-      <section className="relative overflow-hidden bg-[#f7f7f4]">
-        <div className="absolute inset-0 opacity-60" style={{ backgroundImage: 'linear-gradient(rgba(15,23,42,.045) 1px, transparent 1px),linear-gradient(90deg,rgba(15,23,42,.045) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
-        <div className="relative mx-auto grid max-w-7xl items-stretch gap-0 px-5 pt-16 sm:px-8 lg:grid-cols-[1.5fr_.75fr] lg:pt-20">
-          <div className="flex flex-col justify-center pb-14 pr-0 lg:pr-10 lg:pb-16">
-            <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 text-[11px] font-semibold tracking-[.16em] text-slate-600 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-blue-600" />{t.eyebrow}
-            </div>
-            <h1 className="max-w-3xl text-4xl font-bold leading-[1.02] tracking-[-.04em] sm:text-5xl lg:text-[4.2rem]">{t.title}</h1>
-            <p className="mt-7 max-w-2xl text-[1.05rem] font-medium leading-7 text-slate-700 sm:text-xl">{t.subtitle}</p>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">{t.intro}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button onClick={() => goContact('assessment')} className="group inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white hover:bg-blue-700">
-                {t.primary}<ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
-              </button>
-              <button onClick={() => goContact('consultation')} className="rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 hover:border-slate-950">{t.secondary}</button>
-            </div>
-          </div>
-
-          <div className="relative flex min-h-[430px] items-stretch overflow-hidden rounded-t-[2rem] bg-slate-950 text-white lg:rounded-t-none lg:rounded-l-[2rem]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(37,99,235,.24),transparent_45%)]" />
-            <div className="relative flex w-full flex-col justify-between border border-white/10 p-6 sm:p-8">
-              <div className="flex items-center justify-between">
-                <span className="rounded-full bg-blue-500 px-3 py-1 text-[10px] font-bold tracking-[.12em] text-white">NEW</span>
-                <span className="text-[10px] font-semibold tracking-[.2em] text-slate-500">TEKFİN SERVICE</span>
-              </div>
-              <div className="grid items-center gap-6 sm:grid-cols-[1fr_auto]">
-                <div>
-                  <h2 className="text-3xl font-bold leading-none tracking-[-.03em] sm:text-[2.2rem]">{t.advisor}</h2>
-                  <p className="mt-4 max-w-xs text-sm leading-6 text-slate-300">
-                    {language === 'tr' ? 'İhtiyacınıza göre doğru depolama çözümünü belirleyin.' : 'Find the right storage solution for your business needs.'}
-                  </p>
-                  <div className="mt-5 space-y-2.5 text-xs text-slate-300">
-                    {[language === 'tr' ? 'Doğru kapasite ve performans' : 'Right sizing and performance', language === 'tr' ? 'Maliyet optimizasyonu' : 'Cost optimization', language === 'tr' ? 'Geleceğe hazır yapı' : 'Future-ready planning'].map((item) => (
-                      <div key={item} className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-white"><Check className="h-3 w-3" /></span>{item}</div>
-                    ))}
-                  </div>
-                  <button onClick={() => navigate('/storage-advisor')} className="mt-6 inline-flex items-center rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-slate-900 hover:bg-blue-50">
-                    {t.advisorCta}<ArrowRight className="ml-2 h-4 w-4 text-blue-600" />
-                  </button>
-                </div>
-                <div className="flex flex-col items-center justify-center border-l border-white/10 pl-6">
-                  <StorageAdvisorMark />
-                  <div className="mt-4 text-center">
-                    <p className="text-[11px] font-bold tracking-[.35em] text-white">STORAGE</p>
-                    <p className="text-[11px] font-bold tracking-[.35em] text-blue-400">ADVISOR</p>
-                    <p className="mt-2 text-[9px] tracking-[.3em] text-slate-500">BY TEKFIN</p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 flex items-center gap-2 text-[10px] font-medium text-slate-500">
-                <Gauge className="h-4 w-4 text-blue-400" /> {language === 'tr' ? 'Veri depolama ihtiyaç analizi' : 'Storage needs assessment'}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
-        <div className="grid gap-3 rounded-3xl border border-slate-200 bg-white p-3 sm:grid-cols-3">
-          {[['Storage', Database], ['Backup', CloudUpload], ['Recovery', RotateCcw]].map(([label, I], i) => (
-            <div key={i} className="flex items-center gap-3 rounded-2xl bg-slate-50 px-5 py-4">
-              <I className="h-5 w-5 text-slate-700" />
-              <span className="text-sm font-semibold">{language === 'tr' ? ['Depolama', 'Yedekleme', 'Kurtarma'][i] : label}</span>
-              <span className="ml-auto h-1.5 w-1.5 rounded-full bg-blue-600" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="max-w-3xl">
-          <div className="mb-4 text-xs font-bold tracking-[.2em] text-blue-600">SOLUTIONS</div>
-          <h2 className="text-3xl font-bold tracking-[-.03em] sm:text-[2.65rem]">{t.solutionsTitle}</h2>
-          <p className="mt-5 text-base leading-7 text-slate-500 sm:text-lg">{t.solutionsText}</p>
-        </div>
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {solutions.map(([title, text, I, href], i) => (
-            <button key={i} onClick={() => navigate(href)} className="group rounded-[1.75rem] border border-slate-200 bg-white p-7 text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-14 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-blue-600"><I className="h-6 w-6" /></div>
-              <div className="flex items-end justify-between gap-4">
-                <div><h3 className="text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-500">{text}</p></div>
-                <ArrowRight className="h-5 w-5 shrink-0 transition group-hover:translate-x-1" />
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-slate-950 text-white">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 sm:px-8 lg:grid-cols-[.85fr_1.15fr] lg:py-28">
-          <div>
-            <div className="mb-4 text-xs font-bold tracking-[.2em] text-blue-300">BUILT-IN PROTECTION</div>
-            <h2 className="text-3xl font-bold tracking-[-.03em] sm:text-[2.65rem]">{t.protectionTitle}</h2>
-            <p className="mt-5 max-w-xl leading-7 text-slate-400">{t.protectionText}</p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {protection.map((x, i) => (
-              <div key={i} className="rounded-2xl border border-white/10 bg-white/[.035] p-5"><Check className="h-5 w-5 text-blue-300" /><p className="mt-6 text-sm font-semibold text-slate-100">{x}</p></div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-          <div><div className="mb-4 text-xs font-bold tracking-[.2em] text-blue-600">WHY TEKFIN</div><h2 className="text-3xl font-bold tracking-[-.03em] sm:text-[2.65rem]">{t.whyTitle}</h2></div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {why.map(([a, b], i) => (
-              <div key={i} className="rounded-2xl border border-slate-200 p-6"><div className="mb-8 text-sm font-bold text-slate-400">0{i + 1}</div><h3 className="font-bold">{a}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{b}</p></div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#f7f7f4]">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-          <div className="flex flex-col gap-5 rounded-[2rem] border border-slate-200 bg-white p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <div className="flex items-center gap-2 text-xs font-bold tracking-[.16em] text-slate-400"><BookOpen className="h-4 w-4" /> FUTURE SERVICES</div>
-              <p className="mt-3 text-sm leading-6 text-slate-600">{language === 'tr' ? 'Managed Backup, Cloud DR ve Remote Monitoring gibi hizmetleri zaman içinde veri altyapısı portföyümüze ekleyeceğiz.' : 'Managed Backup, Cloud DR and Remote Monitoring capabilities will expand the data infrastructure portfolio over time.'}</p>
-            </div>
-            <button onClick={() => goContact('consultation')} className="inline-flex shrink-0 items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700">
-              {t.secondary}<ArrowRight className="ml-2 h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <Newsletter language={language} />
-
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-        <div className="overflow-hidden rounded-[2rem] bg-blue-600 px-7 py-14 text-white sm:px-12 lg:px-16">
-          <h2 className="max-w-3xl text-3xl font-bold tracking-[-.03em] sm:text-[2.65rem]">{t.ctaTitle}</h2>
-          <p className="mt-5 max-w-2xl leading-7 text-blue-100">{t.ctaText}</p>
+  return <div className="bg-white text-slate-950">
+    <section className="relative overflow-hidden bg-[#031b2f] text-white">
+      <div className="absolute inset-0 opacity-80" style={{backgroundImage:'radial-gradient(circle at 78% 45%,rgba(14,165,233,.2),transparent 25%),linear-gradient(90deg,rgba(3,27,47,.98) 0%,rgba(3,27,47,.9) 45%,rgba(3,27,47,.48) 100%),repeating-linear-gradient(90deg,transparent 0 34px,rgba(96,165,250,.08) 35px 37px),repeating-linear-gradient(0deg,transparent 0 20px,rgba(96,165,250,.045) 21px 22px)'}}/>
+      <div className="relative mx-auto grid min-h-[470px] max-w-7xl lg:grid-cols-[1.65fr_.8fr]">
+        <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:px-12">
+          <div className="mb-5 text-xs font-bold tracking-[.24em] text-blue-300">{t.eyebrow}</div>
+          <h1 className="max-w-4xl text-4xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[4.25rem]">{tr ? t.title : <>Store. Protect. Recover.<br/><span className="text-blue-400">Keep Your Business Running.</span></>}</h1>
+          {tr && <h2 className="mt-3 max-w-4xl text-3xl font-extrabold tracking-[-.035em] text-blue-400 sm:text-4xl">{t.accent}</h2>}
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 sm:text-xl">{t.subtitle}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button onClick={() => goContact('assessment')} className="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-blue-700 hover:bg-blue-50">{t.primary}</button>
-            <button onClick={() => goContact('consultation')} className="rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white">{t.secondary}</button>
+            <button onClick={() => document.getElementById('solutions')?.scrollIntoView({behavior:'smooth'})} className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-7 py-3.5 text-sm font-bold text-white hover:bg-blue-500">{t.solutions}<ArrowRight className="ml-2 h-4 w-4"/></button>
+            <button onClick={() => goContact('consultation')} className="inline-flex items-center justify-center rounded-lg border border-white/60 bg-white/5 px-7 py-3.5 text-sm font-bold text-white hover:bg-white/10">{t.contact}</button>
           </div>
         </div>
-      </section>
-    </div>
-  );
+
+        <div className="relative flex items-center border-l border-white/10 bg-[#041526]/80 px-6 py-10 sm:px-10">
+          <div className="w-full">
+            <div className="mb-5 flex items-center justify-between"><span className="rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold">NEW</span><span className="text-[9px] font-bold tracking-[.2em] text-slate-500">TEKFİN SERVICE</span></div>
+            <div className="grid items-center gap-5 sm:grid-cols-[1fr_auto]">
+              <div>
+                <h2 className="text-3xl font-bold leading-none sm:text-[2.35rem]">{t.advisor}</h2>
+                <p className="mt-3 max-w-xs text-sm leading-6 text-slate-300">{t.advisorText}</p>
+                <div className="mt-5 space-y-2.5 text-xs text-slate-200">
+                  {[t.expert,t.save,t.future].map(x => <div key={x} className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500"><Check className="h-3 w-3"/></span>{x}</div>)}
+                </div>
+                <button onClick={() => navigate('/storage-advisor')} className="mt-6 inline-flex items-center rounded-lg bg-white px-4 py-2.5 text-xs font-bold text-slate-950 hover:bg-blue-50">{t.tryAdvisor}<ArrowRight className="ml-2 h-4 w-4 text-blue-600"/></button>
+              </div>
+              <div className="border-l border-white/10 pl-5 text-center"><StorageAdvisorMark/><div className="mt-2 text-[11px] font-extrabold tracking-[.3em]">STORAGE</div><div className="text-[11px] font-extrabold tracking-[.3em] text-blue-400">ADVISOR</div><div className="mt-2 text-[9px] tracking-[.25em] text-slate-400">BY TEKFIN</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" className="border-b border-slate-200 bg-white">
+      <div className="mx-auto grid max-w-7xl gap-4 px-5 py-5 sm:px-8 lg:grid-cols-4">
+        {t.cards.map(([title,text,I,href],i) => <button key={i} onClick={() => navigate(href)} className="group min-h-[150px] rounded-xl border border-blue-100 bg-white p-5 text-left shadow-[0_5px_20px_rgba(15,23,42,.04)] transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg">
+          <div className="flex items-start justify-between"><div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600"><I className="h-6 w-6"/></div><ArrowRight className="mt-3 h-5 w-5 text-blue-600 transition group-hover:translate-x-1"/></div>
+          <h3 className="mt-5 text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-5 text-slate-500">{text}</p>
+        </button>)}
+      </div>
+    </section>
+
+    <section className="bg-[#f7f7f4] py-16">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-6 rounded-3xl bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+          <div><div className="text-xs font-bold tracking-[.2em] text-blue-600">{tr ? 'İŞ SÜREKLİLİĞİ' : 'BUSINESS CONTINUITY'}</div><h2 className="mt-3 text-3xl font-extrabold tracking-[-.03em] sm:text-4xl">{tr ? 'Veri altyapınız tek bir sistem olarak çalışmalı.' : 'Your data infrastructure should work as one system.'}</h2></div>
+          <p className="text-sm leading-7 text-slate-500 sm:text-base">{tr ? 'Depolama, yedekleme, kurtarma ve koruma katmanlarını birlikte tasarlayarak işletmenizin veriye erişimini ve geri dönebilirliğini güçlendiriyoruz.' : 'We connect storage, backup, recovery and protection so your business has a manageable foundation for availability and recoverability.'}</p>
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-[#031b2f] py-16 text-white">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">{(tr ? ['Şifreleme ve güvenli veri işleme','Erişim kontrolü','Yedekleme uyarıları','Disk / RAID sağlık takibi','Geri yükleme testi'] : ['Encryption and secure handling','Access control','Backup alerts','Disk / RAID monitoring','Restore testing']).map(x => <div key={x} className="rounded-xl border border-white/10 bg-white/[.035] p-5"><Check className="h-5 w-5 text-blue-300"/><p className="mt-5 text-sm font-semibold text-slate-200">{x}</p></div>)}</div></div>
+    </section>
+
+    <section className="bg-white py-16">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="flex flex-col gap-5 rounded-2xl bg-blue-600 px-7 py-10 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between"><div><h2 className="text-3xl font-extrabold">{tr ? 'Veri riskinizi bugün değerlendirin.' : 'Assess your data risk today.'}</h2><p className="mt-2 text-sm text-blue-100">{tr ? 'Mevcut altyapınızı birlikte inceleyelim.' : 'Let us review your current infrastructure.'}</p></div><button onClick={() => goContact('assessment')} className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-bold text-blue-700 hover:bg-blue-50">{tr ? 'Ücretsiz Veri Risk Analizi' : 'Free Data Risk Assessment'}<ArrowRight className="ml-2 h-4 w-4"/></button></div></div>
+    </section>
+  </div>;
 };
 
 export default HomePage;
