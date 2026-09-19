@@ -16,8 +16,7 @@ const Recommendations = ({ language }) => {
   const isTR = language === 'tr';
 
   if (!usage || !capacity || !speed || !portability) {
-    return (
-      <div className="p-6 text-center text-red-600 flex flex-col items-center">
+    return (\n    <div className="tk-results-page">
         <FaExclamationTriangle className="text-3xl mb-2" />
         {isTR
           ? 'Veriler eksik. Lütfen formu tekrar doldurun.'
