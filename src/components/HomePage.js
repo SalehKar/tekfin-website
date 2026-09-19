@@ -29,7 +29,7 @@ const HomePage = ({ language }) => {
 
   const t = language === 'tr'
     ? {
-        eyebrow: 'TEKFİN • BUSINESS DATA SOLUTIONS',
+        eyebrow: 'TEKFİN • İŞLETME VERİ ÇÖZÜMLERİ',
         title: 'İşletmeniz için daha sağlam bir veri altyapısı.',
         subtitle: 'Verilerinizi doğru yapılandırın, güvenilir şekilde yedekleyin ve ihtiyaç anında geri yükleyin.',
         intro: 'TekFin, büyüyen işletmeler için depolama, yedekleme ve veri kurtarma altyapısını birlikte tasarlar. Hedefimiz yalnızca veri saklamak değil, iş sürekliliğini destekleyen yönetilebilir bir yapı kurmaktır.',
