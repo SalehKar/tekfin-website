@@ -162,8 +162,7 @@ const Contact = ({ language }) => {
 
   const isSending = status === t.sending;
 
-  return (
-    <div className="container mx-auto pt-28 px-6 pb-12 bg-white rounded-lg">
+  return (\n    <div className="tk-contact-page">
       <h1 className="text-4xl font-bold text-center text-[#1f3b6f] mb-3">
         {intentCopy.title}
       </h1>
