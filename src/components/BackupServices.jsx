@@ -65,7 +65,8 @@ export default function BackupServices({ language = "tr" }) {
     <FaCheckCircle className="text-white w-5 h-5" />
   ];
 
-  return (\n    <div className="tk-service-page">
+  return (
+    <div className="tk-service-page">
       <div className="max-w-7xl mx-auto">
         {/* Title & Intro */}
         <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
