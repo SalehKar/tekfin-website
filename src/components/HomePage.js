@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Database, RotateCcw, ShieldCheck, Check } from 'lucide-react';
+import { ArrowRight, Server, RotateCcw, ShieldCheck, Check, LockKeyhole, UserRoundCheck, BellRing, HardDrive, RotateCw } from 'lucide-react';
 
 const StorageAdvisorMark = () => (
   <svg viewBox="0 0 120 120" className="h-28 w-28" aria-hidden="true">
@@ -38,7 +38,7 @@ const HomePage = ({ language }) => {
     save: 'Zaman ve maliyet tasarrufu',
     future: 'Geleceğe hazır yapı',
     cards: [
-      ['Veri Depolama', 'İşletmeniz için ölçeklenebilir ve güvenilir depolama.', Database, '/data-storage'],
+      ['Veri Depolama', 'İşletmeniz için ölçeklenebilir ve güvenilir depolama.', Server, '/data-storage'],
       ['Yedekleme Hizmetleri', 'Verilerinizi güvenilir yedekleme çözümleriyle koruyun.', ShieldCheck, '/backup-services'],
       ['Veri Kurtarma', 'İhtiyaç anında hızlı ve kontrollü veri kurtarma.', RotateCcw, '/data-recovery']
     ]
@@ -56,15 +56,27 @@ const HomePage = ({ language }) => {
     save: 'Save time and cost',
     future: 'Get future-ready',
     cards: [
-      ['Data Storage', 'Scalable and reliable storage for your business.', Database, '/data-storage'],
+      ['Data Storage', 'Scalable and reliable storage for your business.', Server, '/data-storage'],
       ['Backup Services', 'Protect your data with reliable backup solutions.', ShieldCheck, '/backup-services'],
       ['Data Recovery', 'Fast and controlled data recovery when needed.', RotateCcw, '/data-recovery']
     ]
   };
 
   const protectionItems = tr
-    ? ['Şifreleme ve güvenli veri işleme', 'Erişim kontrolü ve yetkilendirme', 'Yedekleme hataları için izleme ve uyarılar', 'Disk / RAID sağlık takibi', 'Periyodik geri yükleme testi ve doğrulama']
-    : ['Encryption and secure data handling', 'Access control and authorization', 'Backup failure monitoring and alerts', 'Disk / RAID health monitoring', 'Periodic restore testing and verification'];
+    ? [
+        ['Şifreleme ve güvenli veri işleme', LockKeyhole],
+        ['Erişim kontrolü ve yetkilendirme', UserRoundCheck],
+        ['Yedekleme hataları için izleme ve uyarılar', BellRing],
+        ['Disk / RAID sağlık takibi', HardDrive],
+        ['Periyodik geri yükleme testi ve doğrulama', RotateCw]
+      ]
+    : [
+        ['Encryption and secure data handling', LockKeyhole],
+        ['Access control and authorization', UserRoundCheck],
+        ['Backup failure monitoring and alerts', BellRing],
+        ['Disk / RAID health monitoring', HardDrive],
+        ['Periodic restore testing and verification', RotateCw]
+      ];
 
   return (
     <div className="bg-white text-slate-950">
@@ -77,8 +89,8 @@ const HomePage = ({ language }) => {
           }}
         />
 
-        <div className="relative mx-auto grid min-h-[560px] max-w-7xl lg:grid-cols-[1.55fr_.85fr]">
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:px-12 lg:py-20">
+        <div className="relative mx-auto grid min-h-[500px] max-w-7xl lg:grid-cols-[1.55fr_.85fr]">
+          <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-12 lg:py-14">
             <div className="mb-5 text-xs font-bold tracking-[.24em] text-blue-300">{t.eyebrow}</div>
             <h1 className="max-w-4xl text-4xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[4.25rem]">
               {tr ? t.title : <>A stronger data foundation<br /><span className="text-blue-400">for your business.</span></>}
@@ -104,7 +116,7 @@ const HomePage = ({ language }) => {
             </div>
           </div>
 
-          <div className="relative flex items-center border-l border-white/10 bg-[#041526]/80 px-6 py-10 sm:px-10">
+          <div className="relative flex items-center border-l border-white/10 bg-[#041526]/80 px-6 py-8 sm:px-10">
             <div className="w-full">
               <div className="mb-5 flex items-center justify-between">
                 <span className="rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold">{tr ? 'YENİ' : 'NEW'}</span>
@@ -151,7 +163,7 @@ const HomePage = ({ language }) => {
             <button
               key={href}
               onClick={() => navigate(href)}
-              className="group min-h-[178px] rounded-xl border border-blue-100 bg-white p-6 text-left shadow-[0_5px_20px_rgba(15,23,42,.04)] transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+              className="group min-h-[156px] rounded-xl border border-blue-100 bg-white p-6 text-left shadow-[0_5px_20px_rgba(15,23,42,.04)] transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
             >
               <div className="flex items-start justify-between">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
@@ -166,7 +178,7 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="bg-[#f7f7f4] py-16">
+      <section className="bg-[#f7f7f4] py-10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-6 rounded-3xl bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <div>
@@ -184,28 +196,28 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="bg-[#031b2f] py-16 text-white">
+      <section className="bg-[#031b2f] py-10 text-white">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mb-8 max-w-2xl">
+          <div className="mb-6 max-w-2xl">
             <div className="text-xs font-bold tracking-[.2em] text-blue-300">{tr ? 'KORUMA KATMANI' : 'BUILT-IN PROTECTION'}</div>
             <h2 className="mt-3 text-3xl font-extrabold tracking-[-.03em] sm:text-4xl">
               {tr ? 'Koruma, altyapının içine gömülüdür.' : 'Protection is built into the infrastructure.'}
             </h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {protectionItems.map(x => (
-              <div key={x} className="rounded-xl border border-white/10 bg-white/[.035] p-5">
-                <Check className="h-5 w-5 text-blue-300" />
-                <p className="mt-5 text-sm font-semibold text-slate-200">{x}</p>
+            {protectionItems.map(([label, Icon]) => (
+              <div key={label} className="rounded-xl border border-white/10 bg-white/[.035] p-4">
+                <Icon className="h-5 w-5 text-blue-300" />
+                <p className="mt-4 text-sm font-semibold leading-5 text-slate-200">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="flex flex-col gap-5 rounded-2xl bg-blue-600 px-7 py-10 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 rounded-2xl bg-blue-600 px-7 py-7 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h2 className="text-3xl font-extrabold">{tr ? 'Veri riskinizi bugün değerlendirin.' : 'Assess your data risk today.'}</h2>
               <p className="mt-2 text-sm text-blue-100">{tr ? 'Mevcut altyapınızı birlikte inceleyelim.' : 'Let us review your current infrastructure.'}</p>
