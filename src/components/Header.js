@@ -38,8 +38,8 @@ const Header = ({ language, setLanguage }) => {
 
       <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl">
         <div className={`mx-auto flex max-w-7xl items-center justify-between border-b px-5 py-3 transition-all sm:px-8 ${scrolled ? 'border-slate-200 shadow-sm' : 'border-slate-100'}`}>
-          <Link to="/" className="shrink-0">
-            <img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-12 w-auto sm:h-14" />
+          <Link to="/" className="flex h-14 w-[150px] shrink-0 items-center overflow-hidden sm:h-16 sm:w-[165px]">
+            <img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-24 w-auto max-w-none scale-[1.55] sm:h-28 sm:scale-[1.55]" />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
@@ -66,7 +66,7 @@ const Header = ({ language, setLanguage }) => {
 
       {open && <div className="fixed inset-0 z-[60] bg-slate-950/40 backdrop-blur-sm md:hidden" onClick={() => setOpen(false)}>
         <div className="absolute right-3 top-3 w-[calc(100%-1.5rem)] max-w-md rounded-3xl bg-white p-5 shadow-2xl" onClick={e => e.stopPropagation()}>
-          <div className="flex items-center justify-between"><img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-12 w-auto"/><button onClick={() => setOpen(false)} className="rounded-full p-2 hover:bg-slate-100"><X className="h-5 w-5"/></button></div>
+          <div className="flex items-center justify-between"><div className="flex h-14 w-[150px] items-center overflow-hidden"><img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-24 w-auto max-w-none scale-[1.5]" /></div><button onClick={() => setOpen(false)} className="rounded-full p-2 hover:bg-slate-100"><X className="h-5 w-5"/></button></div>
           <nav className="mt-6 space-y-1">
             <Link to="/" className="block rounded-xl px-4 py-3 font-semibold hover:bg-slate-50">{t.home}</Link>
             <button onClick={() => setSolutionsOpen(v => !v)} className="flex w-full items-center justify-between rounded-xl px-4 py-3 font-semibold hover:bg-slate-50">{t.solutions}<ChevronDown className={`h-4 w-4 ${solutionsOpen ? 'rotate-180' : ''}`}/></button>
