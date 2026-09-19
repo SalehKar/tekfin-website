@@ -214,12 +214,6 @@ const HomePage = ({ language }) => {
     customerFocus: <FaUsers className="w-8 h-8 text-white" />
   };
 
-  const whyColors = {
-    expertise: 'from-green-500 to-emerald-600',
-    reliability: 'from-blue-500 to-purple-600',
-    fastSolutions: 'from-yellow-500 to-orange-500',
-    customerFocus: 'from-pink-500 to-red-500'
-  };
 
 return (
   <div className="homepage">
