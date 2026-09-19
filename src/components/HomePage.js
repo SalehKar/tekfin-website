@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Server, RotateCcw, ShieldCheck, Check, LockKeyhole, UserRoundCheck, BellRing, HardDrive, RotateCw } from 'lucide-react';
+import { ArrowRight, Server, RotateCcw, ShieldCheck, LockKeyhole, UserRoundCheck, BellRing, HardDrive, RotateCw } from 'lucide-react';
 
 const StorageAdvisorMark = () => (
   <svg viewBox="0 0 120 120" className="h-28 w-28" aria-hidden="true">
@@ -130,9 +130,7 @@ const HomePage = ({ language }) => {
                   <div className="mt-5 space-y-2.5 text-xs text-slate-200">
                     {[t.expert, t.save, t.future].map(x => (
                       <div key={x} className="flex items-center gap-2">
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500">
-                          <Check className="h-3 w-3" />
-                        </span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
                         {x}
                       </div>
                     ))}
@@ -165,14 +163,14 @@ const HomePage = ({ language }) => {
               onClick={() => navigate(href)}
               className="group min-h-[156px] rounded-xl border border-blue-100 bg-white p-6 text-left shadow-[0_5px_20px_rgba(15,23,42,.04)] transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <ArrowRight className="mt-3 h-5 w-5 text-blue-600 transition group-hover:translate-x-1" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-5 text-lg font-bold">{title}</h3>
+              <h3 className="mt-4 text-lg font-bold">{title}</h3>
               <p className="mt-2 text-sm leading-5 text-slate-500">{text}</p>
+              <span className="mt-4 inline-flex items-center text-xs font-bold text-blue-600">
+                {tr ? 'عرض الحل' : 'View solution'} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+              </span>
             </button>
           ))}
         </div>
@@ -180,7 +178,7 @@ const HomePage = ({ language }) => {
 
       <section className="bg-[#f7f7f4] py-10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-6 rounded-3xl bg-white p-7 shadow-sm sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+          <div className="grid gap-6 rounded-3xl bg-white p-7 shadow-sm sm:p-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <div>
               <div className="text-xs font-bold tracking-[.2em] text-blue-600">{tr ? 'İŞ SÜREKLİLİĞİ' : 'BUSINESS CONTINUITY'}</div>
               <h2 className="mt-3 text-3xl font-extrabold tracking-[-.03em] sm:text-4xl">
@@ -196,7 +194,7 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="bg-[#031b2f] py-10 text-white">
+      <section className="bg-[#031b2f] py-8 text-white">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mb-6 max-w-2xl">
             <div className="text-xs font-bold tracking-[.2em] text-blue-300">{tr ? 'KORUMA KATMANI' : 'BUILT-IN PROTECTION'}</div>
@@ -215,7 +213,7 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="bg-white py-10">
+      <section className="bg-white py-8">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col gap-4 rounded-2xl bg-blue-600 px-7 py-7 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between">
             <div>
