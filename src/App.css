@@ -5,9 +5,9 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #0f172a;
   background-color: #fff;
 }
 
@@ -22,9 +22,9 @@ main {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
 }
 
 /* Global Styles */
@@ -49,7 +49,7 @@ html {
 /* Focus styles for accessibility */
 button:focus,
 a:focus {
-  outline: 2px solid #667eea;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
