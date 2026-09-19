@@ -64,8 +64,7 @@ const AboutUs = ({ language }) => {
 
   const t = content[language] || content.en;
 
-  return (
-    <div className="bg-white text-[#1f3b6f] px-4 py-12">
+  return (\n    <div className="tk-inner-page">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-12 text-[#002855]">{t.title}</h1>
 
