@@ -77,7 +77,7 @@ const HomePage = ({ language }) => {
           }}
         />
 
-        <div className="relative mx-auto grid min-h-[500px] max-w-7xl lg:grid-cols-[1.55fr_.85fr]">
+        <div className="relative mx-auto grid min-h-[560px] max-w-7xl lg:grid-cols-[1.55fr_.85fr]">
           <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:px-12 lg:py-20">
             <div className="mb-5 text-xs font-bold tracking-[.24em] text-blue-300">{t.eyebrow}</div>
             <h1 className="max-w-4xl text-4xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[4.25rem]">
@@ -107,8 +107,8 @@ const HomePage = ({ language }) => {
           <div className="relative flex items-center border-l border-white/10 bg-[#041526]/80 px-6 py-10 sm:px-10">
             <div className="w-full">
               <div className="mb-5 flex items-center justify-between">
-                <span className="rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold">NEW</span>
-                <span className="text-[9px] font-bold tracking-[.2em] text-slate-500">TEKFİN SERVICE</span>
+                <span className="rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold">{tr ? 'YENİ' : 'NEW'}</span>
+                <span className="text-[9px] font-bold tracking-[.2em] text-slate-500">{tr ? 'TEKFİN HİZMETİ' : 'TEKFİN SERVICE'}</span>
               </div>
 
               <div className="grid items-center gap-5 sm:grid-cols-[1fr_auto]">
@@ -135,8 +135,8 @@ const HomePage = ({ language }) => {
 
                 <div className="border-l border-white/10 pl-5 text-center">
                   <StorageAdvisorMark />
-                  <div className="mt-2 text-[11px] font-extrabold tracking-[.3em]">STORAGE</div>
-                  <div className="text-[11px] font-extrabold tracking-[.3em] text-blue-400">ADVISOR</div>
+                  <div className="mt-2 text-[11px] font-extrabold tracking-[.3em]">{tr ? 'DEPOLAMA' : 'STORAGE'}</div>
+                  <div className="text-[11px] font-extrabold tracking-[.3em] text-blue-400">{tr ? 'DANIŞMANI' : 'ADVISOR'}</div>
                   <div className="mt-2 text-[9px] tracking-[.25em] text-slate-400">BY TEKFIN</div>
                 </div>
               </div>
