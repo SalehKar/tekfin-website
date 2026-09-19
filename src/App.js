@@ -16,7 +16,7 @@ import AboutUs from './components/AboutUs';
 import './App.css';
 
 function App() {
-  const [language, setLanguage] = useState('tr'); // 'en' or 'tr'
+  const [language, setLanguage] = useState('tr'); // Turkish is the primary/default language
 
   return (
     <Router>
