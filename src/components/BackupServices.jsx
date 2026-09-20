@@ -1,107 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaClipboardCheck, FaCloudUploadAlt, FaSyncAlt, FaShieldAlt, FaCheckCircle } from "react-icons/fa";
-import ProcessTimeline from "./ProcessTimeline";
+import { FaClipboardCheck, FaCloudUploadAlt, FaSyncAlt, FaShieldAlt, FaArrowRight } from "react-icons/fa";
 
 export default function BackupServices({ language = "tr" }) {
-  const content = {
-    tr: {
-      title: "Yedekleme Hizmetleri",
-      paragraph:
-        "Veri kaybını önlemek için otomatik yedekleme çözümleri sunuyoruz. Güvenli, hızlı ve iş sürekliliğini sağlayan sistemler ile verileriniz her zaman koruma altında.",
-      services: [
-        { icon: <FaClipboardCheck className="text-blue-800 w-10 h-10" />, text: "Otomatik Yedekleme Planları" },
-        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Bulut Yedekleme" },
-        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Gerçek Zamanlı Senkronizasyon" },
-        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Veri Şifreleme ve Güvenlik" }
-      ],
-      privacy: "🔒 Yedek verileriniz – koruma altında ve her zaman erişilebilir",
-      processTitle: "Yedekleme Sürecimiz",
-      processSteps: [
-        "İhtiyaç Analizi",
-        "Yedekleme Stratejisinin Belirlenmesi",
-        "Altyapı Kurulumu",
-        "Otomatik Yedekleme Başlatma",
-        "Düzenli Kontrol ve Güncelleme"
-      ],
-      cta: {
-        question: "Verilerinizi yedeklemek mi istiyorsunuz?",
-        action: "Bizimle İletişime Geçin"
-      }
-    },
-    en: {
-      title: "Backup Services",
-      paragraph:
-        "We offer automated backup solutions to prevent data loss. With secure, fast, and business continuity-focused systems, your data is always protected.",
-      services: [
-        { icon: <FaClipboardCheck className="text-blue-800 w-10 h-10" />, text: "Automated Backup Plans" },
-        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Cloud Backup" },
-        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Real-Time Synchronization" },
-        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Data Encryption & Security" }
-      ],
-      privacy: "🔒 Your backup data – protected and available anytime",
-      processTitle: "Our Backup Process",
-      processSteps: [
-        "Needs Analysis",
-        "Backup Strategy Definition",
-        "Infrastructure Setup",
-        "Start Automatic Backup",
-        "Regular Check & Update"
-      ],
-      cta: {
-        question: "Want to backup your data?",
-        action: "Contact Us"
-      }
-    }
+  const tr = language === "tr";
+  const t = tr ? {
+    eyebrow:"YEDEKLEME HİZMETLERİ", title:"İşletmeniz için düzenli, güvenilir ve doğrulanabilir yedekleme.",
+    intro:"Veri kaybı riskini azaltmak için otomatik, güvenilir ve işletmenizin çalışma düzenine uygun yedekleme altyapıları tasarlıyoruz.",
+    cards:[
+      ["Otomatik Yedekleme Planları","İşletmenizin çalışma düzenine göre düzenli ve otomatik yedekleme planları oluşturun."],
+      ["Bulut Yedekleme","Yerel yapıyı gerektiğinde bulut seçenekleriyle destekleyerek dayanıklılığı artırın."],
+      ["Gerçek Zamanlı Senkronizasyon","Kritik veriler için ihtiyaç duyulan senkronizasyon ve erişim modelini planlayın."],
+      ["Veri Şifreleme ve Güvenlik","Yedeklerin erişim ve güvenlik gereksinimlerini altyapının bir parçası olarak ele alın."]
+    ],
+    process:"Yedekleme sürecimiz", processIntro:"Yedekleme yalnızca kopya oluşturmak değildir; doğru planlama, izleme ve geri yükleme doğrulaması gerekir.",
+    steps:["İhtiyaç Analizi","Yedekleme Stratejisinin Belirlenmesi","Altyapı Kurulumu","Otomatik Yedekleme Başlatma","Düzenli Kontrol ve Güncelleme"],
+    value:"Yedekleme ancak geri yüklenebiliyorsa değerlidir.", valueText:"TekFin, yedekleme altyapısını kapasite, sıklık, saklama politikası, erişim ve geri yükleme doğrulaması birlikte düşünülerek tasarlar.",
+    cta:"Verilerinizi düzenli ve doğrulanabilir şekilde koruyun.", ctaText:"Mevcut yedekleme yapınızı birlikte değerlendirelim.", button:"Danışmanlık Talep Et"
+  } : {
+    eyebrow:"BACKUP SERVICES", title:"Reliable, structured, and verifiable backup for your business.",
+    intro:"We design automated, reliable backup infrastructure aligned with how your business operates and designed to reduce data-loss risk.",
+    cards:[
+      ["Automated Backup Plans","Create regular automated backup schedules around how your business operates."],
+      ["Cloud Backup","Extend local infrastructure with cloud options when additional resilience or access is required."],
+      ["Real-Time Synchronization","Plan the synchronization and access model required for critical business data."],
+      ["Data Encryption & Security","Treat backup access and security requirements as part of the infrastructure design."]
+    ],
+    process:"The TekFin backup process", processIntro:"Backup is more than creating copies; it requires planning, monitoring, and verified recovery.",
+    steps:["Needs Analysis","Backup Strategy Definition","Infrastructure Setup","Start Automatic Backup","Regular Check & Update"],
+    value:"Backup only matters when it can be restored.", valueText:"TekFin designs backup around capacity, frequency, retention, access, and verified restoration rather than treating backup as a standalone task.",
+    cta:"Protect your business data with a structured, verifiable backup system.", ctaText:"Let us review your current backup setup together.", button:"Request Consultation"
   };
-
-  const t = content[language];
-
-  const icons = [
-    <FaClipboardCheck className="text-white w-5 h-5" />,
-    <FaCloudUploadAlt className="text-white w-5 h-5" />,
-    <FaSyncAlt className="text-white w-5 h-5" />,
-    <FaShieldAlt className="text-white w-5 h-5" />,
-    <FaCheckCircle className="text-white w-5 h-5" />
-  ];
-
-  return (
-    <div className="tk-service-page">
-      <div className="max-w-7xl mx-auto">
-        {/* Title & Intro */}
-        <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
-        <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
-
-        {/* Services */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {t.services.map((s, i) => (
-            <div
-              key={i}
-              className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center"
-            >
-              {s.icon}
-              <p className="text-sm font-medium text-[#002855] mt-3">{s.text}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Privacy */}
-        <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
-
-        {/* Process Timeline */}
-        <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
-
-        {/* Call to Action */}
-        <div className="mt-14 text-center">
-          <p className="text-gray-600 text-lg mb-4">{t.cta.question}</p>
-          <Link
-            to="/contact"
-            className="inline-block bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800"
-          >
-            {t.cta.action}
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  const icons=[FaClipboardCheck,FaCloudUploadAlt,FaSyncAlt,FaShieldAlt];
+  return <div className="tk-modern-page">
+    <section className="tk-page-hero"><div className="tk-modern-container"><div className="tk-page-hero-grid"><div><span className="tk-eyebrow">{t.eyebrow}</span><h1>{t.title}</h1><p>{t.intro}</p></div><div className="tk-page-hero-mark"><FaClipboardCheck aria-hidden="true"/><span>BUSINESS DATA SOLUTIONS</span></div></div></div></section>
+    <section className="tk-modern-section"><div className="tk-modern-container"><div className="tk-section-heading"><span className="tk-section-number">01</span><div><h2>{tr?"Ne sunuyoruz?":"What we provide"}</h2><p>{tr?"İşletmenizin veri sürekliliğini destekleyen yapıyı hizmetin tamamı üzerinden ele alıyoruz.":"We address the full infrastructure required to support business data continuity."}</p></div></div><div className="tk-service-grid">{t.cards.map(([title,text],i)=>{const Icon=icons[i];return <article className="tk-service-card" key={title}><div className="tk-card-icon"><Icon/></div><span className="tk-card-index">0{i+1}</span><h3>{title}</h3><p>{text}</p></article>})}</div></div></section>
+    <section className="tk-process-section"><div className="tk-modern-container"><div className="tk-section-heading tk-section-heading-light"><span className="tk-section-number">02</span><div><h2>{t.process}</h2><p>{t.processIntro}</p></div></div><div className="tk-process-grid">{t.steps.map((step,i)=><div className="tk-process-step" key={step}><span>{String(i+1).padStart(2,"0")}</span><h3>{step}</h3></div>)}</div></div></section>
+    <section className="tk-modern-section tk-value-section"><div className="tk-modern-container tk-value-grid"><div><span className="tk-eyebrow">{tr?"YAKLAŞIMIMIZ":"OUR APPROACH"}</span><h2>{t.value}</h2></div><p>{t.valueText}</p></div></section>
+    <section className="tk-modern-container tk-page-cta"><div><span className="tk-eyebrow">{tr?"SONRAKİ ADIM":"NEXT STEP"}</span><h2>{t.cta}</h2><p>{t.ctaText}</p></div><Link to="/contact?intent=consultation">{t.button}<FaArrowRight/></Link></section>
+  </div>;
 }
