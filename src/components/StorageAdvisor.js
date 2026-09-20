@@ -191,10 +191,10 @@ const StorageAdvisor = ({ language = 'en' }) => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
 
-      <div className="max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-3 text-[#002855] flex items-center gap-3 justify-center"><MdStorage className="text-blue-700" aria-hidden="true" />{t.h1}</h1>
+      <div className="tk-advisor-container">
+        <section className="tk-advisor-hero"><div className="tk-advisor-hero-copy"><span className="tk-advisor-eyebrow">{isTR ? "SMART DATA STORAGE" : "SMART DATA STORAGE"}</span><h1>{t.h1}</h1><p>{t.intro}</p><div className="tk-advisor-hero-links"><Link to="/data-storage">{t.links.dataStorage}</Link><Link to="/contact">{t.links.contact}</Link></div></div><div className="tk-advisor-hero-mark"><MdStorage aria-hidden="true" /><span>STORAGE<br/>ADVISOR</span></div></section>
         <p className="text-base text-gray-700 mb-6">{t.intro}</p>
-        <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="mb-10">
+        <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="tk-advisor-nav">
           <h2 className="sr-only">{t.navH2}</h2>
           <ul className="flex flex-wrap gap-4 justify-center text-sm">
             <li><Link to="/data-storage" className="text-blue-700 hover:underline">{t.links.dataStorage}</Link></li>
@@ -203,7 +203,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
           </ul>
         </nav>
 
-        <section className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200 text-left">
+        <section className="tk-advisor-ai">
           <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <h2 className="text-2xl font-bold text-[#002855] flex items-center gap-2 m-0"><FaRobot className="text-blue-600" aria-hidden="true" />{t.aiH2}</h2>
             <button onClick={handleShare} className="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded border self-start sm:self-auto" aria-live="polite"><FaShareAlt aria-hidden="true" />{shared ? t.buttons.shared : t.buttons.share}</button>
@@ -227,7 +227,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
           )}
         </section>
 
-        <section className="mb-8">
+        <section className="tk-advisor-form-intro">
           <h2 className="text-2xl font-bold mb-2 text-[#002855] flex items-center gap-2"><FaWpforms className="text-blue-600" aria-hidden="true" />{t.formH2}</h2>
           <p className="text-gray-700 mb-4">{t.advisorLead}</p>
           <button onClick={() => setShowAISection(!showAISection)} className="mb-4 text-blue-600 hover:text-blue-800 underline" aria-expanded={showAISection} aria-controls="advisor-form">{showAISection ? t.hideForm : t.showForm}</button>
@@ -244,7 +244,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
           </form>
         )}
 
-        <section className="mt-12 text-left max-w-3xl mx-auto">
+        <section className="tk-advisor-faq">
           <h2 className="text-2xl font-bold mb-4 text-[#002855] flex items-center gap-2"><FaQuestionCircle className="text-blue-600" aria-hidden="true" />{t.faqH2}</h2>
           <div className="space-y-4">{(t.faq || []).map((item, idx) => (<details key={idx} className="border rounded p-4 bg-white"><summary className="font-semibold cursor-pointer">{item.q}</summary><p className="mt-2 text-gray-700">{item.a}</p></details>))}</div>
         </section>
