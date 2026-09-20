@@ -1099,3 +1099,61 @@
     transform: none;
   }
 }
+
+
+/* Recovery service cards — no numbering, more visual and compact. */
+.tk-recovery-page .tk-recovery-provide .tk-service-card {
+  position: relative;
+  min-height: 205px;
+  padding: 28px 30px 26px;
+  border-left: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 28px rgba(15, 38, 64, .055);
+}
+
+.tk-recovery-page .tk-recovery-provide .tk-service-card::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  bottom: -55px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, .055);
+  pointer-events: none;
+}
+
+.tk-recovery-page .tk-recovery-provide .tk-card-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 26px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #eaf2ff, #dceaff);
+  color: #2563eb;
+  box-shadow: 0 0 0 8px rgba(37,99,235,.035);
+}
+
+.tk-recovery-page .tk-recovery-provide .tk-card-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.tk-recovery-page .tk-recovery-provide .tk-service-card h3 {
+  margin-top: 0;
+  font-size: 1.22rem;
+  line-height: 1.2;
+}
+
+.tk-recovery-page .tk-recovery-provide .tk-service-card p {
+  max-width: 520px;
+  margin-top: 9px;
+}
+
+@media (max-width: 900px) {
+  .tk-recovery-page .tk-recovery-provide .tk-service-card {
+    min-height: 190px;
+    padding: 24px;
+  }
+}
