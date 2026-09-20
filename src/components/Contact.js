@@ -246,7 +246,6 @@ const Contact = ({ language }) => {
       </div>
     </div>
   );
-  );
 };
 
 export default Contact;
