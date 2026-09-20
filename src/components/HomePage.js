@@ -129,10 +129,7 @@ const HomePage = ({ language }) => {
                 </div>
 
                 <div className="border-l border-white/10 pl-5 text-center">
-                  <StorageAdvisorMark />
-                  <div className="mt-2 text-[11px] font-extrabold tracking-[.3em]">{tr ? 'DEPOLAMA' : 'STORAGE'}</div>
-                  <div className="text-[11px] font-extrabold tracking-[.3em] text-blue-400">{tr ? 'DANIŞMANI' : 'ADVISOR'}</div>
-                  <div className="mt-2 text-[9px] tracking-[.25em] text-slate-400">BY TEKFIN</div>
+                  <StorageAdvisorMark className="h-44 w-44 object-contain" />
                 </div>
               </div>
             </div>
