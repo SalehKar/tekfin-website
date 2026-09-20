@@ -131,14 +131,27 @@ exports.handler = async (event) => {
       body: JSON.stringify({ success: true, recommendation, language }),
     };
   } catch (e) {
-    // Log for you (Netlify logs) without exposing internals to the public
     console.error("storage-recommendation error:", e);
 
-    // لا تُظهر السبب الحقيقي للجمهور
+    const upstreamStatus = Number(e?.status || e?.statusCode || 0);
+    let error = "Service temporarily unavailable";
+
+    if (upstreamStatus === 401 || upstreamStatus === 403) {
+      error = "AI service authentication/configuration error";
+    } else if (upstreamStatus === 404) {
+      error = "AI model is unavailable";
+    } else if (upstreamStatus === 429) {
+      error = "AI service quota or rate limit reached";
+    } else if (upstreamStatus >= 500) {
+      error = "AI service is temporarily unavailable";
+    } else if (e?.name === "AbortError") {
+      error = "AI service request timed out";
+    }
+
     return {
-      statusCode: 500,
+      statusCode: upstreamStatus >= 400 && upstreamStatus < 600 ? upstreamStatus : 500,
       headers: HEADERS,
-      body: JSON.stringify({ error: "Service temporarily unavailable" }),
+      body: JSON.stringify({ error, upstreamStatus: upstreamStatus || null }),
     };
   } finally {
     clearTimeout(timeout);
