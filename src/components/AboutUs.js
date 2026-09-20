@@ -72,7 +72,7 @@ const AboutUs = ({ language }) => {
           <div>
             <span className="tk-about-eyebrow">TEKFIN TEKNOLOJİ</span>
             <h1>{t.title}</h1>
-            <p>{t.story.text}</p>
+            <p>{isTR ? 'İşletmeler için güvenilir veri altyapısı ve süreklilik çözümleri.' : 'Reliable data infrastructure and continuity solutions for growing businesses.'}</p>
           </div>
           <div className="tk-about-hero-note">
             <span>{isTR ? 'Business Data Solutions' : 'Business Data Solutions'}</span>
