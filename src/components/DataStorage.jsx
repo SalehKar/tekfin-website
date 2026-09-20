@@ -63,7 +63,7 @@ export default function DataStorage({ language = "tr" }) {
         </div>
       </section>
 
-      <section className="tk-modern-section">
+      <section className="tk-modern-section tk-storage-provide">
         <div className="tk-modern-container">
           <div className="tk-section-heading">
             <span className="tk-section-number">01</span>
@@ -86,7 +86,7 @@ export default function DataStorage({ language = "tr" }) {
         </div>
       </section>
 
-      <section className="tk-process-section">
+      <section className="tk-process-section tk-storage-process">
         <div className="tk-modern-container">
           <div className="tk-section-heading tk-section-heading-light">
             <span className="tk-section-number">02</span>
@@ -108,7 +108,7 @@ export default function DataStorage({ language = "tr" }) {
         </div>
       </section>
 
-      <section className="tk-modern-section tk-value-section">
+      <section className="tk-modern-section tk-value-section tk-storage-value">
         <div className="tk-modern-container tk-value-grid">
           <div>
             <span className="tk-eyebrow">{tr ? "YAKLAŞIMIMIZ" : "OUR APPROACH"}</span>
