@@ -90,7 +90,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
   };
 
   const handleAIRecommendation = async (requirementsOverride = customRequirements) => {
-    const requirements = requirementsOverride.trim();
+    const requirements = String(requirementsOverride ?? '').trim();
     if (!requirements) {
       alert(isTR ? 'Lütfen ihtiyaçlarınızı açıklayın.' : 'Please describe your requirements.');
       return;
@@ -222,7 +222,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
             <label htmlFor="customReq" className="sr-only">{isTR ? 'Özel gereksinimler' : 'Custom requirements'}</label>
             <textarea id="customReq" value={customRequirements} onChange={(e) => setCustomRequirements(e.target.value)} placeholder={t.placeholders.example} className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[100px]" rows={4} aria-describedby="ai-helper" />
             <div id="ai-helper" className="text-xs text-gray-500 mt-1">{isTR ? 'İpucu: Kullanım senaryosu, kapasite (GB/TB), performans (NVMe/SATA/HDD) ve bütçeyi belirtin.' : 'Tip: Include use case, capacity (GB/TB), performance (NVMe/SATA/HDD) and budget.'}</div>
-            <button type="button" onClick={handleAIRecommendation} disabled={isLoadingAI} className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">{isLoadingAI ? t.buttons.aiBusy : t.buttons.aiGet}</button>
+            <button type="button" onClick={() => handleAIRecommendation(customRequirements)} disabled={isLoadingAI} className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">{isLoadingAI ? t.buttons.aiBusy : t.buttons.aiGet}</button>
           </div>
           {aiRecommendation && (
             <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
