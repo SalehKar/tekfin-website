@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt, FaArrowRight } from "react-icons/fa";
 
 export default function DataStorage({ language = "tr" }) {
   const tr = language === "tr";
+  const seoTitle = tr ? 'Veri Depolama | TekFin Teknoloji' : 'Data Storage | TekFin Teknoloji';
+  const seoDescription = tr ? 'İşletmeler için güvenilir, ölçeklenebilir ve yönetilebilir veri depolama çözümleri.' : 'Reliable, scalable, and manageable data storage solutions for businesses.';
+
 
   const t = tr
     ? {
@@ -47,6 +51,24 @@ export default function DataStorage({ language = "tr" }) {
 
   return (
     <div className="tk-modern-page tk-storage-page">
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <link rel="canonical" href="https://tekfinteknoloji.com/data-storage" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content="https://tekfinteknoloji.com/data-storage" />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:locale" content={tr ? "tr_TR" : "en_US"} />
+        <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+      </Helmet>
+
       <section className="tk-page-hero">
         <div className="tk-modern-container">
           <div className="tk-page-hero-grid">
