@@ -98,7 +98,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
     setIsLoadingAI(true);
     setAiRecommendation('');
     try {
-      const response = await fetch('/.netlify/functions/storage-recommendation', {
+      const response = await fetch('https://luminous-zuccutto-60501a.netlify.app/.netlify/functions/storage-recommendation', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ requirements, language }),
       });
