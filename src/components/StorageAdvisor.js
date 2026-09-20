@@ -103,8 +103,21 @@ const StorageAdvisor = ({ language = 'en' }) => {
         body: JSON.stringify({ requirements, language }),
       });
       const data = await response.json();
-      if (data.success) setAiRecommendation(data.recommendation);
-      else setAiRecommendation(isTR ? 'Üzgünüz, şu anda AI önerisi alınamıyor. Lütfen daha sonra tekrar deneyin.' : 'Sorry, AI recommendation is not available right now. Please try again later.');
+      if (data.success) {
+        setAiRecommendation(data.recommendation);
+      } else {
+        const status = Number(data.upstreamStatus || response.status);
+        const message = status === 401 || status === 403
+          ? (isTR ? 'AI hizmeti yapılandırma hatası. Lütfen daha sonra tekrar deneyin.' : 'AI service configuration error. Please try again later.')
+          : status === 429
+            ? (isTR ? 'AI hizmeti kullanım kotasına ulaşıldı. Lütfen daha sonra tekrar deneyin.' : 'AI service quota or rate limit reached. Please try again later.')
+            : status === 404
+              ? (isTR ? 'AI modeli şu anda kullanılamıyor.' : 'AI model is currently unavailable.')
+              : status >= 500
+                ? (isTR ? 'AI hizmeti geçici olarak kullanılamıyor.' : 'AI service is temporarily unavailable.')
+                : (isTR ? 'Üzgünüz, şu anda AI önerisi alınamıyor. Lütfen daha sonra tekrar deneyin.' : 'Sorry, AI recommendation is not available right now. Please try again later.');
+        setAiRecommendation(message);
+      }
     } catch (error) {
       console.error('Error getting AI recommendation:', error);
       setAiRecommendation(isTR ? 'Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.' : 'Connection error. Please check your internet connection.');
