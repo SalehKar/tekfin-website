@@ -189,7 +189,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
       </Helmet>
 
       <div className="tk-advisor-container">
-        <section className="tk-advisor-hero"><div className="tk-advisor-hero-copy"><span className="tk-advisor-eyebrow">{isTR ? "SMART DATA STORAGE" : "SMART DATA STORAGE"}</span><h1>{t.h1}</h1><p>{t.intro}</p><div className="tk-advisor-hero-links"><Link to="/data-storage">{t.links.dataStorage}</Link><Link to="/contact">{t.links.contact}</Link></div></div><div className="tk-advisor-hero-mark"><StorageAdvisorMark className="tk-advisor-service-icon" /><span>STORAGE<br/>ADVISOR</span></div></section>
+        <section className="tk-advisor-hero"><div className="tk-advisor-hero-copy"><span className="tk-advisor-eyebrow">{isTR ? "SMART DATA STORAGE" : "SMART DATA STORAGE"}</span><h1>{t.h1}</h1><p>{t.intro}</p><div className="tk-advisor-hero-links"><Link to="/data-storage">{t.links.dataStorage}</Link><Link to="/contact">{t.links.contact}</Link></div></div><div className="tk-advisor-hero-mark"><StorageAdvisorMark className="h-64 w-64 object-contain" /></div></section>
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="tk-advisor-nav">
           <h2 className="sr-only">{t.navH2}</h2>
           <ul className="flex flex-wrap gap-4 justify-center text-sm">
