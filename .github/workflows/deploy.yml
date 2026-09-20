@@ -31,7 +31,7 @@ jobs:
         run: |
           # GitHub Pages serves files by URL path. Create an index.html
           # for every React Router route so direct visits and refreshes work.
-          for route in about-us contact data-recovery data-storage backup-services storage-advisor recommendations; do
+          for route in about-us contact data-recovery data-storage backup-services storage-advisor; do
             mkdir -p "build/$route"
             cp build/index.html "build/$route/index.html"
           done
