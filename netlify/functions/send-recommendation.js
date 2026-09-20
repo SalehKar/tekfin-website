@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer");
 
+const STORAGE_ADVISOR_EMAIL = "storage-advisor@tekfinteknoloji.com";
+
 const HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
@@ -131,7 +133,9 @@ exports.handler = async (event) => {
     FROM_EMAIL, FROM_NAME = "TekFin Teknoloji"
   } = process.env;
 
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !FROM_EMAIL)
+  const senderEmail = FROM_EMAIL || STORAGE_ADVISOR_EMAIL;
+
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS)
     return {
       statusCode: 500,
       headers: HEADERS,
@@ -163,8 +167,9 @@ exports.handler = async (event) => {
     `;
 
     const info = await transporter.sendMail({
-      from: `${FROM_NAME} <${FROM_EMAIL}>`,
+      from: `${FROM_NAME} <${senderEmail}>`,
       to: email,
+      replyTo: STORAGE_ADVISOR_EMAIL,
       subject,
       html,
       text: textVersion,
@@ -180,7 +185,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 502,
       headers: HEADERS,
-      body: JSON.stringify({ error: "Email send failed", details: e.message }),
+      body: JSON.stringify({ error: "Email send failed" }),
     };
   }
 };
