@@ -8,35 +8,10 @@ const Footer = ({ language }) => {
   return (
     <footer className="bg-[#031b2f] text-white">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="flex flex-col gap-5 border-b border-white/10 py-7 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <div className="text-[10px] font-bold tracking-[.2em] text-blue-300">
-              {tr ? 'VERİ ALTYAPISI' : 'DATA INFRASTRUCTURE'}
-            </div>
-            <h3 className="mt-1.5 text-xl font-extrabold">
-              {tr ? 'Verileriniz için doğru yapıyı birlikte kuralım.' : 'Build the right foundation for your data.'}
-            </h3>
-            <p className="mt-1 text-sm text-slate-400">
-              {tr ? 'İhtiyacınızı paylaşın, uygun yaklaşımı birlikte değerlendirelim.' : 'Tell us what you need and let us review the right approach.'}
-            </p>
-          </div>
-          <Link
-            to="/contact?intent=consultation"
-            className="inline-flex shrink-0 items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500"
-          >
-            {tr ? 'Danışmanlık Talep Et' : 'Request Consultation'}
-            <ArrowUpRight className="ml-2 h-4 w-4" />
-          </Link>
-        </div>
-
-        <div className="grid gap-8 py-7 md:grid-cols-[1.7fr_1fr_1fr]">
+        <div className="grid gap-8 border-b border-white/10 py-8 md:grid-cols-[1.7fr_1fr_1fr]">
           <div>
             <div className="flex h-12 w-[150px] items-center overflow-hidden rounded-md bg-white">
-              <img
-                src="/images/tekfin-logo.png"
-                alt="TekFin Teknoloji"
-                className="h-full w-full object-cover object-center"
-              />
+              <img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-full w-full object-cover object-center" />
             </div>
             <p className="mt-3 max-w-md text-sm leading-6 text-slate-400">
               {tr
@@ -75,7 +50,7 @@ const Footer = ({ language }) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-white/10 py-4 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 py-4 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} TEKFİN TEKNOLOJİ LİMİTED ŞTİ. {tr ? 'Tüm hakları saklıdır.' : 'All rights reserved.'}</p>
           <p>İstanbul, Türkiye</p>
         </div>
