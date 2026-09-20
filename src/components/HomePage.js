@@ -89,18 +89,18 @@ const HomePage = ({ language }) => {
           }}
         />
 
-        <div className="relative mx-auto grid min-h-[500px] max-w-7xl lg:grid-cols-[1.55fr_.85fr]">
-          <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-12 lg:py-14">
-            <div className="mb-5 text-xs font-bold tracking-[.24em] text-blue-300">{t.eyebrow}</div>
-            <h1 className="max-w-4xl text-4xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[4.25rem]">
+        <div className="relative mx-auto grid min-h-[440px] max-w-7xl lg:grid-cols-[1.55fr_.85fr]">
+          <div className="flex flex-col justify-center px-6 py-9 sm:px-10 lg:px-12 lg:py-7">
+            <div className="mb-4 text-xs font-bold tracking-[.22em] text-blue-300">{t.eyebrow}</div>
+            <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.03] tracking-normal sm:text-5xl lg:text-[4.05rem]">
               {tr ? t.title : <>A stronger data foundation<br /><span className="text-blue-400">for your business.</span></>}
             </h1>
-            <h2 className="mt-4 max-w-4xl text-2xl font-extrabold leading-tight tracking-[-.035em] text-blue-400 sm:text-3xl">
+            <h2 className="mt-3 max-w-4xl text-2xl font-extrabold leading-[1.28] tracking-normal text-blue-400 sm:text-3xl">
               {t.accent}
             </h2>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg">{t.subtitle}</p>
+            <p className="mt-4 max-w-3xl text-base leading-6.5 text-slate-300 sm:text-lg">{t.subtitle}</p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
                 onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-7 py-3.5 text-sm font-bold text-white hover:bg-blue-500"
@@ -116,18 +116,18 @@ const HomePage = ({ language }) => {
             </div>
           </div>
 
-          <div className="relative flex items-center border-l border-white/10 bg-[#041526]/80 px-6 py-8 sm:px-10">
+          <div className="relative flex items-center border-l border-white/10 bg-[#041526]/80 px-6 py-7 sm:px-9">
             <div className="w-full">
-              <div className="mb-5 flex items-center justify-between">
+              <div className="mb-4 flex items-center justify-between">
                 <span className="rounded-full bg-blue-600 px-3 py-1 text-[10px] font-bold">{tr ? 'YENİ' : 'NEW'}</span>
                 <span className="text-[9px] font-bold tracking-[.2em] text-slate-500">{tr ? 'TEKFİN HİZMETİ' : 'TEKFİN SERVICE'}</span>
               </div>
 
-              <div className="grid items-center gap-5 sm:grid-cols-[1fr_auto]">
+              <div className="grid items-center gap-3.5 sm:grid-cols-[1fr_auto]">
                 <div>
                   <h2 className="text-3xl font-bold leading-none sm:text-[2.35rem]">{t.advisor}</h2>
-                  <p className="mt-3 max-w-xs text-sm leading-6 text-slate-300">{t.advisorText}</p>
-                  <div className="mt-5 space-y-2.5 text-xs text-slate-200">
+                  <p className="mt-2 max-w-xs text-sm leading-6 text-slate-300">{t.advisorText}</p>
+                  <div className="mt-4 space-y-2 text-xs text-slate-200">
                     {[t.expert, t.save, t.future].map(x => (
                       <div key={x} className="flex items-center gap-2">
                         <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
@@ -137,7 +137,7 @@ const HomePage = ({ language }) => {
                   </div>
                   <button
                     onClick={() => navigate('/storage-advisor')}
-                    className="mt-6 inline-flex items-center rounded-lg bg-white px-4 py-2.5 text-xs font-bold text-slate-950 hover:bg-blue-50"
+                    className="mt-5 inline-flex items-center rounded-lg bg-white px-4 py-2.5 text-xs font-bold text-slate-950 hover:bg-blue-50"
                   >
                     {t.tryAdvisor}<ArrowRight className="ml-2 h-4 w-4 text-blue-600" />
                   </button>
@@ -156,19 +156,19 @@ const HomePage = ({ language }) => {
       </section>
 
       <section id="solutions" className="border-b border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-4 px-5 py-6 sm:px-8 md:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-3.5 px-5 py-4 sm:px-8 md:grid-cols-3">
           {t.cards.map(([title, text, Icon, href]) => (
             <button
               key={href}
               onClick={() => navigate(href)}
-              className="group min-h-[156px] rounded-xl border border-blue-100 bg-white p-6 text-left shadow-[0_5px_20px_rgba(15,23,42,.04)] transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+              className="group min-h-[140px] rounded-xl border border-blue-100 bg-white p-5 text-left shadow-[0_5px_20px_rgba(15,23,42,.04)] transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-lg font-bold">{title}</h3>
-              <p className="mt-2 text-sm leading-5 text-slate-500">{text}</p>
-              <span className="mt-4 inline-flex items-center text-xs font-bold text-blue-600">
+              <h3 className="mt-3 text-lg font-bold">{title}</h3>
+              <p className="mt-1.5 text-sm leading-5 text-slate-500">{text}</p>
+              <span className="mt-3 inline-flex items-center text-xs font-bold text-blue-600">
                 {tr ? 'Çözümü İncele' : 'View solution'} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </span>
             </button>
@@ -176,12 +176,12 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="bg-[#f7f7f4] py-10">
+      <section className="bg-[#f7f7f4] py-7">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-6 rounded-3xl bg-white p-7 shadow-sm sm:p-8 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+          <div className="grid gap-6 rounded-3xl bg-white p-6 shadow-sm sm:p-7 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <div>
               <div className="text-xs font-bold tracking-[.2em] text-blue-600">{tr ? 'İŞ SÜREKLİLİĞİ' : 'BUSINESS CONTINUITY'}</div>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-[-.03em] sm:text-4xl">
+              <h2 className="mt-2.5 text-3xl font-extrabold tracking-normal tracking-normal sm:text-4xl">
                 {tr ? 'Veri altyapınız tek bir sistem olarak çalışmalı.' : 'Your data infrastructure should work as one system.'}
               </h2>
             </div>
@@ -194,30 +194,30 @@ const HomePage = ({ language }) => {
         </div>
       </section>
 
-      <section className="bg-[#031b2f] py-8 text-white">
+      <section className="bg-[#031b2f] py-7 text-white">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mb-6 max-w-2xl">
+          <div className="mb-5 max-w-2xl">
             <div className="text-xs font-bold tracking-[.2em] text-blue-300">{tr ? 'KORUMA KATMANI' : 'BUILT-IN PROTECTION'}</div>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-[-.03em] sm:text-4xl">
+            <h2 className="mt-2.5 text-3xl font-extrabold tracking-normal tracking-normal sm:text-4xl">
               {tr ? 'Koruma, altyapının içine gömülüdür.' : 'Protection is built into the infrastructure.'}
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {protectionItems.map(([label, Icon]) => (
-              <div key={label} className="rounded-xl border border-white/10 bg-white/[.035] p-4">
+              <div key={label} className="rounded-xl border border-white/10 bg-white/[.035] p-3.5">
                 <Icon className="h-5 w-5 text-blue-300" />
-                <p className="mt-4 text-sm font-semibold leading-5 text-slate-200">{label}</p>
+                <p className="mt-3 text-sm font-semibold leading-5 text-slate-200">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-8">
+      <section className="bg-white py-6">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="flex flex-col gap-4 rounded-2xl bg-blue-600 px-7 py-7 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-3.5 rounded-2xl bg-blue-600 px-7 py-6 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="text-3xl font-extrabold">{tr ? 'Veri riskinizi bugün değerlendirin.' : 'Assess your data risk today.'}</h2>
+              <h2 className="text-3xl font-extrabold tracking-normal">{tr ? 'Veri riskinizi bugün değerlendirin.' : 'Assess your data risk today.'}</h2>
               <p className="mt-2 text-sm text-blue-100">{tr ? 'Mevcut altyapınızı birlikte inceleyelim.' : 'Let us review your current infrastructure.'}</p>
             </div>
             <button
