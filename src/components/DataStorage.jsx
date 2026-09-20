@@ -1,107 +1,135 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt, FaServer } from "react-icons/fa";
-import ProcessTimeline from "./ProcessTimeline";
+import { FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt, FaServer, FaArrowRight } from "react-icons/fa";
 
 export default function DataStorage({ language = "tr" }) {
-  const content = {
-    tr: {
-      title: "Veri Depolama Çözümleri",
-      paragraph:
-        "İşletmeniz veya kişisel verileriniz için verimli depolama çözümleri sunuyoruz. Verilerinizin her zaman erişilebilir olmasını sağlamak için en son teknolojileri kullanıyoruz.",
-      services: [
-        { icon: <FaDatabase className="text-blue-800 w-10 h-10" />, text: "Yüksek Kapasiteli Depolama" },
-        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Güvenli Veri Koruma" },
-        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Kolay Erişim ve Senkronizasyon" },
-        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Bulut Yedekleme Entegrasyonu" }
-      ],
-      privacy: "🔒 Verileriniz güvenli altyapımızda korunur.",
-      processTitle: "Depolama Sürecimiz",
-      processSteps: [
-        "İhtiyaç Analizi",
-        "Çözüm Tasarımı",
-        "Altyapı Kurulumu",
-        "Veri Aktarımı",
-        "Sürekli İzleme ve Destek"
-      ],
-      cta: {
-        question: "İşinizle birlikte büyüyen bir depolama mı arıyorsunuz?",
-        action: "Bizimle İletişime Geçin"
-      }
-    },
-    en: {
-      title: "Data Storage Solutions",
-      paragraph:
-        "We provide efficient storage solutions for your business or personal data, ensuring your information is always accessible using the latest technologies.",
-      services: [
-        { icon: <FaDatabase className="text-blue-800 w-10 h-10" />, text: "High-Capacity Storage" },
-        { icon: <FaShieldAlt className="text-blue-800 w-10 h-10" />, text: "Secure Data Protection" },
-        { icon: <FaSyncAlt className="text-blue-800 w-10 h-10" />, text: "Easy Access & Synchronization" },
-        { icon: <FaCloudUploadAlt className="text-blue-800 w-10 h-10" />, text: "Cloud Backup Integration" }
-      ],
-      privacy: "🔒 Your data is protected in our secure infrastructure.",
-      processTitle: "Our Storage Process",
-      processSteps: [
-        "Needs Analysis",
-        "Solution Design",
-        "Infrastructure Setup",
-        "Data Migration",
-        "Continuous Monitoring & Support"
-      ],
-      cta: {
-        question: "Looking for storage that grows with your business?",
-        action: "Contact Us"
-      }
-    }
-  };
+  const tr = language === "tr";
 
-  const t = content[language];
+  const t = tr
+    ? {
+        eyebrow: "VERİ DEPOLAMA",
+        title: "İşletmeniz için düzenli, güvenilir ve ölçeklenebilir depolama.",
+        intro: "TekFin, işletmenizin veri büyümesine ve günlük çalışma ihtiyaçlarına uygun depolama altyapısını tasarlar, kurar ve yönetilebilir hale getirir.",
+        cards: [
+          ["Yüksek Kapasiteli Depolama", "Büyüyen veri hacimleri için doğru kapasiteyi ve yapıyı planlayın.", FaDatabase],
+          ["Güvenli Veri Koruma", "Verilerinizi erişim ve güvenlik ihtiyaçlarını dikkate alan bir altyapıyla yönetin.", FaShieldAlt],
+          ["Kolay Erişim ve Senkronizasyon", "Ekiplerinizin ihtiyaç duyduğu verilere hızlı ve düzenli erişim sağlayın.", FaSyncAlt],
+          ["Bulut Yedekleme Entegrasyonu", "Yerel depolamayı yedekleme ve gerektiğinde bulut seçenekleriyle birlikte planlayın.", FaCloudUploadAlt],
+        ],
+        processTitle: "TekFin ile depolama süreci",
+        processIntro: "Her kurulum aynı değildir. Önce mevcut yapıyı ve ihtiyacı değerlendirir, ardından uygun mimariyi kurarız.",
+        steps: ["İhtiyaç Analizi", "Çözüm Tasarımı", "Altyapı Kurulumu", "Veri Aktarımı", "Sürekli İzleme ve Destek"],
+        valueTitle: "Depolama yalnızca kapasite değildir.",
+        valueText: "Doğru yapı; erişilebilirlik, güvenlik, büyüme ve yedekleme ihtiyaçlarını birlikte ele alır. TekFin bu katmanları işletmenizin çalışma biçimine göre tasarlar.",
+        ctaTitle: "İşinizle birlikte büyüyen bir depolama yapısı kurun.",
+        ctaText: "Mevcut altyapınızı ve ihtiyaçlarınızı birlikte değerlendirelim.",
+        cta: "Danışmanlık Talep Et",
+      }
+    : {
+        eyebrow: "DATA STORAGE",
+        title: "Structured, reliable, and scalable storage for your business.",
+        intro: "TekFin designs storage infrastructure around your business growth and daily operational needs, then makes it manageable.",
+        cards: [
+          ["High-Capacity Storage", "Plan the right capacity and structure for growing business data.", FaDatabase],
+          ["Secure Data Protection", "Manage your data with infrastructure aligned to access and security requirements.", FaShieldAlt],
+          ["Easy Access & Synchronization", "Give teams fast and organized access to the data they need.", FaSyncAlt],
+          ["Cloud Backup Integration", "Plan local storage together with backup and cloud options when needed.", FaCloudUploadAlt],
+        ],
+        processTitle: "The TekFin storage process",
+        processIntro: "Every deployment is different. We assess the current environment first, then design and implement the right architecture.",
+        steps: ["Needs Analysis", "Solution Design", "Infrastructure Setup", "Data Migration", "Continuous Monitoring & Support"],
+        valueTitle: "Storage is more than capacity.",
+        valueText: "The right architecture addresses availability, security, growth, and backup requirements together. TekFin designs these layers around how your business operates.",
+        ctaTitle: "Build storage that grows with your business.",
+        ctaText: "Let us review your current infrastructure and requirements together.",
+        cta: "Request Consultation",
+      };
 
-  const icons = [
-    <FaDatabase className="text-white w-5 h-5" />,
-    <FaShieldAlt className="text-white w-5 h-5" />,
-    <FaSyncAlt className="text-white w-5 h-5" />,
-    <FaCloudUploadAlt className="text-white w-5 h-5" />,
-    <FaServer className="text-white w-5 h-5" />
-  ];
+  const icons = [FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt];
 
   return (
-    <div className="tk-service-page">
-      <div className="max-w-7xl mx-auto">
-        {/* Title & Intro */}
-        <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
-        <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
-
-        {/* Services */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {t.services.map((s, i) => (
-            <div
-              key={i}
-              className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center"
-            >
-              {s.icon}
-              <p className="text-sm font-medium text-[#002855] mt-3">{s.text}</p>
+    <div className="tk-modern-page">
+      <section className="tk-page-hero">
+        <div className="tk-modern-container">
+          <div className="tk-page-hero-grid">
+            <div>
+              <span className="tk-eyebrow">{t.eyebrow}</span>
+              <h1>{t.title}</h1>
+              <p>{t.intro}</p>
             </div>
-          ))}
+            <div className="tk-page-hero-mark">
+              <FaDatabase aria-hidden="true" />
+              <span>{tr ? "BUSINESS DATA SOLUTIONS" : "BUSINESS DATA SOLUTIONS"}</span>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Privacy */}
-        <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
+      <section className="tk-modern-section">
+        <div className="tk-modern-container">
+          <div className="tk-section-heading">
+            <span className="tk-section-number">01</span>
+            <div>
+              <h2>{tr ? "Ne sunuyoruz?" : "What we provide"}</h2>
+              <p>{tr ? "İşletmenizin depolama ihtiyacını tek bir kapasite seçimine indirgemeden, altyapının tamamı üzerinden ele alıyoruz." : "We address storage as an infrastructure decision, not simply a capacity purchase."}</p>
+            </div>
+          </div>
 
-        {/* Process Timeline */}
-        <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
-
-        {/* Call to Action */}
-        <div className="mt-14 text-center">
-          <p className="text-gray-600 text-lg mb-4">{t.cta.question}</p>
-          <Link
-            to="/contact"
-            className="inline-block bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800"
-          >
-            {t.cta.action}
-          </Link>
+          <div className="tk-service-grid">
+            {t.cards.map(([title, text, Icon], i) => (
+              <article className="tk-service-card" key={title}>
+                <div className="tk-card-icon"><Icon /></div>
+                <span className="tk-card-index">0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="tk-process-section">
+        <div className="tk-modern-container">
+          <div className="tk-section-heading tk-section-heading-light">
+            <span className="tk-section-number">02</span>
+            <div>
+              <h2>{t.processTitle}</h2>
+              <p>{t.processIntro}</p>
+            </div>
+          </div>
+
+          <div className="tk-process-grid">
+            {t.steps.map((step, i) => (
+              <div className="tk-process-step" key={step}>
+                <span>{String(i + 1).padStart(2, "0")}</span>
+                <h3>{step}</h3>
+                {i < t.steps.length - 1 && <div className="tk-process-line" />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="tk-modern-section tk-value-section">
+        <div className="tk-modern-container tk-value-grid">
+          <div>
+            <span className="tk-eyebrow">{tr ? "YAKLAŞIMIMIZ" : "OUR APPROACH"}</span>
+            <h2>{t.valueTitle}</h2>
+          </div>
+          <p>{t.valueText}</p>
+        </div>
+      </section>
+
+      <section className="tk-modern-container tk-page-cta">
+        <div>
+          <span className="tk-eyebrow">{tr ? "SONRAKİ ADIM" : "NEXT STEP"}</span>
+          <h2>{t.ctaTitle}</h2>
+          <p>{t.ctaText}</p>
+        </div>
+        <Link to="/contact?intent=consultation">
+          {t.cta} <FaArrowRight />
+        </Link>
+      </section>
     </div>
   );
 }
