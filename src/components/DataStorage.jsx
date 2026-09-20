@@ -46,7 +46,7 @@ export default function DataStorage({ language = "tr" }) {
       };
 
   return (
-    <div className="tk-modern-page">
+    <div className="tk-modern-page tk-storage-page">
       <section className="tk-page-hero">
         <div className="tk-modern-container">
           <div className="tk-page-hero-grid">
@@ -55,9 +55,9 @@ export default function DataStorage({ language = "tr" }) {
               <h1>{t.title}</h1>
               <p>{t.intro}</p>
             </div>
-            <div className="tk-page-hero-mark">
-              <FaDatabase aria-hidden="true" />
-              <span>{tr ? "BUSINESS DATA SOLUTIONS" : "BUSINESS DATA SOLUTIONS"}</span>
+            <div className="tk-page-hero-mark tk-storage-mark">
+              <div className="tk-hero-orbit"><FaDatabase aria-hidden="true" /></div>
+              <span>BUSINESS DATA SOLUTIONS</span>
             </div>
           </div>
         </div>
