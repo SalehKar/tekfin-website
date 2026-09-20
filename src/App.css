@@ -288,12 +288,31 @@
 .tk-advisor-form-intro { padding:18px 4px 14px; text-align:left; }
 .tk-advisor-form-intro button { border:1px solid #2563eb; border-radius:999px; padding:8px 16px; }
 .tk-advisor-form {
-  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; padding:30px; margin-bottom:42px;
-  border:1px solid #d7e2ee; border-radius:22px; background:#fff;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:22px;
+  row-gap:14px;
+  padding:22px 24px;
+  margin-bottom:42px;
+  border:1px solid #d7e2ee;
+  border-radius:22px;
+  background:#fff;
 }
-.tk-advisor-form > div:last-of-type { grid-column:1/-1; }
-.tk-advisor-form input,.tk-advisor-form select { width:100%; min-height:48px; border:1px solid #d5e1ef !important; border-radius:10px !important; background:#f9fbfd; }
-.tk-advisor-form > button { grid-column:1/-1; width:fit-content; min-width:190px; border-radius:10px !important; }
+.tk-advisor-form > div { min-width:0; }
+.tk-advisor-form input,.tk-advisor-form select {
+  width:100%;
+  min-height:46px;
+  border:1px solid #d5e1ef !important;
+  border-radius:10px !important;
+  background:#f9fbfd;
+}
+.tk-advisor-form > button {
+  grid-column:1/-1;
+  width:fit-content;
+  min-width:190px;
+  margin-top:2px;
+  border-radius:10px !important;
+}
 .tk-advisor-faq { padding:12px 0; text-align:left; }
 .tk-advisor-faq details { border-color:#d7e2ee !important; border-radius:14px !important; background:#fff !important; }
 @media (max-width:900px) {
