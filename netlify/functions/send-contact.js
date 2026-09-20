@@ -69,13 +69,14 @@ exports.handler = async (event) => {
     SMTP_PORT,
     SMTP_USER,
     SMTP_PASS,
-    FROM_EMAIL,
+    CONTACT_FROM_EMAIL,
     FROM_NAME = "TekFin Teknoloji",
   } = process.env;
 
-  const recipient = FROM_EMAIL || "info@tekfinteknoloji.com";
+  const contactFromEmail = CONTACT_FROM_EMAIL || "info@tekfinteknoloji.com";
+  const recipient = "info@tekfinteknoloji.com";
 
-  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !FROM_EMAIL) {
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
     return {
       statusCode: 500,
       headers: HEADERS,
@@ -126,7 +127,7 @@ exports.handler = async (event) => {
     });
 
     const info = await transporter.sendMail({
-      from: `${FROM_NAME} <${FROM_EMAIL}>`,
+      from: `${FROM_NAME} <${contactFromEmail}>`,
       to: recipient,
       replyTo: email,
       subject,
