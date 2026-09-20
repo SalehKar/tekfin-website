@@ -1,4 +1,5 @@
 import React from 'react';
+import { Eye, Target, ShieldCheck, Server } from 'lucide-react';
 
 const AboutUs = ({ language }) => {
   const content = {
@@ -69,45 +70,58 @@ const AboutUs = ({ language }) => {
     <div className="tk-about-page">
       <div className="tk-about-container">
         <section className="tk-about-hero">
-          <div>
-            <span className="tk-about-eyebrow">TEKFIN TEKNOLOJİ</span>
-            <h1>{t.title}</h1>
-            <p>{isTR ? 'İşletmeler için güvenilir veri altyapısı ve süreklilik çözümleri.' : 'Reliable data infrastructure and continuity solutions for growing businesses.'}</p>
+          <div className="tk-about-hero-copy">
+            <span className="tk-about-eyebrow">{isTR ? 'HAKKIMIZDA' : 'ABOUT US'}</span>
+            <h1>{isTR ? 'TekFin Teknoloji' : 'TekFin Teknoloji'}</h1>
+            <p>{isTR
+              ? 'İşletmeler için güvenilir veri altyapısı ve süreklilik çözümleri geliştiriyoruz.'
+              : 'We build reliable data infrastructure and continuity solutions for growing businesses.'}</p>
           </div>
-          <div className="tk-about-hero-note">
-            <span>{isTR ? 'Business Data Solutions' : 'Business Data Solutions'}</span>
-            <strong>{isTR ? 'Güvenilir veri altyapısı. Ölçülebilir süreklilik.' : 'Reliable data foundations. Measurable continuity.'}</strong>
+          <div className="tk-about-hero-visual" aria-hidden="true">
+            <div className="tk-about-server-stack">
+              <div className="tk-about-server"><Server /></div>
+              <div className="tk-about-server"><Server /></div>
+              <div className="tk-about-server"><Server /></div>
+            </div>
+            <div className="tk-about-shield"><ShieldCheck /></div>
           </div>
         </section>
 
-        <section className="tk-about-story">
-          <div className="tk-about-section-heading">
-            <span>{isTR ? 'BİZ KİMİZ' : 'WHO WE ARE'}</span>
-            <h2>{t.story.title}</h2>
-          </div>
-          <p>{t.story.text}</p>
-        </section>
-
-        <section className="tk-about-direction">
+        <section className="tk-about-direction tk-about-direction-three">
           <article className="tk-about-direction-card">
-            <span className="tk-about-section-label">{isTR ? 'VİZYON' : 'VISION'}</span>
-            <h2>{t.vision.title}</h2>
+            <div className="tk-about-card-icon"><Eye /></div>
+            <span className="tk-about-section-label">{isTR ? 'VİZYONUMUZ' : 'OUR VISION'}</span>
+            <h2>{isTR ? 'Güvenilir Bir Referans Noktası' : 'A Trusted Reference Point'}</h2>
             <p>{t.vision.text}</p>
           </article>
+
           <article className="tk-about-direction-card">
-            <span className="tk-about-section-label">{isTR ? 'MİSYON' : 'MISSION'}</span>
-            <h2>{t.mission.title}</h2>
+            <div className="tk-about-card-icon"><Target /></div>
+            <span className="tk-about-section-label">{isTR ? 'MİSYONUMUZ' : 'OUR MISSION'}</span>
+            <h2>{isTR ? 'Değer Yaratan Çözümler' : 'Solutions That Create Value'}</h2>
             <p>{t.mission.text}</p>
+          </article>
+
+          <article className="tk-about-direction-card">
+            <div className="tk-about-card-icon"><ShieldCheck /></div>
+            <span className="tk-about-section-label">{isTR ? 'DEĞERLERİMİZ' : 'OUR VALUES'}</span>
+            <h2>{isTR ? 'Güven, Uzmanlık, Sürdürülebilirlik' : 'Trust, Expertise, Sustainability'}</h2>
+            <p>{isTR
+              ? 'Müşterilerimizle uzun vadeli iş ortaklıkları kurarak, uzmanlığımız ve sorumluluk bilincimizle sürdürülebilir değer yaratırız.'
+              : 'We build long-term partnerships and create sustainable value through expertise, responsibility, and dependable execution.'}</p>
           </article>
         </section>
 
-        <section className="tk-about-principles">
+        <section className="tk-about-why">
           <div className="tk-about-section-heading">
-            <span>{isTR ? 'ÇALIŞMA YAKLAŞIMIMIZ' : 'HOW WE WORK'}</span>
-            <h2>{t.values.title}</h2>
+            <span>{isTR ? 'NEDEN TEKFIN?' : 'WHY TEKFIN?'}</span>
+            <h2>{isTR ? 'İşletmeler İçin Gerçek Çözümler' : 'Real Solutions for Businesses'}</h2>
+            <p>{isTR
+              ? 'Veri depolama, yedekleme ve kurtarma alanındaki uzmanlığımızla iş sürekliliğinizi destekliyoruz.'
+              : 'We support business continuity through practical expertise in storage, backup, and data recovery.'}</p>
           </div>
           <div className="tk-about-values-grid">
-            {t.values.items.map((val, idx) => (
+            {t.values.items.slice(0, 6).map((val, idx) => (
               <article key={idx} className="tk-about-value-card">
                 <div className="tk-about-value-icon" aria-hidden="true">{val.icon}</div>
                 <p>{val.text}</p>
@@ -117,7 +131,6 @@ const AboutUs = ({ language }) => {
         </section>
       </div>
     </div>
-  );
-};
+  );};
 
 export default AboutUs;
