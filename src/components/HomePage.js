@@ -98,7 +98,7 @@ const HomePage = ({ language }) => {
             <h2 className="mt-3 max-w-4xl text-2xl font-extrabold leading-[1.28] tracking-normal text-blue-400 sm:text-3xl">
               {t.accent}
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-6.5 text-slate-300 sm:text-lg">{t.subtitle}</p>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg">{t.subtitle}</p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
@@ -181,7 +181,7 @@ const HomePage = ({ language }) => {
           <div className="grid gap-6 rounded-3xl bg-white p-6 shadow-sm sm:p-7 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <div>
               <div className="text-xs font-bold tracking-[.2em] text-blue-600">{tr ? 'İŞ SÜREKLİLİĞİ' : 'BUSINESS CONTINUITY'}</div>
-              <h2 className="mt-2.5 text-3xl font-extrabold tracking-normal tracking-normal sm:text-4xl">
+              <h2 className="mt-2.5 text-3xl font-extrabold tracking-normal sm:text-4xl">
                 {tr ? 'Veri altyapınız tek bir sistem olarak çalışmalı.' : 'Your data infrastructure should work as one system.'}
               </h2>
             </div>
