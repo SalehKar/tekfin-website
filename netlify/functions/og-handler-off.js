@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
   const storageAdvisorOG = {
     title: "TekFin Teknoloji – Yapay Zeka Destekli Depolama Danışmanı | AI-Powered Storage Advisor",
     description: "İhtiyaçlarınıza özel depolama çözümleri için yapay zeka destekli TekFin Teknoloji aracını kullanın. / Get personalized storage recommendations with TekFin Teknoloji's AI-powered tool.",
-    image: "https://tekfinteknoloji.com/images/ai-storage-tool-logo.png?v=1",
+    image: "https://tekfinteknoloji.com/images/ai-storage-tool-tr-1200x630.png?v=1",
     url: "https://tekfinteknoloji.com/storage-advisor"
   };
 
@@ -33,11 +33,11 @@ exports.handler = async (event, context) => {
     <meta property="og:description" content="${ogData.description}" />
     <meta property="og:url" content="${ogData.url}" />
     <meta property="og:image" content="${ogData.image}" />
-    <meta property="og:image:width" content="600" />
-    <meta property="og:image:height" content="600" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="tr_TR" />
     <meta property="og:locale:alternate" content="en_US" />
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${ogData.title}" />
     <meta name="twitter:description" content="${ogData.description}" />
     <meta name="twitter:image" content="${ogData.image}" />
