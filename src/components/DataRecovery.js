@@ -36,7 +36,8 @@ export default function DataRecovery({ language = "tr" }) {
     cta:"If you have lost data, let us assess the situation first.",ctaText:"Get an expert assessment before continuing to use the affected device.",button:"Request Recovery"
   };
   const icons=[FaSearch,FaFlask,FaTools,FaFileAlt];
-  return <
+  return (
+    <>
       <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={seoDescription} />
@@ -60,5 +61,7 @@ div className="tk-modern-page tk-recovery-page">
     <section className="tk-process-section tk-recovery-process"><div className="tk-modern-container"><div className="tk-section-heading tk-section-heading-light"><span className="tk-section-number">02</span><div><h2>{t.process}</h2><p>{t.processIntro}</p></div></div><div className="tk-process-grid">{t.steps.map((step,i)=><div className="tk-process-step" key={step}><span>{String(i+1).padStart(2,"0")}</span><div className="tk-process-node" aria-hidden="true"></div><h3>{step}</h3></div>)}</div></div></section>
     <section className="tk-modern-section tk-value-section tk-recovery-value"><div className="tk-modern-container tk-value-grid"><div><span className="tk-eyebrow">{tr?"YAKLAŞIMIMIZ":"OUR APPROACH"}</span><h2>{t.value}</h2></div><p>{t.valueText}</p></div></section>
     <section className="tk-modern-container tk-page-cta"><div><span className="tk-eyebrow">{tr?"SONRAKİ ADIM":"NEXT STEP"}</span><h2>{t.cta}</h2><p>{t.ctaText}</p></div><Link to="/contact?intent=recovery">{t.button}<FaArrowRight/></Link></section>
-  </div>;
+  </div>
+    </>
+  );
 }
