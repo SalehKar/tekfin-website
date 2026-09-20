@@ -810,3 +810,160 @@
     padding: 27px;
   }
 }
+
+
+/* Final service differentiation — shared system, distinct visual character. */
+.tk-page-hero-mark {
+  position: relative;
+  overflow: hidden;
+}
+
+.tk-page-hero-mark::before,
+.tk-page-hero-mark::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(96,165,250,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tk-page-hero-mark::before {
+  width: 210px;
+  height: 210px;
+}
+
+.tk-page-hero-mark::after {
+  width: 290px;
+  height: 290px;
+}
+
+.tk-hero-orbit,
+.tk-hero-check,
+.tk-hero-scan {
+  position: relative;
+  z-index: 1;
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tk-storage-page .tk-page-hero-mark {
+  background: linear-gradient(145deg, rgba(37,99,235,.12), rgba(255,255,255,.02));
+}
+
+.tk-storage-page .tk-hero-orbit {
+  border: 1px solid rgba(96,165,250,.5);
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px rgba(37,99,235,.05);
+}
+
+.tk-storage-page .tk-hero-orbit::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  right: -3px;
+  top: 10px;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 18px rgba(96,165,250,.65);
+}
+
+.tk-storage-page .tk-hero-orbit svg {
+  width: 46px;
+  height: 46px;
+}
+
+.tk-backup-page .tk-page-hero-mark {
+  background: linear-gradient(145deg, rgba(37,99,235,.15), rgba(255,255,255,.02));
+}
+
+.tk-backup-page .tk-hero-check {
+  border: 1px solid rgba(96,165,250,.42);
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 7px rgba(96,165,250,.04);
+}
+
+.tk-backup-page .tk-hero-check svg {
+  width: 43px;
+  height: 43px;
+}
+
+.tk-recovery-page .tk-page-hero-mark {
+  background: linear-gradient(145deg, rgba(37,99,235,.08), rgba(255,255,255,.02));
+}
+
+.tk-recovery-page .tk-hero-scan {
+  border: 1px solid rgba(96,165,250,.48);
+  border-radius: 50%;
+  box-shadow: 0 0 0 9px rgba(96,165,250,.035), 0 0 0 22px rgba(96,165,250,.025);
+}
+
+.tk-recovery-page .tk-hero-scan::after {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 1px;
+  right: -25px;
+  top: 20px;
+  background: #60a5fa;
+  transform: rotate(-35deg);
+  transform-origin: left center;
+}
+
+.tk-recovery-page .tk-hero-scan svg {
+  width: 38px;
+  height: 38px;
+}
+
+.tk-storage-page .tk-process-step {
+  background: linear-gradient(180deg, rgba(37,99,235,.09), rgba(255,255,255,.018));
+}
+
+.tk-backup-page .tk-process-step:nth-child(2),
+.tk-backup-page .tk-process-step:nth-child(4) {
+  background: linear-gradient(180deg, rgba(37,99,235,.13), rgba(255,255,255,.018));
+}
+
+.tk-recovery-page .tk-process-step {
+  background: linear-gradient(180deg, rgba(96,165,250,.055), rgba(255,255,255,.018));
+}
+
+.tk-process-node {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  top: 54px;
+  right: 18px;
+  border-radius: 50%;
+  background: #60a5fa;
+  box-shadow: 0 0 0 5px rgba(96,165,250,.08);
+}
+
+.tk-process-step:hover .tk-process-node {
+  box-shadow: 0 0 0 7px rgba(96,165,250,.12), 0 0 18px rgba(96,165,250,.35);
+}
+
+.tk-storage-page .tk-value-grid h2 {
+  max-width: 560px;
+}
+
+.tk-backup-page .tk-value-grid h2 {
+  max-width: 520px;
+}
+
+.tk-recovery-page .tk-value-grid h2 {
+  max-width: 560px;
+}
+
+.tk-recovery-page .tk-page-cta {
+  background: #174ea6;
+}
+
+@media (max-width: 600px) {
+  .tk-page-hero-mark::before { width: 150px; height: 150px; }
+  .tk-page-hero-mark::after { width: 205px; height: 205px; }
+  .tk-process-node { right: 16px; top: 52px; }
+}
