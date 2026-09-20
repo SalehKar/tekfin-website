@@ -130,13 +130,14 @@ const Contact = ({ language }) => {
     setStatus(t.sending);
 
     try {
-      const response = await fetch('https://api.tekfinteknoloji.com/.netlify/functions/send-contact', {
+      const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
           intent,
           ...formData
-        })
+        }).toString()
       });
 
       if (response.ok) {
@@ -220,9 +221,12 @@ const Contact = ({ language }) => {
           <form
             name="contact"
             method="POST"
+            data-netlify="true"
             onSubmit={handleSubmit}
             className="space-y-4"
           >
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="intent" value={intent} />
 
             <input
               type="text"
