@@ -92,7 +92,6 @@ const HomePage = ({ language }) => {
         <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
       </Helmet>
       <div className="bg-white text-slate-950">
-    <div className="bg-white text-slate-950">
       <section className="relative overflow-hidden bg-[#031b2f] text-white">
         <div
           className="absolute inset-0 opacity-80"
