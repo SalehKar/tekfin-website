@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import Contact from './components/Contact';
 import StorageAdvisor from './components/StorageAdvisor';
-import Recommendations from './components/Recommendations';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import DataRecovery from './components/DataRecovery';
@@ -34,8 +33,6 @@ function App() {
             <Route path="/backup-services" element={<BackupServices language={language} />} />
             <Route path="/storage-advisor" element={<StorageAdvisor language={language} />} />
 
-            {/* صفحة النتائج لمساعد التخزين */}
-            <Route path="/recommendations" element={<Recommendations language={language} />} />
           </Routes>
         </main>
         <Footer language={language} />
