@@ -131,9 +131,6 @@
   border-radius: 22px;
   background: white;
 }
-.tk-advisor-form > div:last-of-type {
-  grid-column: 1 / -1;
-}
 .tk-advisor-form input,
 .tk-advisor-form select {
   width: 100%;
