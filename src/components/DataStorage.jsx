@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt, FaServer, FaArrowRight } from "react-icons/fa";
+import { FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt, FaArrowRight } from "react-icons/fa";
 
 export default function DataStorage({ language = "tr" }) {
   const tr = language === "tr";
@@ -44,8 +44,6 @@ export default function DataStorage({ language = "tr" }) {
         ctaText: "Let us review your current infrastructure and requirements together.",
         cta: "Request Consultation",
       };
-
-  const icons = [FaDatabase, FaShieldAlt, FaSyncAlt, FaCloudUploadAlt];
 
   return (
     <div className="tk-modern-page">
