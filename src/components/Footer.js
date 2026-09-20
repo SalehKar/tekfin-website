@@ -14,7 +14,7 @@ const Footer = ({ language }) => {
               <img
                 src="/images/tekfin-logo.png"
                 alt="TekFin Teknoloji"
-                className="h-full w-full object-contain"
+                className="h-full w-full scale-[1.45] object-contain"
               />
             </div>
             <p className="mt-4 max-w-sm text-sm leading-6 text-slate-300">
