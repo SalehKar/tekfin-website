@@ -973,3 +973,129 @@
   .tk-page-hero-mark::after { width: 205px; height: 205px; }
   .tk-process-node { right: 16px; top: 52px; }
 }
+
+
+/* Strong service identities — same TekFin system, different visual language. */
+
+/* STORAGE — architecture / capacity */
+.tk-storage-page .tk-storage-provide {
+  background: #f4f7fb;
+}
+.tk-storage-page .tk-storage-provide .tk-service-card {
+  min-height: 255px;
+}
+.tk-storage-page .tk-storage-provide .tk-card-icon {
+  border-radius: 50%;
+  background: #e7f0ff;
+}
+.tk-storage-page .tk-storage-process {
+  background: #eef4fb;
+}
+.tk-storage-page .tk-storage-process .tk-section-heading-light h2,
+.tk-storage-page .tk-storage-process .tk-section-heading-light p {
+  color: var(--tk-ink);
+}
+.tk-storage-page .tk-storage-process .tk-section-number,
+.tk-storage-page .tk-storage-process .tk-process-step > span {
+  color: #2563eb;
+}
+.tk-storage-page .tk-storage-process .tk-process-step {
+  color: var(--tk-ink);
+  background: white;
+  border: 1px solid #dbe4f0;
+}
+.tk-storage-page .tk-storage-process .tk-process-step h3 {
+  color: var(--tk-ink);
+}
+.tk-storage-page .tk-storage-process .tk-process-step::before {
+  background: #2563eb;
+}
+.tk-storage-page .tk-storage-process .tk-process-node {
+  background: #2563eb;
+}
+
+/* BACKUP — automation / verification */
+.tk-backup-page .tk-backup-provide {
+  background: #f7f7f4;
+}
+.tk-backup-page .tk-backup-provide .tk-service-card {
+  min-height: 235px;
+}
+.tk-backup-page .tk-backup-provide .tk-card-icon {
+  border-radius: 9px;
+  background: #edf4ff;
+}
+.tk-backup-page .tk-backup-process {
+  background: #031b2f;
+}
+.tk-backup-page .tk-backup-process .tk-process-step {
+  border-radius: 4px;
+}
+.tk-backup-page .tk-backup-process .tk-process-step:nth-child(odd) {
+  transform: translateY(10px);
+}
+.tk-backup-page .tk-backup-process .tk-process-step:nth-child(even) {
+  transform: translateY(-2px);
+}
+.tk-backup-page .tk-backup-process .tk-process-step:hover {
+  transform: translateY(-6px);
+}
+
+/* RECOVERY — incident / diagnosis */
+.tk-recovery-page .tk-recovery-provide {
+  background: #f1f3f5;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card {
+  min-height: 220px;
+  border-left: 3px solid #2563eb;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card:nth-child(2) {
+  border-left-color: #60a5fa;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card:nth-child(3) {
+  border-left-color: #93c5fd;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card:nth-child(4) {
+  border-left-color: #174ea6;
+}
+.tk-recovery-page .tk-recovery-provide .tk-card-icon {
+  background: #e7ebf0;
+}
+.tk-recovery-page .tk-recovery-process {
+  background: #071421;
+}
+.tk-recovery-page .tk-recovery-process .tk-process-grid {
+  grid-template-columns: 1.15fr .95fr 1.15fr .95fr 1.15fr;
+}
+.tk-recovery-page .tk-recovery-process .tk-process-step {
+  min-height: 190px;
+  border-color: rgba(96,165,250,.22);
+}
+.tk-recovery-page .tk-recovery-process .tk-process-step h3 {
+  font-size: 1.12rem;
+}
+.tk-recovery-page .tk-recovery-process .tk-process-node {
+  width: 11px;
+  height: 11px;
+  background: #93c5fd;
+}
+.tk-recovery-page .tk-recovery-value {
+  background: #f1f3f5;
+}
+.tk-recovery-page .tk-recovery-value .tk-value-grid {
+  border-left: 4px solid #2563eb;
+  padding-left: 28px;
+}
+
+@media (max-width: 900px) {
+  .tk-recovery-page .tk-recovery-provide .tk-service-grid {
+    grid-template-columns: 1fr;
+  }
+  .tk-backup-page .tk-backup-process .tk-process-step:nth-child(odd),
+  .tk-backup-page .tk-backup-process .tk-process-step:nth-child(even) {
+    transform: none;
+  }
+}
