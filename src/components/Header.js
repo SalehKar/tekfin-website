@@ -44,6 +44,7 @@ const Header = ({ language, setLanguage }) => {
 
           <nav className="hidden items-center gap-1 md:flex">
             <Link to="/" className="rounded-full px-4 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50">{t.home}</Link>
+            <Link to="/about-us" className="rounded-full px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">{t.about}</Link>
             <div className="relative">
               <button onClick={() => setSolutionsOpen(v => !v)} className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
                 {t.solutions}<ChevronDown className={`h-4 w-4 transition ${solutionsOpen ? 'rotate-180' : ''}`} />
@@ -52,7 +53,6 @@ const Header = ({ language, setLanguage }) => {
                 {links.map(([label,href]) => <Link key={href} to={href} className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-700 hover:bg-slate-50">{label}<ArrowUpRight className="h-4 w-4 text-slate-400"/></Link>)}
               </div>}
             </div>
-            <Link to="/about-us" className="rounded-full px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">{t.about}</Link>
             <Link to="/contact" className="ml-3 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-sm hover:bg-blue-700">{t.contact}<ArrowUpRight className="ml-1 inline h-4 w-4"/></Link>
           </nav>
 
@@ -69,9 +69,9 @@ const Header = ({ language, setLanguage }) => {
           <div className="flex items-center justify-between"><div className="flex h-14 w-[165px] items-center"><img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-full w-full object-cover object-center" /></div><button onClick={() => setOpen(false)} className="rounded-full p-2 hover:bg-slate-100"><X className="h-5 w-5"/></button></div>
           <nav className="mt-6 space-y-1">
             <Link to="/" className="block rounded-xl px-4 py-3 font-semibold hover:bg-slate-50">{t.home}</Link>
+            <Link to="/about-us" className="block rounded-xl px-4 py-3 font-semibold hover:bg-slate-50">{t.about}</Link>
             <button onClick={() => setSolutionsOpen(v => !v)} className="flex w-full items-center justify-between rounded-xl px-4 py-3 font-semibold hover:bg-slate-50">{t.solutions}<ChevronDown className={`h-4 w-4 ${solutionsOpen ? 'rotate-180' : ''}`}/></button>
             {solutionsOpen && <div className="ml-3 border-l border-slate-200 pl-3">{links.map(([label,href]) => <Link key={href} to={href} className="block rounded-xl px-4 py-2.5 text-sm text-slate-600 hover:bg-slate-50">{label}</Link>)}</div>}
-            <Link to="/about-us" className="block rounded-xl px-4 py-3 font-semibold hover:bg-slate-50">{t.about}</Link>
             <Link to="/contact" className="mt-3 flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white">{t.contact}</Link>
           </nav>
         </div>
