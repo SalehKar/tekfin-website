@@ -63,44 +63,61 @@ const AboutUs = ({ language }) => {
   };
 
   const t = content[language] || content.en;
+  const isTR = language === 'tr';
 
   return (
-    <div className="tk-inner-page">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-12 text-[#002855]">{t.title}</h1>
-
-        <div className="mb-14">
-          <h2 className="text-2xl font-semibold mb-3 text-[#1f3b6f]">{t.story.title}</h2>
-          <p className="text-base leading-relaxed text-gray-800">{t.story.text}</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mb-14">
-          <div className="bg-[#e9f0fa] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold mb-2 text-[#002855]">{t.vision.title}</h3>
-            <p className="text-gray-700">{t.vision.text}</p>
+    <div className="tk-about-page">
+      <div className="tk-about-container">
+        <section className="tk-about-hero">
+          <div>
+            <span className="tk-about-eyebrow">TEKFIN TEKNOLOJİ</span>
+            <h1>{t.title}</h1>
+            <p>{t.story.text}</p>
           </div>
-          <div className="bg-[#e9f0fa] p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold mb-2 text-[#002855]">{t.mission.title}</h3>
-            <p className="text-gray-700">{t.mission.text}</p>
+          <div className="tk-about-hero-note">
+            <span>{isTR ? 'Business Data Solutions' : 'Business Data Solutions'}</span>
+            <strong>{isTR ? 'Güvenilir veri altyapısı. Ölçülebilir süreklilik.' : 'Reliable data foundations. Measurable continuity.'}</strong>
           </div>
-        </div>
+        </section>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-6 text-[#1f3b6f]">{t.values.title}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <section className="tk-about-story">
+          <div className="tk-about-section-heading">
+            <span>{isTR ? 'BİZ KİMİZ' : 'WHO WE ARE'}</span>
+            <h2>{t.story.title}</h2>
+          </div>
+          <p>{t.story.text}</p>
+        </section>
+
+        <section className="tk-about-direction">
+          <article className="tk-about-direction-card">
+            <span className="tk-about-section-label">{isTR ? 'VİZYON' : 'VISION'}</span>
+            <h2>{t.vision.title}</h2>
+            <p>{t.vision.text}</p>
+          </article>
+          <article className="tk-about-direction-card">
+            <span className="tk-about-section-label">{isTR ? 'MİSYON' : 'MISSION'}</span>
+            <h2>{t.mission.title}</h2>
+            <p>{t.mission.text}</p>
+          </article>
+        </section>
+
+        <section className="tk-about-principles">
+          <div className="tk-about-section-heading">
+            <span>{isTR ? 'ÇALIŞMA YAKLAŞIMIMIZ' : 'HOW WE WORK'}</span>
+            <h2>{t.values.title}</h2>
+          </div>
+          <div className="tk-about-values-grid">
             {t.values.items.map((val, idx) => (
-              <div
-                key={idx}
-                className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex items-start gap-3"
-              >
-                <div className="text-2xl text-[#002855]">{val.icon}</div>
-                <p className="text-sm text-gray-800 leading-snug">{val.text}</p>
-              </div>
+              <article key={idx} className="tk-about-value-card">
+                <div className="tk-about-value-icon" aria-hidden="true">{val.icon}</div>
+                <p>{val.text}</p>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </div>
+  );
   );
 };
 
