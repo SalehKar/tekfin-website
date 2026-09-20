@@ -10,11 +10,11 @@ const Footer = ({ language }) => {
       <div className="mx-auto max-w-7xl px-5 py-9 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[1.35fr_.8fr_.8fr_1.1fr]">
           <div>
-            <div className="flex h-16 w-[150px] items-center overflow-hidden rounded bg-white">
+            <div className="flex h-16 w-[165px] items-center rounded bg-white">
               <img
                 src="/images/tekfin-logo.png"
                 alt="TekFin Teknoloji"
-                className="h-24 w-auto max-w-none scale-[1.55]"
+                className="h-full w-full object-contain"
               />
             </div>
             <p className="mt-4 max-w-sm text-sm leading-6 text-slate-300">
