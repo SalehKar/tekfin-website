@@ -39,7 +39,7 @@ const Header = ({ language, setLanguage }) => {
       <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl">
         <div className={`mx-auto flex max-w-7xl items-center justify-between border-b px-5 py-3 transition-all sm:px-8 ${scrolled ? 'border-slate-200 shadow-sm' : 'border-slate-100'}`}>
           <Link to="/" className="flex h-14 w-[165px] shrink-0 items-center sm:h-16 sm:w-[180px]">
-            <img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-full w-full object-contain" />
+            <img src="/images/tekfin-logo.png" alt="TekFin Teknoloji" className="h-full w-full scale-[1.45] object-contain" />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
