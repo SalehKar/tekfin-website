@@ -118,7 +118,6 @@ const AboutUs = ({ language }) => {
       </div>
     </div>
   );
-  );
 };
 
 export default AboutUs;
