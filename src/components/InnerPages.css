@@ -389,9 +389,10 @@
 .tk-eyebrow {
   display: inline-block;
   color: #60a5fa;
-  font-size: .7rem;
+  font-size: .9rem;
+  line-height: 1.2;
   font-weight: 800;
-  letter-spacing: .2em;
+  letter-spacing: .18em;
   text-transform: uppercase;
 }
 
@@ -758,6 +759,11 @@
   .tk-page-hero h1 {
     font-size: 2.35rem;
     line-height: 1.08;
+  }
+
+  .tk-page-hero .tk-eyebrow {
+    font-size: .78rem;
+    letter-spacing: .16em;
   }
 
   .tk-modern-section {
