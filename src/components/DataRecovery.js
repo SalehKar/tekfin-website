@@ -1,138 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaSearch, FaFlask, FaTools, FaFileAlt, FaTruck } from "react-icons/fa";
-import hddIcon from "../assets/external-icons/hdd.svg";
-import ssdIcon from "../assets/external-icons/ssd.svg";
-import usbIcon from "../assets/external-icons/usb.svg";
-import raidIcon from "../assets/external-icons/raid.svg";
-import ProcessTimeline from "./ProcessTimeline";
+import { FaSearch, FaFlask, FaTools, FaFileAlt, FaArrowRight } from "react-icons/fa";
 
 export default function DataRecovery({ language = "tr" }) {
-  const content = {
-    tr: {
-      title: "Veri Kurtarma Hizmetleri",
-      paragraph:
-        "TekFin olarak, HDD, SSD, USB bellek gibi çeşitli veri depolama cihazlarından kaybolan verileri kurtarma konusunda uzmanız. İster bireysel ister kurumsal olun, profesyonel çözümlerimiz en yüksek başarı oranını sunar.",
-      services: [
-        { icon: hddIcon, text: "Hard Disk Kurtarma" },
-        { icon: ssdIcon, text: "SSD Kurtarma" },
-        { icon: usbIcon, text: "Flash Bellek Kurtarma" },
-        { icon: raidIcon, text: "RAID ve Sunucu Kurtarma" }
-      ],
-      privacy: "🔒 Verilerinizin gizliliği önceliğimizdir.",
-      whyTitle: "Neden Bizi Tercih Etmelisiniz?",
-      whyList: [
-        "✅ Bozuk disklerde yüksek başarı oranı",
-        "💰 Şeffaf fiyat politikası",
-        "👨‍💻 Doğrudan teknik destek"
-      ],
-      processTitle: "Sürecimiz",
-      processSteps: [
-        "Ücretsiz İlk Teşhis",
-        "Güvenli Laboratuvar Ortamı",
-        "Akıllı Söküm ve Veri Çekme",
-        "Veri Kurtarma",
-        "Yeni ortam veya güvenli bağlantıyla teslim"
-      ],
-      cta: {
-        question: "Verinizi kaybettiniz mi?",
-        action: "Bizimle İletişime Geçin"
-      }
-    },
-    en: {
-      title: "Data Recovery Services",
-      paragraph:
-        "At TekFin, we specialize in recovering lost data from various storage devices including HDDs, SSDs, USB drives, and more. Whether you are a business or an individual, our professional recovery solutions ensure the highest possible retrieval rates.",
-      services: [
-        { icon: hddIcon, text: "Hard Drive Recovery" },
-        { icon: ssdIcon, text: "SSD Recovery" },
-        { icon: usbIcon, text: "Flash Media Recovery" },
-        { icon: raidIcon, text: "RAID and Server Recovery" }
-      ],
-      privacy: "🔒 Your data privacy is our priority.",
-      whyTitle: "Why Choose Us?",
-      whyList: [
-        "✅ High success rate for damaged drives",
-        "💰 Transparent pricing",
-        "👨‍💻 Direct technical support"
-      ],
-      processTitle: "Our Process",
-      processSteps: [
-        "Free Initial Diagnosis",
-        "Secure Lab Environment",
-        "Smart Disassembly & Extraction",
-        "File Recovery",
-        "Delivery via new medium or secure download links"
-      ],
-      cta: {
-        question: "Lost your data?",
-        action: "Contact Us"
-      }
-    }
+  const tr=language==="tr";
+  const t=tr?{
+    eyebrow:"VERİ KURTARMA",title:"Kayıp veriler için kontrollü ve güvenli kurtarma süreci.",
+    intro:"HDD, SSD, USB bellek, RAID ve sunucu ortamlarında kaybolan veriler için kontrollü teşhis ve kurtarma süreci sunuyoruz.",
+    cards:[
+      ["Hard Disk Kurtarma","HDD arızaları ve erişim sorunlarında kontrollü teşhis ve veri kurtarma süreci."],
+      ["SSD Kurtarma","SSD ve flash tabanlı ortamlarda uygun teknik yaklaşımı belirleyerek çalışırız."],
+      ["Flash Bellek Kurtarma","USB ve benzeri taşınabilir ortamlarda veri kaybının nedenini değerlendiririz."],
+      ["RAID ve Sunucu Kurtarma","Kurumsal depolama ve RAID yapılarına uygun kontrollü kurtarma süreci."]
+    ],
+    process:"Kurtarma sürecimiz",processIntro:"Her veri kaybı vakası farklıdır. Önce teşhis eder, ardından güvenli ve kontrollü bir kurtarma yolu belirleriz.",
+    steps:["Ücretsiz İlk Teşhis","Güvenli Laboratuvar Ortamı","Kontrollü Söküm ve Veri Çekme","Veri Kurtarma","Güvenli Teslim"],
+    value:"Veri kurtarmada ilk kural: kaynağı korumak.",valueText:"Başarılı bir kurtarma süreci, cihaz üzerindeki mevcut veriye daha fazla zarar vermeden doğru teşhis ve kontrollü işlem gerektirir.",
+    cta:"Veri kaybı yaşadıysanız önce durumu değerlendirelim.",ctaText:"Cihazı yeniden kullanmadan önce uzman değerlendirmesi alın.",button:"Kurtarma Talebi Oluştur"
+  }:{
+    eyebrow:"DATA RECOVERY",title:"A controlled and secure recovery process for lost data.",
+    intro:"We provide controlled diagnosis and recovery processes for lost data from HDD, SSD, USB, RAID, and server environments.",
+    cards:[
+      ["Hard Drive Recovery","Controlled diagnosis and recovery for HDD failures and access problems."],
+      ["SSD Recovery","We determine the appropriate technical approach for SSD and flash-based storage."],
+      ["Flash Media Recovery","We assess the cause of data loss on USB and similar portable media."],
+      ["RAID & Server Recovery","A controlled recovery process for business storage and RAID environments."]
+    ],
+    process:"Our recovery process",processIntro:"Every data-loss case is different. We diagnose first, then determine a safe and controlled recovery path.",
+    steps:["Free Initial Diagnosis","Secure Lab Environment","Controlled Disassembly & Extraction","File Recovery","Secure Delivery"],
+    value:"The first rule of data recovery: protect the source.",valueText:"A successful recovery process requires accurate diagnosis and controlled handling without causing further damage to the source media.",
+    cta:"If you have lost data, let us assess the situation first.",ctaText:"Get an expert assessment before continuing to use the affected device.",button:"Request Recovery"
   };
-
-  const t = content[language];
-
-  const icons = [
-    <FaSearch className="text-white w-5 h-5" />,
-    <FaFlask className="text-white w-5 h-5" />,
-    <FaTools className="text-white w-5 h-5" />,
-    <FaFileAlt className="text-white w-5 h-5" />,
-    <FaTruck className="text-white w-5 h-5" />
-  ];
-
-  return (
-    <div className="tk-service-page">
-      <div className="max-w-7xl mx-auto">
-        {/* Title & Intro */}
-        <h2 className="text-4xl font-bold text-center mb-8 text-[#002855]">{t.title}</h2>
-        <p className="text-base text-gray-800 mb-10 text-center max-w-3xl mx-auto">{t.paragraph}</p>
-
-        {/* Services */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {t.services.map((s, i) => (
-            <div
-              key={i}
-              className="bg-[#f1f6fc] p-4 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center"
-            >
-              <img src={s.icon} alt={s.text} className="w-16 h-16 mb-3" />
-              <p className="text-sm font-medium text-[#002855]">{s.text}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Privacy */}
-        <p className="text-center font-semibold text-[#1f3b6f] mb-10">{t.privacy}</p>
-
-        {/* Why Choose Us */}
-        <div className="mb-10 max-w-5xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-4 text-[#1f3b6f]">{t.whyTitle}</h3>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {t.whyList.map((item, i) => (
-              <div
-                key={i}
-                className="bg-white border border-blue-100 p-4 rounded-lg shadow text-center hover:shadow-md transition"
-              >
-                <p className="text-blue-800 font-medium">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Process Timeline مع الحركات */}
-        <ProcessTimeline steps={t.processSteps} icons={icons} title={t.processTitle} />
-
-        {/* Call to Action */}
-        <div className="mt-14 text-center">
-          <p className="text-gray-600 text-lg mb-4">{t.cta.question}</p>
-          <Link
-            to="/contact"
-            className="inline-block bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800"
-          >
-            {t.cta.action}
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  const icons=[FaSearch,FaFlask,FaTools,FaFileAlt];
+  return <div className="tk-modern-page">
+    <section className="tk-page-hero"><div className="tk-modern-container"><div className="tk-page-hero-grid"><div><span className="tk-eyebrow">{t.eyebrow}</span><h1>{t.title}</h1><p>{t.intro}</p></div><div className="tk-page-hero-mark"><FaSearch aria-hidden="true"/><span>BUSINESS DATA SOLUTIONS</span></div></div></div></section>
+    <section className="tk-modern-section"><div className="tk-modern-container"><div className="tk-section-heading"><span className="tk-section-number">01</span><div><h2>{tr?"Ne sunuyoruz?":"What we provide"}</h2><p>{tr?"İşletmenizin veri sürekliliğini destekleyen kurtarma seçeneklerini kontrollü bir süreç içinde ele alıyoruz.":"We address recovery options within a controlled process designed to support business data continuity."}</p></div></div><div className="tk-service-grid">{t.cards.map(([title,text],i)=>{const Icon=icons[i];return <article className="tk-service-card" key={title}><div className="tk-card-icon"><Icon/></div><span className="tk-card-index">0{i+1}</span><h3>{title}</h3><p>{text}</p></article>})}</div></div></section>
+    <section className="tk-process-section"><div className="tk-modern-container"><div className="tk-section-heading tk-section-heading-light"><span className="tk-section-number">02</span><div><h2>{t.process}</h2><p>{t.processIntro}</p></div></div><div className="tk-process-grid">{t.steps.map((step,i)=><div className="tk-process-step" key={step}><span>{String(i+1).padStart(2,"0")}</span><h3>{step}</h3></div>)}</div></div></section>
+    <section className="tk-modern-section tk-value-section"><div className="tk-modern-container tk-value-grid"><div><span className="tk-eyebrow">{tr?"YAKLAŞIMIMIZ":"OUR APPROACH"}</span><h2>{t.value}</h2></div><p>{t.valueText}</p></div></section>
+    <section className="tk-modern-container tk-page-cta"><div><span className="tk-eyebrow">{tr?"SONRAKİ ADIM":"NEXT STEP"}</span><h2>{t.cta}</h2><p>{t.ctaText}</p></div><Link to="/contact?intent=recovery">{t.button}<FaArrowRight/></Link></section>
+  </div>;
 }
