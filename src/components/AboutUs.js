@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Eye, Target, ShieldCheck, Server } from 'lucide-react';
 
 const AboutUs = ({ language }) => {
@@ -66,8 +67,30 @@ const AboutUs = ({ language }) => {
   const t = content[language] || content.en;
   const isTR = language === 'tr';
 
+  const seoTitle = isTR ? 'TekFin Hakkında | TekFin Teknoloji' : 'About TekFin | TekFin Teknoloji';
+  const seoDescription = isTR ? 'TekFin Teknoloji hakkında: işletmeler için veri depolama, yedekleme ve veri kurtarma çözümleri.' : 'About TekFin Teknoloji: business data storage, backup, and data recovery solutions.';
+  const seoUrl = 'https://tekfinteknoloji.com/about-us';
+
   return (
     <div className="tk-about-page">
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <link rel="canonical" href={seoUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content={seoUrl} />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:locale" content={isTR || tr ? 'tr_TR' : 'en_US'} />
+        <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+      </Helmet>
+      
       <div className="tk-about-container">
         <section className="tk-about-hero">
           <div className="tk-about-hero-copy">
