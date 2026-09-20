@@ -15,6 +15,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const [portability, setPortability] = useState('');
   const [customRequirements, setCustomRequirements] = useState('');
   const [aiRecommendation, setAiRecommendation] = useState('');
+  const [aiError, setAiError] = useState('');
   const [isLoadingAI, setIsLoadingAI] = useState(false);
   const [showAISection, setShowAISection] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -97,6 +98,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
     }
     setIsLoadingAI(true);
     setAiRecommendation('');
+    setAiError('');
     try {
       const response = await fetch('https://api.tekfinteknoloji.com/.netlify/functions/storage-recommendation', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -116,11 +118,11 @@ const StorageAdvisor = ({ language = 'en' }) => {
               : status >= 500
                 ? (isTR ? 'AI hizmeti geçici olarak kullanılamıyor.' : 'AI service is temporarily unavailable.')
                 : (isTR ? 'Üzgünüz, şu anda AI önerisi alınamıyor. Lütfen daha sonra tekrar deneyin.' : 'Sorry, AI recommendation is not available right now. Please try again later.');
-        setAiRecommendation(message);
+        setAiError(message);
       }
     } catch (error) {
       console.error('Error getting AI recommendation:', error);
-      setAiRecommendation(isTR ? 'Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.' : 'Connection error. Please check your internet connection.');
+      setAiError(isTR ? 'Bağlantı hatası. Lütfen internet bağlantınızı kontrol edin.' : 'Connection error. Please check your internet connection.');
     } finally { setIsLoadingAI(false); }
   };
 
@@ -224,6 +226,12 @@ const StorageAdvisor = ({ language = 'en' }) => {
             <div id="ai-helper" className="text-xs text-gray-500 mt-1">{isTR ? 'İpucu: Kullanım senaryosu, kapasite (GB/TB), performans (NVMe/SATA/HDD) ve bütçeyi belirtin.' : 'Tip: Include use case, capacity (GB/TB), performance (NVMe/SATA/HDD) and budget.'}</div>
             <button type="button" onClick={() => handleAIRecommendation(customRequirements)} disabled={isLoadingAI} className="mt-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">{isLoadingAI ? t.buttons.aiBusy : t.buttons.aiGet}</button>
           </div>
+          {aiError && (
+            <div className="mt-6 p-4 bg-red-50 rounded-lg border border-red-200 text-red-800" role="alert">
+              <strong>{isTR ? 'AI Önerisi alınamadı:' : 'AI recommendation unavailable:'}</strong>
+              <p className="mt-2 mb-0">{aiError}</p>
+            </div>
+          )}
           {aiRecommendation && (
             <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
               <h3 className="font-bold text-lg mb-3 text-[#002855]">{isTR ? 'AI Önerisi:' : 'AI Recommendation:'}</h3>
