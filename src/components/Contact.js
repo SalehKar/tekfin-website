@@ -165,154 +165,87 @@ const Contact = ({ language }) => {
 
   return (
     <div className="tk-contact-page">
-      <h1 className="text-4xl font-bold text-center text-[#1f3b6f] mb-3">
-        {intentCopy.title}
-      </h1>
-      <p className="text-center text-gray-700 max-w-2xl mx-auto mb-10">
-        {intentCopy.description}
-      </p>
+      <div className="tk-contact-container">
+        <section className="tk-contact-hero">
+          <div>
+            <span className="tk-contact-eyebrow">{isTR ? 'TEKFIN TEKNOLOJİ' : 'TEKFIN TEKNOLOJİ'}</span>
+            <h1>{intentCopy.title}</h1>
+            <p>{intentCopy.description}</p>
+          </div>
+          <div className="tk-contact-hero-note">
+            <span>{isTR ? 'İşletme Veri Altyapısı' : 'Business Data Infrastructure'}</span>
+            <strong>{isTR ? 'Net kapsam. Doğru yaklaşım. Hızlı iletişim.' : 'Clear scope. Practical approach. Fast response.'}</strong>
+          </div>
+        </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-        {/* Contact Info */}
-        <div className="space-y-6">
-          <div className="flex items-start text-gray-700 gap-3">
-            <FaMapMarkerAlt className="text-xl text-red-500 mt-1" />
-            <p className="text-sm">{t.address}</p>
+        <section className="tk-contact-grid">
+          <div className="tk-contact-info">
+            <div className="tk-contact-info-header">
+              <span className="tk-contact-section-label">{isTR ? 'İLETİŞİM' : 'CONTACT'}</span>
+              <h2>{isTR ? 'İhtiyacınızı konuşalım.' : 'Let’s discuss your needs.'}</h2>
+              <p>{isTR ? 'Depolama, yedekleme veya veri kurtarma ihtiyacınızı kısaca paylaşın.' : 'Tell us briefly about your storage, backup, or data recovery needs.'}</p>
+            </div>
+
+            <div className="tk-contact-details">
+              <div className="tk-contact-detail">
+                <FaMapMarkerAlt aria-hidden="true" />
+                <div><span>{isTR ? 'Konum' : 'Location'}</span><p>{t.address.replace(/^.*?:\s*/, '')}</p></div>
+              </div>
+              <div className="tk-contact-detail">
+                <FaEnvelope aria-hidden="true" />
+                <div><span>{isTR ? 'E-posta' : 'Email'}</span><p>{t.email.replace(/^.*?:\s*/, '')}</p></div>
+              </div>
+              <div className="tk-contact-detail">
+                <FaClock aria-hidden="true" />
+                <div><span>{isTR ? 'Çalışma Saatleri' : 'Working Hours'}</span><p>{t.hours.replace(/^.*?:\s*/, '')}</p></div>
+              </div>
+              <div className="tk-contact-detail">
+                <FaLinkedin aria-hidden="true" />
+                <div><span>LinkedIn</span><a href="https://www.linkedin.com/company/tekfin-teknoloji-limited-sti" target="_blank" rel="noopener noreferrer">TekFin Teknoloji</a></div>
+              </div>
+            </div>
+
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4778.430377301186!2d28.945141497224295!3d41.02039129751813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2str!4v1754528170081!5m2!1sen!2str"
+              width="100%"
+              height="210"
+              className="tk-contact-map"
+              allowFullScreen=""
+              loading="lazy"
+              title="TekFin Teknoloji Location"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
 
-          <div className="flex items-start text-gray-700 gap-3">
-            <FaEnvelope className="text-xl text-yellow-500 mt-1" />
-            <p className="text-sm">{t.email}</p>
+          <div className="tk-contact-form-card">
+            <div className="tk-contact-form-heading">
+              <span className="tk-contact-section-label">{isTR ? 'MESAJINIZ' : 'YOUR MESSAGE'}</span>
+              <h2>{t.formTitle}</h2>
+              <p>{isTR ? 'Alanları doldurun; ekibimiz size geri dönüş yapacaktır.' : 'Complete the form and our team will get back to you.'}</p>
+            </div>
+
+            <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="tk-contact-form">
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="intent" value={intent} />
+
+              <div className="tk-contact-field"><input type="text" name="name" placeholder={t.namePlaceholder} value={formData.name} onChange={handleChange} required /></div>
+              <div className="tk-contact-field"><input type="email" name="email" placeholder={t.emailPlaceholder} value={formData.email} onChange={handleChange} required /></div>
+              <div className="tk-contact-field"><input type="tel" name="phone" placeholder={t.phonePlaceholder} value={formData.phone} onChange={handleChange} /></div>
+              <div className="tk-contact-field"><input type="text" name="company" placeholder={t.companyPlaceholder} value={formData.company} onChange={handleChange} /></div>
+              <div className="tk-contact-field"><input type="text" name="size" placeholder={t.sizePlaceholder} value={formData.size} onChange={handleChange} /></div>
+              <div className="tk-contact-field"><input type="text" name="subject" placeholder={t.subjectPlaceholder} value={formData.subject} onChange={handleChange} /></div>
+              <div className="tk-contact-field tk-contact-field-full"><textarea name="message" rows="7" placeholder={t.messagePlaceholder} value={formData.message} onChange={handleChange} required /></div>
+
+              <button type="submit" disabled={isSending} className="tk-contact-submit">
+                {isSending ? t.sending : t.submitButton}
+              </button>
+              {status && <p className={status === t.successMessage ? 'tk-contact-status success' : 'tk-contact-status'} role="status">{status}</p>}
+            </form>
           </div>
-
-          <div className="flex items-start text-gray-700 gap-3">
-            <FaClock className="text-xl text-purple-500 mt-1" />
-            <p className="text-sm">{t.hours}</p>
-          </div>
-
-          <div className="flex items-start text-gray-700 gap-3">
-            <FaLinkedin className="text-xl text-blue-700 mt-1" />
-            <a
-              href="https://www.linkedin.com/company/tekfin-teknoloji-limited-sti"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-blue-700 hover:underline"
-            >
-              LinkedIn
-            </a>
-          </div>
-
-          {/* Google Maps */}
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4778.430377301186!2d28.945141497224295!3d41.02039129751813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2str!4v1754528170081!5m2!1sen!2str"
-            width="100%"
-            height="200"
-            className="rounded-md mt-4 border"
-            allowFullScreen=""
-            loading="lazy"
-            title="TekFin Teknoloji Location"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-
-        {/* Contact Form */}
-        <div className="bg-gray-50 p-6 rounded-lg shadow-inner w-full max-w-lg mx-auto lg:mx-0">
-          <h2 className="text-2xl font-bold text-[#1f3b6f] mb-4 text-center">{t.formTitle}</h2>
-
-          <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            onSubmit={handleSubmit}
-            className="space-y-4"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="intent" value={intent} />
-
-            <input
-              type="text"
-              name="name"
-              placeholder={t.namePlaceholder}
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              required
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder={t.emailPlaceholder}
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              required
-            />
-
-            <input
-              type="tel"
-              name="phone"
-              placeholder={t.phonePlaceholder}
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-            />
-
-            {/* Light B2B qualifiers (optional) */}
-            <input
-              type="text"
-              name="company"
-              placeholder={t.companyPlaceholder}
-              value={formData.company}
-              onChange={handleChange}
-              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-            />
-
-            <input
-              type="text"
-              name="size"
-              placeholder={t.sizePlaceholder}
-              value={formData.size}
-              onChange={handleChange}
-              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-            />
-
-            <input
-              type="text"
-              name="subject"
-              placeholder={t.subjectPlaceholder}
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-            />
-
-            <textarea
-              name="message"
-              rows="8"
-              placeholder={t.messagePlaceholder}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-3 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              required
-            />
-
-            <button
-              type="submit"
-              disabled={isSending}
-              className={`w-full py-2 px-4 rounded-md font-medium transition ${
-                isSending
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-[#1f3b6f] text-white hover:bg-blue-800'
-              }`}
-            >
-              {isSending ? t.sending : t.submitButton}
-            </button>
-
-            {status && <p className="text-center mt-2 text-sm text-gray-700">{status}</p>}
-          </form>
-        </div>
+        </section>
       </div>
     </div>
+  );
   );
 };
 
