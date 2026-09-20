@@ -130,14 +130,13 @@ const Contact = ({ language }) => {
     setStatus(t.sending);
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('https://api.tekfinteknoloji.com/.netlify/functions/send-contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           intent,
           ...formData
-        }).toString()
+        })
       });
 
       if (response.ok) {
@@ -152,6 +151,8 @@ const Contact = ({ language }) => {
           message: ''
         });
       } else {
+        const data = await response.json().catch(() => ({}));
+        console.error('Contact submission failed:', data);
         setStatus(t.errorMessage);
       }
     } catch (error) {
