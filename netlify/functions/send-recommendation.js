@@ -130,10 +130,11 @@ exports.handler = async (event) => {
 
   const {
     SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS,
-    FROM_EMAIL, FROM_NAME = "TekFin Teknoloji"
+    STORAGE_ADVISOR_FROM_EMAIL,
+    FROM_NAME = "TekFin Teknoloji"
   } = process.env;
 
-  const senderEmail = FROM_EMAIL || STORAGE_ADVISOR_EMAIL;
+  const senderEmail = STORAGE_ADVISOR_FROM_EMAIL || STORAGE_ADVISOR_EMAIL;
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS)
     return {
