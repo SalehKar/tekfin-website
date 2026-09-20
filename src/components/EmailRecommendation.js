@@ -16,7 +16,7 @@ function EmailRecommendation({ recommendation, defaultReplyTo, lang = "en" }) {
     if (!recommendation || !email) return;
     setStatus("sending");
     try {
-      const res = await fetch("https://tekfingroup.com/.netlify/functions/send-recommendation", {
+      const res = await fetch("https://luminous-zuccutto-60501a.netlify.app/.netlify/functions/send-recommendation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
