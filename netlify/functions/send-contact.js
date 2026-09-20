@@ -56,7 +56,7 @@ exports.handler = async (event) => {
     };
   }
 
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return {
       statusCode: 400,
       headers: HEADERS,
