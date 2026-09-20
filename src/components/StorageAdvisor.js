@@ -6,16 +6,7 @@ import EmailRecommendation from '../components/EmailRecommendation';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const StorageAdvisorMark = () => (
-  <svg className="tk-advisor-service-icon" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-    <ellipse cx="60" cy="35" rx="28" ry="11" stroke="currentColor" strokeWidth="4"/>
-    <path d="M32 35v23c0 6 12.5 11 28 11s28-5 28-11V35" stroke="currentColor" strokeWidth="4"/>
-    <path d="M32 58v23c0 6 12.5 11 28 11s28-5 28-11V58" stroke="currentColor" strokeWidth="4"/>
-    <path d="M18 70c18-21 34-31 48-31 16 0 28 11 36 28" stroke="#60A5FA" strokeWidth="3" strokeLinecap="round"/>
-    <circle cx="18" cy="70" r="5" fill="#60A5FA"/>
-    <circle cx="102" cy="67" r="5" fill="#60A5FA"/>
-  </svg>
-);
+import StorageAdvisorMark from './StorageAdvisorMark';
 
 const StorageAdvisor = ({ language = 'en' }) => {
   const [usage, setUsage] = useState('');
@@ -198,7 +189,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
       </Helmet>
 
       <div className="tk-advisor-container">
-        <section className="tk-advisor-hero"><div className="tk-advisor-hero-copy"><span className="tk-advisor-eyebrow">{isTR ? "SMART DATA STORAGE" : "SMART DATA STORAGE"}</span><h1>{t.h1}</h1><p>{t.intro}</p><div className="tk-advisor-hero-links"><Link to="/data-storage">{t.links.dataStorage}</Link><Link to="/contact">{t.links.contact}</Link></div></div><div className="tk-advisor-hero-mark"><StorageAdvisorMark /><span>STORAGE<br/>ADVISOR</span></div></section>
+        <section className="tk-advisor-hero"><div className="tk-advisor-hero-copy"><span className="tk-advisor-eyebrow">{isTR ? "SMART DATA STORAGE" : "SMART DATA STORAGE"}</span><h1>{t.h1}</h1><p>{t.intro}</p><div className="tk-advisor-hero-links"><Link to="/data-storage">{t.links.dataStorage}</Link><Link to="/contact">{t.links.contact}</Link></div></div><div className="tk-advisor-hero-mark"><StorageAdvisorMark className="tk-advisor-service-icon" /><span>STORAGE<br/>ADVISOR</span></div></section>
         <nav aria-label={isTR ? 'İç bağlantılar' : 'Internal links'} className="tk-advisor-nav">
           <h2 className="sr-only">{t.navH2}</h2>
           <ul className="flex flex-wrap gap-4 justify-center text-sm">
