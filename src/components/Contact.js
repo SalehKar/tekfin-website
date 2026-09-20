@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
 import { FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin } from 'react-icons/fa';
 
@@ -164,8 +165,30 @@ const Contact = ({ language }) => {
 
   const isSending = status === t.sending;
 
+  const seoTitle = isTR ? 'İletişim | TekFin Teknoloji' : 'Contact | TekFin Teknoloji';
+  const seoDescription = isTR ? 'TekFin Teknoloji ile işletmenizin veri depolama, yedekleme ve kurtarma ihtiyaçlarını görüşün.' : 'Contact TekFin Teknoloji about your business data storage, backup, and recovery needs.';
+  const seoUrl = 'https://tekfinteknoloji.com/contact';
+
   return (
     <div className="tk-contact-page">
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <link rel="canonical" href={seoUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content={seoUrl} />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:locale" content={isTR || tr ? 'tr_TR' : 'en_US'} />
+        <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+      </Helmet>
+      
       <div className="tk-contact-container">
         <section className="tk-contact-hero">
           <div>
