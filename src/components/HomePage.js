@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Server, RotateCcw, ShieldCheck, LockKeyhole, UserRoundCheck, BellRing, HardDrive, RotateCw } from 'lucide-react';
 
 import StorageAdvisorMark from './StorageAdvisorMark';
+import { Helmet } from 'react-helmet-async';
 
 const HomePage = ({ language }) => {
   const navigate = useNavigate();
@@ -63,7 +64,34 @@ const HomePage = ({ language }) => {
         ['Periodic restore testing and verification', RotateCw]
       ];
 
+  const seo = tr ? {
+    title: 'TekFin Teknoloji | İşletme Veri Depolama, Yedekleme ve Kurtarma',
+    description: 'TekFin Teknoloji, işletmeler için veri depolama, yedekleme ve veri kurtarma altyapıları tasarlar ve uygular.'
+  } : {
+    title: 'TekFin Teknoloji | Business Data Storage, Backup & Recovery',
+    description: 'TekFin Teknoloji designs and implements data storage, backup, and data recovery infrastructure for businesses.'
+  };
+
   return (
+    <>
+      <Helmet>
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <link rel="canonical" href="https://tekfinteknoloji.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.description} />
+        <meta property="og:url" content="https://tekfinteknoloji.com/" />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:locale" content={tr ? 'tr_TR' : 'en_US'} />
+        <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.description} />
+        <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+      </Helmet>
+      <div className="bg-white text-slate-950">
     <div className="bg-white text-slate-950">
       <section className="relative overflow-hidden bg-[#031b2f] text-white">
         <div
@@ -211,7 +239,8 @@ const HomePage = ({ language }) => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
