@@ -181,7 +181,7 @@ const Contact = ({ language }) => {
         <meta property="og:description" content={seoDescription} />
         <meta property="og:url" content={seoUrl} />
         <meta property="og:site_name" content="TekFin Teknoloji" />
-        <meta property="og:locale" content={isTR || tr ? 'tr_TR' : 'en_US'} />
+        <meta property="og:locale" content={isTR ? 'tr_TR' : 'en_US'} />
         <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={seoTitle} />
