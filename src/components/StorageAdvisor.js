@@ -22,7 +22,6 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const [capacity, setCapacity] = useState('');
   const [speed, setSpeed] = useState('');
   const [portability, setPortability] = useState('');
-  const [email, setEmail] = useState('');
   const [customRequirements, setCustomRequirements] = useState('');
   const [aiRecommendation, setAiRecommendation] = useState('');
   const [isLoadingAI, setIsLoadingAI] = useState(false);
@@ -245,7 +244,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
             <div><label className="block mb-1 font-medium">{t.labels.capacity}</label><select value={capacity} onChange={(e) => setCapacity(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="lt500">{t.select.lt500}</option><option value="500_1tb">{t.select.between}</option><option value="1tb_4tb">{t.select.between2}</option><option value="gt4tb">{t.select.gt4}</option></select></div>
             <div><label className="block mb-1 font-medium">{t.labels.speed}</label><select value={speed} onChange={(e) => setSpeed(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="very_high">{t.select.nvme}</option><option value="high">{t.select.sata}</option><option value="low">{t.select.hdd}</option></select></div>
             <div><label className="block mb-1 font-medium">{t.labels.portability}</label><select value={portability} onChange={(e) => setPortability(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="portable">{t.select.portable}</option><option value="fixed">{t.select.fixed}</option></select></div>
-            <div><label htmlFor="email" className="block mb-1 font-medium">{t.labels.email}</label><input type="email" id="email" value={email} onChange={handleEmailChange} placeholder={isTR ? 'ornek@firma.com' : 'name@company.com'} className="w-full border rounded px-3 py-2" autoComplete="email" /></div>
+            
             <button type="submit" className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 mt-2">{isTR ? 'Yapay Zekâ ile Öneri Al' : 'Get AI Recommendation'}</button>
           </form>
         )}
