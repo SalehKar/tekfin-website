@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FaClipboardCheck, FaCloudUploadAlt, FaSyncAlt, FaShieldAlt, FaArrowRight } from "react-icons/fa";
 
 export default function BackupServices({ language = "tr" }) {
   const tr = language === "tr";
+  const seoTitle = tr ? 'Yedekleme Hizmetleri | TekFin Teknoloji' : 'Backup Services | TekFin Teknoloji';
+  const seoDescription = tr ? 'İşletmeler için otomatik, güvenilir ve doğrulanabilir yedekleme çözümleri.' : 'Automated, reliable, and verifiable backup solutions for businesses.';
+
   const t = tr ? {
     eyebrow:"YEDEKLEME HİZMETLERİ", title:"İşletmeniz için düzenli, güvenilir ve doğrulanabilir yedekleme.",
     intro:"Veri kaybı riskini azaltmak için otomatik, güvenilir ve işletmenizin çalışma düzenine uygun yedekleme altyapıları tasarlıyoruz.",
@@ -32,7 +36,25 @@ export default function BackupServices({ language = "tr" }) {
     cta:"Protect your business data with a structured, verifiable backup system.", ctaText:"Let us review your current backup setup together.", button:"Request Consultation"
   };
   const icons=[FaClipboardCheck,FaCloudUploadAlt,FaSyncAlt,FaShieldAlt];
-  return <div className="tk-modern-page tk-backup-page">
+  return <
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <link rel="canonical" href="https://tekfinteknoloji.com/backup-services" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content="https://tekfinteknoloji.com/backup-services" />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:locale" content={tr ? "tr_TR" : "en_US"} />
+        <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+      </Helmet>
+div className="tk-modern-page tk-backup-page">
     <section className="tk-page-hero"><div className="tk-modern-container"><div className="tk-page-hero-grid"><div><span className="tk-eyebrow">{t.eyebrow}</span><h1>{t.title}</h1><p>{t.intro}</p></div><div className="tk-page-hero-mark tk-backup-mark"><div className="tk-hero-check"><FaClipboardCheck aria-hidden="true"/></div><span>BUSINESS DATA SOLUTIONS</span></div></div></div></section>
     <section className="tk-modern-section tk-backup-provide"><div className="tk-modern-container"><div className="tk-section-heading"><span className="tk-section-number">01</span><div><h2>{tr?"Ne sunuyoruz?":"What we provide"}</h2><p>{tr?"İşletmenizin veri sürekliliğini destekleyen yapıyı hizmetin tamamı üzerinden ele alıyoruz.":"We address the full infrastructure required to support business data continuity."}</p></div></div><div className="tk-service-grid">{t.cards.map(([title,text],i)=>{const Icon=icons[i];return <article className="tk-service-card" key={title}><div className="tk-card-icon"><Icon/></div><span className="tk-card-index">0{i+1}</span><h3>{title}</h3><p>{text}</p></article>})}</div></div></section>
     <section className="tk-process-section tk-backup-process"><div className="tk-modern-container"><div className="tk-section-heading tk-section-heading-light"><span className="tk-section-number">02</span><div><h2>{t.process}</h2><p>{t.processIntro}</p></div></div><div className="tk-process-grid">{t.steps.map((step,i)=><div className="tk-process-step" key={step}><span>{String(i+1).padStart(2,"0")}</span><div className="tk-process-node" aria-hidden="true"></div><h3>{step}</h3></div>)}</div></div></section>
