@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaRobot, FaWpforms, FaQuestionCircle, FaShareAlt } from 'react-icons/fa';
 import EmailRecommendation from '../components/EmailRecommendation';
@@ -30,7 +30,6 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const [copied, setCopied] = useState(false);
   const [shared, setShared] = useState(false);
 
-  const navigate = useNavigate();
   const isTR = language === 'tr';
 
   const copy = {
@@ -43,7 +42,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
       intro: 'Akıllı aracımız, kullanım amacınız, kapasite ihtiyacınız, performans beklentiniz ve taşınabilirlik gereksiniminize göre en uygun veri depolama çözümünü önerir. SSD/HDD, NVMe/SATA ve yedekleme seçeneklerini karşılaştırarak güvenli ve performanslı bir tercih yapmanıza yardımcı olur.',
       aiH2: 'Yapay Zekâ Destekli Özel Öneri',
       aiLead: 'İhtiyaçlarınızı detaylı açıklayın; yapay zekâ, kullanım senaryonuza uygun SSD/HDD, kapasite ve hız kombinasyonunu önersin.',
-      formH2: 'Geleneksel Form – Hızlı Depolama Tavsiyesi',
+      formH2: 'Hızlı Depolama Önerisi',
       navH2: 'İlgili Hizmetler ve Kaynaklar',
       faqH2: 'Sık Sorulan Sorular',
       faq: [
@@ -52,7 +51,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
         { q: 'Kurumsal depolama için nereden başlamalıyım?', a: 'Kapasite büyüme hızı, erişim performansı ve bütçeyi belirleyin. Ardından NAS/SAN ve SSD/HDD katmanlamasını planlayın.' },
       ],
       advisorLead: 'Akıllı aracımız, verileriniz için en uygun depolama seçeneğini önersin.',
-      showForm: 'Formu Göster', hideForm: 'Formu Gizle',
+      showForm: 'Hızlı Formu Göster', hideForm: 'Hızlı Formu Gizle',
       placeholders: { example: 'Örnek: "Video düzenleme için hızlı bir NVMe SSD arıyorum, 1 TB kapasite, bütçem 2000 TL"' },
       labels: { usage: 'Kullanım Amacı', capacity: 'Kapasite', speed: 'Hız', portability: 'Taşınabilirlik', email: 'E-posta Adresi' },
       select: { personal: 'Kişisel Depolama', gaming: 'Oyun', video: 'Video Düzenleme', backup: 'Yedekleme', office: 'Ofis/İş', lt500: '500 GB altı', between: '500 GB – 1 TB', between2: '1 TB – 4 TB', gt4: '4 TB üzeri', nvme: 'Çok Yüksek (NVMe SSD)', sata: 'Yüksek (SATA SSD)', hdd: 'Düşük (HDD)', portable: 'Taşınabilir', fixed: 'Sabit' },
@@ -68,7 +67,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
       intro: 'Our smart tool recommends the right data storage solution based on your use case, capacity needs, performance requirements and portability. Compare SSD/HDD, NVMe/SATA and backup options to choose a secure, high-performance setup.',
       aiH2: 'AI-Powered Custom Recommendation',
       aiLead: 'Describe your needs; the AI suggests the best SSD/HDD, capacity and performance mix for your scenario.',
-      formH2: 'Traditional Form – Quick Storage Recommendation',
+      formH2: 'Quick Storage Recommendation',
       navH2: 'Related Services & Resources',
       faqH2: 'Frequently Asked Questions',
       faq: [
@@ -77,7 +76,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
         { q: 'Where to start for corporate storage?', a: 'Define growth rate, performance and budget, then plan NAS/SAN and SSD/HDD tiering accordingly.' },
       ],
       advisorLead: 'Let our smart tool recommend the best storage option for your data.',
-      showForm: 'Show Form', hideForm: 'Hide Form',
+      showForm: 'Show Quick Form', hideForm: 'Hide Quick Form',
       placeholders: { example: 'Example: "I need a fast NVMe SSD for video editing, 1TB capacity, budget is 2000 TL"' },
       labels: { usage: 'Usage Purpose', capacity: 'Capacity', speed: 'Speed', portability: 'Portability', email: 'Email Address' },
       select: { personal: 'Personal Storage', gaming: 'Gaming', video: 'Video Editing', backup: 'Backup', office: 'Office/Business', lt500: 'Less than 500 GB', between: '500 GB – 1 TB', between2: '1 TB – 4 TB', gt4: 'More than 4 TB', nvme: 'Very High (NVMe SSD)', sata: 'High (SATA SSD)', hdd: 'Low (HDD)', portable: 'Portable', fixed: 'Fixed' },
@@ -88,23 +87,21 @@ const StorageAdvisor = ({ language = 'en' }) => {
 
   const t = copy[language] || copy.en;
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-
-  const handleEmailSubmit = async (e) => {
+  const handleQuickFormSubmit = async (e) => {
     e.preventDefault();
-    if (!email) return;
-    try {
-      await fetch('https://formsubmit.co/ajax/info@tekfinteknoloji.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ email, usage, capacity, speed, portability }),
-      });
-      navigate('/recommendations', { state: { usage, capacity, speed, portability, email, language } });
-    } catch (error) { console.error('Error submitting email:', error); }
+    const quickRequest = [
+      `Usage: ${usage}`,
+      `Capacity: ${capacity}`,
+      `Performance: ${speed}`,
+      `Portability: ${portability}`,
+    ].join(', ');
+    setCustomRequirements(quickRequest);
+    await handleAIRecommendation(quickRequest);
   };
 
-  const handleAIRecommendation = async () => {
-    if (!customRequirements.trim()) {
+  const handleAIRecommendation = async (requirementsOverride = customRequirements) => {
+    const requirements = requirementsOverride.trim();
+    if (!requirements) {
       alert(isTR ? 'Lütfen ihtiyaçlarınızı açıklayın.' : 'Please describe your requirements.');
       return;
     }
@@ -113,7 +110,7 @@ const StorageAdvisor = ({ language = 'en' }) => {
     try {
       const response = await fetch('/.netlify/functions/storage-recommendation', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ requirements: customRequirements, language }),
+        body: JSON.stringify({ requirements, language }),
       });
       const data = await response.json();
       if (data.success) setAiRecommendation(data.recommendation);
@@ -243,13 +240,13 @@ const StorageAdvisor = ({ language = 'en' }) => {
         </section>
 
         {showAISection && (
-          <form id="advisor-form" onSubmit={handleEmailSubmit} className="grid grid-cols-1 gap-6 text-left">
+          <form id="advisor-form" onSubmit={handleQuickFormSubmit} className="tk-advisor-form">
             <div><label className="block mb-1 font-medium">{t.labels.usage}</label><select value={usage} onChange={(e) => setUsage(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="personal">{t.select.personal}</option><option value="gaming">{t.select.gaming}</option><option value="video">{t.select.video}</option><option value="backup">{t.select.backup}</option><option value="office">{t.select.office}</option></select></div>
             <div><label className="block mb-1 font-medium">{t.labels.capacity}</label><select value={capacity} onChange={(e) => setCapacity(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="lt500">{t.select.lt500}</option><option value="500_1tb">{t.select.between}</option><option value="1tb_4tb">{t.select.between2}</option><option value="gt4tb">{t.select.gt4}</option></select></div>
             <div><label className="block mb-1 font-medium">{t.labels.speed}</label><select value={speed} onChange={(e) => setSpeed(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="very_high">{t.select.nvme}</option><option value="high">{t.select.sata}</option><option value="low">{t.select.hdd}</option></select></div>
             <div><label className="block mb-1 font-medium">{t.labels.portability}</label><select value={portability} onChange={(e) => setPortability(e.target.value)} required className="w-full border rounded px-3 py-2"><option value="">--</option><option value="portable">{t.select.portable}</option><option value="fixed">{t.select.fixed}</option></select></div>
-            <div><label htmlFor="email" className="block mb-1 font-medium">{t.labels.email}</label><input type="email" id="email" value={email} onChange={handleEmailChange} placeholder={isTR ? 'ornek@firma.com' : 'name@company.com'} required className="w-full border rounded px-3 py-2" autoComplete="email" /></div>
-            <button type="submit" className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 mt-2">{isTR ? 'Tavsiyeyi Al' : 'Get Recommendation'}</button>
+            <div><label htmlFor="email" className="block mb-1 font-medium">{t.labels.email}</label><input type="email" id="email" value={email} onChange={handleEmailChange} placeholder={isTR ? 'ornek@firma.com' : 'name@company.com'} className="w-full border rounded px-3 py-2" autoComplete="email" /></div>
+            <button type="submit" className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 mt-2">{isTR ? 'Yapay Zekâ ile Öneri Al' : 'Get AI Recommendation'}</button>
           </form>
         )}
 
