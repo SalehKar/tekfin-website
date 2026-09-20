@@ -139,7 +139,9 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const canonical = 'https://tekfinteknoloji.com/storage-advisor';
   const ogLocale = isTR ? 'tr_TR' : 'en_US';
   const ogLocaleAlt = isTR ? 'en_US' : 'tr_TR';
-  const ogImage = 'https://tekfinteknoloji.com/assets/storage-advisor-og.png';
+  const ogImage = isTR
+    ? 'https://tekfinteknoloji.com/images/ai-storage-tool-tr-1200x630.png'
+    : 'https://tekfinteknoloji.com/images/ai-storage-tool-en-1200x630.png';
 
   const handleShare = async () => {
     const shareUrl = canonical;
@@ -170,9 +172,8 @@ const StorageAdvisor = ({ language = 'en' }) => {
   const breadcrumb = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tekfinteknoloji.com/' },
-      { '@type': 'ListItem', position: 2, name: isTR ? 'Hizmetler' : 'Services', item: 'https://tekfinteknoloji.com/services' },
-      { '@type': 'ListItem', position: 3, name: t.h1, item: canonical },
+      { '@type': 'ListItem', position: 1, name: isTR ? 'Ana Sayfa' : 'Home', item: 'https://tekfinteknoloji.com/' },
+      { '@type': 'ListItem', position: 2, name: t.h1, item: canonical },
     ],
   };
 
