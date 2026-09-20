@@ -1157,3 +1157,121 @@
     padding: 24px;
   }
 }
+
+
+/* Approved recovery card design: compact, rounded, visual, no numbering. */
+.tk-recovery-page .tk-recovery-provide {
+  background: #f3f7fc;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card {
+  min-height: 210px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 22px;
+  padding: 26px 26px 26px 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d9e5f3;
+  border-radius: 20px;
+  background: linear-gradient(135deg,#fff 0%,#f9fbff 70%,#eef6ff 100%);
+  box-shadow: 0 8px 24px rgba(15,38,64,.045);
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  bottom: -80px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(37,99,235,.055);
+  pointer-events: none;
+}
+.tk-recovery-card-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.tk-recovery-page .tk-recovery-provide .tk-card-icon {
+  width: 94px;
+  height: 94px;
+  margin: 0;
+  border-radius: 50%;
+  background: linear-gradient(145deg,#eaf2ff,#dbe9ff);
+  color: #2563eb;
+  box-shadow: 0 0 0 9px rgba(37,99,235,.035), inset 0 0 24px rgba(37,99,235,.06);
+}
+.tk-recovery-page .tk-recovery-provide .tk-card-icon svg {
+  width: 34px;
+  height: 34px;
+}
+.tk-recovery-card-copy {
+  position: relative;
+  z-index: 1;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+.tk-recovery-page .tk-recovery-provide .tk-service-card p {
+  margin: 8px 0 0;
+  max-width: 470px;
+}
+.tk-recovery-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 13px;
+}
+.tk-recovery-tags span {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eaf2ff;
+  color: #174ea6;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.tk-recovery-card-arrow {
+  position: relative;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  color: #2563eb;
+  box-shadow: 0 4px 14px rgba(15,38,64,.08);
+  transition: transform .2s ease, background .2s ease;
+}
+.tk-recovery-card-arrow:hover {
+  transform: translateX(3px);
+  background: #fff;
+}
+@media (max-width: 900px) {
+  .tk-recovery-page .tk-recovery-provide .tk-service-grid { grid-template-columns: 1fr; }
+  .tk-recovery-page .tk-recovery-provide .tk-service-card {
+    grid-template-columns: 92px minmax(0,1fr) 44px;
+    min-height: 190px;
+    gap: 18px;
+    padding: 22px;
+  }
+  .tk-recovery-page .tk-recovery-provide .tk-card-icon { width: 78px; height: 78px; }
+}
+@media (max-width: 600px) {
+  .tk-recovery-page .tk-recovery-provide .tk-service-card {
+    grid-template-columns: 64px minmax(0,1fr);
+  }
+  .tk-recovery-page .tk-recovery-provide .tk-card-icon { width: 62px; height: 62px; }
+  .tk-recovery-page .tk-recovery-provide .tk-card-icon svg { width: 25px; height: 25px; }
+  .tk-recovery-card-arrow { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; }
+}
