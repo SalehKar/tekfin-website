@@ -22,7 +22,7 @@ function EmailRecommendation({ recommendation, defaultReplyTo, lang = "en" }) {
         body: JSON.stringify({
           email,
           recommendation,
-          replyTo: defaultReplyTo || "", // örn: storage-advisor@tekfingroup.com
+          replyTo: defaultReplyTo || "storage-advisor@tekfinteknoloji.com",
         }),
       });
       if (!res.ok) throw new Error(await res.text());
