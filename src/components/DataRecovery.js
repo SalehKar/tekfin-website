@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FaSearch, FaFlask, FaTools, FaFileAlt, FaArrowRight } from "react-icons/fa";
 
 export default function DataRecovery({ language = "tr" }) {
   const tr=language==="tr";
+  const seoTitle = tr ? 'Veri Kurtarma | TekFin Teknoloji' : 'Data Recovery | TekFin Teknoloji';
+  const seoDescription = tr ? 'HDD, SSD, USB, RAID ve sunucu ortamları için kontrollü veri kurtarma hizmetleri.' : 'Controlled data recovery services for HDD, SSD, USB, RAID, and server environments.';
+
   const t=tr?{
     eyebrow:"VERİ KURTARMA",title:"Kayıp veriler için kontrollü ve güvenli kurtarma süreci.",
     intro:"HDD, SSD, USB bellek, RAID ve sunucu ortamlarında kaybolan veriler için kontrollü teşhis ve kurtarma süreci sunuyoruz.",
@@ -32,7 +36,25 @@ export default function DataRecovery({ language = "tr" }) {
     cta:"If you have lost data, let us assess the situation first.",ctaText:"Get an expert assessment before continuing to use the affected device.",button:"Request Recovery"
   };
   const icons=[FaSearch,FaFlask,FaTools,FaFileAlt];
-  return <div className="tk-modern-page tk-recovery-page">
+  return <
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <link rel="canonical" href="https://tekfinteknoloji.com/data-recovery" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content="https://tekfinteknoloji.com/data-recovery" />
+        <meta property="og:site_name" content="TekFin Teknoloji" />
+        <meta property="og:locale" content={tr ? "tr_TR" : "en_US"} />
+        <meta property="og:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content="https://tekfinteknoloji.com/images/tekfin-logo-square.png?v=4" />
+      </Helmet>
+div className="tk-modern-page tk-recovery-page">
     <section className="tk-page-hero"><div className="tk-modern-container"><div className="tk-page-hero-grid"><div><span className="tk-eyebrow">{t.eyebrow}</span><h1>{t.title}</h1><p>{t.intro}</p></div><div className="tk-page-hero-mark tk-recovery-mark"><div className="tk-hero-scan"><FaSearch aria-hidden="true"/></div><span>BUSINESS DATA SOLUTIONS</span></div></div></div></section>
     <section className="tk-modern-section tk-recovery-provide"><div className="tk-modern-container"><div className="tk-section-heading"><span className="tk-section-number">01</span><div><h2>{tr?"Ne sunuyoruz?":"What we provide"}</h2><p>{tr?"İşletmenizin veri sürekliliğini destekleyen kurtarma seçeneklerini kontrollü bir süreç içinde ele alıyoruz.":"We address recovery options within a controlled process designed to support business data continuity."}</p></div></div><div className="tk-service-grid">{t.cards.map(([title,text,tags],i)=>{const Icon=icons[i];return <article className="tk-service-card" key={title}><div className="tk-recovery-card-icon"><div className="tk-card-icon"><Icon/></div></div><div className="tk-recovery-card-copy"><h3>{title}</h3><p>{text}</p><div className="tk-recovery-tags">{tags.map(tag=><span key={tag}>{tag}</span>)}</div></div><Link className="tk-recovery-card-arrow" to="/contact?intent=recovery" aria-label={title}><FaArrowRight/></Link></article>})}</div></div></section>
     <section className="tk-process-section tk-recovery-process"><div className="tk-modern-container"><div className="tk-section-heading tk-section-heading-light"><span className="tk-section-number">02</span><div><h2>{t.process}</h2><p>{t.processIntro}</p></div></div><div className="tk-process-grid">{t.steps.map((step,i)=><div className="tk-process-step" key={step}><span>{String(i+1).padStart(2,"0")}</span><div className="tk-process-node" aria-hidden="true"></div><h3>{step}</h3></div>)}</div></div></section>
