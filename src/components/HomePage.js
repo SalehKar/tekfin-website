@@ -169,7 +169,7 @@ const HomePage = ({ language }) => {
               <h3 className="mt-4 text-lg font-bold">{title}</h3>
               <p className="mt-2 text-sm leading-5 text-slate-500">{text}</p>
               <span className="mt-4 inline-flex items-center text-xs font-bold text-blue-600">
-                {tr ? 'عرض الحل' : 'View solution'} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                {tr ? 'Çözümü İncele' : 'View solution'} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </span>
             </button>
           ))}
