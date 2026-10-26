@@ -74,7 +74,7 @@ exports.handler = async (event) => {
   } = process.env;
 
   const contactFromEmail = CONTACT_FROM_EMAIL || "info@tekfinteknoloji.com";
-  const recipient = "kar98sal@gmail.com";
+  const recipient = "info@tekfinteknoloji.com";
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
     return {
