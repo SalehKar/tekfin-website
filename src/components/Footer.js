@@ -45,7 +45,7 @@ const Footer = ({ language }) => {
             <div className="mt-3 space-y-2 text-sm text-slate-400">
               <Link to="/about-us" className="block hover:text-white">{tr ? 'Hakkımızda' : 'About TekFin'}</Link>
               <Link to="/contact" className="block hover:text-white">{tr ? 'İletişim' : 'Contact'}</Link>
-              <a href="mailto:info@tekfinteknoloji.com" className="block hover:text-white">info@tekfinteknoloji.com</a>
+              <a href="mailto:kar98sal@gmail.com" className="block hover:text-white">kar98sal@gmail.com</a>
             </div>
           </div>
         </div>
