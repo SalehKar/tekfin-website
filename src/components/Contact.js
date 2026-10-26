@@ -12,7 +12,7 @@ const Contact = ({ language }) => {
     tr: {
       pageTitle: 'İletişim',
       address: 'Adres: İstanbul, Türkiye',
-      email: 'E-posta: kar98sal@gmail.com',
+      email: 'E-posta: info@tekfinteknoloji.com',
       hours: 'Çalışma Saatleri: Pazartesi - Cuma: 09:00 - 18:00',
 
       intents: {
@@ -49,7 +49,7 @@ const Contact = ({ language }) => {
     en: {
       pageTitle: 'Contact',
       address: 'Address: Istanbul, Turkey',
-      email: 'Email: kar98sal@gmail.com',
+      email: 'Email: info@tekfinteknoloji.com',
       hours: 'Working Hours: Monday - Friday: 09:00 - 18:00',
 
       intents: {
