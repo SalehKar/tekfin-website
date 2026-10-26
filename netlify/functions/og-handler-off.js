@@ -56,7 +56,7 @@ exports.handler = async (event, context) => {
     <script>window.dataLayer = window.dataLayer || [];</script>
   </head>
   <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFRHB9GB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8GC97XG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <noscript>Bu uygulamayı çalıştırmak için JavaScript'i etkinleştirmeniz gerekir.</noscript>
     <div id="root"></div>
     <form name="contact" netlify hidden><input type="text" name="name" /><input type="email" name="email" /><input type="tel" name="phone" /><input type="text" name="subject" /><textarea name="message"></textarea></form>
